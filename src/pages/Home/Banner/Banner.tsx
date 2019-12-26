@@ -29,7 +29,7 @@ const ContactButton = styled(Button)``;
 
 const Cutted = styled.div``;
 
-export const BodyPartI: FunctionComponent = () => (
+export const BannerStyle: FunctionComponent = () => (
   <Frame>
     <Banner>
       <GroupedTextWithButton>

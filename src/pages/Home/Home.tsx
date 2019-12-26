@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import { Header } from './Header/Header';
-import { BodyPartI } from './BodyPartI/BodyFull';
+import { BannerStyle } from './Banner/Banner';
 import styled from 'styled-components';
 
 const FullWeb = styled.div`
@@ -11,6 +11,6 @@ const FullWeb = styled.div`
 export const Home: FunctionComponent = () => (
   <FullWeb>
     <Header />
-    <BodyPartI />
+    <BannerStyle />
   </FullWeb>
 );
