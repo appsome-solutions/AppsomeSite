@@ -44,7 +44,7 @@ export const BannerStyle: FunctionComponent = () => (
         <ContactButton>contact us</ContactButton>
       </GroupedTextWithButton>
       <Cutted>
-        <img src={cutted} />
+        <img src={cutted} alt="" />
       </Cutted>
     </Banner>
   </Frame>

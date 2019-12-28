@@ -22,6 +22,7 @@ const LinksPosition = styled.div`
 const Process = styled.h6`
   color: ${props => props.theme.colors.utils.background.mid.color};
   margin-right: 64px;
+  cursor: pointer;
   &:hover {
     color: ${props => props.theme.colors.main.secondary};
     text-decoration-line: ${props => props.theme.textDecorationLine}
@@ -29,6 +30,7 @@ const Process = styled.h6`
 const Services = styled.h6`
 color: ${props => props.theme.colors.utils.background.mid.color};
   margin-right: 64px;
+  cursor: pointer;
   &:hover {
     color: ${props => props.theme.colors.main.secondary};
     text-decoration-line: ${props => props.theme.textDecorationLine}
@@ -36,6 +38,7 @@ color: ${props => props.theme.colors.utils.background.mid.color};
 const Portfolio = styled.h6`
 color: ${props => props.theme.colors.utils.background.mid.color};
   margin-right: 64px;
+  cursor: pointer;
   &:hover {
     color: ${props => props.theme.colors.main.secondary};
     text-decoration-line: ${props => props.theme.textDecorationLine}
@@ -43,6 +46,7 @@ color: ${props => props.theme.colors.utils.background.mid.color};
 const Contact = styled.h6`
 color: ${props => props.theme.colors.utils.background.mid.color};
   margin-right: 64px;
+  cursor: pointer;
   &:hover {
     color: ${props => props.theme.colors.main.secondary};
     text-decoration-line: ${props => props.theme.textDecorationLine}
@@ -51,7 +55,7 @@ color: ${props => props.theme.colors.utils.background.mid.color};
 export const Header: FunctionComponent = () => (
   <HeaderWrapper>
     <LogoPosition>
-      <img src={LogoSvg} />
+      <img src={LogoSvg} alt="" />
     </LogoPosition>
     <LinksPosition>
       <Process>Process</Process>

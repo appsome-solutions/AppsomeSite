@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const Body1 = styled.pre`
-  font-family: Roboto;
   font-style: normal;
   font-weight: normal;
   font-size: 16px;
