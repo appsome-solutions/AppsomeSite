@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import styled from 'styled-components';
-import cutted from './cutted.svg';
+import cut from 'assets/cut.svg';
 import { Button } from 'components/Button/Button';
 import { Body1 } from 'components/Body1/Body1';
 const Frame = styled.div`
@@ -28,6 +28,10 @@ const SecondText = styled(Body1)`
   color: ${props => props.theme.colors.utils.background.mid.color};
   margin-bottom: 40px;
 `;
+const ContactButton = styled(Button)`
+  padding-left: 16px;
+  padding-right: 16px;
+`;
 
 export const Banner: FunctionComponent = () => (
   <Frame>
@@ -41,9 +45,9 @@ export const Banner: FunctionComponent = () => (
           <br />
           products - you can focus on your business strategies!
         </SecondText>
-        <Button>contact us</Button>
+        <ContactButton>contact us</ContactButton>
       </GroupedTextWithButton>
-      <img src={cutted} alt="" />
+      <img src={cut} alt="" />
     </BannerStyle>
   </Frame>
 );

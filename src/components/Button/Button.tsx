@@ -12,8 +12,6 @@ export const Button = styled(AntdButton)`
     ${props => props.theme.typography.button};
     line-height: 16px;
     text-align: center;
-    padding-left: 16px;
-    padding-right: 16px;
     border: none;
     &:disabled {
       cursor: not-allowed;

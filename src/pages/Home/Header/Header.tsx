@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import styled from 'styled-components';
-import LogoSvg from './logo.svg';
+import LogoSvg from 'assets/logo.svg';
 
 const HeaderWrapper = styled.main`
   background-color: ${props => props.theme.colors.main.primary};
