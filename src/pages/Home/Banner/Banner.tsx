@@ -1,14 +1,14 @@
 import React, { FunctionComponent } from 'react';
 import styled from 'styled-components';
 import cutted from './cutted.svg';
-import { Button } from '../../../components/Button/Button';
-import { Body1 } from '../../../components/Body1';
+import { Button } from 'components/Button/Button';
+import { Body1 } from 'components/Body1/Body1';
 const Frame = styled.div`
   margin: 0;
   padding: 0;
   outline: 0;
 `;
-const Banner = styled.div`
+const BannerStyle = styled.div`
   width: 100%;
   height: auto;
   background-color: ${props => props.theme.colors.main.primary};
@@ -24,14 +24,14 @@ const FirstText = styled.h3`
   color: ${props => props.theme.colors.utils.background.mid.color};
   margin-bottom: 24px;
 `;
-const SecondText = styled(Body1)``;
-const ContactButton = styled(Button)``;
+const SecondText = styled(Body1)`
+  color: ${props => props.theme.colors.utils.background.mid.color};
+  margin-bottom: 40px;
+`;
 
-const Cutted = styled.div``;
-
-export const BannerStyle: FunctionComponent = () => (
+export const Banner: FunctionComponent = () => (
   <Frame>
-    <Banner>
+    <BannerStyle>
       <GroupedTextWithButton>
         <FirstText>Change your idea into working product</FirstText>
         <SecondText>
@@ -41,11 +41,9 @@ export const BannerStyle: FunctionComponent = () => (
           <br />
           products - you can focus on your business strategies!
         </SecondText>
-        <ContactButton>contact us</ContactButton>
+        <Button>contact us</Button>
       </GroupedTextWithButton>
-      <Cutted>
-        <img src={cutted} alt="" />
-      </Cutted>
-    </Banner>
+      <img src={cutted} alt="" />
+    </BannerStyle>
   </Frame>
 );
