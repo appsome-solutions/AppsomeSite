@@ -6,19 +6,15 @@ export const Button = styled(AntdButton)`
     color: ${props => props.theme.colors.utils.text.light};
     background-color: ${props => props.theme.colors.main.secondary};
     height: 36px;
-    boder-style: none;
     border-radius: 0px;
     cursor: pointer;
     box-shadow: ${props => props.theme.boxShadow};
-    font-style: normal;
-    font-weight: 500;
-    font-size: 14px;
+    ${props => props.theme.typography.button};
     line-height: 16px;
     text-align: center;
-    letter-spacing: 0.0125em;
-    text-transform: uppercase;
+    padding-left: 16px;
+    padding-right: 16px;
     border: none;
-    width: 200px;
     &:disabled {
       cursor: not-allowed;
       background-color: ${props => props.theme.colors.functional.hover};

@@ -5,6 +5,7 @@ export const CoreTheme = {
     main: {
       primary: '#543C52',
       secondary: '#F55951',
+      tetiary: '#EDD2CB',
     },
     utils: {
       text: {
