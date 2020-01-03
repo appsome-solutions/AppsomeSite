@@ -23,25 +23,22 @@ const SecondText = styled.pre`
   ${props => props.theme.typography.body1};
 `;
 const ContactButton = styled(Button)`
-  padding-left: 16px;
-  padding-right: 16px;
+  width: 200px;
 `;
 
 export const Banner: FunctionComponent = () => (
-  <>
-    <BannerStyle>
-      <GroupedTextWithButton>
-        <FirstText>Change your idea into working product</FirstText>
-        <SecondText>
-          We are here to help you succeed. That is why we provide our time
-          <br />
-          and top quality code. We care and take responsibility for your
-          <br />
-          products - you can focus on your business strategies!
-        </SecondText>
-        <ContactButton>contact us</ContactButton>
-      </GroupedTextWithButton>
-      <img src={cut} alt="" />
-    </BannerStyle>
-  </>
+  <BannerStyle>
+    <GroupedTextWithButton>
+      <FirstText>Change your idea into working product</FirstText>
+      <SecondText>
+        We are here to help you succeed. That is why we provide our time
+        <br />
+        and top quality code. We care and take responsibility for your
+        <br />
+        products - you can focus on your business strategies!
+      </SecondText>
+      <ContactButton>contact us</ContactButton>
+    </GroupedTextWithButton>
+    <img src={cut} alt="" />
+  </BannerStyle>
 );
