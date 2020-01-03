@@ -1,7 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import styled from 'styled-components';
 import LogoSvg from 'assets/logo.svg';
-import { HeaderText } from 'components/HeaderText/HeaderText';
 
 const HeaderWrapper = styled.div`
   background-color: ${props => props.theme.colors.main.primary};
@@ -16,6 +15,15 @@ const HeaderWrapper = styled.div`
 
 const LinksPosition = styled.div`
   display: flex;
+`;
+
+const HeaderText = styled.h6`
+  color: ${props => props.theme.colors.utils.background.mid.color};
+  margin-right: 64px;
+  cursor: pointer;
+  &:hover {
+    color: ${props => props.theme.colors.main.secondary};
+    text-decoration-line: ${props => props.theme.textDecorationLine}
 `;
 
 export const Header: FunctionComponent = () => (
