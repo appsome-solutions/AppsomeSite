@@ -5,6 +5,7 @@ import RequirementsCircle from 'assets/RequirementsCircle.svg';
 import Launch from 'assets/Launch.svg';
 import Realization from 'assets/Realization.svg';
 import Designs from 'assets/Designs.svg';
+import Line from 'assets/Line.svg';
 const PositionAbsolute = styled.div`
   position: absolute;
   top: 50%;
@@ -12,10 +13,6 @@ const PositionAbsolute = styled.div`
 `;
 const RelativePosition = styled.div`
   position: relative;
-`;
-const Line = styled.div`
-  height: 80px;
-  border: 4px dashed #543c52;
 `;
 const ProcessFrame = styled.div`
   background-color: ${props => props.theme.colors.utils.background.mid.color};
@@ -145,7 +142,7 @@ export const TheProcess: FunctionComponent = () => (
             </TextGroupIdea>
           </IdeaSection>
         </RelativePosition>
-        <Line />
+        <img src={Line} alt="" />
         <RelativePosition>
           <img src={RequirementsCircle} alt="" />
           <RequirementsSection>
@@ -159,7 +156,7 @@ export const TheProcess: FunctionComponent = () => (
             </TextGroupRequirements>
           </RequirementsSection>
         </RelativePosition>
-        <Line />
+        <img src={Line} alt="" />
         <RelativePosition>
           <img src={Designs} alt="" />
           <DesignsSection>
@@ -171,7 +168,7 @@ export const TheProcess: FunctionComponent = () => (
             </TextGroupDesigns>
           </DesignsSection>
         </RelativePosition>
-        <Line />
+        <img src={Line} alt="" />
         <RelativePosition>
           <img src={Realization} alt="" />
           <RealizationSection>
@@ -183,7 +180,7 @@ export const TheProcess: FunctionComponent = () => (
             </TextGroupRealization>
           </RealizationSection>
         </RelativePosition>
-        <Line />
+        <img src={Line} alt="" />
         <RelativePosition>
           <img src={Launch} alt="" />
           <LaunchSection>
