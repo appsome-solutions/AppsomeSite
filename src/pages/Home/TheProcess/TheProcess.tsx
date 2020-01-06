@@ -9,11 +9,12 @@ import Line from 'assets/Line.svg';
 
 const PositionAbsolute = styled.div`
   position: absolute;
-  top: 50%;
-  margin-top: -32px;
 `;
 const RelativePosition = styled.div`
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 const ProcessFrame = styled.div`
   background-color: ${props => props.theme.colors.utils.background.mid.color};
