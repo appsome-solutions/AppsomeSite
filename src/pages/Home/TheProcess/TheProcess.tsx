@@ -6,10 +6,11 @@ import Launch from 'assets/Launch.svg';
 import Realization from 'assets/Realization.svg';
 import Designs from 'assets/Designs.svg';
 import Line from 'assets/Line.svg';
+
 const PositionAbsolute = styled.div`
   position: absolute;
   top: 50%;
-  margin-top: -50px;
+  margin-top: -32px;
 `;
 const RelativePosition = styled.div`
   position: relative;
@@ -46,7 +47,6 @@ const TimeLine = styled.div`
   display: flex;
   align-items: center;
 `;
-//__------------------idea-------------
 const IdeaSection = styled(PositionAbsolute)`
   left: 187px;
 `;
@@ -61,7 +61,6 @@ const NextTextIdea = styled.span`
   ${props => props.theme.typography.body1};
   color: ${props => props.theme.colors.utils.text.dark};
 `;
-//____________________________IDEAD____________________---
 const RequirementsSection = styled(PositionAbsolute)`
   right: 184px;
 `;
@@ -77,7 +76,6 @@ const NextTextRequirements = styled.span`
   ${props => props.theme.typography.body1};
   color: ${props => props.theme.colors.utils.text.dark};
 `;
-//--------------------DESIGN---------
 const DesignsSection = styled(PositionAbsolute)`
   left: 188px;
 `;
@@ -92,8 +90,6 @@ const NextTextDesigns = styled.span`
   ${props => props.theme.typography.body1};
   color: ${props => props.theme.colors.utils.text.dark};
 `;
-//--------------------
-//--------------------REALIZATION---------
 const RealizationSection = styled(PositionAbsolute)`
   right: 184px;
 `;
@@ -109,8 +105,6 @@ const NextTextRealization = styled.span`
   ${props => props.theme.typography.body1};
   color: ${props => props.theme.colors.utils.text.dark};
 `;
-//-----------------------------
-//--------------------LAUNCH---------
 const LaunchSection = styled(PositionAbsolute)`
   left: 187px;
 `;
