@@ -19,12 +19,11 @@ const RelativePosition = styled.div`
 const ProcessFrame = styled.div`
   background-color: ${props => props.theme.colors.utils.background.mid.color};
   height: 1406px;
-  flex-direction: column;
   padding-left: 178px;
-  padding-right: 200px;
+  padding-right: 102px;
   padding-top: 103px;
-  display: flex;
-  justify-content: center;
+  padding-bottom: 25px;
+  flex-direction: column;
 `;
 const BoxProcess = styled.div`
   width: 202px;
@@ -47,6 +46,7 @@ const TimeLine = styled.div`
   flex-direction: column;
   display: flex;
   align-items: center;
+  padding-bottom: 23px;
 `;
 const IdeaSection = styled(PositionAbsolute)`
   left: 187px;
@@ -120,72 +120,75 @@ const NextTextLaunch = styled.span`
   ${props => props.theme.typography.body1};
   color: ${props => props.theme.colors.utils.text.dark};
 `;
+const BottomText = styled.div`
+  float: right;
+  ${props => props.theme.typography.body2}
+`;
 export const TheProcess: FunctionComponent = () => (
-  <>
-    <ProcessFrame>
-      <BoxProcess>
-        <Rectangle />
-        <TextProcess>The process</TextProcess>
-      </BoxProcess>
-      <TimeLine>
-        <RelativePosition>
-          <img src={IdeaCircle} alt="" />
-          <IdeaSection>
-            <TextGroupIdea>
-              <TextIdea>Idea</TextIdea>
-              <NextTextIdea>Everything starts with your idea</NextTextIdea>
-            </TextGroupIdea>
-          </IdeaSection>
-        </RelativePosition>
-        <img src={Line} alt="" />
-        <RelativePosition>
-          <img src={RequirementsCircle} alt="" />
-          <RequirementsSection>
-            <TextGroupRequirements>
-              <TextRequirements>Requirements</TextRequirements>
-              <NextTextRequirements>
-                We talk together, gather your
-                <br />
-                requirements and share our thoughts
-              </NextTextRequirements>
-            </TextGroupRequirements>
-          </RequirementsSection>
-        </RelativePosition>
-        <img src={Line} alt="" />
-        <RelativePosition>
-          <img src={Designs} alt="" />
-          <DesignsSection>
-            <TextGroupDesigns>
-              <TextDesigns>*Design</TextDesigns>
-              <NextTextDesigns>
-                Based on requirements we create full set of views with best User Experience in mind
-              </NextTextDesigns>
-            </TextGroupDesigns>
-          </DesignsSection>
-        </RelativePosition>
-        <img src={Line} alt="" />
-        <RelativePosition>
-          <img src={Realization} alt="" />
-          <RealizationSection>
-            <TextGroupRealization>
-              <TextRealization>Realization</TextRealization>
-              <NextTextRealization>
-                With some coffe and keyboard in hands we change desings to working mobile or web applications
-              </NextTextRealization>
-            </TextGroupRealization>
-          </RealizationSection>
-        </RelativePosition>
-        <img src={Line} alt="" />
-        <RelativePosition>
-          <img src={Launch} alt="" />
-          <LaunchSection>
-            <TextGroupLaunch>
-              <TextLaunch>Launch</TextLaunch>
-              <NextTextLaunch>It’s time to make your working idea visible for others. Let’s launch it!</NextTextLaunch>
-            </TextGroupLaunch>
-          </LaunchSection>
-        </RelativePosition>
-      </TimeLine>
-    </ProcessFrame>
-  </>
+  <ProcessFrame>
+    <BoxProcess>
+      <Rectangle />
+      <TextProcess>The process</TextProcess>
+    </BoxProcess>
+    <TimeLine>
+      <RelativePosition>
+        <img src={IdeaCircle} alt="" />
+        <IdeaSection>
+          <TextGroupIdea>
+            <TextIdea>Idea</TextIdea>
+            <NextTextIdea>Everything starts with your idea</NextTextIdea>
+          </TextGroupIdea>
+        </IdeaSection>
+      </RelativePosition>
+      <img src={Line} alt="" />
+      <RelativePosition>
+        <img src={RequirementsCircle} alt="" />
+        <RequirementsSection>
+          <TextGroupRequirements>
+            <TextRequirements>Requirements</TextRequirements>
+            <NextTextRequirements>
+              We talk together, gather your
+              <br />
+              requirements and share our thoughts
+            </NextTextRequirements>
+          </TextGroupRequirements>
+        </RequirementsSection>
+      </RelativePosition>
+      <img src={Line} alt="" />
+      <RelativePosition>
+        <img src={Designs} alt="" />
+        <DesignsSection>
+          <TextGroupDesigns>
+            <TextDesigns>*Design</TextDesigns>
+            <NextTextDesigns>
+              Based on requirements we create full set of views with best User Experience in mind
+            </NextTextDesigns>
+          </TextGroupDesigns>
+        </DesignsSection>
+      </RelativePosition>
+      <img src={Line} alt="" />
+      <RelativePosition>
+        <img src={Realization} alt="" />
+        <RealizationSection>
+          <TextGroupRealization>
+            <TextRealization>Realization</TextRealization>
+            <NextTextRealization>
+              With some coffe and keyboard in hands we change desings to working mobile or web applications
+            </NextTextRealization>
+          </TextGroupRealization>
+        </RealizationSection>
+      </RelativePosition>
+      <img src={Line} alt="" />
+      <RelativePosition>
+        <img src={Launch} alt="" />
+        <LaunchSection>
+          <TextGroupLaunch>
+            <TextLaunch>Launch</TextLaunch>
+            <NextTextLaunch>It’s time to make your working idea visible for others. Let’s launch it!</NextTextLaunch>
+          </TextGroupLaunch>
+        </LaunchSection>
+      </RelativePosition>
+    </TimeLine>
+    <BottomText>*Designs can be provided </BottomText>
+  </ProcessFrame>
 );
