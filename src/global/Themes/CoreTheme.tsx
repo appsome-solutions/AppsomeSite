@@ -18,7 +18,6 @@ export const CoreTheme = {
       },
       link: '#3C7EFF',
       placeholder: '#959595',
-
       background: {
         mid: {
           color: '#F1E8E6',
@@ -51,14 +50,15 @@ export const CoreTheme = {
     body1: {
       fontWeight: 'normal',
       fontSize: '16px',
-      textTransform: 'none',
       letterSpacing: '0.005em',
+      lineHeight: '19px',
     },
     body2: {
       fontWeight: 'normal',
       fontSize: '14px',
       textTransform: 'none',
       letterSpacing: '0.0025em',
+      lineHeight: '16px',
     },
     button: {
       fontWeight: '500',
@@ -80,8 +80,4 @@ export const CoreTheme = {
     },
   },
   boxShadow: '0px 2px 2px rgba(0, 0, 0, 0.24), 0px 0px 2px rgba(0, 0, 0, 0.12)',
-  rectangle11: {
-    width: '8px',
-    height: '30px',
-  },
 };

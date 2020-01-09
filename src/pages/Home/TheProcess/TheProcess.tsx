@@ -6,11 +6,22 @@ import Launch from 'assets/Launch.svg';
 import Realization from 'assets/Realization.svg';
 import Designs from 'assets/Designs.svg';
 import Line from 'assets/Line.svg';
+import { RectangleBox } from 'components/Box/RectangleBox';
+import { TextRectangle } from 'components/TextRectangle/TextRectangle';
 
 const PositionAbsolute = styled.div`
   position: absolute;
 `;
-const RelativePosition = styled.div`
+const TextGroupRight = styled.div`
+  text-align: right;
+`;
+const SecondTextInProcess = styled.pre`
+  ${props => props.theme.typography.body1};
+`;
+const TextInProcess = styled.h5`
+  color: ${props => props.theme.colors.main.secondary};
+`;
+const ProcessTimeLineElement = styled.div`
   position: relative;
   display: flex;
   align-items: center;
@@ -18,107 +29,36 @@ const RelativePosition = styled.div`
 `;
 const ProcessFrame = styled.div`
   background-color: ${props => props.theme.colors.utils.background.mid.color};
-  height: 1406px;
   padding-left: 178px;
   padding-right: 102px;
   padding-top: 103px;
-  padding-bottom: 25px;
-  flex-direction: column;
+  padding-bottom: 23px;
 `;
-const BoxProcess = styled.div`
-  width: 202px;
-  height: 40px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-const Rectangle = styled.div`
-  ${props => props.theme.rectangle11};
-  background-color: ${props => props.theme.colors.main.tetiary};
-`;
-const TextProcess = styled.h4`
-  margin-top: 10px;
-  color: ${props => props.theme.colors.utils.text.dark};
+const BoxProcesss = styled(RectangleBox)`
+  color: ${props => props.theme.colors.main.tetiary};
 `;
 const TimeLine = styled.div`
   margin-top: 40px;
-  height: 1120px;
+  margin-bottom: 59px;
+  margin-right: 98px;
   flex-direction: column;
   display: flex;
   align-items: center;
-  padding-bottom: 23px;
 `;
 const IdeaSection = styled(PositionAbsolute)`
   left: 187px;
 `;
-const TextGroupIdea = styled.div`
-  width: 254px;
-  height: 46px;
-`;
-const TextIdea = styled.h5`
-  color: ${props => props.theme.colors.main.secondary};
-`;
-const NextTextIdea = styled.span`
-  ${props => props.theme.typography.body1};
-  color: ${props => props.theme.colors.utils.text.dark};
-`;
 const RequirementsSection = styled(PositionAbsolute)`
   right: 184px;
-`;
-const TextGroupRequirements = styled.div`
-  width: 268px;
-  height: 66px;
-  text-align: right;
-`;
-const TextRequirements = styled.h5`
-  color: ${props => props.theme.colors.main.secondary};
-`;
-const NextTextRequirements = styled.span`
-  ${props => props.theme.typography.body1};
-  color: ${props => props.theme.colors.utils.text.dark};
 `;
 const DesignsSection = styled(PositionAbsolute)`
   left: 188px;
 `;
-const TextGroupDesigns = styled.div`
-  width: 317px;
-  height: 97px;
-`;
-const TextDesigns = styled.h5`
-  color: ${props => props.theme.colors.main.secondary};
-`;
-const NextTextDesigns = styled.span`
-  ${props => props.theme.typography.body1};
-  color: ${props => props.theme.colors.utils.text.dark};
-`;
 const RealizationSection = styled(PositionAbsolute)`
   right: 184px;
 `;
-const TextGroupRealization = styled.div`
-  width: 400px;
-  height: 66px;
-  text-align: right;
-`;
-const TextRealization = styled.h5`
-  color: ${props => props.theme.colors.main.secondary};
-`;
-const NextTextRealization = styled.span`
-  ${props => props.theme.typography.body1};
-  color: ${props => props.theme.colors.utils.text.dark};
-`;
 const LaunchSection = styled(PositionAbsolute)`
   left: 187px;
-`;
-const TextGroupLaunch = styled.div`
-  width: 378px;
-  height: 66px;
-`;
-const TextLaunch = styled.h5`
-  color: ${props => props.theme.colors.main.secondary};
-`;
-const NextTextLaunch = styled.span`
-  ${props => props.theme.typography.body1};
-  color: ${props => props.theme.colors.utils.text.dark};
 `;
 const BottomText = styled.div`
   float: right;
@@ -126,68 +66,67 @@ const BottomText = styled.div`
 `;
 export const TheProcess: FunctionComponent = () => (
   <ProcessFrame>
-    <BoxProcess>
-      <Rectangle />
-      <TextProcess>The process</TextProcess>
-    </BoxProcess>
+    <BoxProcesss>
+      <TextRectangle>The process</TextRectangle>
+    </BoxProcesss>
     <TimeLine>
-      <RelativePosition>
+      <ProcessTimeLineElement>
         <img src={IdeaCircle} alt="" />
         <IdeaSection>
-          <TextGroupIdea>
-            <TextIdea>Idea</TextIdea>
-            <NextTextIdea>Everything starts with your idea</NextTextIdea>
-          </TextGroupIdea>
+          <TextInProcess>Idea</TextInProcess>
+          <SecondTextInProcess>Everything starts with your idea</SecondTextInProcess>
         </IdeaSection>
-      </RelativePosition>
+      </ProcessTimeLineElement>
       <img src={Line} alt="" />
-      <RelativePosition>
+      <ProcessTimeLineElement>
         <img src={RequirementsCircle} alt="" />
         <RequirementsSection>
-          <TextGroupRequirements>
-            <TextRequirements>Requirements</TextRequirements>
-            <NextTextRequirements>
+          <TextGroupRight>
+            <TextInProcess>Requirements</TextInProcess>
+            <SecondTextInProcess>
               We talk together, gather your
               <br />
               requirements and share our thoughts
-            </NextTextRequirements>
-          </TextGroupRequirements>
+            </SecondTextInProcess>
+          </TextGroupRight>
         </RequirementsSection>
-      </RelativePosition>
+      </ProcessTimeLineElement>
       <img src={Line} alt="" />
-      <RelativePosition>
+      <ProcessTimeLineElement>
         <img src={Designs} alt="" />
         <DesignsSection>
-          <TextGroupDesigns>
-            <TextDesigns>*Design</TextDesigns>
-            <NextTextDesigns>
-              Based on requirements we create full set of views with best User Experience in mind
-            </NextTextDesigns>
-          </TextGroupDesigns>
+          <TextInProcess>*Design</TextInProcess>
+          <SecondTextInProcess>
+            Based on requirements we create full set of <br />
+            views with best User Experience in mind
+          </SecondTextInProcess>
         </DesignsSection>
-      </RelativePosition>
+      </ProcessTimeLineElement>
       <img src={Line} alt="" />
-      <RelativePosition>
+      <ProcessTimeLineElement>
         <img src={Realization} alt="" />
         <RealizationSection>
-          <TextGroupRealization>
-            <TextRealization>Realization</TextRealization>
-            <NextTextRealization>
-              With some coffe and keyboard in hands we change desings to working mobile or web applications
-            </NextTextRealization>
-          </TextGroupRealization>
+          <TextGroupRight>
+            <TextInProcess>Realization</TextInProcess>
+            <SecondTextInProcess>
+              With some coffe and keyboard in hands we change <br />
+              desings to working mobile or web applications
+            </SecondTextInProcess>
+          </TextGroupRight>
         </RealizationSection>
-      </RelativePosition>
+      </ProcessTimeLineElement>
       <img src={Line} alt="" />
-      <RelativePosition>
+      <ProcessTimeLineElement>
         <img src={Launch} alt="" />
         <LaunchSection>
-          <TextGroupLaunch>
-            <TextLaunch>Launch</TextLaunch>
-            <NextTextLaunch>It’s time to make your working idea visible for others. Let’s launch it!</NextTextLaunch>
-          </TextGroupLaunch>
+          <TextInProcess>Launch</TextInProcess>
+          <SecondTextInProcess>
+            It’s time to make your working idea visible for others.
+            <br />
+            Let’s launch it!
+          </SecondTextInProcess>
         </LaunchSection>
-      </RelativePosition>
+      </ProcessTimeLineElement>
     </TimeLine>
     <BottomText>*Designs can be provided </BottomText>
   </ProcessFrame>

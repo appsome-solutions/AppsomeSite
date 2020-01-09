@@ -2,20 +2,17 @@ import { normalize } from 'styled-normalize';
 import { createGlobalStyle } from 'styled-components';
 import { ThemeInterface } from 'typings';
 
-import 'antd/dist/antd.min.css';
-
 export const GlobalStyles = createGlobalStyle<ThemeInterface>`
   ${normalize}
   
   @font-face {
-    font-family: Roboto;
+    font-family: Roboto, sans-serif;
     src: url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
   }
   
   html {
-    font-family: Roboto;
+    font-family: Roboto, sans-serif;
   }
-  
   body {
     color: ${props => props.theme.colors.utils.text.dark};
   }
@@ -59,6 +56,7 @@ export const GlobalStyles = createGlobalStyle<ThemeInterface>`
     text-transform: none;
     letter-spacing: 0.0020em;
     margin: 0px;
+    line-height:28px;
   }
   
   h6 {
@@ -67,4 +65,7 @@ export const GlobalStyles = createGlobalStyle<ThemeInterface>`
     text-transform: none;
     letter-spacing: 0.0015em;
   }  
+  pre {
+    font-family: Roboto, sans-serif;
+  }
 `;
