@@ -10,10 +10,9 @@ export interface IconProps {
 }
 
 const defaults: IconProps = {
-  height: '24px',
-  width: '24px',
+  height: '56px',
+  width: '56px',
   svgLink: '',
-  cursor: 'pointer',
 };
 
 const Icon = styled.div.attrs({
