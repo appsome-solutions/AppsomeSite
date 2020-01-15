@@ -1,132 +1,60 @@
 import React, { FunctionComponent } from 'react';
 import styled from 'styled-components';
-import IdeaCircle from 'assets/IdeaCircle.svg';
-import RequirementsCircle from 'assets/RequirementsCircle.svg';
-import Launch from 'assets/Launch.svg';
-import Realization from 'assets/Realization.svg';
-import Designs from 'assets/Designs.svg';
 import Line from 'assets/Line.svg';
-import { RectangleBox } from 'components/Box/RectangleBox';
-import { TextRectangle } from 'components/TextRectangle/TextRectangle';
-
-const PositionAbsolute = styled.div`
-  position: absolute;
-`;
-const TextGroupRight = styled.div`
-  text-align: right;
-`;
-const SecondTextInProcess = styled.pre`
-  ${props => props.theme.typography.body1};
-`;
-const TextInProcess = styled.h5`
-  color: ${props => props.theme.colors.main.secondary};
-`;
-const ProcessTimeLineElement = styled.div`
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
+import { SectionTitle } from 'components/SectionTitle/SectionTitle';
+import { IdeaElement } from 'components/Idea/IdeaElement';
+import { RequirementsElement } from 'components/Requirements/RequiremetsElement';
+import { RealizationElement } from 'components/Realization/RealizationElement';
+import { LaunchElement } from 'components/Launch/LaunchElement';
+import { DesignsElement } from 'components/Designs/DesignsElement';
 const ProcessFrame = styled.div`
   background-color: ${props => props.theme.colors.utils.background.mid.color};
-  padding-left: 178px;
-  padding-right: 102px;
-  padding-top: 103px;
-  padding-bottom: 23px;
-`;
-const BoxProcesss = styled(RectangleBox)`
-  color: ${props => props.theme.colors.main.tetiary};
+  padding: 104px 104px 24px 180px;
 `;
 const TimeLine = styled.div`
-  margin-top: 40px;
-  margin-bottom: 59px;
-  margin-right: 98px;
+  margin: 40px 96px 60px 0;
   flex-direction: column;
   display: flex;
   align-items: center;
-`;
-const IdeaSection = styled(PositionAbsolute)`
-  left: 187px;
-`;
-const RequirementsSection = styled(PositionAbsolute)`
-  right: 184px;
-`;
-const DesignsSection = styled(PositionAbsolute)`
-  left: 188px;
-`;
-const RealizationSection = styled(PositionAbsolute)`
-  right: 184px;
-`;
-const LaunchSection = styled(PositionAbsolute)`
-  left: 187px;
 `;
 const BottomText = styled.div`
   float: right;
   ${props => props.theme.typography.body2}
 `;
+
 export const TheProcess: FunctionComponent = () => (
   <ProcessFrame>
-    <BoxProcesss>
-      <TextRectangle>The process</TextRectangle>
-    </BoxProcesss>
+    <SectionTitle section="TheProcess" color="primary" boxColor="secondary" />
     <TimeLine>
-      <ProcessTimeLineElement>
-        <img src={IdeaCircle} alt="" />
-        <IdeaSection>
-          <TextInProcess>Idea</TextInProcess>
-          <SecondTextInProcess>Everything starts with your idea</SecondTextInProcess>
-        </IdeaSection>
-      </ProcessTimeLineElement>
+      <IdeaElement title="Idea" content="Everything starts with your idea" contentPosition="left" />
       <img src={Line} alt="" />
-      <ProcessTimeLineElement>
-        <img src={RequirementsCircle} alt="" />
-        <RequirementsSection>
-          <TextGroupRight>
-            <TextInProcess>Requirements</TextInProcess>
-            <SecondTextInProcess>
-              We talk together, gather your
-              <br />
-              requirements and share our thoughts
-            </SecondTextInProcess>
-          </TextGroupRight>
-        </RequirementsSection>
-      </ProcessTimeLineElement>
+      <RequirementsElement
+        title="Requirements"
+        content=" We talk together, gather your
+requirements and share our thoughts"
+        contentPosition="right"
+      />
       <img src={Line} alt="" />
-      <ProcessTimeLineElement>
-        <img src={Designs} alt="" />
-        <DesignsSection>
-          <TextInProcess>*Design</TextInProcess>
-          <SecondTextInProcess>
-            Based on requirements we create full set of <br />
-            views with best User Experience in mind
-          </SecondTextInProcess>
-        </DesignsSection>
-      </ProcessTimeLineElement>
+      <DesignsElement
+        title="*Designs"
+        content="Based on requirements we create full set of
+views with best User Experience in mind"
+        contentPosition="left"
+      />
       <img src={Line} alt="" />
-      <ProcessTimeLineElement>
-        <img src={Realization} alt="" />
-        <RealizationSection>
-          <TextGroupRight>
-            <TextInProcess>Realization</TextInProcess>
-            <SecondTextInProcess>
-              With some coffe and keyboard in hands we change <br />
-              desings to working mobile or web applications
-            </SecondTextInProcess>
-          </TextGroupRight>
-        </RealizationSection>
-      </ProcessTimeLineElement>
+      <RealizationElement
+        title="Realization"
+        content="With some coffe and keyboard in hands we change
+desings to working mobile or web applications"
+        contentPosition="right"
+      />
       <img src={Line} alt="" />
-      <ProcessTimeLineElement>
-        <img src={Launch} alt="" />
-        <LaunchSection>
-          <TextInProcess>Launch</TextInProcess>
-          <SecondTextInProcess>
-            It’s time to make your working idea visible for others.
-            <br />
-            Let’s launch it!
-          </SecondTextInProcess>
-        </LaunchSection>
-      </ProcessTimeLineElement>
+      <LaunchElement
+        title="Launch"
+        content="It’s time to make your working idea visible for others.
+Let’s launch it!"
+        contentPosition="left"
+      />
     </TimeLine>
     <BottomText>*Designs can be provided </BottomText>
   </ProcessFrame>
