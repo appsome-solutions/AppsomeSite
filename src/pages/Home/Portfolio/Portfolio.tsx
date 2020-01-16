@@ -40,6 +40,7 @@ const ArrowButtonMargin = styled(ArrowButton)`
 const OncologistOnline = styled.h6``;
 const ButtonBlack = styled(SecondaryButton)`
   margin-left: 174px;
+  background-color: ${props => props.theme.colors.main.primary};
 `;
 
 export const PortfolioStyled: FunctionComponent = () => (

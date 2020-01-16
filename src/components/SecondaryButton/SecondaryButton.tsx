@@ -4,7 +4,6 @@ import { Button as AntdButton } from 'antd';
 export const SecondaryButton = styled(AntdButton)`
   && {
     color: ${props => props.theme.colors.utils.text.light};
-    background-color: ${props => props.theme.colors.main.primary};
     height: 36px;
     border-radius: 2px;
     cursor: pointer;

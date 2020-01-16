@@ -5,6 +5,7 @@ import { TheProcess } from './TheProcess/TheProcess';
 import { OurServices } from './OurService/OurService';
 import { PortfolioStyled } from './Portfolio/Portfolio';
 import { ContactStyled } from './Contact/Contact';
+import { NewsleterStyle } from './Newsleter/Newsleter';
 export const Home: FunctionComponent = () => (
   <>
     <Header />
@@ -13,5 +14,6 @@ export const Home: FunctionComponent = () => (
     <OurServices />
     <PortfolioStyled />
     <ContactStyled />
+    <NewsleterStyle />
   </>
 );
