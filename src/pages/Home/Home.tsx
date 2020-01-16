@@ -4,6 +4,7 @@ import { Banner } from './Banner/Banner';
 import { TheProcess } from './TheProcess/TheProcess';
 import { OurServices } from './OurService/OurService';
 import { PortfolioStyled } from './Portfolio/Portfolio';
+import { ContactStyled } from './Contact/Contact';
 export const Home: FunctionComponent = () => (
   <>
     <Header />
@@ -11,5 +12,6 @@ export const Home: FunctionComponent = () => (
     <TheProcess />
     <OurServices />
     <PortfolioStyled />
+    <ContactStyled />
   </>
 );

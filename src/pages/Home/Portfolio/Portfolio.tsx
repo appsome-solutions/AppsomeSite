@@ -23,7 +23,6 @@ const TitleBox = styled.div`
 const RightSide = styled.div`
   display: space-between;
   padding: 176px 0 176px 0;
-
 `;
 const TextUnderTitleText = styled.span`
   ${props => props.theme.typography.body1};
