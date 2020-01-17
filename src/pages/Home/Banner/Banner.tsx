@@ -2,8 +2,10 @@ import React, { FunctionComponent } from 'react';
 import styled from 'styled-components';
 import cut from 'assets/cut.svg';
 import { Button } from 'components/Button/Button';
+import BannerProcess from 'assets/BannerProcess.svg';
 const BannerStyle = styled.div`
   background-color: ${props => props.theme.colors.main.primary};
+  position: relative;
   padding: 60px 80px;
   display: flex;
   justify-content: space-between;
@@ -25,6 +27,13 @@ const SecondText = styled.pre`
 const ContactButton = styled(Button)`
   width: 200px;
 `;
+const RedShape = styled.img`
+  position: absolute;
+  width: 241.83px;
+  height: 229.5px;
+  left: -43px;
+  top: 600px;
+`;
 
 export const Banner: FunctionComponent = () => (
   <BannerStyle>
@@ -39,6 +48,7 @@ export const Banner: FunctionComponent = () => (
       </SecondText>
       <ContactButton>contact us</ContactButton>
     </GroupedTextWithButton>
+    <RedShape src={BannerProcess} alt="" />
     <img src={cut} alt="" />
   </BannerStyle>
 );
