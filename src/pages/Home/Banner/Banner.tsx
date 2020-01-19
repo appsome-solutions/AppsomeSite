@@ -2,7 +2,6 @@ import React, { FunctionComponent } from 'react';
 import styled from 'styled-components';
 import cut from 'assets/cut.svg';
 import { Button } from 'components/Button/Button';
-import RedShape from 'assets/RedShape.svg';
 const BannerStyle = styled.div`
   background-color: ${props => props.theme.colors.main.primary};
   padding: 60px 80px;
@@ -27,14 +26,6 @@ const SecondText = styled.pre`
 const ContactButton = styled(Button)`
   width: 200px;
 `;
-const RedShapeStyle = styled.img`
-  position: absolute;
-  width: 241.83px;
-  height: 229.5px;
-  left: -43px;
-  top: 600px;
-  z-index: 9999;
-`;
 export const Banner: FunctionComponent = () => (
   <BannerStyle>
     <GroupedTextWithButton>
@@ -49,6 +40,5 @@ export const Banner: FunctionComponent = () => (
       <ContactButton>contact us</ContactButton>
     </GroupedTextWithButton>
     <img src={cut} alt="" />
-    <RedShapeStyle src={RedShape} />
   </BannerStyle>
 );

@@ -8,7 +8,6 @@ import DesignIcon from 'assets/DesignIcon.svg';
 import LaunchIcon from 'assets/LaunchIcon.svg';
 import RequirementsIcon from 'assets/RequirementsIcon.svg';
 import RealizationIcon from 'assets/RealizationIcon.svg';
-import RedShapeTheProcess from 'assets/RedShapeTheProcess.svg';
 const ProcessFrame = styled.div`
   background-color: ${props => props.theme.colors.utils.background.mid.color};
   padding: 104px 104px 24px 180px;
@@ -23,13 +22,6 @@ const TimeLine = styled.div`
 const BottomText = styled.div`
   float: right;
   ${props => props.theme.typography.body2}
-`;
-const RedShape = styled.img`
-  position: absolute;
-  width: 422px;
-  height: 304px;
-  right: -136px;
-  bottom: -50px;
 `;
 export const TheProcess: FunctionComponent = () => (
   <ProcessFrame>
@@ -78,7 +70,6 @@ desings to working mobile or web applications"
 Let’s launch it!"
         contentPosition="left"
       />
-      <RedShape src={RedShapeTheProcess} />
     </TimeLine>
     <BottomText>*Designs can be provided </BottomText>
   </ProcessFrame>
