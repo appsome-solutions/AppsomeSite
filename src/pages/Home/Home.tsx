@@ -5,10 +5,12 @@ import { OurServices } from './OurService/OurService';
 import { PortfolioStyled } from './Portfolio/Portfolio';
 import { ContactStyled } from './Contact/Contact';
 import { NewsleterStyle } from './Newsleter/Newsleter';
+import { TheProcess } from './TheProcess/TheProcess';
 export const Home: FunctionComponent = () => (
   <>
     <Header />
     <Banner />
+    <TheProcess />
     <OurServices />
     <PortfolioStyled />
     <ContactStyled />
