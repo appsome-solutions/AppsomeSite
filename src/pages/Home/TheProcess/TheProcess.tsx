@@ -10,7 +10,7 @@ import RequirementsIcon from 'assets/RequirementsIcon.svg';
 import RealizationIcon from 'assets/RealizationIcon.svg';
 const ProcessFrame = styled.div`
   background-color: ${props => props.theme.colors.utils.background.mid.color};
-  padding: 104px 104px 24px 180px;
+  padding: 104px 104px 48px 180px;
   position: relative;
 `;
 const TimeLine = styled.div`
@@ -25,7 +25,7 @@ const BottomText = styled.div`
 `;
 export const TheProcess: FunctionComponent = () => (
   <ProcessFrame>
-    <SectionTitle section="TheProcess" color="primary" boxColor="secondary" />
+    <SectionTitle section="The Process" color="primary" boxColor="secondary" />
     <TimeLine>
       <ProcessTimeLine
         positionText="right"
