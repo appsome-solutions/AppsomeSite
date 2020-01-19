@@ -9,7 +9,6 @@ export interface ElementProps {
   svgLink: string;
   positionText: PositionText;
 }
-
 const PositionAbsolute = styled.div`
   position: absolute;
 `;
@@ -19,9 +18,8 @@ const ProcessTimeLineElement = styled.div`
   align-items: center;
   justify-content: center;
 `;
-const PositionWholeText = styled(PositionAbsolute)<{
-  positionText?: PositionText;
-}>`
+type WholeTextPosition = { positionText?: PositionText };
+const PositionWholeText = styled(PositionAbsolute)<WholeTextPosition>`
   ${props => (props.positionText === 'left' ? 'right:188px;' : 'left:188px;')}
 `;
 const Title = styled.h5`
@@ -30,9 +28,8 @@ const Title = styled.h5`
 const IdeaContent = styled.pre`
   ${props => props.theme.typography.body1};
 `;
-const TextPosition = styled.div<{
-  contentPosition?: PositionText;
-}>`
+type WholeContentPosition = { contentPosition?: PositionText };
+const TextPosition = styled.div<WholeContentPosition>`
   text-align: ${props => (props.contentPosition === 'left' ? 'left' : 'right')};
 `;
 const Circle = styled.div`
