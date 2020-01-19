@@ -2,7 +2,7 @@ import React, { FunctionComponent } from 'react';
 import styled from 'styled-components';
 import Line from 'assets/Line.svg';
 import { SectionTitle } from 'components/SectionTitle/SectionTitle';
-import { ProcessTimeLine } from 'components/TimeLine/TimeLine';
+import { ProcessTimeLine } from './ProcessTimeLine/ProcessTimeLine';
 import IdeaIcon from 'assets/IdeaIcon.svg';
 import DesignIcon from 'assets/DesignIcon.svg';
 import LaunchIcon from 'assets/LaunchIcon.svg';
@@ -13,7 +13,7 @@ const ProcessFrame = styled.div`
   padding: 104px 104px 48px 180px;
   position: relative;
 `;
-const TimeLine = styled.div`
+const TimeLineElement = styled.div`
   margin: 40px 96px 60px 0;
   flex-direction: column;
   display: flex;
@@ -26,7 +26,7 @@ const BottomText = styled.div`
 export const TheProcess: FunctionComponent = () => (
   <ProcessFrame>
     <SectionTitle section="The process" color="primary" boxColor="secondary" />
-    <TimeLine>
+    <TimeLineElement>
       <ProcessTimeLine
         positionText="right"
         svgLink={IdeaIcon}
@@ -70,7 +70,7 @@ desings to working mobile or web applications"
 Let’s launch it!"
         contentPosition="left"
       />
-    </TimeLine>
+    </TimeLineElement>
     <BottomText>*Designs can be provided </BottomText>
   </ProcessFrame>
 );

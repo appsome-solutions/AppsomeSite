@@ -9,29 +9,28 @@ export interface ElementProps {
   svgLink: string;
   positionText: PositionText;
 }
-const PositionAbsolute = styled.div`
-  position: absolute;
-`;
+
 const ProcessTimeLineElement = styled.div`
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
 `;
-type WholeTextPosition = { positionText?: PositionText };
-const PositionWholeText = styled(PositionAbsolute)<WholeTextPosition>`
+
+type WholeTextPosition = { positionText?: PositionText; contentPosition?: PositionText };
+const PositionWholeText = styled.div<WholeTextPosition>`
+  position: absolute;
   ${props => (props.positionText === 'left' ? 'right:188px;' : 'left:188px;')}
+  text-align: ${props => (props.contentPosition === 'left' ? 'left' : 'right')};
 `;
+
 const Title = styled.h5`
   color: ${props => props.theme.colors.main.secondary};
 `;
 const IdeaContent = styled.pre`
   ${props => props.theme.typography.body1};
 `;
-type WholeContentPosition = { contentPosition?: PositionText };
-const TextPosition = styled.div<WholeContentPosition>`
-  text-align: ${props => (props.contentPosition === 'left' ? 'left' : 'right')};
-`;
+
 const Circle = styled.div`
   height: 160px;
   width: 160px;
@@ -41,11 +40,13 @@ const Circle = styled.div`
   align-items: center;
   justify-content: center;
 `;
+
 const IdeaIconStyle = styled(Icon)`
   width: 128px;
   height: 128px;
   background: ${props => props.theme.colors.utils.background.mid.color};
 `;
+
 export const ProcessTimeLine: FunctionComponent<ElementProps> = (props: ElementProps): JSX.Element => {
   const { title, content, svgLink } = props;
   return (
@@ -53,11 +54,9 @@ export const ProcessTimeLine: FunctionComponent<ElementProps> = (props: ElementP
       <Circle>
         <IdeaIconStyle svgLink={svgLink} />
       </Circle>
-      <PositionWholeText positionText={props.positionText}>
-        <TextPosition contentPosition={props.contentPosition}>
-          <Title>{title}</Title>
-          <IdeaContent>{content}</IdeaContent>
-        </TextPosition>
+      <PositionWholeText positionText={props.positionText} contentPosition={props.contentPosition}>
+        <Title>{title}</Title>
+        <IdeaContent>{content}</IdeaContent>
       </PositionWholeText>
     </ProcessTimeLineElement>
   );
