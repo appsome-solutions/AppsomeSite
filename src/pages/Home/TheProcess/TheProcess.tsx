@@ -25,7 +25,7 @@ const BottomText = styled.div`
 `;
 export const TheProcess: FunctionComponent = () => (
   <ProcessFrame>
-    <SectionTitle section="The Process" color="primary" boxColor="secondary" />
+    <SectionTitle section="The process" color="primary" boxColor="secondary" />
     <TimeLine>
       <ProcessTimeLine
         positionText="right"
