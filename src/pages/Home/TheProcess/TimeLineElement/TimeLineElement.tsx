@@ -7,7 +7,7 @@ export interface ElementProps {
   title?: string;
   content?: string | JSX.Element;
   contentPosition?: PositionText;
-  svgLink?: string;
+  svgLink: string;
   positionText?: PositionText;
   isWithLine?: boolean;
 }
