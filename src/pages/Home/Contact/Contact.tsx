@@ -30,6 +30,7 @@ const InputValues = styled.input`
 const NameInput = styled(InputValues)`
   width: 400px;
 `;
+const NameInputText = styled.h6``;
 const EmailInput = styled(InputValues)`
   width: 400px;
 `;
@@ -54,7 +55,9 @@ export const ContactStyled: FunctionComponent = () => (
       Contact us. We will analize Your product and deliver the best quality solution!
     </TextUnderSectionTitle>
     <InputBoxs>
-      <NameInput placeholder="NAME"></NameInput>
+      <NameInputText>
+        <NameInput placeholder="NAME"></NameInput>
+      </NameInputText>
       <EmailInput placeholder="EMAIL"></EmailInput>
     </InputBoxs>
     <MessageTextArea placeholder="Message"></MessageTextArea>
