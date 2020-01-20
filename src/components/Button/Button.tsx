@@ -8,7 +8,7 @@ export const Button = styled(AntdButton)`
     height: 36px;
     border-radius: 0px;
     cursor: pointer;
-    boxshadow: 0px 2px 2px rgba(0, 0, 0, 0.24), 0px 0px 2px rgba(0, 0, 0, 0.12);
+    box-shadow: ${props => props.theme.boxShadow};
     ${props => props.theme.typography.button};
     line-height: 16px;
     text-align: center;
