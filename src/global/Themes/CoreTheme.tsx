@@ -18,7 +18,6 @@ export const CoreTheme = {
       },
       link: '#3C7EFF',
       placeholder: '#959595',
-
       background: {
         mid: {
           color: '#F1E8E6',
@@ -51,14 +50,15 @@ export const CoreTheme = {
     body1: {
       fontWeight: 'normal',
       fontSize: '16px',
-      textTransform: 'none',
       letterSpacing: '0.005em',
+      lineHeight: '19px',
     },
     body2: {
       fontWeight: 'normal',
       fontSize: '14px',
       textTransform: 'none',
       letterSpacing: '0.0025em',
+      lineHeight: '16px',
     },
     button: {
       fontWeight: '500',
