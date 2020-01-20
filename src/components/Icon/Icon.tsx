@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 
 export interface IconProps {
-  svgLink: string;
+  svgLink?: string;
   width?: string;
   height?: string;
   cursor?: string;
