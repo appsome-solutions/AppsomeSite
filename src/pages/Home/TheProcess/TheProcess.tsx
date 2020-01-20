@@ -1,8 +1,7 @@
 import React, { FunctionComponent } from 'react';
 import styled from 'styled-components';
-import Line from 'assets/Line.svg';
 import { SectionTitle } from 'components/SectionTitle/SectionTitle';
-import { ProcessTimeLine } from './ProcessTimeLine/ProcessTimeLine';
+import { TimeLineElement } from './TimeLineElement/TimeLineElement';
 import IdeaIcon from 'assets/IdeaIcon.svg';
 import DesignIcon from 'assets/DesignIcon.svg';
 import LaunchIcon from 'assets/LaunchIcon.svg';
@@ -13,7 +12,7 @@ const ProcessFrame = styled.div`
   padding: 104px 104px 48px 180px;
   position: relative;
 `;
-const TimeLineElement = styled.div`
+const ProcessTimeLine = styled.div`
   margin: 40px 96px 60px 0;
   flex-direction: column;
   display: flex;
@@ -26,16 +25,16 @@ const BottomText = styled.div`
 export const TheProcess: FunctionComponent = () => (
   <ProcessFrame>
     <SectionTitle section="The process" color="primary" boxColor="secondary" />
-    <TimeLineElement>
-      <ProcessTimeLine
+    <ProcessTimeLine>
+      <TimeLineElement
         positionText="right"
         svgLink={IdeaIcon}
         title="Idea"
         content="Everything starts with your idea"
         contentPosition="left"
       />
-      <img src={Line} alt="" />
-      <ProcessTimeLine
+
+      <TimeLineElement
         positionText="left"
         svgLink={RequirementsIcon}
         title="Requirements"
@@ -43,8 +42,8 @@ export const TheProcess: FunctionComponent = () => (
 requirements and share our thoughts"
         contentPosition="right"
       />
-      <img src={Line} alt="" />
-      <ProcessTimeLine
+
+      <TimeLineElement
         positionText="right"
         svgLink={DesignIcon}
         title="*Designs"
@@ -52,8 +51,8 @@ requirements and share our thoughts"
 views with best User Experience in mind"
         contentPosition="left"
       />
-      <img src={Line} alt="" />
-      <ProcessTimeLine
+
+      <TimeLineElement
         positionText="left"
         svgLink={RealizationIcon}
         title="Realization"
@@ -61,16 +60,17 @@ views with best User Experience in mind"
 desings to working mobile or web applications"
         contentPosition="right"
       />
-      <img src={Line} alt="" />
-      <ProcessTimeLine
+
+      <TimeLineElement
         positionText="right"
         svgLink={LaunchIcon}
         title="Launch"
         content="It’s time to make your working idea visible for others.
 Let’s launch it!"
         contentPosition="left"
+        isWithLine={false}
       />
-    </TimeLineElement>
+    </ProcessTimeLine>
     <BottomText>*Designs can be provided </BottomText>
   </ProcessFrame>
 );

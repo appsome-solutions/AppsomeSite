@@ -1,13 +1,15 @@
 import React, { FunctionComponent } from 'react';
 import styled from 'styled-components';
 import { Icon } from 'components/Icon/Icon';
+import Line from 'assets/Line.svg';
 export type PositionText = 'right' | 'left';
 export interface ElementProps {
   title?: string;
   content?: string | JSX.Element;
   contentPosition?: PositionText;
-  svgLink: string;
-  positionText: PositionText;
+  svgLink?: string;
+  positionText?: PositionText;
+  isWithLine?: boolean;
 }
 
 const ProcessTimeLineElement = styled.div`
@@ -47,17 +49,25 @@ const IdeaIconStyle = styled(Icon)`
   background: ${props => props.theme.colors.utils.background.mid.color};
 `;
 
-export const ProcessTimeLine: FunctionComponent<ElementProps> = (props: ElementProps): JSX.Element => {
-  const { title, content, svgLink } = props;
+const LineUnderSvg = styled(Icon)`
+  width: 4px;
+  height: 70px;
+`;
+
+export const TimeLineElement: FunctionComponent<ElementProps> = (props: ElementProps): JSX.Element => {
+  const { title, content, svgLink, isWithLine = true } = props;
   return (
-    <ProcessTimeLineElement>
-      <Circle>
-        <IdeaIconStyle svgLink={svgLink} />
-      </Circle>
-      <PositionWholeText positionText={props.positionText} contentPosition={props.contentPosition}>
-        <Title>{title}</Title>
-        <IdeaContent>{content}</IdeaContent>
-      </PositionWholeText>
-    </ProcessTimeLineElement>
+    <>
+      <ProcessTimeLineElement>
+        <Circle>
+          <IdeaIconStyle svgLink={svgLink} />
+        </Circle>
+        <PositionWholeText positionText={props.positionText} contentPosition={props.contentPosition}>
+          <Title>{title}</Title>
+          <IdeaContent>{content}</IdeaContent>
+        </PositionWholeText>
+      </ProcessTimeLineElement>
+      {isWithLine && <LineUnderSvg svgLink={Line} />}
+    </>
   );
 };
