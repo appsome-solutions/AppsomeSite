@@ -10,43 +10,54 @@ const NewsleterRow = styled.div`
   justify-content: space-between;
   display: flex;
 `;
+
 const SectionBox = styled.div``;
 const TextUnderSection = styled.span`
   ${props => props.theme.typography.body1};
   margin-left: 16px;
 `;
+
 const InputBox = styled.div`
   position: relative;
   height: 36px;
 `;
+
 const EmailInput = styled.input`
   height: 36px;
   padding-left: 40px;
   background-color: ${props => props.theme.colors.utils.background.mid.color};
   border: 1px solid #361d32;
 `;
+
 const EmailIcon = styled.img`
   position: absolute;
   left: 12px;
   top: 10px;
 `;
+
 const ButtonClick = styled(SecondaryButton)`
   background-color: ${props => props.theme.colors.utils.text.dark};
   border: 1px solid #361d32;
   color: ${props => props.theme.colors.utils.background.mid.color};
+  border-radius: 0px;
 `;
+
 const FooterBG = styled.div`
   background-color: ${props => props.theme.colors.utils.background.mid.color};
   padding: 48px 280px 166px 136px;
   display: flex;
   justify-content: space-between;
 `;
+
 const TextBox = styled.div``;
+
 const AboutUs = styled.pre`
   ${props => props.theme.typography.body1};
   margin-bottom: 12px;
 `;
+
 const ContactAddress = styled.span``;
+
 const HeaderText = styled.h6`
   margin-left: 64px;
   cursor: pointer;
@@ -54,10 +65,12 @@ const HeaderText = styled.h6`
     color: ${props => props.theme.colors.main.secondary};
     text-decoration-line: ${props => props.theme.textDecorationLine}
 `;
+
 const RightBox = styled.div`
   display: flex;
   margin-top: 50px;
 `;
+
 const ProcessText = styled(HeaderText)`
   margin-left: 252px;
 `;
