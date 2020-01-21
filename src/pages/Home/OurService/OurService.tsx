@@ -22,6 +22,7 @@ const OurSevicesBox = styled.div`
 `;
 
 const WholeTextPre = styled.h6`
+  margin-left: 16px;
   color: ${props => props.theme.colors.utils.background.mid.color};
 `;
 
