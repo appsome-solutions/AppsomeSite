@@ -15,10 +15,12 @@ const ServiceStyle = styled.div`
   background-color: ${props => props.theme.colors.main.primary};
   padding-top: 104px;
 `;
+
 const OurSevicesBox = styled.div`
   padding-bottom: 104px;
   margin-left: 192px;
 `;
+
 const WholeTextPre = styled.h6`
   color: ${props => props.theme.colors.utils.background.mid.color};
 `;
