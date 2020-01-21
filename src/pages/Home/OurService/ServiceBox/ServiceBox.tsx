@@ -33,15 +33,15 @@ const MoreButton = styled(Button)`
   float: right;
 `;
 
-const MobileAndBrowserIcon = styled(Icon)`
+const ServiceBoxIcon = styled(Icon)`
   background-color: ${props => props.theme.colors.utils.background.mid.color};
 `;
 
-export const MobileAndBrowserElement: FunctionComponent<ElementProps> = (props: ElementProps): JSX.Element => {
+export const ServiceBoxElement: FunctionComponent<ElementProps> = (props: ElementProps): JSX.Element => {
   const { title, content, svgLink } = props;
   return (
     <RectangleInServicesCards className={props.className}>
-      <MobileAndBrowserIcon svgLink={svgLink} />
+      <ServiceBoxIcon svgLink={svgLink} />
       <TypeAplicationText>{title}</TypeAplicationText>
       <DescribingText>{content}</DescribingText>
       <MoreButton>MORE</MoreButton>

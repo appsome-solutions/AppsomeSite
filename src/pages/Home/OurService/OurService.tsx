@@ -9,7 +9,7 @@ import Graphql from 'assets/GRAPHql.svg';
 import App from 'assets/App.svg';
 import Browser from 'assets/Browser.svg';
 import { SectionTitle } from 'components/SectionTitle/SectionTitle';
-import { MobileAndBrowserElement } from './MobileAndBrowserRectangle/MobileAndBrowserRectangle';
+import { ServiceBoxElement } from './ServiceBox/ServiceBox';
 
 const ServiceStyle = styled.div`
   background-color: ${props => props.theme.colors.main.primary};
@@ -49,7 +49,7 @@ const IconsSvgs = styled.img`
   margin-left: 100px;
 `;
 
-const RightElementWithMarign = styled(MobileAndBrowserElement)`
+const RightElementWithMarign = styled(ServiceBoxElement)`
   margin-left: 92px;
 `;
 
@@ -72,7 +72,7 @@ export const OurServices: FunctionComponent = () => (
       <IconsSvgs src={Graphql} alt="" />
     </TechnicalsRow>
     <ServicesCardsBox>
-      <MobileAndBrowserElement
+      <ServiceBoxElement
         svgLink={Browser}
         title="Web Aplications"
         content="Lorem Ipsum is simply dummy text of the printing and
