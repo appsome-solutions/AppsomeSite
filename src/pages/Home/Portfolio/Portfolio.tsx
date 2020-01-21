@@ -26,28 +26,63 @@ const TitleBox = styled.div`
 const RightSide = styled.div`
   display: space-between;
   padding: 176px 0 176px 0;
+  margin-left: 44px;
 `;
 
-const TextUnderTitleText = styled.span`
+const DescriptionSiteBox = styled.div`
   ${props => props.theme.typography.body1};
-  width: 416px;
-  height: 248px;
-  display: flex;
+  margin-bottom: 24px;
+`;
+
+const DescriptionSite = styled.div`
+  ${props => props.theme.typography.body1}
+`;
+
+const Challenges = styled.div`
+  ${props => props.theme.typography.body1}
+  margin: 16px 0 12px 0;
+  font-weight: 500;
 `;
 
 const ButtonsBox = styled.div`
   display: flex;
-  align-items: center;
+  justify-content: space-between;
 `;
 
 const ArrowButtonWithMargin = styled(ArrowButton)`
   margin-left: 20px;
 `;
 
-const OncologistOnline = styled.h6``;
+const TitleSite = styled.h6`
+  margin-bottom: 12px;
+`;
 
 const ButtonBlack = styled(SecondaryButton)`
-  margin-left: 174px;
+  margin-left: 152px;
+`;
+
+const QuotationBoxWithQuoteSvg = styled.div`
+  margin-bottom: 28px;
+  width: 420px;
+  height: 140px;
+  padding: 20px 32px 22px 36px;
+  background-color: ${props => props.theme.colors.main.primary};
+`;
+
+const QuotationBoxWithText = styled.div`
+  ${props => props.theme.typography.body1};
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 16px;
+`;
+
+const QuotationText = styled.div`
+  font-style: italic;
+`;
+
+const AuthorOfQuotation = styled.pre`
+  text-align: center;
+  ${props => props.theme.typography.body1};
 `;
 
 export const PortfolioStyled: FunctionComponent = () => (
@@ -60,10 +95,23 @@ export const PortfolioStyled: FunctionComponent = () => (
       <img src={image} alt="" />
     </LeftSide>
     <RightSide>
-      <OncologistOnline>Oncologist Online</OncologistOnline>
-      <TextUnderTitleText>
-        Platform where you can ask questions to specialists from oncology field. Fully supports mobile usage.
-      </TextUnderTitleText>
+      <TitleSite>Pizza Planet</TitleSite>
+      <DescriptionSiteBox>
+        <DescriptionSite>
+          Pizza planet is a website where you can have menu <br />
+          preview, choose your ingredient and order your pizza with <br />a life preview of a delivery status
+          <Challenges>Challenges</Challenges>
+          Bitcoin payment method, real-time delivery map preview
+        </DescriptionSite>
+      </DescriptionSiteBox>
+      <QuotationBoxWithQuoteSvg>
+        <QuotationBoxWithText>
+          <QuotationText>
+            The quality of the designs and ideas they had were impressive. We had a great experience working with them.
+          </QuotationText>
+        </QuotationBoxWithText>
+        <AuthorOfQuotation>Managing Director, Konrad Radomski</AuthorOfQuotation>
+      </QuotationBoxWithQuoteSvg>
       <ButtonsBox>
         <ArrowButton>
           <img src={LeftVector} alt="" />
