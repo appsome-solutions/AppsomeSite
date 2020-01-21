@@ -19,6 +19,7 @@ const SectionContent = styled.div`
   display: flex;
   align-items: center;
   border-left: 8px solid
+  margin-bottom:8px;
     color:${props =>
       props.color === 'primary' ? props.theme.colors.main.tetiary : props.theme.colors.utils.text.dark};
 `;
