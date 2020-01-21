@@ -27,6 +27,7 @@ const RedText = styled.span`
   margin-bottom: 0;
   color: ${props => props.theme.colors.main.secondary};
 `;
+
 const TechnicalsRow = styled.div`
   padding: 36px 0 36px 0;
   background-color: ${props => props.theme.colors.utils.background.mid.color};
@@ -34,6 +35,7 @@ const TechnicalsRow = styled.div`
   justify-content: center;
   align-items: center;
 `;
+
 const ServicesCardsBox = styled.div`
   padding: 128px 0 148px 0;
   display: flex;
@@ -43,9 +45,11 @@ const ServicesCardsBox = styled.div`
 const IconsSvgs = styled.img`
   margin-left: 100px;
 `;
+
 const RightElementWithMarign = styled(MobileAndBrowserElement)`
   margin-left: 92px;
 `;
+
 export const OurServices: FunctionComponent = () => (
   <ServiceStyle>
     <OurSevicesBox>
@@ -65,8 +69,34 @@ export const OurServices: FunctionComponent = () => (
       <IconsSvgs src={Graphql} alt="" />
     </TechnicalsRow>
     <ServicesCardsBox>
-      <MobileAndBrowserElement svgLink={Browser} title="Web Aplications" content="" />
-      <RightElementWithMarign svgLink={App} title="Mobile Aplications" content="" />
+      <MobileAndBrowserElement
+        svgLink={Browser}
+        title="Web Aplications"
+        content="Lorem Ipsum is simply dummy text of the printing and
+typesetting industry. Lorem Ipsum has been the industry's
+standard dummy text ever since the 1500s, when an
+unknown printer took a galley of type and scrambled it to
+make a type specimen book.Lorem Ipsum is simply
+dummy text of the printing and typesetting industry.
+Lorem Ipsum has been the industry's standard dummy
+text ever since the 1500s, when an unknown printer took
+a galley of type and scrambled it to make a type
+specimen book."
+      />
+      <RightElementWithMarign
+        svgLink={App}
+        title="Mobile Aplications"
+        content="Lorem Ipsum is simply dummy text of the printing and
+typesetting industry. Lorem Ipsum has been the
+industry's standard dummy text ever since the 1500s,
+when an unknown printer took a galley of type and
+scrambled it to make a type specimen book.Lorem
+Ipsum is simply dummy text of the printing and
+typesetting industry. Lorem Ipsum has been the
+industry's standard dummy text ever since the 1500s,
+when an unknown printer took a galley of type and
+scrambled it to make a type specimen book."
+      />
     </ServicesCardsBox>
   </ServiceStyle>
 );
