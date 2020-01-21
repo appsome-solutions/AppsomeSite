@@ -9,7 +9,7 @@ export const CoreTheme = {
     },
     utils: {
       text: {
-        dark: '#140C1E',
+        dark: '#361D32',
         light: '#ECEEF1',
       },
       border: {

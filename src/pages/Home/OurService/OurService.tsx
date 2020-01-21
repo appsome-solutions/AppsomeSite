@@ -20,7 +20,6 @@ const OurSevicesBox = styled.div`
   margin-left: 192px;
 `;
 const WholeTextPre = styled.h6`
-  margin-bottom: 0;
   color: ${props => props.theme.colors.utils.background.mid.color};
 `;
 
