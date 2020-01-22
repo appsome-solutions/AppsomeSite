@@ -9,6 +9,7 @@ const BannerStyle = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
 `;
 const GroupedTextWithButton = styled.div`
   margin-right: 40px;
@@ -26,7 +27,6 @@ const SecondText = styled.pre`
 const ContactButton = styled(Button)`
   width: 200px;
 `;
-
 export const Banner: FunctionComponent = () => (
   <BannerStyle>
     <GroupedTextWithButton>
