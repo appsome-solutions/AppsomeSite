@@ -2,6 +2,7 @@ import React, { FunctionComponent } from 'react';
 import styled from 'styled-components';
 import { Button } from 'components/Button/Button';
 import { Icon } from 'components/Icon/Icon';
+
 export interface ElementProps {
   title?: string;
   content?: string | JSX.Element;
