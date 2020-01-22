@@ -13,25 +13,35 @@ const RectangleInServicesCards = styled.div`
   background: rgba(241, 232, 230, 0.1);
   border: 1px solid rgba(241, 232, 230, 0.2);
   padding: 32px 32px 32px 28px;
+  width: 480px;
+  height: 434px;
 `;
+
 const TypeAplicationText = styled.h5`
   margin: 20px 0 8px 0;
   color: ${props => props.theme.colors.utils.background.mid.color};
 `;
+
 const DescribingText = styled.pre`
   ${props => props.theme.typography.body1};
   color: ${props => props.theme.colors.utils.background.mid.color};
+  margin-bottom: 16px;
 `;
+
 const MoreButton = styled(Button)`
   width: 112px;
   float: right;
 `;
 
-export const MobileAndBrowserElement: FunctionComponent<ElementProps> = (props: ElementProps): JSX.Element => {
+const ServiceBoxIcon = styled(Icon)`
+  background-color: ${props => props.theme.colors.utils.background.mid.color};
+`;
+
+export const ServiceBoxElement: FunctionComponent<ElementProps> = (props: ElementProps): JSX.Element => {
   const { title, content, svgLink } = props;
   return (
     <RectangleInServicesCards className={props.className}>
-      <Icon svgLink={svgLink} />
+      <ServiceBoxIcon svgLink={svgLink} />
       <TypeAplicationText>{title}</TypeAplicationText>
       <DescribingText>{content}</DescribingText>
       <MoreButton>MORE</MoreButton>

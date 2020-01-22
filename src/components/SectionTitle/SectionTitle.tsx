@@ -9,8 +9,9 @@ export interface SectionProps {
 
 const Title = styled.h4`
   margin-left: 8px;
-  margin-top: 12px;
-  color: ${props => (props.color === 'primary' ? props.theme.colors.main.tetiary : props.theme.colors.utils.text.dark)};
+  margin-top: 14px;
+  color: ${props =>
+    props.color === 'primary' ? props.theme.colors.utils.background.mid.color : props.theme.colors.utils.text.dark};
 `;
 
 const SectionContent = styled.div`
@@ -18,9 +19,9 @@ const SectionContent = styled.div`
   display: flex;
   align-items: center;
   border-left: 8px solid
-  margin-bottom: 8px;
+  margin-bottom:8px;
     color:${props =>
-      props.color === 'primary' ? props.theme.colors.utils.background.mid.color : props.theme.colors.utils.text.dark};
+      props.color === 'primary' ? props.theme.colors.main.tetiary : props.theme.colors.utils.text.dark};
 `;
 
 export const SectionTitle: FunctionComponent<SectionProps> = (props: SectionProps) => {
