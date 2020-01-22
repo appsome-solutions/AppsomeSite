@@ -6,6 +6,8 @@ import { ArrowButton } from 'components/ArrowButton/ArrowButton';
 import { SecondaryButton } from 'components/SecondaryButton/SecondaryButton';
 import Vector from 'assets/Vector.svg';
 import LeftVector from 'assets/LeftVector.svg';
+import Quote from 'assets/Quote.svg';
+import { Icon } from 'components/Icon/Icon';
 const PortfolioStyle = styled.div`
   background-color: ${props => props.theme.colors.utils.background.mid.color};
   padding: 84px 112px 24px 60px;
@@ -61,16 +63,13 @@ const ButtonBlack = styled(SecondaryButton)`
   margin-left: 152px;
 `;
 
-const QuotationBoxBackground = styled.div`
-  background-color: ${props => props.theme.colors.main.primary};
-  opacity: 0.005;
-`;
-
 const QuotationBoxWithQuoteSvg = styled.div`
+  background-color: rgba(84, 60, 82, 0.05);
   margin-bottom: 28px;
   width: 420px;
   height: 140px;
-  padding: 20px 32px 22px 36px;
+  padding: 20px 32px 20px 36px;
+  position: relative;
 `;
 
 const QuotationBoxWithText = styled.div`
@@ -88,7 +87,20 @@ const AuthorOfQuotation = styled.pre`
   text-align: center;
   ${props => props.theme.typography.body1};
 `;
-
+const QuoteSignLeft = styled(Icon)`
+  height: 20px;
+  width: 20px;
+  position: absolute;
+  top: 12px;
+  left: 12px;
+`;
+const QuoteSign = styled(Icon)`
+  height: 20px;
+  width: 20px;
+  position: absolute;
+  right: 12px;
+  bottom: 52px;
+`;
 export const PortfolioStyled: FunctionComponent = () => (
   <PortfolioStyle>
     <LeftSide>
@@ -103,22 +115,21 @@ export const PortfolioStyled: FunctionComponent = () => (
       <DescriptionSiteBox>
         <DescriptionSite>
           Pizza planet is a website where you can have menu <br />
-          preview, choose your ingredient and order your pizza with <br />a life preview of a delivery status
+          preview, choose your ingredient and order your pizza with <br />a life preview of a delivery status.
           <Challenges>Challenges</Challenges>
           Bitcoin payment method, real-time delivery map preview
         </DescriptionSite>
       </DescriptionSiteBox>
-      <QuotationBoxBackground>
-        <QuotationBoxWithQuoteSvg>
-          <QuotationBoxWithText>
-            <QuotationText>
-              The quality of the designs and ideas they had were impressive. We had a great experience working with
-              them.
-            </QuotationText>
-          </QuotationBoxWithText>
-          <AuthorOfQuotation>Managing Director, Konrad Radomski</AuthorOfQuotation>
-        </QuotationBoxWithQuoteSvg>
-      </QuotationBoxBackground>
+      <QuotationBoxWithQuoteSvg>
+        <QuoteSignLeft svgLink={Quote} />
+        <QuotationBoxWithText>
+          <QuotationText>
+            The quality of the designs and ideas they had were impressive. We had a great experience working with them.
+          </QuotationText>
+          <QuoteSign svgLink={Quote} />
+        </QuotationBoxWithText>
+        <AuthorOfQuotation>Managing Director, Konrad Radomski</AuthorOfQuotation>
+      </QuotationBoxWithQuoteSvg>
       <ButtonsBox>
         <ArrowButton>
           <img src={LeftVector} alt="" />
