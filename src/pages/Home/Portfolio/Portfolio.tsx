@@ -61,12 +61,16 @@ const ButtonBlack = styled(SecondaryButton)`
   margin-left: 152px;
 `;
 
+const QuotationBoxBackground = styled.div`
+  background-color: ${props => props.theme.colors.main.primary};
+  opacity: 0.005;
+`;
+
 const QuotationBoxWithQuoteSvg = styled.div`
   margin-bottom: 28px;
   width: 420px;
   height: 140px;
   padding: 20px 32px 22px 36px;
-  background-color: ${props => props.theme.colors.main.primary};
 `;
 
 const QuotationBoxWithText = styled.div`
@@ -104,14 +108,17 @@ export const PortfolioStyled: FunctionComponent = () => (
           Bitcoin payment method, real-time delivery map preview
         </DescriptionSite>
       </DescriptionSiteBox>
-      <QuotationBoxWithQuoteSvg>
-        <QuotationBoxWithText>
-          <QuotationText>
-            The quality of the designs and ideas they had were impressive. We had a great experience working with them.
-          </QuotationText>
-        </QuotationBoxWithText>
-        <AuthorOfQuotation>Managing Director, Konrad Radomski</AuthorOfQuotation>
-      </QuotationBoxWithQuoteSvg>
+      <QuotationBoxBackground>
+        <QuotationBoxWithQuoteSvg>
+          <QuotationBoxWithText>
+            <QuotationText>
+              The quality of the designs and ideas they had were impressive. We had a great experience working with
+              them.
+            </QuotationText>
+          </QuotationBoxWithText>
+          <AuthorOfQuotation>Managing Director, Konrad Radomski</AuthorOfQuotation>
+        </QuotationBoxWithQuoteSvg>
+      </QuotationBoxBackground>
       <ButtonsBox>
         <ArrowButton>
           <img src={LeftVector} alt="" />
