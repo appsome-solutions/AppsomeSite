@@ -22,7 +22,7 @@ const InputBoxes = styled.div`
 `;
 
 const InputValues = styled.input`
-  border: 1px solid ${props => props.theme.colors.functional.main.primary.opacity};
+  border: 1px solid ${props => props.theme.colors.functional.background.mid.opacity};
   height: 48px;
   margin-bottom: 32px;
   background-color: ${props => props.theme.colors.main.primary};
@@ -49,12 +49,13 @@ const EmailInput = styled(InputValues)`
 const MessageText = styled.h6`
   display: flex;
   align-items: center;
+
   color: ${props => props.theme.colors.utils.background.mid.color};
 `;
 
 const MessageTextArea = styled.textarea`
   height: 136px;
-  border: 1px solid ${props => props.theme.colors.functional.main.primary.opacity};
+  border: 1px solid ${props => props.theme.colors.functional.background.mid.opacity};
   margin: 0 0 32px 16px;
   background-color: ${props => props.theme.colors.main.primary};
   padding: 20px 0 0 20px;
