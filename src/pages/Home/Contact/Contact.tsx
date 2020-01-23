@@ -78,14 +78,14 @@ export const ContactStyled: FunctionComponent = () => (
     </TextUnderSectionTitle>
     <InputBoxes>
       <NameInputText>
-        <NameInput placeholder="Name"></NameInput>
+        <NameInput placeholder="Name" />
       </NameInputText>
       <EmailInputText>
-        <EmailInput placeholder="Email"></EmailInput>
+        <EmailInput placeholder="Email" />
       </EmailInputText>
     </InputBoxes>
     <MessageText>
-      <MessageTextArea placeholder="Message"></MessageTextArea>
+      <MessageTextArea placeholder="Message" />
     </MessageText>
     <ButtonPosition>
       <SendButton>SEND</SendButton>
