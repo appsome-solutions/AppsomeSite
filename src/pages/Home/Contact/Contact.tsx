@@ -15,48 +15,51 @@ const TextUnderSectionTitle = styled.h5`
   justify-content: center;
 `;
 
-const InputBoxs = styled.div`
+const InputBoxes = styled.div`
   display: flex;
   justify-content: space-between;
   margin-left: 16px;
 `;
 
 const InputValues = styled.input`
-  opacity: 0.5;
-  border: 1px solid #f1e8e6;
+  border: 1px solid ${props => props.theme.colors.functional.main.primary.opacity};
   height: 48px;
   margin-bottom: 32px;
-  border: 1px solid #f1e8e6;
   background-color: ${props => props.theme.colors.main.primary};
-  color: ${props => props.theme.colors.utils.background.mid.color};
   padding-left: 20px;
   outline: 0;
 `;
 
-const NameInputText = styled.h6``;
+const NameInputText = styled.h6`
+  color: ${props => props.theme.colors.utils.background.mid.color};
+`;
 
 const NameInput = styled(InputValues)`
   width: 400px;
 `;
 
-const EmailInputText = styled.h6``;
+const EmailInputText = styled.h6`
+  color: ${props => props.theme.colors.utils.background.mid.color};
+`;
 
 const EmailInput = styled(InputValues)`
   width: 400px;
 `;
 
-const MessageText = styled.h6``;
+const MessageText = styled.h6`
+  display: flex;
+  align-items: center;
+  color: ${props => props.theme.colors.utils.background.mid.color};
+`;
 
 const MessageTextArea = styled.textarea`
   height: 136px;
-  border: 1px solid #f1e8e6;
+  border: 1px solid ${props => props.theme.colors.functional.main.primary.opacity};
   margin: 0 0 32px 16px;
   background-color: ${props => props.theme.colors.main.primary};
-  color: ${props => props.theme.colors.utils.background.mid.color};
   padding: 20px 0 0 20px;
-  width: 1120px;
   outline: 0;
-  opacity: 0.5;
+  width: 100%;
 `;
 
 const ButtonPosition = styled.div`
@@ -71,16 +74,16 @@ export const ContactStyled: FunctionComponent = () => (
   <ContactStyle>
     <SectionTitle section="Contact" color="secondary" boxColor="primary" />
     <TextUnderSectionTitle>
-      Contact us. We will analize Your product and deliver the best quality solution!
+      Contact us. We will analise Your product and deliver the best quality solution!
     </TextUnderSectionTitle>
-    <InputBoxs>
+    <InputBoxes>
       <NameInputText>
         <NameInput placeholder="Name"></NameInput>
       </NameInputText>
       <EmailInputText>
         <EmailInput placeholder="Email"></EmailInput>
       </EmailInputText>
-    </InputBoxs>
+    </InputBoxes>
     <MessageText>
       <MessageTextArea placeholder="Message"></MessageTextArea>
     </MessageText>

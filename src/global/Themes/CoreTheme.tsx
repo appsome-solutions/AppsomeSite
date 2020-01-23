@@ -31,6 +31,11 @@ export const CoreTheme = {
       error: '#C64D4D',
       success: '#4DC66E',
       disabled: '#A5A5A5',
+      main: {
+        primary: {
+          opacity: 'rgba(241,232,230,0.5)',
+        },
+      },
     },
   },
   textDecorationLine: 'underline',
