@@ -27,7 +27,10 @@ const InputValues = styled.input`
   margin-bottom: 32px;
   background-color: ${props => props.theme.colors.main.primary};
   padding-left: 20px;
-  outline: 0;
+  outline-color: ${props => props.theme.colors.utils.background.mid.color};
+  :: placeholder {
+    color: ${props => props.theme.colors.functional.background.mid.opacity};
+  }
 `;
 
 const NameInputText = styled.h6`
@@ -59,8 +62,11 @@ const MessageTextArea = styled.textarea`
   margin: 0 0 32px 16px;
   background-color: ${props => props.theme.colors.main.primary};
   padding: 20px 0 0 20px;
-  outline: 0;
   width: 100%;
+  outline-color: ${props => props.theme.colors.utils.background.mid.color};
+  :: placeholder {
+    color: ${props => props.theme.colors.functional.background.mid.opacity};
+  }
 `;
 
 const ButtonPosition = styled.div`
