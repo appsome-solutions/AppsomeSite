@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import styled from 'styled-components';
-import { Button } from 'components/Button/Button';
+import { ButtonWithType } from 'components/Button/Button';
 import { Icon } from 'components/Icon/Icon';
 
 export interface ElementProps {
@@ -29,7 +29,7 @@ const DescribingText = styled.pre`
   margin-bottom: 16px;
 `;
 
-const MoreButton = styled(Button)`
+const MoreButton = styled(ButtonWithType)`
   width: 112px;
   float: right;
 `;
@@ -45,7 +45,7 @@ export const ServiceBoxElement: FunctionComponent<ElementProps> = (props: Elemen
       <ServiceBoxIcon svgLink={svgLink} />
       <TypeAplicationText>{title}</TypeAplicationText>
       <DescribingText>{content}</DescribingText>
-      <MoreButton>MORE</MoreButton>
+      <MoreButton type="secondary">MORE</MoreButton>
     </RectangleInServicesCards>
   );
 };

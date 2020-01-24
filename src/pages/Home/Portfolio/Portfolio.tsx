@@ -2,21 +2,18 @@ import React, { FunctionComponent } from 'react';
 import styled from 'styled-components';
 import { SectionTitle } from 'components/SectionTitle/SectionTitle';
 import image from 'assets/image.svg';
-import { ArrowButton } from 'components/ArrowButton/ArrowButton';
-import { SecondaryButton } from 'components/SecondaryButton/SecondaryButton';
+import { ButtonWithType } from 'components/Button/Button';
 import Vector from 'assets/Vector.svg';
 import LeftVector from 'assets/LeftVector.svg';
 import Quote from 'assets/Quote.svg';
 import { Icon } from 'components/Icon/Icon';
+
 const PortfolioStyle = styled.div`
   background-color: ${props => props.theme.colors.utils.background.mid.color};
   padding: 84px 112px 24px 60px;
   justify-content: space-between;
   display: flex;
 `;
-
-const LeftSide = styled.div``;
-
 const TextUnderSection = styled.h6`
   color: ${props => props.theme.colors.utils.text.dark};
   margin: 8px 0 0 208px;
@@ -25,8 +22,10 @@ const TextUnderSection = styled.h6`
 const TitleBox = styled.div`
   margin-left: 192px;
 `;
-const RightSide = styled.div`
-  display: space-between;
+
+const PortfolioImage = styled.div``;
+
+const PortfolioDescription = styled.div`
   padding: 176px 0 176px 0;
   margin-left: 44px;
 `;
@@ -50,67 +49,79 @@ const ButtonsBox = styled.div`
   display: flex;
   justify-content: space-between;
 `;
-
-const ArrowButtonWithMargin = styled(ArrowButton)`
+const ArrowButtonsBox = styled.div`
+  display: flex;
+`;
+const ArrowButtonWithMargin = styled(ButtonWithType)`
   margin-left: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const ArrowButtonLeft = styled(ButtonWithType)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 const TitleSite = styled.h6`
   margin-bottom: 12px;
 `;
 
-const ButtonBlack = styled(SecondaryButton)`
-  margin-left: 152px;
-`;
-
 const QuotationBoxWithQuoteSvg = styled.div`
-  background-color: rgba(84, 60, 82, 0.05);
+  background-color: ${props => props.theme.colors.functional.main.primary.opacity};
   margin-bottom: 28px;
   width: 420px;
-  height: 140px;
-  padding: 20px 32px 20px 36px;
-  position: relative;
+  padding: 16px 12px 20px 12px;
 `;
 
 const QuotationBoxWithText = styled.div`
   ${props => props.theme.typography.body1};
+  display: flex;
   justify-content: center;
   text-align: center;
-  margin-bottom: 16px;
-`;
-
-const QuotationText = styled.div`
   font-style: italic;
+  padding: 0 24px 0 24px;
+`;
+const BoxWithFirstQuote = styled.div``;
+const BoxWithSecondQuote = styled.div`
+  text-align: right;
+  margin-bottom: 12px;
 `;
 
-const AuthorOfQuotation = styled.pre`
-  text-align: center;
+const AuthorText = styled.div`
+  display: flex;
+  justify-content: center;
   ${props => props.theme.typography.body1};
 `;
-const QuoteSignLeft = styled(Icon)`
-  height: 20px;
-  width: 20px;
-  position: absolute;
-  top: 12px;
-  left: 12px;
-`;
+
 const QuoteSign = styled(Icon)`
   height: 20px;
   width: 20px;
-  position: absolute;
-  right: 12px;
-  bottom: 52px;
 `;
+
+const SvgVector = styled(Icon)`
+  height: 24px;
+  width: 16px;
+  background-color: white;
+`;
+const SvgVectorRight = styled(SvgVector)`
+  background-color: white;
+  height: 24px;
+  width: 16px;
+`;
+
 export const PortfolioStyled: FunctionComponent = () => (
   <PortfolioStyle>
-    <LeftSide>
+    <PortfolioImage>
       <TitleBox>
         <SectionTitle section="Portfolio" color="primary" boxColor="secondary" />
       </TitleBox>
       <TextUnderSection>Our projects makes us proud</TextUnderSection>
       <img src={image} alt="" />
-    </LeftSide>
-    <RightSide>
+    </PortfolioImage>
+    <PortfolioDescription>
       <TitleSite>Pizza Planet</TitleSite>
       <DescriptionSiteBox>
         <DescriptionSite>
@@ -121,24 +132,28 @@ export const PortfolioStyled: FunctionComponent = () => (
         </DescriptionSite>
       </DescriptionSiteBox>
       <QuotationBoxWithQuoteSvg>
-        <QuoteSignLeft svgLink={Quote} />
-        <QuotationBoxWithText>
-          <QuotationText>
-            The quality of the designs and ideas they had were impressive. We had a great experience working with them.
-          </QuotationText>
+        <BoxWithFirstQuote>
           <QuoteSign svgLink={Quote} />
+        </BoxWithFirstQuote>
+        <QuotationBoxWithText>
+          The quality of the designs and ideas they had were impressive. We had a great experience working with them.
         </QuotationBoxWithText>
-        <AuthorOfQuotation>Managing Director, Konrad Radomski</AuthorOfQuotation>
+        <BoxWithSecondQuote>
+          <QuoteSign svgLink={Quote} />
+        </BoxWithSecondQuote>
+        <AuthorText>Managing Director, Konrad Radomski</AuthorText>
       </QuotationBoxWithQuoteSvg>
       <ButtonsBox>
-        <ArrowButton>
-          <img src={LeftVector} alt="" />
-        </ArrowButton>
-        <ArrowButtonWithMargin>
-          <img src={Vector} alt="" />
-        </ArrowButtonWithMargin>
-        <ButtonBlack>SEE ALL PROJECTS</ButtonBlack>
+        <ArrowButtonsBox>
+          <ArrowButtonLeft type="primary">
+            <SvgVector svgLink={LeftVector} />
+          </ArrowButtonLeft>
+          <ArrowButtonWithMargin type="primary">
+            <SvgVectorRight svgLink={Vector} />
+          </ArrowButtonWithMargin>
+        </ArrowButtonsBox>
+        <ButtonWithType type="primary">SEE ALL PROJECTS</ButtonWithType>
       </ButtonsBox>
-    </RightSide>
+    </PortfolioDescription>
   </PortfolioStyle>
 );
