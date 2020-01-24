@@ -9,6 +9,7 @@ const NewsleterRow = styled.div`
   background-color: ${props => props.theme.colors.utils.background.mid.color};
   justify-content: space-between;
   display: flex;
+  border-bottom: 1px solid ${props => props.theme.colors.main.tetiary};
 `;
 
 const SectionBox = styled.div``;
@@ -26,20 +27,25 @@ const EmailInput = styled.input`
   height: 36px;
   padding-left: 40px;
   background-color: ${props => props.theme.colors.utils.background.mid.color};
-  border: 1px solid #361d32;
+  border: 1px solid ${props => props.theme.colors.utils.text.dark};
+  outline: 0;
+  :: placeholder {
+    color: ${props => props.theme.colors.utils.text.dark};
+  }
 `;
 
 const EmailIcon = styled.img`
   position: absolute;
   left: 12px;
-  top: 10px;
+  top: 14px;
 `;
 
 const ButtonClick = styled(SecondaryButton)`
   background-color: ${props => props.theme.colors.utils.text.dark};
-  border: 1px solid #361d32;
+  border: 1px solid ${props => props.theme.colors.utils.text.dark};
   color: ${props => props.theme.colors.utils.background.mid.color};
   border-radius: 0px;
+  margin-top: 4px;
 `;
 
 const FooterBG = styled.div`
