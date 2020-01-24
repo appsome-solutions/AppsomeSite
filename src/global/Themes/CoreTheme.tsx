@@ -20,6 +20,7 @@ export const CoreTheme = {
       placeholder: '#959595',
       background: {
         mid: {
+          borderLight: 'rgba(241,232,230,0.5)',
           color: '#F1E8E6',
         },
         light: '#FFFFFF',
@@ -31,11 +32,6 @@ export const CoreTheme = {
       error: '#C64D4D',
       success: '#4DC66E',
       disabled: '#A5A5A5',
-      background: {
-        mid: {
-          opacity: 'rgba(241,232,230,0.5)',
-        },
-      },
     },
   },
   textDecorationLine: 'underline',

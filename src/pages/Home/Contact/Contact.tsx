@@ -22,14 +22,14 @@ const InputBoxes = styled.div`
 `;
 
 const InputValues = styled.input`
-  border: 1px solid ${props => props.theme.colors.functional.background.mid.opacity};
+  border: 1px solid ${props => props.theme.colors.utils.background.mid.borderLight};
   height: 48px;
   margin-bottom: 32px;
   background-color: ${props => props.theme.colors.main.primary};
   padding-left: 20px;
   outline-color: ${props => props.theme.colors.utils.background.mid.color};
   :: placeholder {
-    color: ${props => props.theme.colors.functional.background.mid.opacity};
+    color: ${props => props.theme.colors.utils.background.mid.borderLight};
   }
 `;
 
@@ -52,20 +52,21 @@ const EmailInput = styled(InputValues)`
 const MessageText = styled.h6`
   display: flex;
   align-items: center;
-
+  margin-left: 16px;
   color: ${props => props.theme.colors.utils.background.mid.color};
+  margin-bottom: 32px;
 `;
 
 const MessageTextArea = styled.textarea`
   height: 136px;
-  border: 1px solid ${props => props.theme.colors.functional.background.mid.opacity};
-  margin: 0 0 32px 16px;
+  border: 1px solid ${props => props.theme.colors.utils.background.mid.borderLight}
+  margin: 0 0 32px 32px;
   background-color: ${props => props.theme.colors.main.primary};
   padding: 20px 0 0 20px;
   width: 100%;
   outline-color: ${props => props.theme.colors.utils.background.mid.color};
   :: placeholder {
-    color: ${props => props.theme.colors.functional.background.mid.opacity};
+    color: ${props => props.theme.colors.utils.background.mid.borderLight}
   }
 `;
 
