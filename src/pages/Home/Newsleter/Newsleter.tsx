@@ -2,9 +2,9 @@ import React, { FunctionComponent } from 'react';
 import styled from 'styled-components';
 import { SectionTitle } from 'components/SectionTitle/SectionTitle';
 import Email from 'assets/Email.svg';
-import { SecondaryButton } from 'components/SecondaryButton/SecondaryButton';
+import { Button } from 'components/Button/Button';
 
-const NewsleterRow = styled.div`
+const NewsletterRow = styled.div`
   padding: 68px 136px 84px 136px;
   background-color: ${props => props.theme.colors.utils.background.mid.color};
   justify-content: space-between;
@@ -24,6 +24,7 @@ const InputBox = styled.div`
 `;
 
 const EmailInput = styled.input`
+  box-sizing: border-box;
   height: 36px;
   padding-left: 40px;
   background-color: ${props => props.theme.colors.utils.background.mid.color};
@@ -40,77 +41,25 @@ const EmailIcon = styled.img`
   top: 14px;
 `;
 
-const ButtonClick = styled(SecondaryButton)`
-  background-color: ${props => props.theme.colors.utils.text.dark};
-  border: 1px solid ${props => props.theme.colors.utils.text.dark};
-  color: ${props => props.theme.colors.utils.background.mid.color};
-  border-radius: 0px;
+const SubscribeButton = styled(Button)`
+  && {
+    border: 1px solid ${props => props.theme.colors.utils.text.dark};
+  }
   margin-top: 4px;
 `;
 
-const FooterBG = styled.div`
-  background-color: ${props => props.theme.colors.utils.background.mid.color};
-  padding: 48px 280px 166px 136px;
-  display: flex;
-  justify-content: space-between;
-`;
-
-const TextBox = styled.div``;
-
-const AboutUs = styled.pre`
-  ${props => props.theme.typography.body1};
-  margin-bottom: 12px;
-`;
-
-const ContactAddress = styled.span``;
-
-const HeaderText = styled.h6`
-  margin-left: 64px;
-  cursor: pointer;
-  &:hover {
-    color: ${props => props.theme.colors.main.secondary};
-    text-decoration-line: ${props => props.theme.textDecorationLine}
-`;
-
-const RightBox = styled.div`
-  display: flex;
-  margin-top: 50px;
-`;
-
-const ProcessText = styled(HeaderText)`
-  margin-left: 252px;
-`;
-export const NewsleterStyle: FunctionComponent = () => (
-  <>
-    <NewsleterRow>
-      <SectionBox>
-        <SectionTitle section="Join our newsletter" color="primary" boxColor="secondary" />
-        <TextUnderSection>
-          We have also blog where we publish technological solutions directly from the kitchen.
-        </TextUnderSection>
-      </SectionBox>
-      <InputBox>
-        <EmailInput placeholder="Email" />
-        <EmailIcon src={Email} alt="" />
-        <ButtonClick>SUBSCRIBE</ButtonClick>
-      </InputBox>
-    </NewsleterRow>
-    <FooterBG>
-      <TextBox>
-        <AboutUs>About us</AboutUs>
-        <ContactAddress>
-          Zbożowa 4A 70-653 Szczecin Poland
-          <br />
-          +48 783 697 219 <br />
-          patrykjanik1710@gmail.com
-        </ContactAddress>
-      </TextBox>
-      <RightBox>
-        <ProcessText>Process</ProcessText>
-        <HeaderText>Services</HeaderText>
-        <HeaderText>Portfolio</HeaderText>
-        <HeaderText>Contact</HeaderText>
-      </RightBox>
-    </FooterBG>
-  </>
+export const Newsletter: FunctionComponent = () => (
+  <NewsletterRow>
+    <SectionBox>
+      <SectionTitle section="Join our newsletter" color="primary" boxColor="secondary" />
+      <TextUnderSection>
+        We have also blog where we publish technological solutions directly from the kitchen.
+      </TextUnderSection>
+    </SectionBox>
+    <InputBox>
+      <EmailInput placeholder="Email" type="primary" />
+      <EmailIcon src={Email} alt="" />
+      <SubscribeButton type="primary">SUBSCRIBE</SubscribeButton>
+    </InputBox>
+  </NewsletterRow>
 );
