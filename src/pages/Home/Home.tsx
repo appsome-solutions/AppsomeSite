@@ -6,6 +6,9 @@ import { Newsletter } from './Newsleter/Newsleter';
 import { TheProcess } from './TheProcess/TheProcess';
 import { Footer } from './Footer/Footer';
 
+import { ContactStyled } from './Contact/Contact';
+import { PortfolioStyled } from './Portfolio/Portfolio';
+
 export const Home: FunctionComponent = () => (
   <>
     <Header />

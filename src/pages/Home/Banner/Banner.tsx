@@ -2,6 +2,7 @@ import React, { FunctionComponent } from 'react';
 import styled from 'styled-components';
 import cut from 'assets/cut.svg';
 import { Button } from 'components/Button/Button';
+
 const BannerStyle = styled.div`
   background-color: ${props => props.theme.colors.main.primary};
   position: relative;
@@ -9,7 +10,6 @@ const BannerStyle = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: relative;
 `;
 const GroupedTextWithButton = styled.div`
   margin-right: 40px;
@@ -38,7 +38,7 @@ export const Banner: FunctionComponent = () => (
         <br />
         products - you can focus on your business strategies!
       </SecondText>
-      <ContactButton>contact us</ContactButton>
+      <ContactButton type="secondary">Contact Us</ContactButton>
     </GroupedTextWithButton>
     <img src={cut} alt="" />
   </BannerStyle>

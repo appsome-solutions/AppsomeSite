@@ -16,7 +16,7 @@ const ButtonStyled = styled(({ children, type, ...rest }) => <AntdButton {...res
     background-color: ${props =>
       props.type === 'primary' ? props.theme.colors.main.primary : props.theme.colors.main.secondary};
     height: 36px;
-    border-radius: 0px;
+    border-radius: ${props => (props.type === 'primary' ? '2px' : '0px')};
     cursor: pointer;
     box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.24), 0px 0px 2px rgba(0, 0, 0, 0.12);
     ${props => props.theme.typography.button};
@@ -28,7 +28,6 @@ const ButtonStyled = styled(({ children, type, ...rest }) => <AntdButton {...res
       background-color: ${props =>
         props.type === 'primary' ? props.theme.colors.main.primary : props.theme.colors.functional.hover};
     }
-    &&:focus,
     &&:hover {
       color: ${props => props.theme.colors.utils.text.light};
       background-color: ${props =>

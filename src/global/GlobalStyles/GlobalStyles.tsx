@@ -69,4 +69,7 @@ export const GlobalStyles = createGlobalStyle<ThemeInterface>`
   pre {
     font-family: Roboto, sans-serif;
   }
+  span {
+    font-family: Roboto, sans-serif;
+  }
 `;
