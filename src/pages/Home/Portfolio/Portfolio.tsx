@@ -102,8 +102,8 @@ const QuoteSign = styled(Icon)`
 `;
 
 const ArrowIcon = styled(Icon)`
-  height: 24px;
-  width: 16px;
+  height: 22px;
+  width: 12px;
   background-color: white;
 `;
 const ArrowIconRight = styled(ArrowIcon)`
