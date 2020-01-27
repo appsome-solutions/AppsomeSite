@@ -13,6 +13,7 @@ export const CoreTheme = {
         light: '#ECEEF1',
       },
       border: {
+        light: 'rgba(241,232,230,0.5)',
         mid: '#DEDEDE',
         dark: '#392F46',
       },
@@ -31,6 +32,9 @@ export const CoreTheme = {
       error: '#C64D4D',
       success: '#4DC66E',
       disabled: '#A5A5A5',
+      primary: {
+        hover: '#8a6587',
+      },
     },
   },
   textDecorationLine: 'underline',
