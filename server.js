@@ -1,5 +1,8 @@
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const express = require('express');
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const favicon = require('express-favicon');
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const path = require('path');
 const port = process.env.PORT || 8080;
 const app = express();

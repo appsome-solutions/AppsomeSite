@@ -2,6 +2,7 @@ import React, { FunctionComponent } from 'react';
 import styled from 'styled-components';
 import { Button } from 'components/Button/Button';
 import { Icon } from 'components/Icon/Icon';
+
 export interface ElementProps {
   title?: string;
   content?: string | JSX.Element;
@@ -44,7 +45,7 @@ export const ServiceBoxElement: FunctionComponent<ElementProps> = (props: Elemen
       <ServiceBoxIcon svgLink={svgLink} />
       <TypeAplicationText>{title}</TypeAplicationText>
       <DescribingText>{content}</DescribingText>
-      <MoreButton>MORE</MoreButton>
+      <MoreButton type="secondary">MORE</MoreButton>
     </RectangleInServicesCards>
   );
 };
