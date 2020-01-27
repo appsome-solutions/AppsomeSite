@@ -13,6 +13,7 @@ export const CoreTheme = {
         light: '#ECEEF1',
       },
       border: {
+        light: 'rgba(241,232,230,0.5)',
         mid: '#DEDEDE',
         dark: '#392F46',
       },

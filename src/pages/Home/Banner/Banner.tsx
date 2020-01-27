@@ -9,7 +9,6 @@ const BannerStyle = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: relative;
 `;
 const GroupedTextWithButton = styled.div`
   margin-right: 40px;
