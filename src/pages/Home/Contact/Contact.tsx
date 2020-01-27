@@ -2,6 +2,7 @@ import React, { FunctionComponent } from 'react';
 import styled from 'styled-components';
 import { SectionTitle } from 'components/SectionTitle/SectionTitle';
 import { Button } from 'components/Button/Button';
+import { InputStyled } from './InputStyle';
 
 const ContactStyle = styled.div`
   background-color: ${props => props.theme.colors.main.primary};
@@ -11,8 +12,6 @@ const ContactStyle = styled.div`
 const TextUnderSectionTitle = styled.h5`
   color: ${props => props.theme.colors.utils.background.mid.color};
   margin: 24px 0 92px 16px;
-  align-items: center;
-  justify-content: center;
 `;
 
 const InputBoxes = styled.div`
@@ -21,23 +20,17 @@ const InputBoxes = styled.div`
   margin-left: 16px;
 `;
 
-const InputValues = styled.input`
-  border: 1px solid ${props => props.theme.colors.utils.background.mid.borderLight};
+const StyledInput = styled.input`
   height: 48px;
-  margin-bottom: 32px;
-  background-color: ${props => props.theme.colors.main.primary};
   padding-left: 20px;
-  outline-color: ${props => props.theme.colors.utils.background.mid.color};
-  :: placeholder {
-    color: ${props => props.theme.colors.utils.background.mid.borderLight};
-  }
+  ${InputStyled}
 `;
 
 const NameInputText = styled.h6`
   color: ${props => props.theme.colors.utils.background.mid.color};
 `;
 
-const NameInput = styled(InputValues)`
+const NameInput = styled(StyledInput)`
   width: 400px;
 `;
 
@@ -45,7 +38,7 @@ const EmailInputText = styled.h6`
   color: ${props => props.theme.colors.utils.background.mid.color};
 `;
 
-const EmailInput = styled(InputValues)`
+const EmailInput = styled(StyledInput)`
   width: 400px;
 `;
 
@@ -59,15 +52,9 @@ const MessageText = styled.h6`
 
 const MessageTextArea = styled.textarea`
   height: 136px;
-  border: 1px solid ${props => props.theme.colors.utils.background.mid.borderLight}
-  margin: 0 0 32px 32px;
-  background-color: ${props => props.theme.colors.main.primary};
   padding: 20px 0 0 20px;
   width: 100%;
-  outline-color: ${props => props.theme.colors.utils.background.mid.color};
-  :: placeholder {
-    color: ${props => props.theme.colors.utils.background.mid.borderLight}
-  }
+  ${InputStyled}
 `;
 
 const ButtonPosition = styled.div`
