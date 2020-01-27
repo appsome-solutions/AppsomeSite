@@ -2,7 +2,7 @@ import React, { FunctionComponent } from 'react';
 import styled from 'styled-components';
 import { SectionTitle } from 'components/SectionTitle/SectionTitle';
 import { Button } from 'components/Button/Button';
-import { InputStyled } from './InputStyle';
+import { CommonFormElementStyling } from './InputStyle';
 
 const ContactStyle = styled.div`
   background-color: ${props => props.theme.colors.main.primary};
@@ -23,7 +23,7 @@ const InputBoxes = styled.div`
 const StyledInput = styled.input`
   height: 48px;
   padding-left: 20px;
-  ${InputStyled}
+  ${CommonFormElementStyling}
 `;
 
 const NameInputText = styled.h6`
@@ -54,7 +54,7 @@ const MessageTextArea = styled.textarea`
   height: 136px;
   padding: 20px 0 0 20px;
   width: 100%;
-  ${InputStyled}
+  ${CommonFormElementStyling}
 `;
 
 const ButtonPosition = styled.div`
