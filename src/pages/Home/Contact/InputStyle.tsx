@@ -6,6 +6,6 @@ export const CommonFormElementStyling = css`
   background-color: ${props => props.theme.colors.main.primary};
   outline-color: ${props => props.theme.colors.utils.background.mid.color};
   :: placeholder {
-    color: ${props => props.theme.colors.utils.border.borderlight};
+    color: ${props => props.theme.colors.utils.border.light};
   }
 `;
