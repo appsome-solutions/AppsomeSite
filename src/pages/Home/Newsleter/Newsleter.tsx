@@ -21,6 +21,7 @@ const TextUnderSection = styled.span`
 const InputBox = styled.div`
   position: relative;
   height: 36px;
+  display: flex;
 `;
 
 const EmailInput = styled.input`
@@ -38,14 +39,13 @@ const EmailInput = styled.input`
 const EmailIcon = styled.img`
   position: absolute;
   left: 12px;
-  top: 14px;
+  top: 10px;
 `;
 
 const SubscribeButton = styled(Button)`
   && {
     border: 1px solid ${props => props.theme.colors.utils.text.dark};
   }
-  margin-top: 4px;
 `;
 
 export const Newsletter: FunctionComponent = () => (
