@@ -28,7 +28,6 @@ const ButtonStyled = styled(({ children, type, ...rest }) => <AntdButton {...res
       background-color: ${props =>
         props.type === 'primary' ? props.theme.colors.main.primary : props.theme.colors.functional.hover};
     }
-    &&:focus,
     &&:hover {
       color: ${props => props.theme.colors.utils.text.light};
       background-color: ${props =>
