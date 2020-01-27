@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Button as AntdButton } from 'antd';
-import React, { FunctionComponent } from 'react';
+import React from 'react';
 
 export type ButtonType = 'primary' | 'secondary';
 export interface ButtonProps {
@@ -10,7 +10,7 @@ export interface ButtonProps {
   children?: React.ReactNode;
 }
 
-const Button = styled(({ children, type, ...rest }) => <AntdButton {...rest}>{children}</AntdButton>)`
+const ButtonStyled = styled(({ children, type, ...rest }) => <AntdButton {...rest}>{children}</AntdButton>)`
   && {
     color: ${props => props.theme.colors.utils.text.light};
     background-color: ${props =>
@@ -36,11 +36,11 @@ const Button = styled(({ children, type, ...rest }) => <AntdButton {...rest}>{ch
     }
   }
 `;
-export const ButtonWithType: FunctionComponent<ButtonProps> = (props: ButtonProps) => {
-  const { type, children } = props;
+
+export const Button = ({ type, children, className }: ButtonProps) => {
   return (
-    <Button type={type} className={props.className}>
+    <ButtonStyled type={type} className={className}>
       {children}
-    </Button>
+    </ButtonStyled>
   );
 };

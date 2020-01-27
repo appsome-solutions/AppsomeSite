@@ -1,7 +1,8 @@
 import React, { FunctionComponent } from 'react';
 import styled from 'styled-components';
 import cut from 'assets/cut.svg';
-import { ButtonWithType } from 'components/Button/Button';
+import { Button } from 'components/Button/Button';
+
 const BannerStyle = styled.div`
   background-color: ${props => props.theme.colors.main.primary};
   padding: 60px 80px;
@@ -23,7 +24,7 @@ const SecondText = styled.pre`
   line-height: 19px;
   ${props => props.theme.typography.body1};
 `;
-const ContactButton = styled(ButtonWithType)`
+const ContactButton = styled(Button)`
   width: 200px;
 `;
 export const Banner: FunctionComponent = () => (

@@ -2,7 +2,7 @@ import React, { FunctionComponent } from 'react';
 import styled from 'styled-components';
 import { SectionTitle } from 'components/SectionTitle/SectionTitle';
 import image from 'assets/image.svg';
-import { ButtonWithType } from 'components/Button/Button';
+import { Button } from 'components/Button/Button';
 import Vector from 'assets/Vector.svg';
 import LeftVector from 'assets/LeftVector.svg';
 import Quote from 'assets/Quote.svg';
@@ -28,6 +28,7 @@ const PortfolioImage = styled.div``;
 const PortfolioDescription = styled.div`
   padding: 176px 0 176px 0;
   margin-left: 44px;
+  width: 420px;
 `;
 
 const DescriptionSiteBox = styled.div`
@@ -52,14 +53,14 @@ const ButtonsBox = styled.div`
 const ArrowButtonsBox = styled.div`
   display: flex;
 `;
-const ArrowButtonWithMargin = styled(ButtonWithType)`
+const ArrowButtonWithMargin = styled(Button)`
   margin-left: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
 `;
 
-const ArrowButtonLeft = styled(ButtonWithType)`
+const ArrowButtonLeft = styled(Button)`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -72,7 +73,6 @@ const TitleSite = styled.h6`
 const QuotationBoxWithQuoteSvg = styled.div`
   background-color: ${props => props.theme.colors.functional.main.primary.opacity};
   margin-bottom: 28px;
-  width: 420px;
   padding: 16px 12px 20px 12px;
 `;
 
@@ -84,7 +84,7 @@ const QuotationBoxWithText = styled.div`
   font-style: italic;
   padding: 0 24px 0 24px;
 `;
-const BoxWithFirstQuote = styled.div``;
+
 const BoxWithSecondQuote = styled.div`
   text-align: right;
   margin-bottom: 12px;
@@ -101,15 +101,13 @@ const QuoteSign = styled(Icon)`
   width: 20px;
 `;
 
-const SvgVector = styled(Icon)`
+const ArrowIcon = styled(Icon)`
   height: 24px;
   width: 16px;
   background-color: white;
 `;
-const SvgVectorRight = styled(SvgVector)`
+const ArrowIconRight = styled(ArrowIcon)`
   background-color: white;
-  height: 24px;
-  width: 16px;
 `;
 
 export const PortfolioStyled: FunctionComponent = () => (
@@ -132,9 +130,7 @@ export const PortfolioStyled: FunctionComponent = () => (
         </DescriptionSite>
       </DescriptionSiteBox>
       <QuotationBoxWithQuoteSvg>
-        <BoxWithFirstQuote>
-          <QuoteSign svgLink={Quote} />
-        </BoxWithFirstQuote>
+        <QuoteSign svgLink={Quote} />
         <QuotationBoxWithText>
           The quality of the designs and ideas they had were impressive. We had a great experience working with them.
         </QuotationBoxWithText>
@@ -146,13 +142,13 @@ export const PortfolioStyled: FunctionComponent = () => (
       <ButtonsBox>
         <ArrowButtonsBox>
           <ArrowButtonLeft type="primary">
-            <SvgVector svgLink={LeftVector} />
+            <ArrowIcon svgLink={LeftVector} />
           </ArrowButtonLeft>
           <ArrowButtonWithMargin type="primary">
-            <SvgVectorRight svgLink={Vector} />
+            <ArrowIconRight svgLink={Vector} />
           </ArrowButtonWithMargin>
         </ArrowButtonsBox>
-        <ButtonWithType type="primary">SEE ALL PROJECTS</ButtonWithType>
+        <Button type="primary">SEE ALL PROJECTS</Button>
       </ButtonsBox>
     </PortfolioDescription>
   </PortfolioStyle>

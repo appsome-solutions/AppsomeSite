@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import styled from 'styled-components';
-import { ButtonWithType } from 'components/Button/Button';
+import { Button } from 'components/Button/Button';
 import { Icon } from 'components/Icon/Icon';
 
 export interface ElementProps {
@@ -29,7 +29,7 @@ const DescribingText = styled.pre`
   margin-bottom: 16px;
 `;
 
-const MoreButton = styled(ButtonWithType)`
+const MoreButton = styled(Button)`
   width: 112px;
   float: right;
 `;
