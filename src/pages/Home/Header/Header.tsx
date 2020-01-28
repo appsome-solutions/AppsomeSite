@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from 'react';
 import styled from 'styled-components';
 import LogoSvg from 'assets/logo.svg';
-
+import { Link } from 'react-scroll';
 const HeaderWrapper = styled.div`
   background-color: ${props => props.theme.colors.main.primary};
   height: 100px;
@@ -30,10 +30,18 @@ export const Header: FunctionComponent = () => (
   <HeaderWrapper>
     <img src={LogoSvg} alt="" />
     <LinksPosition>
-      <HeaderText>Process</HeaderText>
-      <HeaderText>Services</HeaderText>
-      <HeaderText>Portfolio</HeaderText>
-      <HeaderText>Contact</HeaderText>
+      <Link activeClass="active" to="Process" spy={true} smooth={true} duration={500}>
+        <HeaderText>Process</HeaderText>
+      </Link>
+      <Link activeClass="active" to="Service" spy={true} smooth={true} duration={500}>
+        <HeaderText>Services</HeaderText>
+      </Link>
+      <Link activeClass="active" to="Portfolio" spy={true} smooth={true} duration={500}>
+        <HeaderText>Portfolio</HeaderText>
+      </Link>
+      <Link activeClass="active" to="Contact" spy={true} smooth={true} duration={500}>
+        <HeaderText>Contact</HeaderText>
+      </Link>
     </LinksPosition>
   </HeaderWrapper>
 );

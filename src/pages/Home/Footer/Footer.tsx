@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { Icon } from 'components/Icon/Icon';
 import Shape5 from 'assets/Shape5.svg';
 import Shape4 from 'assets/Shape4.svg';
+import { Link } from 'react-scroll';
 
 const FooterBG = styled.div`
   background-color: ${props => props.theme.colors.utils.background.mid.color};
@@ -62,10 +63,18 @@ export const Footer: FunctionComponent = () => (
       </ContactAddress>
     </TextBox>
     <BoxWithLinks>
-      <LinkText>Process</LinkText>
-      <LinkText>Services</LinkText>
-      <LinkText>Portfolio</LinkText>
-      <LinkText>Contact</LinkText>
+      <Link activeClass="active" to="Process" spy={true} smooth={true} duration={500}>
+        <LinkText>Process</LinkText>
+      </Link>
+      <Link activeClass="active" to="Service" spy={true} smooth={true} duration={500}>
+        <LinkText>Services</LinkText>
+      </Link>
+      <Link activeClass="active" to="Portfolio" spy={true} smooth={true} duration={500}>
+        <LinkText>Portfolio</LinkText>
+      </Link>
+      <Link activeClass="active" to="Contact" spy={true} smooth={true} duration={500}>
+        <LinkText>Contact</LinkText>
+      </Link>
     </BoxWithLinks>
     <LeftShape svgLink={Shape4} />
     <RightShape svgLink={Shape5} />

@@ -121,7 +121,7 @@ const Shape = styled(Icon)`
   background-color: ${props => props.theme.colors.main.secondary};
 `;
 export const PortfolioStyled: FunctionComponent = () => (
-  <PortfolioStyle>
+  <PortfolioStyle id="Portfolio">
     <Shape svgLink={Shape3} />
     <PortfolioImage>
       <TitleBox>
