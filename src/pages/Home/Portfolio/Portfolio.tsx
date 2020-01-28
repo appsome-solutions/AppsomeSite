@@ -7,12 +7,14 @@ import Vector from 'assets/Vector.svg';
 import LeftVector from 'assets/LeftVector.svg';
 import Quote from 'assets/Quote.svg';
 import { Icon } from 'components/Icon/Icon';
+import Shape3 from 'assets/Shape3.svg';
 
 const PortfolioStyle = styled.div`
   background-color: ${props => props.theme.colors.utils.background.mid.color};
   padding: 84px 112px 24px 60px;
   justify-content: space-between;
   display: flex;
+  position: relative;
 `;
 const TextUnderSection = styled.h6`
   color: ${props => props.theme.colors.utils.text.dark};
@@ -109,9 +111,18 @@ const ArrowIcon = styled(Icon)`
 const ArrowIconRight = styled(ArrowIcon)`
   background-color: white;
 `;
-
+const Shape = styled(Icon)`
+  height: 426px;
+  width: 158px;
+  left: 0px;
+  top: -40px;
+  z-index: 9999;
+  position: absolute;
+  background-color: ${props => props.theme.colors.main.secondary};
+`;
 export const PortfolioStyled: FunctionComponent = () => (
   <PortfolioStyle>
+    <Shape svgLink={Shape3} />
     <PortfolioImage>
       <TitleBox>
         <SectionTitle section="Portfolio" color="primary" boxColor="secondary" />

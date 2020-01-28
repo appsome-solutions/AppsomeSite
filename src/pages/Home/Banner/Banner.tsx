@@ -32,10 +32,10 @@ const ContactButton = styled(Button)`
 `;
 const Shape = styled(Icon)`
   position: absolute;
-  width: 240px;
-  height: 228px;
-  left: -52px;
-  top: 600px;
+  width: 199px;
+  height: 376px;
+  left: 0;
+  top: 540px;
   z-index: 9999;
   background-color: ${props => props.theme.colors.main.secondary};
 `;

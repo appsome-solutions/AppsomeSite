@@ -1,11 +1,15 @@
 import React, { FunctionComponent } from 'react';
 import styled from 'styled-components';
+import { Icon } from 'components/Icon/Icon';
+import Shape5 from 'assets/Shape5.svg';
+import Shape4 from 'assets/Shape4.svg';
 
 const FooterBG = styled.div`
   background-color: ${props => props.theme.colors.utils.background.mid.color};
   padding: 48px 280px 188px 136px;
   display: flex;
   justify-content: space-between;
+  position: relative;
 `;
 
 const TextBox = styled.div``;
@@ -29,7 +33,23 @@ const LinkText = styled.h6`
     color: ${props => props.theme.colors.main.secondary};
     text-decoration-line: ${props => props.theme.textDecorationLine}
 `;
-
+const LeftShape = styled(Icon)`
+  position: absolute;
+  position: absolute;
+  width: 225px;
+  height: 153px;
+  left: 0px;
+  background-color: ${props => props.theme.colors.main.secondary};
+  bottom: 0px;
+`;
+const RightShape = styled(Icon)`
+  position: absolute;
+  width: 151px;
+  height: 150px;
+  right: 0px;
+  background-color: ${props => props.theme.colors.main.secondary};
+  bottom: 0px;
+`;
 export const Footer: FunctionComponent = () => (
   <FooterBG>
     <TextBox>
@@ -47,5 +67,7 @@ export const Footer: FunctionComponent = () => (
       <LinkText>Portfolio</LinkText>
       <LinkText>Contact</LinkText>
     </BoxWithLinks>
+    <LeftShape svgLink={Shape4} />
+    <RightShape svgLink={Shape5} />
   </FooterBG>
 );
