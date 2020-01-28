@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const FooterBG = styled.div`
   background-color: ${props => props.theme.colors.utils.background.mid.color};
-  padding: 8px 280px 188px 136px;
+  padding: 48px 280px 188px 136px;
   display: flex;
   justify-content: space-between;
 `;
@@ -19,7 +19,7 @@ const ContactAddress = styled.span``;
 
 const BoxWithLinks = styled.div`
   display: flex;
-  margin: 50px 0 0 252px;
+  margin: 50px 0 0 188px;
 `;
 
 const LinkText = styled.h6`
@@ -29,7 +29,6 @@ const LinkText = styled.h6`
     color: ${props => props.theme.colors.main.secondary};
     text-decoration-line: ${props => props.theme.textDecorationLine}
 `;
-const ProcessText = styled.h6``;
 
 export const Footer: FunctionComponent = () => (
   <FooterBG>
@@ -43,7 +42,7 @@ export const Footer: FunctionComponent = () => (
       </ContactAddress>
     </TextBox>
     <BoxWithLinks>
-      <ProcessText>Process</ProcessText>
+      <LinkText>Process</LinkText>
       <LinkText>Services</LinkText>
       <LinkText>Portfolio</LinkText>
       <LinkText>Contact</LinkText>
