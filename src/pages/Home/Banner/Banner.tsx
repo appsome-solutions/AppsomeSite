@@ -2,6 +2,8 @@ import React, { FunctionComponent } from 'react';
 import styled from 'styled-components';
 import cut from 'assets/cut.svg';
 import { Button } from 'components/Button/Button';
+import Shape1 from 'assets/Shape1.svg';
+import { Icon } from 'components/Icon/Icon';
 
 const BannerStyle = styled.div`
   background-color: ${props => props.theme.colors.main.primary};
@@ -10,6 +12,7 @@ const BannerStyle = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
 `;
 const GroupedTextWithButton = styled.div`
   margin-right: 40px;
@@ -27,6 +30,15 @@ const SecondText = styled.pre`
 const ContactButton = styled(Button)`
   width: 200px;
 `;
+const Shape = styled(Icon)`
+  position: absolute;
+  width: 240px;
+  height: 228px;
+  left: -52px;
+  top: 600px;
+  z-index: 9999;
+  background-color: ${props => props.theme.colors.main.secondary};
+`;
 export const Banner: FunctionComponent = () => (
   <BannerStyle>
     <GroupedTextWithButton>
@@ -39,6 +51,7 @@ export const Banner: FunctionComponent = () => (
         products - you can focus on your business strategies!
       </SecondText>
       <ContactButton type="secondary">Contact Us</ContactButton>
+      <Shape svgLink={Shape1} />
     </GroupedTextWithButton>
     <img src={cut} alt="" />
   </BannerStyle>
