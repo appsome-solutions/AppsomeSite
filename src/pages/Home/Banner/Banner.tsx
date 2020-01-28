@@ -5,6 +5,7 @@ import { Button } from 'components/Button/Button';
 
 const BannerStyle = styled.div`
   background-color: ${props => props.theme.colors.main.primary};
+  position: relative;
   padding: 60px 80px;
   display: flex;
   justify-content: space-between;
