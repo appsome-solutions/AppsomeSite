@@ -39,6 +39,7 @@ const Shape = styled(Icon)`
   z-index: 9999;
   background-color: ${props => props.theme.colors.main.secondary};
 `;
+
 export const Banner: FunctionComponent = () => (
   <BannerStyle>
     <GroupedTextWithButton>
