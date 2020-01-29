@@ -38,7 +38,7 @@ const Shape = styled(Icon)`
 
 export const TheProcess: FunctionComponent = () => (
   <>
-    <ProcessFrame>
+    <ProcessFrame id="Process">
       <SectionTitle section="The process" color="primary" boxColor="secondary" />
       <ProcessTimeLine>
         <TimeLineElement

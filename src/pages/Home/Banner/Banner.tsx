@@ -4,6 +4,7 @@ import cut from 'assets/cut.svg';
 import { Button } from 'components/Button/Button';
 import Shape1 from 'assets/Shape1.svg';
 import { Icon } from 'components/Icon/Icon';
+import { Link } from 'react-scroll';
 
 const BannerStyle = styled.div`
   background-color: ${props => props.theme.colors.main.primary};
@@ -25,7 +26,7 @@ const SecondText = styled.pre`
   color: ${props => props.theme.colors.utils.background.mid.color};
   margin-bottom: 40px;
   line-height: 19px;
-  ${props => props.theme.typography.body1};
+  z-index: ${props => props.theme.typography.body1};
 `;
 const ContactButton = styled(Button)`
   width: 200px;
@@ -36,9 +37,10 @@ const Shape = styled(Icon)`
   height: 376px;
   left: 0;
   top: 540px;
-  z-index: 9999;
+  z-index: ${props => props.theme.zIndex.house};
   background-color: ${props => props.theme.colors.main.secondary};
 `;
+
 export const Banner: FunctionComponent = () => (
   <BannerStyle>
     <GroupedTextWithButton>
@@ -50,7 +52,9 @@ export const Banner: FunctionComponent = () => (
         <br />
         products - you can focus on your business strategies!
       </SecondText>
-      <ContactButton type="secondary">Contact Us</ContactButton>
+      <Link to="Contact" spy={true} smooth={true} duration={500}>
+        <ContactButton type="secondary">Contact Us</ContactButton>
+      </Link>
       <Shape svgLink={Shape1} />
     </GroupedTextWithButton>
     <img src={cut} alt="" />
