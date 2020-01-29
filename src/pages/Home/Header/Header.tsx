@@ -6,7 +6,7 @@ import Headroom from 'react-headroom';
 const HeaderScroll = styled(Headroom)`
   position: relative;
   && {
-    z-index: ${props => props.theme.zIndex.satellite};
+    z-index: ${props => props.theme.zIndex.towerBlock};
   }
 `;
 const HeaderWrapper = styled.div`

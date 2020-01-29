@@ -116,7 +116,7 @@ const Shape = styled(Icon)`
   width: 158px;
   left: 0px;
   top: -40px;
-  z-index: ${props => props.theme.zIndex.skyscraper};
+  z-index: ${props => props.theme.zIndex.house};
   position: absolute;
   background-color: ${props => props.theme.colors.main.secondary};
 `;
