@@ -7,6 +7,9 @@ import DesignIcon from 'assets/DesignIcon.svg';
 import LaunchIcon from 'assets/LaunchIcon.svg';
 import RequirementsIcon from 'assets/RequirementsIcon.svg';
 import RealizationIcon from 'assets/RealizationIcon.svg';
+import Shape2 from 'assets/Shape2.svg';
+import { Icon } from 'components/Icon/Icon';
+
 const ProcessFrame = styled.div`
   background-color: ${props => props.theme.colors.utils.background.mid.color};
   padding: 104px 104px 48px 180px;
@@ -18,59 +21,73 @@ const ProcessTimeLine = styled.div`
   display: flex;
   align-items: center;
 `;
+
 const BottomText = styled.div`
   float: right;
   ${props => props.theme.typography.body2}
 `;
+
+const Shape = styled(Icon)`
+  position: absolute;
+  width: 77px;
+  height: 376px;
+  right: 0px;
+  bottom: -1620px;
+  background-color: ${props => props.theme.colors.main.secondary};
+`;
+
 export const TheProcess: FunctionComponent = () => (
-  <ProcessFrame>
-    <SectionTitle section="The process" color="primary" boxColor="secondary" />
-    <ProcessTimeLine>
-      <TimeLineElement
-        positionText="right"
-        svgLink={IdeaIcon}
-        title="Idea"
-        content="Everything starts with your idea"
-        contentPosition="left"
-      />
+  <>
+    <ProcessFrame>
+      <SectionTitle section="The process" color="primary" boxColor="secondary" />
+      <ProcessTimeLine>
+        <TimeLineElement
+          positionText="right"
+          svgLink={IdeaIcon}
+          title="Idea"
+          content="Everything starts with your idea"
+          contentPosition="left"
+        />
 
-      <TimeLineElement
-        positionText="left"
-        svgLink={RequirementsIcon}
-        title="Requirements"
-        content=" We talk together, gather your
+        <TimeLineElement
+          positionText="left"
+          svgLink={RequirementsIcon}
+          title="Requirements"
+          content=" We talk together, gather your
 requirements and share our thoughts"
-        contentPosition="right"
-      />
+          contentPosition="right"
+        />
 
-      <TimeLineElement
-        positionText="right"
-        svgLink={DesignIcon}
-        title="*Designs"
-        content="Based on requirements we create full set of
+        <TimeLineElement
+          positionText="right"
+          svgLink={DesignIcon}
+          title="*Designs"
+          content="Based on requirements we create full set of
 views with best User Experience in mind"
-        contentPosition="left"
-      />
+          contentPosition="left"
+        />
 
-      <TimeLineElement
-        positionText="left"
-        svgLink={RealizationIcon}
-        title="Realization"
-        content="With some coffe and keyboard in hands we change
+        <TimeLineElement
+          positionText="left"
+          svgLink={RealizationIcon}
+          title="Realization"
+          content="With some coffe and keyboard in hands we change
 desings to working mobile or web applications"
-        contentPosition="right"
-      />
+          contentPosition="right"
+        />
 
-      <TimeLineElement
-        positionText="right"
-        svgLink={LaunchIcon}
-        title="Launch"
-        content="It’s time to make your working idea visible for others.
+        <TimeLineElement
+          positionText="right"
+          svgLink={LaunchIcon}
+          title="Launch"
+          content="It’s time to make your working idea visible for others.
 Let’s launch it!"
-        contentPosition="left"
-        isWithLine={false}
-      />
-    </ProcessTimeLine>
-    <BottomText>*Designs can be provided </BottomText>
-  </ProcessFrame>
+          contentPosition="left"
+          isWithLine={false}
+        />
+      </ProcessTimeLine>
+      <BottomText>*Designs can be provided </BottomText>
+    </ProcessFrame>
+    <Shape svgLink={Shape2} />
+  </>
 );
