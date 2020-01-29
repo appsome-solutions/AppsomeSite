@@ -24,6 +24,7 @@ const HeaderText = styled.h6`
   &:hover {
     color: ${props => props.theme.colors.main.secondary};
     text-decoration-line: ${props => props.theme.textDecorationLine}
+
 `;
 
 export const Header: FunctionComponent = () => (
