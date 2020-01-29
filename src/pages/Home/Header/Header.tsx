@@ -11,6 +11,10 @@ const HeaderWrapper = styled.div`
   padding-left: 80px;
   padding-right: 80px;
   align-items: center;
+
+  position: sticky;
+  top: 0px;
+  z-index: 9999;
 `;
 
 const LinksPosition = styled.div`
