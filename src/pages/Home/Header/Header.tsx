@@ -14,7 +14,7 @@ const HeaderWrapper = styled.div`
 
   position: sticky;
   top: 0px;
-  z-index: 9999;
+  z-index: 10000;
 `;
 
 const LinksPosition = styled.div`
