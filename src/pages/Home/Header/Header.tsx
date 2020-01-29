@@ -40,7 +40,7 @@ const CookiesBar = styled.div`
 `;
 const CookieText = styled.span`
   ${props => props.theme.typography.caption};
-  margin: 0 64px 0 8px;
+  margin: 0 8px 0 8px;
 `;
 const TextHere = styled.span`
   ${props => props.theme.typography.caption};
@@ -52,6 +52,10 @@ const TextHere = styled.span`
 `;
 const CookiesIcon = styled.img`
   margin-right: 8px;
+`;
+const XIcon = styled.img`
+  width: 8px;
+  height: 8px;
 `;
 export const Header: FunctionComponent = () => (
   <>
@@ -78,7 +82,7 @@ export const Header: FunctionComponent = () => (
         We are using cookies, unfortunately they are not with chocolate... You can learn about it more
         <TextHere> here</TextHere>
       </CookieText>
-      <img src={CloseSign} alt="" />
+      <XIcon src={CloseSign} alt="" />
     </CookiesBar>
   </>
 );
