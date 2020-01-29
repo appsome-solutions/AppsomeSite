@@ -63,16 +63,16 @@ export const Footer: FunctionComponent = () => (
       </ContactAddress>
     </TextBox>
     <BoxWithLinks>
-      <Link activeClass="active" to="Process" spy={true} smooth={true} duration={500}>
+      <Link to="Process" spy={true} smooth={true} offset={-99} duration={500}>
         <LinkText>Process</LinkText>
       </Link>
-      <Link activeClass="active" to="Service" spy={true} smooth={true} duration={500}>
+      <Link to="Service" spy={true} smooth={true} offset={-99} duration={500}>
         <LinkText>Services</LinkText>
       </Link>
-      <Link activeClass="active" to="Portfolio" spy={true} smooth={true} duration={500}>
+      <Link to="Portfolio" spy={true} smooth={true} offset={-99} duration={500}>
         <LinkText>Portfolio</LinkText>
       </Link>
-      <Link activeClass="active" to="Contact" spy={true} smooth={true} duration={500}>
+      <Link to="Contact" spy={true} smooth={true} offset={-99} duration={500}>
         <LinkText>Contact</LinkText>
       </Link>
     </BoxWithLinks>

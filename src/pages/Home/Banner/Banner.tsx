@@ -37,7 +37,7 @@ const Shape = styled(Icon)`
   height: 376px;
   left: 0;
   top: 540px;
-  z-index: ${props => props.theme.zIndex.shapes};
+  z-index: ${props => props.theme.zIndex.skyscraper};
   background-color: ${props => props.theme.colors.main.secondary};
 `;
 
@@ -52,7 +52,7 @@ export const Banner: FunctionComponent = () => (
         <br />
         products - you can focus on your business strategies!
       </SecondText>
-      <Link activeClass="active" to="Contact" spy={true} smooth={true} duration={500}>
+      <Link to="Contact" spy={true} smooth={true} duration={500}>
         <ContactButton type="secondary">Contact Us</ContactButton>
       </Link>
       <Shape svgLink={Shape1} />

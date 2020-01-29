@@ -6,7 +6,7 @@ import Headroom from 'react-headroom';
 const HeaderScroll = styled(Headroom)`
   position: relative;
   && {
-    z-index: ${props => props.theme.zIndex.header};
+    z-index: ${props => props.theme.zIndex.satellite};
   }
 `;
 const HeaderWrapper = styled.div`
@@ -38,16 +38,16 @@ export const Header: FunctionComponent = () => (
     <HeaderWrapper>
       <img src={LogoSvg} alt="" />
       <LinksPosition>
-        <Link activeClass="active" to="Process" spy={true} smooth={true} duration={500}>
+        <Link to="Process" spy={true} smooth={true} duration={500}>
           <HeaderText>Process</HeaderText>
         </Link>
-        <Link activeClass="active" to="Service" spy={true} smooth={true} duration={500}>
+        <Link to="Service" spy={true} smooth={true} duration={500}>
           <HeaderText>Services</HeaderText>
         </Link>
-        <Link activeClass="active" to="Portfolio" spy={true} smooth={true} duration={500}>
+        <Link to="Portfolio" spy={true} smooth={true} duration={500}>
           <HeaderText>Portfolio</HeaderText>
         </Link>
-        <Link activeClass="active" to="Contact" spy={true} smooth={true} duration={500}>
+        <Link to="Contact" spy={true} smooth={true} duration={500}>
           <HeaderText>Contact</HeaderText>
         </Link>
       </LinksPosition>
