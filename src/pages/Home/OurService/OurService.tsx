@@ -54,7 +54,7 @@ const RightElementWithMarign = styled(ServiceBoxElement)`
 `;
 
 export const OurServices: FunctionComponent = () => (
-  <ServiceStyle>
+  <ServiceStyle id="Service">
     <OurSevicesBox>
       <SectionTitle section="Our Service" color="secondary" boxColor="primary" />
       <WholeTextPre>
