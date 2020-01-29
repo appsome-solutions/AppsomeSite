@@ -88,4 +88,8 @@ export const CoreTheme = {
       letterSpacing: '0.015em',
     },
   },
+  zIndex: {
+    header: '8000',
+    shapes: '6000',
+  },
 };
