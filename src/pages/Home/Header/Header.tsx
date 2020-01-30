@@ -20,6 +20,7 @@ const HeaderWrapper = styled.div`
   padding-left: 80px;
   padding-right: 80px;
   align-items: center;
+  border-bottom: 1px solid ${props => props.theme.colors.utils.border.light};
 `;
 
 const LinksPosition = styled.div`
