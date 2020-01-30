@@ -8,9 +8,7 @@ import { GlobalStyles } from './global/GlobalStyles/GlobalStyles';
 import { ErrorHandler } from './global/ErrorHandler/ErrorHandler';
 import { AppRouter } from './global/AppRouter/AppRouter';
 import { client } from 'global/ApolloClient/ApolloClient';
-import Firebase from 'global/Firebase/Firebase';
-
-Firebase();
+import { FirebaseProvider } from 'global/Firebase/Firebase';
 
 const App: FunctionComponent = () => (
   <ThemeProvider theme={CoreTheme}>
@@ -19,7 +17,9 @@ const App: FunctionComponent = () => (
         <Router>
           <GlobalStyles />
           <ErrorHandler>
-            <AppRouter />
+            <FirebaseProvider>
+              <AppRouter />
+            </FirebaseProvider>
           </ErrorHandler>
         </Router>
       </RWDProvider>

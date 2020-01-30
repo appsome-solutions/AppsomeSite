@@ -1,4 +1,6 @@
+import React from 'react';
 import firebase from 'firebase';
+import { FirebaseProvider as ContextFirebaseProvider } from './FirebaseContext';
 
 // Required for side-effects
 require('firebase/firestore');
@@ -12,15 +14,12 @@ firebase.initializeApp({
 
 const db = firebase.firestore();
 
-export default () => {
-  db.collection('subscriptions')
-    .add({
-      email: 'test2@wp.pl',
-    })
-    .then(function(docRef) {
-      console.log('Document written with ID: ', docRef.id);
-    })
-    .catch(function(error) {
-      console.error('Error adding document: ', error);
-    });
-};
+export const FirebaseProvider = ({ children }: { children: React.ReactNode }) => (
+  <ContextFirebaseProvider
+    value={{
+      db,
+    }}
+  >
+    {children}
+  </ContextFirebaseProvider>
+);
