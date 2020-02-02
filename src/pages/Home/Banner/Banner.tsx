@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import styled from 'styled-components';
-import cut from 'assets/cut.svg';
+import BannerPhoto from 'assets/BannerPhoto.png';
 import { Button } from 'components/Button/Button';
 import Shape1 from 'assets/Shape1.svg';
 import { Icon } from 'components/Icon/Icon';
@@ -57,6 +57,6 @@ export const Banner: FunctionComponent = () => (
       </Link>
       <Shape svgLink={Shape1} />
     </GroupedTextWithButton>
-    <img src={cut} alt="" />
+    <img src={BannerPhoto} alt="" />
   </BannerStyle>
 );
