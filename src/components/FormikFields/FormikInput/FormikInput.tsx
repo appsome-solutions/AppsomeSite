@@ -7,10 +7,11 @@ import { setFieldValueAndTouched } from '../helpers';
 import { withErrorMessage } from '../withErrorMessage';
 import { InterfaceInputComponent } from '../types';
 
-type FormikInputProps = InterfaceInputComponent &
-  InputProps & {
-    InputComponent?: JSX.Element;
-  };
+type MemoFormikInputProps = InputProps & {
+  InputComponent?: React.ReactNode;
+};
+
+type FormikInputProps = InterfaceInputComponent & MemoFormikInputProps;
 
 const CustomInputComponent = (props: FormikInputProps) => {
   const { field, form, value, isValid = true, InputComponent, ...fieldProps } = props;
@@ -33,6 +34,6 @@ const CustomInputComponent = (props: FormikInputProps) => {
 };
 
 // eslint-disable-next-line react/display-name
-export default React.memo<InputProps>((props: InputProps) => (
+export default React.memo<MemoFormikInputProps>((props: MemoFormikInputProps) => (
   <Field {...props}>{(fieldProps: any) => withErrorMessage(CustomInputComponent)({ ...props, ...fieldProps })}</Field>
 ));

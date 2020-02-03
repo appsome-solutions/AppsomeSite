@@ -6,6 +6,7 @@ import Email from 'assets/Email.svg';
 import { Button } from 'components/Button/Button';
 import { useFirebase } from 'global/Firebase/FirebaseContext';
 import { Form, Formik } from 'formik';
+import FormikInput from 'components/FormikFields/FormikInput/FormikInput';
 
 const NewsletterRow = styled.div`
   padding: 68px 136px 84px 136px;
@@ -62,34 +63,36 @@ export const Newsletter: FunctionComponent = () => {
           We have also blog where we publish technological solutions directly from the kitchen.
         </TextUnderSection>
       </SectionBox>
-      <InputBox>
-        <Formik
-          initialValues={{
-            email: '',
-          }}
-          onSubmit={() => {
-            console.log('test');
-            db.collection('subscriptions')
-              .add({
-                email: 'test5000@wp.pl',
-              })
-              .then(function() {
-                message.success('Subscribed, get ready for awesome content!');
-              })
-              .catch(function() {
-                message.error('Something went wrong when sending :/');
-              });
-          }}
-        >
-          <Form translate>
-            <EmailInput placeholder="Email" type="primary" />
+      <Formik
+        initialValues={{
+          email: '',
+        }}
+        onSubmit={values => {
+          db.collection('subscriptions')
+            .add({
+              email: values.email,
+            })
+            .then(function() {
+              message.success('Subscribed, get ready for awesome content!');
+            })
+            .catch(function() {
+              message.error('Something went wrong when sending :/');
+            });
+        }}
+      >
+        <Form translate={false}>
+          <InputBox>
+            <FormikInput
+              name="email"
+              InputComponent={(props: any) => <EmailInput {...props} placeholder="Email" type="primary" />}
+            />
             <EmailIcon src={Email} alt="" />
             <SubscribeButton htmlType="submit" type="primary">
               SUBSCRIBE
             </SubscribeButton>
-          </Form>
-        </Formik>
-      </InputBox>
+          </InputBox>
+        </Form>
+      </Formik>
     </NewsletterRow>
   );
 };
