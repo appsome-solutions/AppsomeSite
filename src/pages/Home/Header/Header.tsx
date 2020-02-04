@@ -10,6 +10,9 @@ const HeaderScroll = styled(Headroom)`
   && {
     z-index: ${props => props.theme.zIndex.towerBlock};
   }
+  .headroom--pinned {
+    border-bottom: 1px solid ${props => props.theme.colors.utils.border.light};
+  }
 `;
 const HeaderWrapper = styled.div`
   background-color: ${props => props.theme.colors.main.primary};
@@ -20,7 +23,9 @@ const HeaderWrapper = styled.div`
   padding-left: 80px;
   padding-right: 80px;
   align-items: center;
-  border-bottom: 1px solid ${props => props.theme.colors.utils.border.light};
+  ::active {
+    border-bottom: 1px solid ${props => props.theme.colors.utils.border.light};
+  }
 `;
 
 const LinksPosition = styled.div`
@@ -42,7 +47,7 @@ export const Header: FunctionComponent = () => (
       <HeaderWrapper>
         <img src={LogoSvg} alt="" />
         <LinksPosition>
-          <Link to="Process" spy={true} smooth={true} duration={500}>
+          <Link activeClass="active" to="Process" spy={true} smooth={true} duration={500}>
             <HeaderText>Process</HeaderText>
           </Link>
           <Link to="Service" spy={true} smooth={true} duration={500}>
