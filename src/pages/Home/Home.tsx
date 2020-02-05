@@ -12,7 +12,6 @@ import { CookieBar } from './CookieBar/CookiesBar';
 export const Home: FunctionComponent = () => (
   <>
     <Header />
-    <CookieBar />
     <Banner />
     <TheProcess />
     <OurServices />
@@ -20,5 +19,6 @@ export const Home: FunctionComponent = () => (
     <ContactStyled />
     <Newsletter />
     <Footer />
+    <CookieBar />
   </>
 );

@@ -44,20 +44,18 @@ const XIcon = styled.img`
 `;
 
 export const CookieBar: FunctionComponent = () => {
-  // eslint-disable-next-line @typescript-eslint/no-use-before-define
-  const [isVisible, setIsVisible] = useLocalStorage('setIsVisible', 'true');
+  const [isVisible, setIsVisible] = useLocalStorage('isVisible', 'true');
   if (isVisible === 'false') {
     return null;
-  } else {
-    return (
-      <CookiesBarStyled>
-        <CookieText>
-          <CookiesIcon src={CookieIcon} />
-          We are using cookies, unfortunately they are not with chocolate... You can learn about it more
-          <TextHere>here</TextHere>
-          <XIcon onClick={() => setIsVisible('false')} src={CloseSign} alt="X Sign" />
-        </CookieText>
-      </CookiesBarStyled>
-    );
   }
+  return (
+    <CookiesBarStyled>
+      <CookieText>
+        <CookiesIcon src={CookieIcon} />
+        We are using cookies, unfortunately they are not with chocolate... You can learn about it more
+        <TextHere>here</TextHere>
+        <XIcon onClick={() => setIsVisible('false')} src={CloseSign} alt="X Sign" />
+      </CookieText>
+    </CookiesBarStyled>
+  );
 };
