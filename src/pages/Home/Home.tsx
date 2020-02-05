@@ -1,9 +1,22 @@
 import React, { FunctionComponent } from 'react';
-
-import { PrivacyPolicy } from './PrivatePolicy/PrivatePolicy';
+import { Header } from './Header/Header';
+import { Banner } from './Banner/Banner';
+import { OurServices } from './OurService/OurService';
+import { Newsletter } from './Newsleter/Newsleter';
+import { TheProcess } from './TheProcess/TheProcess';
+import { Footer } from './Footer/Footer';
+import { ContactStyled } from './Contact/Contact';
+import { PortfolioStyled } from './Portfolio/Portfolio';
 
 export const Home: FunctionComponent = () => (
   <>
-    <PrivacyPolicy />
+    <Header />
+    <Banner />
+    <TheProcess />
+    <OurServices />
+    <PortfolioStyled />
+    <ContactStyled />
+    <Newsletter />
+    <Footer />
   </>
 );

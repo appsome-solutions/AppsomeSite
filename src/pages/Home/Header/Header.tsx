@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import LogoSvg from 'assets/logo.svg';
 import { Link } from 'react-scroll';
 import Headroom from 'react-headroom';
-import { CookieBar } from '../CookieBar/CookiesBar';
 
 const HeaderScroll = styled(Headroom)`
   position: relative;
@@ -56,6 +55,5 @@ export const Header: FunctionComponent = () => (
         </LinksPosition>
       </HeaderWrapper>
     </HeaderScroll>
-    <CookieBar />
   </>
 );
