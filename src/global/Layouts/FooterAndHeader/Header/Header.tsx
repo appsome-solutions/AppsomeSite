@@ -1,8 +1,9 @@
 import React, { FunctionComponent } from 'react';
 import styled from 'styled-components';
 import LogoSvg from 'assets/logo.svg';
-import { Link } from 'react-scroll';
+import { scroller } from 'react-scroll';
 import Headroom from 'react-headroom';
+import { Link as LinkRouter } from 'react-router-dom';
 
 const HeaderScroll = styled(Headroom)`
   position: relative;
@@ -40,23 +41,39 @@ const HeaderText = styled.h6`
     text-decoration-line: ${props => props.theme.textDecorationLine}
 `;
 
+const scrollToProcess = () => {
+  scroller.scrollTo('Process', { duration: 500, smooth: true });
+};
+
+const scrollToService = () => {
+  scroller.scrollTo('Service', { duration: 500, smooth: true });
+};
+
+const scrollToPortfolio = () => {
+  scroller.scrollTo('Portfolio', { duration: 500, smooth: true });
+};
+
+const scrollToContact = () => {
+  scroller.scrollTo('Contact', { duration: 500, smooth: true });
+};
+
 export const Header: FunctionComponent = () => (
   <HeaderScroll>
     <HeaderWrapper>
       <img src={LogoSvg} alt="" />
       <LinksPosition>
-        <Link to="Process" spy={true} smooth={true} duration={500}>
+        <LinkRouter to="/" onClick={() => setTimeout(scrollToProcess)}>
           <HeaderText>Process</HeaderText>
-        </Link>
-        <Link to="Service" spy={true} smooth={true} duration={500}>
+        </LinkRouter>
+        <LinkRouter to="/" onClick={() => setTimeout(scrollToService)}>
           <HeaderText>Services</HeaderText>
-        </Link>
-        <Link to="Portfolio" spy={true} smooth={true} duration={500}>
+        </LinkRouter>
+        <LinkRouter to="/" onClick={() => setTimeout(scrollToPortfolio)}>
           <HeaderText>Portfolio</HeaderText>
-        </Link>
-        <Link to="Contact" spy={true} smooth={true} duration={500}>
+        </LinkRouter>
+        <LinkRouter to="/" onClick={() => setTimeout(scrollToContact)}>
           <HeaderText>Contact</HeaderText>
-        </Link>
+        </LinkRouter>
       </LinksPosition>
     </HeaderWrapper>
   </HeaderScroll>

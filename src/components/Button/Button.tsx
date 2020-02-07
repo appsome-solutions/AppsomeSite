@@ -8,6 +8,7 @@ export interface ButtonProps {
   className?: string;
   svgLink?: string;
   children?: React.ReactNode;
+  onClick?: React.MouseEventHandler;
 }
 
 const ButtonStyled = styled(({ children, type, ...rest }) => <AntdButton {...rest}>{children}</AntdButton>)`
@@ -36,9 +37,9 @@ const ButtonStyled = styled(({ children, type, ...rest }) => <AntdButton {...res
   }
 `;
 
-export const Button = ({ type, children, className }: ButtonProps) => {
+export const Button = ({ type, children, className, onClick }: ButtonProps) => {
   return (
-    <ButtonStyled type={type} className={className}>
+    <ButtonStyled type={type} className={className} onClick={onClick}>
       {children}
     </ButtonStyled>
   );

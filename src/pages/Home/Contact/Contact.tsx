@@ -66,7 +66,7 @@ const SendButton = styled(Button)`
 `;
 
 export const ContactStyled: FunctionComponent = () => (
-  <ContactStyle id="Contact">
+  <ContactStyle className="Contact">
     <SectionTitle section="Contact" color="secondary" boxColor="primary" />
     <TextUnderSectionTitle>
       Contact us. We will analise Your product and deliver the best quality solution!
