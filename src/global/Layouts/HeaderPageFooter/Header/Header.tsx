@@ -4,6 +4,7 @@ import LogoSvg from 'assets/logo.svg';
 import { Link as LinkRouter } from 'react-router-dom';
 import Headroom from 'react-headroom';
 import { scrollTo } from '../HeaderFooterCommon';
+import { animateScroll as scroll } from 'react-scroll/modules';
 
 const HeaderScroll = styled(Headroom)`
   position: relative;
@@ -42,10 +43,16 @@ const HeaderText = styled.h6`
     text-decoration-line: ${props => props.theme.textDecorationLine}
 `;
 
+const scrollToTop = () => {
+  scroll.scrollToTop({ smooth: false, duration: 0 });
+};
+
 export const Header = () => (
   <HeaderScroll>
     <HeaderWrapper>
-      <img src={LogoSvg} alt="" />
+      <LinkRouter to="/" onClick={scrollToTop}>
+        <img src={LogoSvg} alt="" />
+      </LinkRouter>
       <LinksPosition>
         <LinkRouter to="/" onClick={() => scrollTo('Process')}>
           <HeaderText>Process</HeaderText>

@@ -76,7 +76,7 @@ const TermOfServiceText = styled.span`
 `;
 
 const scrollToTop = () => {
-  scroll.scrollToTop();
+  scroll.scrollToTop({ smooth: false, duration: 0 });
 };
 
 export const Footer = () => (
