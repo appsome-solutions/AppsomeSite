@@ -8,16 +8,19 @@ import { GlobalStyles } from './global/GlobalStyles/GlobalStyles';
 import { ErrorHandler } from './global/ErrorHandler/ErrorHandler';
 import { AppRouter } from './global/AppRouter/AppRouter';
 import { client } from 'global/ApolloClient/ApolloClient';
+import { HeaderPageFooter } from 'global/Layouts/HeaderPageFooter/HeaderPageFooter';
 
 const App: FunctionComponent = () => (
   <ThemeProvider theme={CoreTheme}>
     <ApolloProvider client={client}>
       <RWDProvider>
         <Router>
-          <GlobalStyles />
-          <ErrorHandler>
-            <AppRouter />
-          </ErrorHandler>
+          <HeaderPageFooter>
+            <GlobalStyles />
+            <ErrorHandler>
+              <AppRouter />
+            </ErrorHandler>
+          </HeaderPageFooter>
         </Router>
       </RWDProvider>
     </ApolloProvider>

@@ -6,11 +6,7 @@
     "prettier/@typescript-eslint",
     "plugin:prettier/recommended"
   ],
-  "plugins": [
-    "@typescript-eslint",
-    "react",
-    "prettier"
-  ],
+  "plugins": ["@typescript-eslint", "react", "prettier"],
   "parserOptions": {
     "ecmaVersion": 2019,
     "sourceType": "module",
@@ -26,15 +22,14 @@
   },
   "overrides": [
     {
-      "files": [
-        "**/*.tsx"
-      ],
+      "files": ["**/*.tsx"],
       "rules": {
         "react/prop-types": "off"
       }
     }
   ],
   "rules": {
+    "@typescript-eslint/ban-ts-ignore": "off",
     "@typescript-eslint/explicit-function-return-type": [
       "warn",
       {

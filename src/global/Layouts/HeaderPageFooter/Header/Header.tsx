@@ -1,9 +1,9 @@
-import React, { FunctionComponent } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import LogoSvg from 'assets/logo.svg';
-import { scroller } from 'react-scroll';
-import Headroom from 'react-headroom';
 import { Link as LinkRouter } from 'react-router-dom';
+import Headroom from 'react-headroom';
+import { scrollTo } from '../HeaderFooterCommon';
 
 const HeaderScroll = styled(Headroom)`
   position: relative;
@@ -14,6 +14,7 @@ const HeaderScroll = styled(Headroom)`
     border-bottom: 1px solid ${props => props.theme.colors.utils.border.light};
   }
 `;
+
 const HeaderWrapper = styled.div`
   background-color: ${props => props.theme.colors.main.primary};
   height: 100px;
@@ -41,37 +42,21 @@ const HeaderText = styled.h6`
     text-decoration-line: ${props => props.theme.textDecorationLine}
 `;
 
-const scrollToProcess = () => {
-  scroller.scrollTo('Process', { duration: 500, smooth: true });
-};
-
-const scrollToService = () => {
-  scroller.scrollTo('Service', { duration: 500, smooth: true });
-};
-
-const scrollToPortfolio = () => {
-  scroller.scrollTo('Portfolio', { duration: 500, smooth: true });
-};
-
-const scrollToContact = () => {
-  scroller.scrollTo('Contact', { duration: 500, smooth: true });
-};
-
-export const Header: FunctionComponent = () => (
+export const Header = () => (
   <HeaderScroll>
     <HeaderWrapper>
       <img src={LogoSvg} alt="" />
       <LinksPosition>
-        <LinkRouter to="/" onClick={() => setTimeout(scrollToProcess)}>
+        <LinkRouter to="/" onClick={() => scrollTo('Process')}>
           <HeaderText>Process</HeaderText>
         </LinkRouter>
-        <LinkRouter to="/" onClick={() => setTimeout(scrollToService)}>
+        <LinkRouter to="/" onClick={() => scrollTo('Service')}>
           <HeaderText>Services</HeaderText>
         </LinkRouter>
-        <LinkRouter to="/" onClick={() => setTimeout(scrollToPortfolio)}>
+        <LinkRouter to="/" onClick={() => scrollTo('Portfolio')}>
           <HeaderText>Portfolio</HeaderText>
         </LinkRouter>
-        <LinkRouter to="/" onClick={() => setTimeout(scrollToContact)}>
+        <LinkRouter to="/" onClick={() => scrollTo('Contact')}>
           <HeaderText>Contact</HeaderText>
         </LinkRouter>
       </LinksPosition>
