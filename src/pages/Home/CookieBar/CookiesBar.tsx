@@ -3,7 +3,7 @@ import React, { FunctionComponent } from 'react';
 import styled from 'styled-components';
 import useLocalStorage from 'react-use-localstorage';
 import { Button } from 'components/Button/Button';
-import { animateScroll as scroll, Link } from 'react-scroll';
+import { Link } from 'react-scroll';
 import { Link as LinkRouter } from 'react-router-dom';
 
 const CookiesBarStyled = styled.div`
@@ -46,10 +46,6 @@ const ButtonAccept = styled(Button)`
   }
 `;
 
-const scrollToTop = () => {
-  scroll.scrollToTop();
-};
-
 export const CookieBar: FunctionComponent = () => {
   const [isVisible, setIsVisible] = useLocalStorage('isVisible', 'true');
   if (isVisible === 'false') {
@@ -60,7 +56,7 @@ export const CookieBar: FunctionComponent = () => {
       <CookieText>
         <CookiesIcon src={CookieIcon} />
         We are using cookies, unfortunately they are not with chocolate... You can learn about it more
-        <Link onClick={scrollToTop} to="Policy" spy={true} smooth={true} offset={-99} duration={500}>
+        <Link to="Policy" spy={true} smooth={true} offset={-99} duration={500}>
           <LinkRouter to="/privacy-policy">
             <TextHere>here</TextHere>
           </LinkRouter>

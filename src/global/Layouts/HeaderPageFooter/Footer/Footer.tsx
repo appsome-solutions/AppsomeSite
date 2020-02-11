@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { Icon } from 'components/Icon/Icon';
 import Shape5 from 'assets/Shape5.svg';
 import Shape4 from 'assets/Shape4.svg';
-import { animateScroll as scroll, Link } from 'react-scroll';
+import { Link } from 'react-scroll';
 import { Link as LinkRouter } from 'react-router-dom';
 import { scrollTo } from '../HeaderFooterCommon';
 
@@ -75,10 +75,6 @@ const TermOfServiceText = styled.span`
   }
 `;
 
-const scrollToTop = () => {
-  scroll.scrollToTop({ smooth: false, duration: 0 });
-};
-
 export const Footer = () => (
   <FooterBG>
     <TextBox>
@@ -89,12 +85,12 @@ export const Footer = () => (
         +48 783 697 219 <br />
         patrykjanik1710@gmail.com
       </ContactAddress>
-      <Link onClick={scrollToTop} to="Policy" spy={true} smooth={true} offset={-99} duration={500}>
+      <Link to="Policy" spy={true} smooth={true} offset={-99} duration={500}>
         <LinkRouter to="/privacy-policy">
           <PrivacyPolicyText>PRIVACY POLICY</PrivacyPolicyText>
         </LinkRouter>
       </Link>
-      <Link onClick={scrollToTop} to="TermOfService" spy={true} smooth={true} offset={-99} duration={500}>
+      <Link to="TermOfService" spy={true} smooth={true} offset={-99} duration={500}>
         <LinkRouter to="/term-of-service">
           <TermOfServiceText>TERM OF SERVICE</TermOfServiceText>
         </LinkRouter>
