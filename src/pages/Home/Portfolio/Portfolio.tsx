@@ -10,9 +10,9 @@ import Oncologist from 'assets/Oncologist.png';
 import ProList from 'assets/ProList.png';
 import PersonaShare from 'assets/PersonaShare.png';
 import { Carousel } from 'antd';
-import LeftVector from '../../../assets/LeftVector.svg';
-import Vector from '../../../assets/Vector.svg';
-import { Button } from '../../../components/Button/Button';
+import LeftVector from 'assets/LeftVector.svg';
+import Vector from 'assets/Vector.svg';
+import { Button } from 'components/Button/Button';
 
 const PortfolioStyle = styled.div`
   background-color: ${props => props.theme.colors.utils.background.mid.color};
@@ -62,10 +62,6 @@ const ArrowButtonLeft = styled(Button)`
   align-items: center;
 `;
 
-const CarouselPortfolio = styled(Carousel)``;
-
-const PhoneCarousel = styled(PortfolioCarousel)``;
-
 export const PortfolioStyled: FunctionComponent = () => {
   const carouselRef = useRef<Carousel>(null);
 
@@ -88,7 +84,7 @@ export const PortfolioStyled: FunctionComponent = () => {
         <SectionTitle section="Portfolio" color="primary" boxColor="secondary" />
       </div>
       <TextUnderSection>Our projects makes us proud</TextUnderSection>
-      <CarouselPortfolio ref={carouselRef} dots={false}>
+      <Carousel ref={carouselRef} dots={false}>
         <PortfolioCarousel
           svgLink={laptop}
           imgDimension="laptop"
@@ -100,7 +96,7 @@ export const PortfolioStyled: FunctionComponent = () => {
           TestimonialText="They are truly invested and passionate."
           TestimonialPerson="Founder, Dawid Stefaniec"
         />
-        <PhoneCarousel
+        <PortfolioCarousel
           svgLink={Phone}
           imgDimension="phone"
           svgImage={PersonaShare}
@@ -121,7 +117,7 @@ export const PortfolioStyled: FunctionComponent = () => {
           TestimonialText="The website they built for us is better than I ever thought it could be."
           TestimonialPerson="Marketing and Sales, Magdalena Banasa"
         />
-      </CarouselPortfolio>
+      </Carousel>
       <ArrowButtonsBox>
         <ArrowButtonLeft type="primary" onClick={() => goToPrev()}>
           <ArrowIcon svgLink={LeftVector} />
