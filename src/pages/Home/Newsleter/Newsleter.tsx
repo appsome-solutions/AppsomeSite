@@ -12,7 +12,6 @@ const NewsletterRow = styled.div`
   border-bottom: 1px solid ${props => props.theme.colors.main.tetiary};
 `;
 
-const SectionBox = styled.div``;
 const TextUnderSection = styled.span`
   ${props => props.theme.typography.body1};
   margin-left: 16px;
@@ -50,12 +49,12 @@ const SubscribeButton = styled(Button)`
 
 export const Newsletter: FunctionComponent = () => (
   <NewsletterRow>
-    <SectionBox>
+    <div>
       <SectionTitle section="Join our newsletter" color="primary" boxColor="secondary" />
       <TextUnderSection>
         We have also blog where we publish technological solutions directly from the kitchen.
       </TextUnderSection>
-    </SectionBox>
+    </div>
     <InputBox>
       <EmailInput placeholder="Email" type="primary" />
       <EmailIcon src={Email} alt="" />

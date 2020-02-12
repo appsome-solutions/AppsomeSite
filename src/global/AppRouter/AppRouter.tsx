@@ -1,7 +1,7 @@
 import React, { FunctionComponent, useEffect } from 'react';
 import { Route, Switch, useLocation } from 'react-router-dom';
-import { Home } from '../../pages/Home/Home';
-import { PrivacyPolicy } from 'pages/PrivatePolicyHome/PrivatePolicy/PrivatePolicy';
+import { Home } from 'pages/Home/Home';
+import { PrivacyPolicy } from 'pages/PrivatePolicy/PrivatePolicy';
 
 export const AppRouter: FunctionComponent = () => {
   const ScrollToTop = () => {
@@ -23,7 +23,7 @@ export const AppRouter: FunctionComponent = () => {
           exact
           component={() => (
             <PrivacyPolicy
-              name="Appsome Solutions/"
+              name="Appsome Solutions"
               nameOfBusiness=" – The Software House sp. z o.o."
               officeCity="office in Gliwice, ul. Dolnych Wałów"
               webPage="appsome-solutions.com"

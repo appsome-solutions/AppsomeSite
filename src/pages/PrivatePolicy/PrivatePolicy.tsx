@@ -19,7 +19,6 @@ const PrivacyPolicyBg = styled.div`
   justify-content: center;
   align-items: center;
 `;
-const PrivacyPolicyBox = styled.div``;
 const PrivacyPolicyText = styled.span`
   ${props => props.theme.typography.body1};
   color: ${props => props.theme.colors.utils.background.mid.color};
@@ -70,9 +69,10 @@ export const PrivacyPolicy: FunctionComponent<PolicyProps> = (props: PolicyProps
     name,
     personalDataOffice,
   } = props;
+
   return (
     <PrivacyPolicyBg id="Policy">
-      <PrivacyPolicyBox>
+      <div>
         <PrivacyPolicyText>
           <TextH4>Privacy Policy</TextH4>
           <TextH5>What terms do we use in Privacy Policy?</TextH5>
@@ -83,7 +83,7 @@ export const PrivacyPolicy: FunctionComponent<PolicyProps> = (props: PolicyProps
             <br />
             <TitleWeight>
               {name}
-              We
+              /We
             </TitleWeight>
             {nameOfBusiness} with registered
             {officeCity} 8, entered in the Register of Entrepreneurs of the
@@ -385,7 +385,7 @@ export const PrivacyPolicy: FunctionComponent<PolicyProps> = (props: PolicyProps
           <br />
           {lastVersionPolicy}
         </PrivacyPolicyText>
-      </PrivacyPolicyBox>
+      </div>
     </PrivacyPolicyBg>
   );
 };

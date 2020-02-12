@@ -26,8 +26,6 @@ const TitleBox = styled.div`
   margin-left: 192px;
 `;
 
-const PortfolioImage = styled.div``;
-
 const PortfolioDescription = styled.div`
   padding: 176px 0 176px 0;
   margin-left: 44px;
@@ -129,13 +127,13 @@ const Shape = styled(Icon)`
 export const PortfolioStyled: FunctionComponent = () => (
   <PortfolioStyle id="Portfolio">
     <Shape svgLink={Shape3} />
-    <PortfolioImage>
+    <div>
       <TitleBox>
         <SectionTitle section="Portfolio" color="primary" boxColor="secondary" />
       </TitleBox>
       <TextUnderSection>Our projects makes us proud</TextUnderSection>
       <img src={image} alt="" />
-    </PortfolioImage>
+    </div>
     <PortfolioDescription>
       <TitleSite>Pizza Planet</TitleSite>
       <DescriptionSiteBox>

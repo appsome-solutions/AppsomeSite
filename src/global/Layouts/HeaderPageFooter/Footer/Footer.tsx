@@ -15,8 +15,6 @@ const FooterBG = styled.div`
   position: relative;
 `;
 
-const TextBox = styled.div``;
-
 const AboutUs = styled.pre`
   ${props => props.theme.typography.body1};
   margin-bottom: 12px;
@@ -77,7 +75,7 @@ const TermOfServiceText = styled.span`
 
 export const Footer = () => (
   <FooterBG>
-    <TextBox>
+    <div>
       <AboutUs>About us</AboutUs>
       <ContactAddress>
         Zbożowa 4A 70-653 Szczecin Poland
@@ -95,7 +93,7 @@ export const Footer = () => (
           <TermOfServiceText>TERM OF SERVICE</TermOfServiceText>
         </LinkRouter>
       </Link>
-    </TextBox>
+    </div>
     <BoxWithLinks>
       <LinkRouter to="/" onClick={() => scrollTo('Process')}>
         <LinkText>Process</LinkText>
