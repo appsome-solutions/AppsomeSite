@@ -1,60 +1,54 @@
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent, useCallback, useRef } from 'react';
 import styled from 'styled-components';
 import { SectionTitle } from 'components/SectionTitle/SectionTitle';
-import image from 'assets/image.svg';
-import { Button } from 'components/Button/Button';
-import Vector from 'assets/Vector.svg';
-import LeftVector from 'assets/LeftVector.svg';
-import Quote from 'assets/Quote.svg';
 import { Icon } from 'components/Icon/Icon';
 import Shape3 from 'assets/Shape3.svg';
+import { PortfolioCarousel } from './PortfolioProperties';
+import laptop from 'assets/laptop.svg';
+import Phone from 'assets/Phone.svg';
+import Oncologist from 'assets/Oncologist.png';
+import ProList from 'assets/ProList.png';
+import PersonaShare from 'assets/PersonaShare.png';
+import { Carousel } from 'antd';
+import LeftVector from '../../../assets/LeftVector.svg';
+import Vector from '../../../assets/Vector.svg';
+import { Button } from '../../../components/Button/Button';
 
 const PortfolioStyle = styled.div`
   background-color: ${props => props.theme.colors.utils.background.mid.color};
-  padding: 84px 112px 24px 60px;
-  justify-content: space-between;
-  display: flex;
+  padding: 84px 112px 24px 192px;
   position: relative;
 `;
 const TextUnderSection = styled.h6`
   color: ${props => props.theme.colors.utils.text.dark};
-  margin: 8px 0 0 208px;
+  margin: 8px 0 0 16px;
 `;
 
-const TitleBox = styled.div`
-  margin-left: 192px;
+const Shape = styled(Icon)`
+  height: 426px;
+  width: 158px;
+  left: 0px;
+  top: -40px;
+  z-index: ${props => props.theme.zIndex.house};
+  position: absolute;
+  background-color: ${props => props.theme.colors.main.secondary};
 `;
 
-const PortfolioImage = styled.div``;
-
-const PortfolioDescription = styled.div`
-  padding: 176px 0 176px 0;
-  margin-left: 44px;
-  width: 420px;
+const ArrowIcon = styled(Icon)`
+  height: 22px;
+  width: 12px;
+  background-color: white;
 `;
 
-const DescriptionSiteBox = styled.div`
-  ${props => props.theme.typography.body1};
-  margin-bottom: 24px;
+const ArrowIconRight = styled(ArrowIcon)`
+  background-color: white;
 `;
 
-const DescriptionSite = styled.div`
-  ${props => props.theme.typography.body1}
-`;
-
-const Challenges = styled.div`
-  ${props => props.theme.typography.body1}
-  margin: 16px 0 12px 0;
-  font-weight: 500;
-`;
-
-const ButtonsBox = styled.div`
-  display: flex;
-  justify-content: space-between;
-`;
 const ArrowButtonsBox = styled.div`
   display: flex;
+  justify-content: flex-end;
 `;
+
 const ArrowButtonWithMargin = styled(Button)`
   margin-left: 20px;
   display: flex;
@@ -68,99 +62,74 @@ const ArrowButtonLeft = styled(Button)`
   align-items: center;
 `;
 
-const TitleSite = styled.h6`
-  margin-bottom: 12px;
-`;
+const CarouselPortfolio = styled(Carousel)``;
 
-const QuotationBoxWithQuoteSvg = styled.div`
-  background-color: ${props => props.theme.colors.functional.main.primary.opacity};
-  margin-bottom: 28px;
-  padding: 16px 12px 20px 12px;
-`;
+const PhoneCarousel = styled(PortfolioCarousel)``;
 
-const QuotationBoxWithText = styled.div`
-  ${props => props.theme.typography.body1};
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  font-style: italic;
-  padding: 0 24px 0 24px;
-`;
+export const PortfolioStyled: FunctionComponent = () => {
+  const carouselRef = useRef<Carousel>(null);
 
-const BoxWithSecondQuote = styled.div`
-  text-align: right;
-  margin-bottom: 12px;
-`;
+  const goToPrev = useCallback(() => {
+    if (carouselRef && carouselRef.current) {
+      carouselRef.current.prev();
+    }
+  }, []);
 
-const AuthorText = styled.div`
-  display: flex;
-  justify-content: center;
-  ${props => props.theme.typography.body1};
-`;
+  const goToNext = useCallback(() => {
+    if (carouselRef && carouselRef.current) {
+      carouselRef.current.next();
+    }
+  }, []);
 
-const QuoteSign = styled(Icon)`
-  height: 20px;
-  width: 20px;
-`;
-
-const ArrowIcon = styled(Icon)`
-  height: 22px;
-  width: 12px;
-  background-color: white;
-`;
-const ArrowIconRight = styled(ArrowIcon)`
-  background-color: white;
-`;
-const Shape = styled(Icon)`
-  height: 426px;
-  width: 158px;
-  left: 0px;
-  top: -40px;
-  z-index: ${props => props.theme.zIndex.house};
-  position: absolute;
-  background-color: ${props => props.theme.colors.main.secondary};
-`;
-export const PortfolioStyled: FunctionComponent = () => (
-  <PortfolioStyle id="Portfolio">
-    <Shape svgLink={Shape3} />
-    <PortfolioImage>
-      <TitleBox>
+  return (
+    <PortfolioStyle id="Portfolio">
+      <Shape svgLink={Shape3} />
+      <div>
         <SectionTitle section="Portfolio" color="primary" boxColor="secondary" />
-      </TitleBox>
+      </div>
       <TextUnderSection>Our projects makes us proud</TextUnderSection>
-      <img src={image} alt="" />
-    </PortfolioImage>
-    <PortfolioDescription>
-      <TitleSite>Pizza Planet</TitleSite>
-      <DescriptionSiteBox>
-        <DescriptionSite>
-          Pizza planet is a website where you can have menu <br />
-          preview, choose your ingredient and order your pizza with <br />a life preview of a delivery status.
-          <Challenges>Challenges</Challenges>
-          Bitcoin payment method, real-time delivery map preview
-        </DescriptionSite>
-      </DescriptionSiteBox>
-      <QuotationBoxWithQuoteSvg>
-        <QuoteSign svgLink={Quote} />
-        <QuotationBoxWithText>
-          The quality of the designs and ideas they had were impressive. We had a great experience working with them.
-        </QuotationBoxWithText>
-        <BoxWithSecondQuote>
-          <QuoteSign svgLink={Quote} />
-        </BoxWithSecondQuote>
-        <AuthorText>Managing Director, Konrad Radomski</AuthorText>
-      </QuotationBoxWithQuoteSvg>
-      <ButtonsBox>
-        <ArrowButtonsBox>
-          <ArrowButtonLeft type="primary">
-            <ArrowIcon svgLink={LeftVector} />
-          </ArrowButtonLeft>
-          <ArrowButtonWithMargin type="primary">
-            <ArrowIconRight svgLink={Vector} />
-          </ArrowButtonWithMargin>
-        </ArrowButtonsBox>
-        <Button type="primary">SEE ALL PROJECTS</Button>
-      </ButtonsBox>
-    </PortfolioDescription>
-  </PortfolioStyle>
-);
+      <CarouselPortfolio ref={carouselRef} dots={false}>
+        <PortfolioCarousel
+          svgLink={laptop}
+          imgDimension="laptop"
+          svgImage={Oncologist}
+          title="Onkolog Online"
+          description="With Onkolog Online you can get advice or deep analise of your case from top specialists from oncology
+        area. Website communication is based on emails and time for response takes maximum to 48h."
+          challenges="Time based email system, extended textual editor"
+          TestimonialText="They are truly invested and passionate."
+          TestimonialPerson="Founder, Dawid Stefaniec"
+        />
+        <PhoneCarousel
+          svgLink={Phone}
+          imgDimension="phone"
+          svgImage={PersonaShare}
+          title="Persona Share"
+          description="Mobile application which aims to assists in a personal branding and expanding local companies
+        to be more visible in real life by using QR codes."
+          challenges="QR code scanner in PWA technology, extended PWA editor."
+          TestimonialText="United Ideas overcommunicated everything, saving us a lot of time and money."
+          TestimonialPerson="Founder, Mateusz Żukowski"
+        />
+        <PortfolioCarousel
+          imgDimension="laptop"
+          svgLink={laptop}
+          svgImage={ProList}
+          title="ProList"
+          description="Website which manage specialists from given profession. With displaying their work, skillset in a graph representation."
+          challenges="Advanced graph visualisation"
+          TestimonialText="The website they built for us is better than I ever thought it could be."
+          TestimonialPerson="Marketing and Sales, Magdalena Banasa"
+        />
+      </CarouselPortfolio>
+      <ArrowButtonsBox>
+        <ArrowButtonLeft type="primary" onClick={() => goToPrev()}>
+          <ArrowIcon svgLink={LeftVector} />
+        </ArrowButtonLeft>
+        <ArrowButtonWithMargin type="primary" onClick={() => goToNext()}>
+          <ArrowIconRight svgLink={Vector} />
+        </ArrowButtonWithMargin>
+      </ArrowButtonsBox>
+    </PortfolioStyle>
+  );
+};
