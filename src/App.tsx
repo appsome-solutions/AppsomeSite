@@ -9,6 +9,7 @@ import { ErrorHandler } from './global/ErrorHandler/ErrorHandler';
 import { AppRouter } from './global/AppRouter/AppRouter';
 import { client } from 'global/ApolloClient/ApolloClient';
 import { Modal } from 'antd';
+import { FirebaseProvider } from 'global/Firebase/Firebase';
 
 const App: FunctionComponent = () => {
   Modal.info({
@@ -28,7 +29,9 @@ const App: FunctionComponent = () => {
           <Router>
             <GlobalStyles />
             <ErrorHandler>
-              <AppRouter />
+              <FirebaseProvider>
+                <AppRouter />
+              </FirebaseProvider>
             </ErrorHandler>
           </Router>
         </RWDProvider>
