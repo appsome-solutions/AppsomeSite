@@ -7,6 +7,7 @@ import { TheProcess } from './TheProcess/TheProcess';
 import { Footer } from './Footer/Footer';
 import { ContactStyled } from './Contact/Contact';
 import { PortfolioStyled } from './Portfolio/Portfolio';
+import { CookieBar } from './CookieBar/CookiesBar';
 
 export const Home: FunctionComponent = () => (
   <>
@@ -18,5 +19,6 @@ export const Home: FunctionComponent = () => (
     <ContactStyled />
     <Newsletter />
     <Footer />
+    <CookieBar />
   </>
 );
