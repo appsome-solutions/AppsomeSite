@@ -37,7 +37,11 @@ export const AppRouter: FunctionComponent = () => {
             />
           )}
         />
-        <Route path="/term-of-service" exact component={TermOfService} />
+        <Route
+          path="/term-of-service"
+          exact
+          component={() => <TermOfService name="AppSome Solutions" nameOfBusiness="AppSome Solutions" />}
+        />
       </Switch>
     </>
   );
