@@ -3,6 +3,9 @@ import styled from 'styled-components';
 import { SectionTitle } from 'components/SectionTitle/SectionTitle';
 import { Button } from 'components/Button/Button';
 import { CommonFormElementStyling } from './InputStyle';
+import FormikInput from '../../../components/FormikFields/FormikInput/FormikInput';
+import FormikTextArea from '../../../components/FormikFields/FormikTextArea/FormikTextArea';
+import { Form, Formik } from 'formik';
 
 const ContactStyle = styled.div`
   background-color: ${props => props.theme.colors.main.primary};
@@ -71,19 +74,36 @@ export const ContactStyled: FunctionComponent = () => (
     <TextUnderSectionTitle>
       Contact us. We will analise Your product and deliver the best quality solution!
     </TextUnderSectionTitle>
-    <InputBoxes>
-      <NameInputText>
-        <NameInput placeholder="Name" />
-      </NameInputText>
-      <EmailInputText>
-        <EmailInput placeholder="Email" />
-      </EmailInputText>
-    </InputBoxes>
-    <MessageText>
-      <MessageTextArea placeholder="Message" />
-    </MessageText>
-    <ButtonPosition>
-      <SendButton>SEND</SendButton>
-    </ButtonPosition>
+    <Formik
+      initialValues={{
+        name: '',
+        email: '',
+        message: '',
+      }}
+      onSubmit={() => console.log('mleko')}
+    >
+      <Form translate={false}>
+        <InputBoxes>
+          <NameInputText>
+            <FormikInput name="name" InputComponent={(props: any) => <NameInput {...props} placeholder="Name" />} />
+          </NameInputText>
+          <EmailInputText>
+            <FormikInput
+              name="email"
+              InputComponent={(props: any) => <EmailInput {...props} placeholder="Email" type="primary" />}
+            />
+          </EmailInputText>
+        </InputBoxes>
+        <MessageText>
+          <FormikTextArea
+            name="message"
+            InputComponent={(props: any) => <MessageTextArea {...props} placeholder="Message" />}
+          />
+        </MessageText>
+        <ButtonPosition>
+          <SendButton htmlType="submit">SEND</SendButton>
+        </ButtonPosition>
+      </Form>
+    </Formik>
   </ContactStyle>
 );
