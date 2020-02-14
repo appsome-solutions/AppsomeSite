@@ -1,9 +1,11 @@
-import React, { FunctionComponent } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { Icon } from 'components/Icon/Icon';
 import Shape5 from 'assets/Shape5.svg';
 import Shape4 from 'assets/Shape4.svg';
 import { Link } from 'react-scroll';
+import { Link as LinkRouter } from 'react-router-dom';
+import { scrollTo } from '../HeaderFooterCommon';
 
 const FooterBG = styled.div`
   background-color: ${props => props.theme.colors.utils.background.mid.color};
@@ -13,14 +15,14 @@ const FooterBG = styled.div`
   position: relative;
 `;
 
-const TextBox = styled.div``;
-
 const AboutUs = styled.pre`
   ${props => props.theme.typography.body1};
   margin-bottom: 12px;
 `;
 
-const ContactAddress = styled.span``;
+const ContactAddress = styled.div`
+  margin-bottom: 36px;
+`;
 
 const BoxWithLinks = styled.div`
   display: flex;
@@ -51,9 +53,29 @@ const RightShape = styled(Icon)`
   background-color: ${props => props.theme.colors.main.secondary};
   bottom: 0px;
 `;
-export const Footer: FunctionComponent = () => (
+const PrivacyPolicyText = styled.span`
+  ${props => props.theme.typography.overline};
+  cursor: pointer;
+  color: ${props => props.theme.colors.utils.text.dark};
+  &:hover {
+    color: ${props => props.theme.colors.main.secondary};
+    text-decoration-line: ${props => props.theme.textDecorationLine};
+  }
+`;
+const TermOfServiceText = styled.span`
+  ${props => props.theme.typography.overline};
+  cursor: pointer;
+  margin-left: 24px;
+  color: ${props => props.theme.colors.utils.text.dark};
+  &:hover {
+    color: ${props => props.theme.colors.main.secondary};
+    text-decoration-line: ${props => props.theme.textDecorationLine};
+  }
+`;
+
+export const Footer = () => (
   <FooterBG>
-    <TextBox>
+    <div>
       <AboutUs>About us</AboutUs>
       <ContactAddress>
         Zbożowa 4A 70-653 Szczecin Poland
@@ -61,20 +83,30 @@ export const Footer: FunctionComponent = () => (
         +48 783 697 219 <br />
         patrykjanik1710@gmail.com
       </ContactAddress>
-    </TextBox>
+      <Link to="Policy" spy={true} smooth={true} offset={-99} duration={500}>
+        <LinkRouter to="/privacy-policy">
+          <PrivacyPolicyText>PRIVACY POLICY</PrivacyPolicyText>
+        </LinkRouter>
+      </Link>
+      <Link to="TermOfService" spy={true} smooth={true} offset={-99} duration={500}>
+        <LinkRouter to="/term-of-service">
+          <TermOfServiceText>TERM OF SERVICE</TermOfServiceText>
+        </LinkRouter>
+      </Link>
+    </div>
     <BoxWithLinks>
-      <Link to="Process" spy={true} smooth={true} offset={-99} duration={500}>
+      <LinkRouter to="/" onClick={() => scrollTo('Process')}>
         <LinkText>Process</LinkText>
-      </Link>
-      <Link to="Service" spy={true} smooth={true} offset={-99} duration={500}>
+      </LinkRouter>
+      <LinkRouter to="/" onClick={() => scrollTo('Service')}>
         <LinkText>Services</LinkText>
-      </Link>
-      <Link to="Portfolio" spy={true} smooth={true} offset={-99} duration={500}>
+      </LinkRouter>
+      <LinkRouter to="/" onClick={() => scrollTo('Portfolio')}>
         <LinkText>Portfolio</LinkText>
-      </Link>
-      <Link to="Contact" spy={true} smooth={true} offset={-99} duration={500}>
+      </LinkRouter>
+      <LinkRouter to="/" onClick={() => scrollTo('Contact')}>
         <LinkText>Contact</LinkText>
-      </Link>
+      </LinkRouter>
     </BoxWithLinks>
     <LeftShape svgLink={Shape4} />
     <RightShape svgLink={Shape5} />

@@ -8,6 +8,7 @@ import { GlobalStyles } from './global/GlobalStyles/GlobalStyles';
 import { ErrorHandler } from './global/ErrorHandler/ErrorHandler';
 import { AppRouter } from './global/AppRouter/AppRouter';
 import { client } from 'global/ApolloClient/ApolloClient';
+import { HeaderPageFooter } from 'global/Layouts/HeaderPageFooter/HeaderPageFooter';
 import { Modal } from 'antd';
 import { FirebaseProvider } from 'global/Firebase/Firebase';
 
@@ -27,12 +28,14 @@ const App: FunctionComponent = () => {
       <ApolloProvider client={client}>
         <RWDProvider>
           <Router>
-            <GlobalStyles />
-            <ErrorHandler>
-              <FirebaseProvider>
-                <AppRouter />
-              </FirebaseProvider>
-            </ErrorHandler>
+            <HeaderPageFooter>
+              <GlobalStyles />
+              <ErrorHandler>
+                <FirebaseProvider>
+                  <AppRouter />
+                </FirebaseProvider>
+              </ErrorHandler>
+            </HeaderPageFooter>
           </Router>
         </RWDProvider>
       </ApolloProvider>

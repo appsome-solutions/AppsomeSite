@@ -16,7 +16,6 @@ const NewsletterRow = styled.div`
   border-bottom: 1px solid ${props => props.theme.colors.main.tetiary};
 `;
 
-const SectionBox = styled.div``;
 const TextUnderSection = styled.span`
   ${props => props.theme.typography.body1};
   margin-left: 16px;
@@ -57,12 +56,12 @@ export const Newsletter: FunctionComponent = () => {
 
   return (
     <NewsletterRow>
-      <SectionBox>
+      <div>
         <SectionTitle section="Join our newsletter" color="primary" boxColor="secondary" />
         <TextUnderSection>
           We have also blog where we publish technological solutions directly from the kitchen.
         </TextUnderSection>
-      </SectionBox>
+      </div>
       <Formik
         initialValues={{
           email: '',

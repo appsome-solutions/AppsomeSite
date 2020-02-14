@@ -1,8 +1,9 @@
-import React, { FunctionComponent } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import LogoSvg from 'assets/logo.svg';
-import { Link } from 'react-scroll';
+import { Link as LinkRouter } from 'react-router-dom';
 import Headroom from 'react-headroom';
+import { scrollTo } from '../HeaderFooterCommon';
 
 const HeaderScroll = styled(Headroom)`
   position: relative;
@@ -13,6 +14,7 @@ const HeaderScroll = styled(Headroom)`
     border-bottom: 1px solid ${props => props.theme.colors.utils.border.light};
   }
 `;
+
 const HeaderWrapper = styled.div`
   background-color: ${props => props.theme.colors.main.primary};
   height: 100px;
@@ -40,23 +42,25 @@ const HeaderText = styled.h6`
     text-decoration-line: ${props => props.theme.textDecorationLine}
 `;
 
-export const Header: FunctionComponent = () => (
+export const Header = () => (
   <HeaderScroll>
     <HeaderWrapper>
-      <img src={LogoSvg} alt="" />
+      <LinkRouter to="/">
+        <img src={LogoSvg} alt="" />
+      </LinkRouter>
       <LinksPosition>
-        <Link activeClass="active" to="Process" spy={true} smooth={true} duration={500}>
+        <LinkRouter to="/" onClick={() => scrollTo('Process')}>
           <HeaderText>Process</HeaderText>
-        </Link>
-        <Link to="Service" spy={true} smooth={true} duration={500}>
+        </LinkRouter>
+        <LinkRouter to="/" onClick={() => scrollTo('Service')}>
           <HeaderText>Services</HeaderText>
-        </Link>
-        <Link to="Portfolio" spy={true} smooth={true} duration={500}>
+        </LinkRouter>
+        <LinkRouter to="/" onClick={() => scrollTo('Portfolio')}>
           <HeaderText>Portfolio</HeaderText>
-        </Link>
-        <Link to="Contact" spy={true} smooth={true} duration={500}>
+        </LinkRouter>
+        <LinkRouter to="/" onClick={() => scrollTo('Contact')}>
           <HeaderText>Contact</HeaderText>
-        </Link>
+        </LinkRouter>
       </LinksPosition>
     </HeaderWrapper>
   </HeaderScroll>
