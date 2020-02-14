@@ -1,12 +1,14 @@
 import CookieIcon from 'assets/CookieIcon.svg';
-import CloseSign from 'assets/CloseSign.svg';
 import React, { FunctionComponent } from 'react';
 import styled from 'styled-components';
 import useLocalStorage from 'react-use-localstorage';
+import { Button } from 'components/Button/Button';
+import { Link } from 'react-scroll';
+import { Link as LinkRouter } from 'react-router-dom';
 
 const CookiesBarStyled = styled.div`
   background-color: ${props => props.theme.colors.main.tetiary};
-  height: 32px;
+  height: 40px;
   width: 100%;
   position: fixed;
   bottom: 0;
@@ -36,28 +38,31 @@ const CookiesIcon = styled.img`
   margin-right: 8px;
 `;
 
-const XIcon = styled.img`
-  width: 8px;
-  height: 8px;
-  cursor: pointer;
+const ButtonAccept = styled(Button)`
   margin-left: 8px;
+  && {
+    height: 20px;
+    ${props => props.theme.typography.caption};
+  }
 `;
 
 export const CookieBar: FunctionComponent = () => {
-  // eslint-disable-next-line @typescript-eslint/no-use-before-define
-  const [isVisible, setIsVisible] = useLocalStorage('setIsVisible', 'true');
+  const [isVisible, setIsVisible] = useLocalStorage('isVisible', 'true');
   if (isVisible === 'false') {
     return null;
-  } else {
-    return (
-      <CookiesBarStyled>
-        <CookieText>
-          <CookiesIcon src={CookieIcon} />
-          We are using cookies, unfortunately they are not with chocolate... You can learn about it more
-          <TextHere>here</TextHere>
-          <XIcon onClick={() => setIsVisible('false')} src={CloseSign} alt="X Sign" />
-        </CookieText>
-      </CookiesBarStyled>
-    );
   }
+  return (
+    <CookiesBarStyled>
+      <CookieText>
+        <CookiesIcon src={CookieIcon} />
+        We are using cookies, unfortunately they are not with chocolate... You can learn about it more
+        <Link to="Policy" spy={true} smooth={true} offset={-99} duration={500}>
+          <LinkRouter to="/privacy-policy">
+            <TextHere>here</TextHere>
+          </LinkRouter>
+        </Link>
+        <ButtonAccept onClick={() => setIsVisible('false')}>ACCEPT</ButtonAccept>
+      </CookieText>
+    </CookiesBarStyled>
+  );
 };

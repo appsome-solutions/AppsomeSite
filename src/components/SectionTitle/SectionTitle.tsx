@@ -5,6 +5,7 @@ export interface SectionProps {
   section: string;
   color?: SectionColor;
   boxColor?: SectionColor;
+  textUnderSection?: string;
 }
 
 const Title = styled.h4`

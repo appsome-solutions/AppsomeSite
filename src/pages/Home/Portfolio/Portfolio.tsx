@@ -16,6 +16,7 @@ const PortfolioStyle = styled.div`
   display: flex;
   position: relative;
 `;
+
 const TextUnderSection = styled.h6`
   color: ${props => props.theme.colors.utils.text.dark};
   margin: 8px 0 0 208px;
@@ -24,8 +25,6 @@ const TextUnderSection = styled.h6`
 const TitleBox = styled.div`
   margin-left: 192px;
 `;
-
-const PortfolioImage = styled.div``;
 
 const PortfolioDescription = styled.div`
   padding: 176px 0 176px 0;
@@ -52,9 +51,11 @@ const ButtonsBox = styled.div`
   display: flex;
   justify-content: space-between;
 `;
+
 const ArrowButtonsBox = styled.div`
   display: flex;
 `;
+
 const ArrowButtonWithMargin = styled(Button)`
   margin-left: 20px;
   display: flex;
@@ -108,9 +109,11 @@ const ArrowIcon = styled(Icon)`
   width: 12px;
   background-color: white;
 `;
+
 const ArrowIconRight = styled(ArrowIcon)`
   background-color: white;
 `;
+
 const Shape = styled(Icon)`
   height: 426px;
   width: 158px;
@@ -120,16 +123,17 @@ const Shape = styled(Icon)`
   position: absolute;
   background-color: ${props => props.theme.colors.main.secondary};
 `;
+
 export const PortfolioStyled: FunctionComponent = () => (
   <PortfolioStyle id="Portfolio">
     <Shape svgLink={Shape3} />
-    <PortfolioImage>
+    <div>
       <TitleBox>
         <SectionTitle section="Portfolio" color="primary" boxColor="secondary" />
       </TitleBox>
       <TextUnderSection>Our projects makes us proud</TextUnderSection>
       <img src={image} alt="" />
-    </PortfolioImage>
+    </div>
     <PortfolioDescription>
       <TitleSite>Pizza Planet</TitleSite>
       <DescriptionSiteBox>
