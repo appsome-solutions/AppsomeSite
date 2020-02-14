@@ -22,7 +22,7 @@ type="1"`;
 const NumbersList = styled.li``;
 const CenteredBox = styled.div``;
 export const TermOfService: FunctionComponent = () => (
-  <MainComponent>
+  <MainComponent id="TermOfService">
     <CenteredBox>
       <TextH4>Terms & Conditions</TextH4>
       <TextH5>1. Terms</TextH5>

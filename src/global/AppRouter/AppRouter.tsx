@@ -1,7 +1,4 @@
-import React, { FunctionComponent } from 'react';
-import { Route, Switch } from 'react-router-dom';
-import { Home } from '../../pages/Home/Home';
-import { TermOfServiceHome } from '../../pages/TermOfService/TermOfServiceHome';
+import { TermOfService } from '../../pages/TermOfService/TermOfService';
 import React, { FunctionComponent, useEffect } from 'react';
 import { Route, Switch, useLocation } from 'react-router-dom';
 import { Home } from 'pages/Home/Home';
@@ -40,7 +37,7 @@ export const AppRouter: FunctionComponent = () => {
             />
           )}
         />
-        <Route path="/term-of-service" exact component={TermOfServiceHome} />
+        <Route path="/term-of-service" exact component={TermOfService} />
       </Switch>
     </>
   );
