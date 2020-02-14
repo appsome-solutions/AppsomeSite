@@ -6,6 +6,9 @@ import { CommonFormElementStyling } from './InputStyle';
 import FormikInput from '../../../components/FormikFields/FormikInput/FormikInput';
 import FormikTextArea from '../../../components/FormikFields/FormikTextArea/FormikTextArea';
 import { Form, Formik } from 'formik';
+import FormikCheckbox from '../../../components/FormikFields/FormikChecbox/FormikCheckbox';
+import * as Yup from 'yup';
+import { Link } from 'react-router-dom';
 
 const ContactStyle = styled.div`
   background-color: ${props => props.theme.colors.main.primary};
@@ -68,6 +71,30 @@ const SendButton = styled(Button)`
   width: 116px;
 `;
 
+const SignupSchema = Yup.object().shape({
+  name: Yup.string().required('Required'),
+  message: Yup.string().required('Required'),
+  email: Yup.string()
+    .email('Invalid email')
+    .required('Required'),
+  checkBox: Yup.boolean()
+    .required('Required')
+    .oneOf([true], 'You must accept Term Of Service and Privacy Policy.'),
+});
+
+const TermServiceAndPolicyText = styled.span`
+  ${props => props.theme.typography.overline};
+  cursor: pointer;
+  color: ${props => props.theme.colors.utils.background.mid.color};
+  &:hover {
+    color: ${props => props.theme.colors.main.secondary};
+    text-decoration-line: ${props => props.theme.textDecorationLine};
+  }
+`;
+const CheckBoxStyle = styled(FormikCheckbox)`
+  color: ${props => props.theme.colors.utils.background.mid.color};
+  ${props => props.theme.typography.overline};
+`;
 export const ContactStyled: FunctionComponent = () => (
   <ContactStyle className="Contact" id="Contact">
     <SectionTitle section="Contact" color="secondary" boxColor="primary" />
@@ -79,8 +106,10 @@ export const ContactStyled: FunctionComponent = () => (
         name: '',
         email: '',
         message: '',
+        checkBox: ``,
       }}
       onSubmit={() => console.log('mleko')}
+      validationSchema={SignupSchema}
     >
       <Form translate={false}>
         <InputBoxes>
@@ -100,6 +129,16 @@ export const ContactStyled: FunctionComponent = () => (
             InputComponent={(props: any) => <MessageTextArea {...props} placeholder="Message" />}
           />
         </MessageText>
+        <CheckBoxStyle name="checkBox">
+          I accept{' '}
+          <Link to="/term-of-service">
+            <TermServiceAndPolicyText>Term Of Service</TermServiceAndPolicyText>
+          </Link>{' '}
+          and{' '}
+          <Link to="/privacy-policy">
+            <TermServiceAndPolicyText>PRIVACY POLICY</TermServiceAndPolicyText>
+          </Link>
+        </CheckBoxStyle>
         <ButtonPosition>
           <SendButton htmlType="submit">SEND</SendButton>
         </ButtonPosition>
