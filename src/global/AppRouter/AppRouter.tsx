@@ -1,3 +1,4 @@
+import { TermOfService } from '../../pages/TermOfService/TermOfService';
 import React, { FunctionComponent, useEffect } from 'react';
 import { Route, Switch, useLocation } from 'react-router-dom';
 import { Home } from 'pages/Home/Home';
@@ -35,6 +36,11 @@ export const AppRouter: FunctionComponent = () => {
               personalDataOffice=" Personal Data Protection Office, ul. Stawki 2, 00-193 Warsaw)."
             />
           )}
+        />
+        <Route
+          path="/term-of-service"
+          exact
+          component={() => <TermOfService name="AppSome Solutions" nameOfBusiness="AppSome Solutions" />}
         />
       </Switch>
     </>
