@@ -94,8 +94,8 @@ const TermServiceAndPolicyText = styled.span`
 const CheckBoxStyle = styled(FormikCheckbox)`
   color: ${props => props.theme.colors.utils.background.mid.color};
   ${props => props.theme.typography.overline};
-  margin-left: 16px;
 `;
+
 export const ContactStyled: FunctionComponent = () => (
   <ContactStyle className="Contact" id="Contact">
     <SectionTitle section="Contact" color="secondary" boxColor="primary" />
