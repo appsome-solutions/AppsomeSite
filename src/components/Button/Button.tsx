@@ -1,15 +1,17 @@
 import styled from 'styled-components';
 import { Button as AntdButton } from 'antd';
+import { ButtonProps as AntdButtonProps } from 'antd/lib/button';
 import React from 'react';
 
 export type ButtonType = 'primary' | 'secondary';
-export interface ButtonProps {
+export interface LocalButtonProps {
   type?: ButtonType;
   className?: string;
   svgLink?: string;
   children?: React.ReactNode;
-  onClick?: React.MouseEventHandler;
 }
+
+export type ButtonProps = AntdButtonProps | LocalButtonProps;
 
 const ButtonStyled = styled(({ children, type, ...rest }) => <AntdButton {...rest}>{children}</AntdButton>)`
   && {
@@ -37,9 +39,9 @@ const ButtonStyled = styled(({ children, type, ...rest }) => <AntdButton {...res
   }
 `;
 
-export const Button = ({ type, children, className, onClick }: ButtonProps) => {
+export const Button = ({ type, children, className, ...restProps }: ButtonProps) => {
   return (
-    <ButtonStyled type={type} className={className} onClick={onClick}>
+    <ButtonStyled type={type} className={className} {...restProps}>
       {children}
     </ButtonStyled>
   );

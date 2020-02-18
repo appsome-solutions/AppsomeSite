@@ -19,6 +19,7 @@ const PortfolioStyle = styled.div`
   padding: 84px 112px 24px 192px;
   position: relative;
 `;
+
 const TextUnderSection = styled.h6`
   color: ${props => props.theme.colors.utils.text.dark};
   margin: 8px 0 0 16px;

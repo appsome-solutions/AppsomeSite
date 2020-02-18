@@ -1,10 +1,11 @@
-import React, { FunctionComponent } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { Icon } from 'components/Icon/Icon';
 import Shape5 from 'assets/Shape5.svg';
 import Shape4 from 'assets/Shape4.svg';
-import { animateScroll as scroll, Link, scroller } from 'react-scroll';
+import { Link } from 'react-scroll';
 import { Link as LinkRouter } from 'react-router-dom';
+import { scrollTo } from '../HeaderFooterCommon';
 
 const FooterBG = styled.div`
   background-color: ${props => props.theme.colors.utils.background.mid.color};
@@ -13,8 +14,6 @@ const FooterBG = styled.div`
   justify-content: space-between;
   position: relative;
 `;
-
-const TextBox = styled.div``;
 
 const AboutUs = styled.pre`
   ${props => props.theme.typography.body1};
@@ -63,6 +62,7 @@ const PrivacyPolicyText = styled.span`
     text-decoration-line: ${props => props.theme.textDecorationLine};
   }
 `;
+
 const TermOfServiceText = styled.span`
   ${props => props.theme.typography.overline};
   cursor: pointer;
@@ -74,29 +74,9 @@ const TermOfServiceText = styled.span`
   }
 `;
 
-const scrollToTop = () => {
-  scroll.scrollToTop();
-};
-
-const scrollToProcess = () => {
-  scroller.scrollTo('Process', { duration: 500, offset: -99, smooth: true });
-};
-
-const scrollToService = () => {
-  scroller.scrollTo('Service', { duration: 500, offset: -99, smooth: true });
-};
-
-const scrollToPortfolio = () => {
-  scroller.scrollTo('Portfolio', { duration: 500, offset: -99, smooth: true });
-};
-
-const scrollToContact = () => {
-  scroller.scrollTo('Contact', { duration: 500, offset: -99, smooth: true });
-};
-
-export const Footer: FunctionComponent = () => (
+export const Footer = () => (
   <FooterBG>
-    <TextBox>
+    <div>
       <AboutUs>About us</AboutUs>
       <ContactAddress>
         Zbożowa 4A 70-653 Szczecin Poland
@@ -104,28 +84,28 @@ export const Footer: FunctionComponent = () => (
         +48 783 697 219 <br />
         patrykjanik1710@gmail.com
       </ContactAddress>
-      <Link onClick={scrollToTop} to="Policy" spy={true} smooth={true} offset={-99} duration={500}>
+      <Link to="Policy" spy={true} smooth={true} offset={-99} duration={500}>
         <LinkRouter to="/privacy-policy">
           <PrivacyPolicyText>PRIVACY POLICY</PrivacyPolicyText>
         </LinkRouter>
       </Link>
-      <Link onClick={scrollToTop} to="TermOfService" spy={true} smooth={true} offset={-99} duration={500}>
+      <Link to="TermOfService" spy={true} smooth={true} offset={-99} duration={500}>
         <LinkRouter to="/term-of-service">
           <TermOfServiceText>TERM OF SERVICE</TermOfServiceText>
         </LinkRouter>
       </Link>
-    </TextBox>
+    </div>
     <BoxWithLinks>
-      <LinkRouter to="/" onClick={() => setTimeout(scrollToProcess)}>
+      <LinkRouter to="/" onClick={() => scrollTo('Process')}>
         <LinkText>Process</LinkText>
       </LinkRouter>
-      <LinkRouter to="/" onClick={() => setTimeout(scrollToService)}>
+      <LinkRouter to="/" onClick={() => scrollTo('Service')}>
         <LinkText>Services</LinkText>
       </LinkRouter>
-      <LinkRouter to="/" onClick={() => setTimeout(scrollToPortfolio)}>
+      <LinkRouter to="/" onClick={() => scrollTo('Portfolio')}>
         <LinkText>Portfolio</LinkText>
       </LinkRouter>
-      <LinkRouter to="/" onClick={() => setTimeout(scrollToContact)}>
+      <LinkRouter to="/" onClick={() => scrollTo('Contact')}>
         <LinkText>Contact</LinkText>
       </LinkRouter>
     </BoxWithLinks>
