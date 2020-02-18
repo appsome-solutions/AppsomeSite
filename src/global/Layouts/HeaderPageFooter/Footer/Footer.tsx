@@ -62,6 +62,7 @@ const PrivacyPolicyText = styled.span`
     text-decoration-line: ${props => props.theme.textDecorationLine};
   }
 `;
+
 const TermOfServiceText = styled.span`
   ${props => props.theme.typography.overline};
   cursor: pointer;
