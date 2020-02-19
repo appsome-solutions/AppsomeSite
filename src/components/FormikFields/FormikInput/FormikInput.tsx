@@ -18,7 +18,6 @@ const CustomInputComponent = (props: FormikInputProps) => {
   const inputValue = value || get(form.values, field.name);
 
   const FormInput = InputComponent || AntdInput;
-
   return (
     // @ts-ignore
     <FormInput
@@ -32,7 +31,6 @@ const CustomInputComponent = (props: FormikInputProps) => {
     />
   );
 };
-
 // eslint-disable-next-line react/display-name
 export default React.memo<MemoFormikInputProps>((props: MemoFormikInputProps) => (
   <Field {...props}>{(fieldProps: any) => withErrorMessage(CustomInputComponent)({ ...props, ...fieldProps })}</Field>
