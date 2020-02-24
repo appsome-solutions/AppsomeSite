@@ -4,6 +4,8 @@ import LogoSvg from 'assets/logo.svg';
 import { Link as LinkRouter } from 'react-router-dom';
 import Headroom from 'react-headroom';
 import { scrollTo } from '../HeaderFooterCommon';
+import { HamburgerMenu } from './HamburgerMenu/HamburgerMenu';
+import { media, useRWD } from '../../../RWD';
 
 const HeaderScroll = styled(Headroom)`
   position: relative;
@@ -27,6 +29,13 @@ const HeaderWrapper = styled.div`
   ::active {
     border-bottom: 1px solid ${props => props.theme.colors.utils.border.light};
   }
+  ${media.xs`
+    padding-left:16px;
+    padding-right: 16px;
+  `}
+  ${media.md`
+    padding-left: 80px;
+  `}
 `;
 
 const LinksPosition = styled.div`
@@ -42,26 +51,44 @@ const HeaderText = styled.h6`
     text-decoration-line: ${props => props.theme.textDecorationLine}
 `;
 
-export const Header = () => (
-  <HeaderScroll>
-    <HeaderWrapper>
-      <LinkRouter to="/">
-        <img src={LogoSvg} alt="" />
-      </LinkRouter>
-      <LinksPosition>
-        <LinkRouter to="/" onClick={() => scrollTo('Process')}>
-          <HeaderText>Process</HeaderText>
+const LogoSvgStyle = styled.img`
+  ${media.xs`
+  display:flex;
+  justify-content: space-between;
+
+  `}
+  ${media.md`
+  display:flex;
+  justify-content: space-between;
+  `}
+`;
+export const Header = () => {
+  const { more, less } = useRWD();
+
+  return (
+    <HeaderScroll>
+      <HeaderWrapper>
+        {less.md && <HamburgerMenu />}
+        <LinkRouter to="/">
+          <LogoSvgStyle src={LogoSvg} alt="" />
         </LinkRouter>
-        <LinkRouter to="/" onClick={() => scrollTo('Service')}>
-          <HeaderText>Services</HeaderText>
-        </LinkRouter>
-        <LinkRouter to="/" onClick={() => scrollTo('Portfolio')}>
-          <HeaderText>Portfolio</HeaderText>
-        </LinkRouter>
-        <LinkRouter to="/" onClick={() => scrollTo('Contact')}>
-          <HeaderText>Contact</HeaderText>
-        </LinkRouter>
-      </LinksPosition>
-    </HeaderWrapper>
-  </HeaderScroll>
-);
+        {more.md && (
+          <LinksPosition>
+            <LinkRouter to="/" onClick={() => scrollTo('Process')}>
+              <HeaderText>Process</HeaderText>
+            </LinkRouter>
+            <LinkRouter to="/" onClick={() => scrollTo('Service')}>
+              <HeaderText>Services</HeaderText>
+            </LinkRouter>
+            <LinkRouter to="/" onClick={() => scrollTo('Portfolio')}>
+              <HeaderText>Portfolio</HeaderText>
+            </LinkRouter>
+            <LinkRouter to="/" onClick={() => scrollTo('Contact')}>
+              <HeaderText>Contact</HeaderText>
+            </LinkRouter>
+          </LinksPosition>
+        )}
+      </HeaderWrapper>
+    </HeaderScroll>
+  );
+};

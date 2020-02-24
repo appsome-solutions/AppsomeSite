@@ -11,8 +11,7 @@ const WithErrorMessageContainer = styled.div`
 `;
 
 const ErrorText = styled.div`
-  font-size: 12px;
-  padding-left: 5px;
+  ${props => props.theme.typography.body1}
   color: ${props => props.theme.colors.functional.error};
 `;
 

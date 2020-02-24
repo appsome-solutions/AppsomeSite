@@ -2,6 +2,7 @@ import React, { FunctionComponent } from 'react';
 import styled from 'styled-components';
 import { Icon } from 'components/Icon/Icon';
 import Line from 'assets/Line.svg';
+import { media, useRWD } from 'global/RWD';
 export type PositionText = 'right' | 'left';
 export interface ElementProps {
   title?: string;
@@ -17,6 +18,9 @@ const ProcessTimeLineElement = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  ${media.xs`
+  margin-bottom:8px;
+  `}
 `;
 
 type WholeTextPosition = { positionText?: PositionText; contentPosition?: PositionText };
@@ -32,6 +36,14 @@ const Title = styled.h5`
 `;
 const IdeaContent = styled.pre`
   ${props => props.theme.typography.body1};
+  ${media.xs`
+  white-space: pre-wrap;
+  text-align: center;
+  `}
+  ${media.md`
+  white-space: pre;
+  text-align:inherit;
+  `}
 `;
 
 const Circle = styled.div`
@@ -57,7 +69,8 @@ const LineUnderSvg = styled(Icon)`
 
 export const TimeLineElement: FunctionComponent<ElementProps> = (props: ElementProps): JSX.Element => {
   const { title, content, svgLink, isWithLine = true } = props;
-  return (
+  const { more } = useRWD();
+  return more.md ? (
     <>
       <ProcessTimeLineElement>
         <Circle>
@@ -68,6 +81,17 @@ export const TimeLineElement: FunctionComponent<ElementProps> = (props: ElementP
           <IdeaContent>{content}</IdeaContent>
         </PositionWholeText>
       </ProcessTimeLineElement>
+      {isWithLine && <LineUnderSvg svgLink={Line} />}
+    </>
+  ) : (
+    <>
+      <ProcessTimeLineElement>
+        <Circle>
+          <IdeaIconStyle svgLink={svgLink} />
+        </Circle>
+      </ProcessTimeLineElement>
+      <Title>{title}</Title>
+      <IdeaContent>{content}</IdeaContent>
       {isWithLine && <LineUnderSvg svgLink={Line} />}
     </>
   );

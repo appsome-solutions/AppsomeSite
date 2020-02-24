@@ -9,85 +9,169 @@ import RequirementsIcon from 'assets/RequirementsIcon.svg';
 import RealizationIcon from 'assets/RealizationIcon.svg';
 import Shape2 from 'assets/Shape2.svg';
 import { Icon } from 'components/Icon/Icon';
+import { media, useRWD } from '../../../global/RWD';
+import ShapeProcess from 'assets/ShapeProcess.svg';
 
 const ProcessFrame = styled.div`
   background-color: ${props => props.theme.colors.utils.background.mid.color};
-  padding: 104px 104px 48px 180px;
   position: relative;
+  ${media.xs`
+  padding: 100px 20px;  
+  `}
+  ${media.md`
+  padding: 104px 104px 48px 180px;
+  `}
 `;
+
 const ProcessTimeLine = styled.div`
   margin: 40px 96px 60px 0;
   flex-direction: column;
   display: flex;
   align-items: center;
+  ${media.xs`
+    display: flex;
+  align-items: center;
+  margin: 0 0 0 0;
+  width:100%;
+  `}
 `;
 
 const BottomText = styled.div`
   float: right;
   ${props => props.theme.typography.body2}
+  ${media.xs`
+  margin-top: 60px;
+  `}
+  ${media.md`
+  margin-top:20px;`}
 `;
 
 const Shape = styled(Icon)`
   position: absolute;
+  background-color: ${props => props.theme.colors.main.secondary};
+  ${media.xs`
+  width:27px;
+  height:210px;
+  right: 0;
+  bottom: -2000px;
+  `}
+  ${media.md`
   width: 77px;
   height: 376px;
   right: 0px;
   bottom: -1620px;
-  background-color: ${props => props.theme.colors.main.secondary};
+  `}
 `;
 
-export const TheProcess: FunctionComponent = () => (
-  <>
-    <ProcessFrame className="Process" id="Process">
-      <SectionTitle section="The process" color="primary" boxColor="secondary" />
-      <ProcessTimeLine>
-        <TimeLineElement
-          positionText="right"
-          svgLink={IdeaIcon}
-          title="Idea"
-          content="Everything starts with your idea"
-          contentPosition="left"
-        />
+export const TheProcess: FunctionComponent = () => {
+  const { more } = useRWD();
+  return more.md ? (
+    <>
+      <ProcessFrame className="Process" id="Process">
+        <SectionTitle section="The process" color="primary" boxColor="secondary" />
+        <ProcessTimeLine>
+          <TimeLineElement
+            positionText="right"
+            svgLink={IdeaIcon}
+            title="Idea"
+            content="Everything starts with your idea"
+            contentPosition="left"
+          />
 
-        <TimeLineElement
-          positionText="left"
-          svgLink={RequirementsIcon}
-          title="Requirements"
-          content=" We talk together, gather your
+          <TimeLineElement
+            positionText="left"
+            svgLink={RequirementsIcon}
+            title="Requirements"
+            content="We talk together, gather your
 requirements and share our thoughts"
-          contentPosition="right"
-        />
+            contentPosition="right"
+          />
 
-        <TimeLineElement
-          positionText="right"
-          svgLink={DesignIcon}
-          title="*Designs"
-          content="Based on requirements we create full set of
-views with best User Experience in mind"
-          contentPosition="left"
-        />
+          <TimeLineElement
+            positionText="right"
+            svgLink={DesignIcon}
+            title="*Designs"
+            content="Based on requirements we create full set of
+views with best user experience in mind"
+            contentPosition="left"
+          />
 
-        <TimeLineElement
-          positionText="left"
-          svgLink={RealizationIcon}
-          title="Realization"
-          content="With some coffe and keyboard in hands we change
+          <TimeLineElement
+            positionText="left"
+            svgLink={RealizationIcon}
+            title="Realization"
+            content="With some coffe and keyboard in hands we change
 desings to working mobile or web applications"
-          contentPosition="right"
-        />
+            contentPosition="right"
+          />
 
-        <TimeLineElement
-          positionText="right"
-          svgLink={LaunchIcon}
-          title="Launch"
-          content="It’s time to make your working idea visible for others.
+          <TimeLineElement
+            positionText="right"
+            svgLink={LaunchIcon}
+            title="Launch"
+            content="It’s time to make your working idea visible for others.
 Let’s launch it!"
-          contentPosition="left"
-          isWithLine={false}
-        />
-      </ProcessTimeLine>
-      <BottomText>*Designs can be provided </BottomText>
-    </ProcessFrame>
-    <Shape svgLink={Shape2} />
-  </>
-);
+            contentPosition="left"
+            isWithLine={false}
+          />
+        </ProcessTimeLine>
+        <BottomText>*Designs can be provided </BottomText>
+      </ProcessFrame>
+      <Shape svgLink={Shape2} />
+    </>
+  ) : (
+    <>
+      <ProcessFrame className="Process" id="Process">
+        <SectionTitle section="The process" color="primary" boxColor="secondary" />
+        <ProcessTimeLine>
+          <TimeLineElement
+            positionText="right"
+            svgLink={IdeaIcon}
+            title="Idea"
+            content="Everything starts with your idea"
+            contentPosition="left"
+          />
+
+          <TimeLineElement
+            positionText="left"
+            svgLink={RequirementsIcon}
+            title="Requirements"
+            content="We talk together, gather your
+requirements and share our thoughts"
+            contentPosition="right"
+          />
+
+          <TimeLineElement
+            positionText="right"
+            svgLink={DesignIcon}
+            title="*Designs"
+            content="Based on requirements we create full set of
+views with best user experience in mind"
+            contentPosition="left"
+          />
+
+          <TimeLineElement
+            positionText="left"
+            svgLink={RealizationIcon}
+            title="Realization"
+            content="With some coffe and keyboard in hands we change
+desings to working mobile or web applications"
+            contentPosition="right"
+          />
+
+          <TimeLineElement
+            positionText="right"
+            svgLink={LaunchIcon}
+            title="Launch"
+            content="It’s time to make your working idea visible for others.
+Let’s launch it!"
+            contentPosition="left"
+            isWithLine={false}
+          />
+        </ProcessTimeLine>
+        <BottomText>*Designs can be provided </BottomText>
+      </ProcessFrame>
+      <Shape svgLink={ShapeProcess} />
+    </>
+  );
+};
