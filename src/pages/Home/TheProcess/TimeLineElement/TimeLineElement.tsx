@@ -21,6 +21,9 @@ const ProcessTimeLineElement = styled.div`
   ${media.xs`
   margin-bottom:8px;
   `}
+  ${media.md`
+  margin-bottom:0px;
+  `}
 `;
 
 type WholeTextPosition = { positionText?: PositionText; contentPosition?: PositionText };
@@ -63,8 +66,17 @@ const IdeaIconStyle = styled(Icon)`
 `;
 
 const LineUnderSvg = styled(Icon)`
+  ${media.xs`
   width: 4px;
+  height: 50px;
+  margin-bottom:16px;
+`}
+  ${media.md`
+    width: 4px;
+
   height: 70px;
+  margin-bottom:0;
+`}
 `;
 
 export const TimeLineElement: FunctionComponent<ElementProps> = (props: ElementProps): JSX.Element => {

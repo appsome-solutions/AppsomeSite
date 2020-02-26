@@ -17,7 +17,7 @@ const BannerStyle = styled.div`
   align-items: center;
   position: relative;
   ${media.xs`
-      padding: 30px 19px 100px 19px;
+      padding: 44px 16px 60px 16px;
       flex-direction: column;
   `}
   ${media.md`
@@ -31,7 +31,8 @@ const GroupedTextWithButton = styled.div`
   display: flex;
   ${media.xs`
   align-items:center;
-  margin:0 0 20px 0 ;
+  margin:0 0 0 0 ;
+  flex-direction: row;
   `}
   ${media.md`
      flex-direction: column;
@@ -40,11 +41,9 @@ const GroupedTextWithButton = styled.div`
 `;
 const FirstText = styled.h3`
   color: ${props => props.theme.colors.utils.background.mid.color};
-  margin-bottom: 24px;
   ${media.xs`
-     font-size: 30px;
-     line-height: 35px;
-     margin-right: 23px;
+     font-size: 34px;
+     margin-bottom: 44px;
   `}
   ${media.md`
      font-size: 48px;
@@ -53,20 +52,13 @@ const FirstText = styled.h3`
 `;
 const SecondText = styled.pre`
   color: ${props => props.theme.colors.utils.background.mid.color};
-  && {
-    ${props => props.theme.typography.body2}
-  }
+  ${props => props.theme.typography.body1};
+  white-space: pre-wrap;
   margin-bottom: 40px;
   ${media.xs`
-  width:100%;
-    line-height: 16px;
-    font-size: 14px;
-   white-space: pre-wrap;
+    width:100%;
   `}
   ${media.md`
-    line-height: 16px;
-    font-size: 14px;
-    white-space: pre-wrap;
   `}
 `;
 const ContactButton = styled(Button)`
@@ -128,12 +120,10 @@ export const Banner: FunctionComponent = () => {
     </BannerStyle>
   ) : (
     <BannerStyle>
-      <GroupedTextWithButton>
-        <FirstText>Change your idea into working product</FirstText>
-      </GroupedTextWithButton>
       <TextWrapperBottom>
+        <FirstText>Change your idea into working product</FirstText>
         <SecondText>
-          We are here to help you succeed. That is why we provide our time and top quality code. We care and take
+          We are here to help you succeed.That is why we provide our time and top quality code. We care and take
           responsibility for your products - you can focus on your business strategies!
         </SecondText>
         <Link to="Contact" spy={true} smooth={true} duration={500}>

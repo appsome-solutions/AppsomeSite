@@ -25,11 +25,10 @@ const ServiceStyle = styled.div`
 
 const OurSevicesBox = styled.div`
   ${media.xs`
-    margin-left:20px;
-  padding-bottom: 36px;
+  padding: 0 20px 36px 20px;
  `}
   ${media.md`
-    padding-bottom: 60px;
+   padding-bottom: 60px;
    margin-left: 192px;
  `}
 `;
@@ -37,7 +36,7 @@ const OurSevicesBox = styled.div`
 const WholeTextPre = styled.h6`
   color: ${props => props.theme.colors.utils.background.mid.color};
   ${media.xs`
-    margin-left:0;
+    margin: 20px 0 0 0;
     font-size: 16px;
     line-height: 19px;
   `}
@@ -47,18 +46,17 @@ const WholeTextPre = styled.h6`
 `;
 
 const RedText = styled.span`
-  margin-bottom: 0;
   color: ${props => props.theme.colors.main.secondary};
 `;
 
 const TechnicalsRow = styled.div`
-  padding: 36px 0 36px 0;
+  padding: 36px 0 12px 0;
   background-color: ${props => props.theme.colors.utils.background.mid.color};
   display: flex;
   ${media.xs`
-flex-direction: column;
+  flex-direction: column;
   `} ${media.md`
-   flex-direction: row;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
   `};
@@ -67,10 +65,12 @@ flex-direction: column;
 const IconsSvgs = styled.img`
   ${media.xs`
   margin-left: 0px;
-  margin-bottom:8px;
+  margin-bottom: 32px;
+
   `}
   ${media.md`
    margin-left: 100px; 
+   margin-bottom:0;
   `}
 `;
 
@@ -170,30 +170,13 @@ scrambled it to make a type specimen book."
         <ServiceBoxElement
           svgLink={Browser}
           title="Web Aplications"
-          content="Lorem Ipsum is simply dummy text of the printing and
-typesetting industry. Lorem Ipsum has been the industry's
-standard dummy text ever since the 1500s, when an
-unknown printer took a galley of type and scrambled it to
-make a type specimen book.Lorem Ipsum is simply
-dummy text of the printing and typesetting industry.
-Lorem Ipsum has been the industry's standard dummy
-text ever since the 1500s, when an unknown printer took
-a galley of type and scrambled it to make a type
-specimen book."
+          content="Lorem Ipsum is simply dummy text of
+          the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
         />
         <RightElementWithMarign
           svgLink={App}
           title="Mobile Aplications"
-          content="Lorem Ipsum is simply dummy text of the printing and
-typesetting industry. Lorem Ipsum has been the
-industry's standard dummy text ever since the 1500s,
-when an unknown printer took a galley of type and
-scrambled it to make a type specimen book.Lorem
-Ipsum is simply dummy text of the printing and
-typesetting industry. Lorem Ipsum has been the
-industry's standard dummy text ever since the 1500s,
-when an unknown printer took a galley of type and
-scrambled it to make a type specimen book."
+          content="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
         />
       </ServicesCardsBox>
     </ServiceStyle>

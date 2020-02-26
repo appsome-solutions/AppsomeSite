@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import styled from 'styled-components';
+import { media } from '../../global/RWD';
 
 export interface PolicyProps {
   name?: string;
@@ -14,10 +15,16 @@ export interface PolicyProps {
 
 const PrivacyPolicyBg = styled.div`
   background-color: ${props => props.theme.colors.main.primary};
-  padding: 36px 80px 48px 80px;
   display: flex;
   justify-content: center;
   align-items: center;
+  ${media.xs`
+    padding: 20px 20px 20px 20px;
+    white-space: pre-wrap;
+  `}
+  ${media.md`
+    padding: 36px 80px 48px 80px;
+  `}
 `;
 const PrivacyPolicyText = styled.span`
   ${props => props.theme.typography.body1};
@@ -93,8 +100,9 @@ export const PrivacyPolicy: FunctionComponent<PolicyProps> = (props: PolicyProps
             <br />
             TIN: 5272680543.
             <br />
-            <br /> <TitleWeight>You, Yours</TitleWeight> – any natural person whose Personal data we process and to whom
-            this Privacy Policy applies.
+            <br />
+            <TitleWeight>You, Yours</TitleWeight> – any natural person whose Personal data we process and to whom this
+            Privacy Policy applies.
             <br />
             <br />
             <TitleWeight>GDPR </TitleWeight>– Regulation (EU) 2016/679 of the European Parliament and of the Council of
@@ -104,7 +112,7 @@ export const PrivacyPolicy: FunctionComponent<PolicyProps> = (props: PolicyProps
             Protection Regulation).
             <br />
             <br />
-            <TitleWeight> Website </TitleWeight>– our website and its subpages: {webPage}
+            <TitleWeight>Website </TitleWeight>– our website and its subpages: {webPage}
             <br /> <br />
             <TitleWeight>Recipients </TitleWeight>– entities to whom we may transfer a part of your personal data, in
             connection with the performance of certain activities or services by them on our behalf.
@@ -115,14 +123,16 @@ export const PrivacyPolicy: FunctionComponent<PolicyProps> = (props: PolicyProps
             securely and only for as long as we indicate or as required by applicable law.
             <br />
             <br />
-            <TitleWeight> Cookies</TitleWeight> – the so-called Internet cookies, i.e. tiny information recorded by the
+            <TitleWeight>Cookies</TitleWeight> – the so-called Internet cookies, i.e. tiny information recorded by the
             server on your computer disc in the form of small text files.
             <br />
-            <br /> <TitleWeight>Privacy Policy</TitleWeight> – this policy sets forth the principles governing cookies
-            and processing and protection of personal data.
+            <br />
+            <TitleWeight>Privacy Policy</TitleWeight> – this policy sets forth the principles governing cookies and
+            processing and protection of personal data.
           </TextMargin>
           <TextMargin>
-            <TextH5>Who will be your data controller?</TextH5> {personalData}
+            <TextH5>Who will be your data controller?</TextH5>
+            {personalData}
             <br />
             This means that we decide for what purpose the personal data you have provided to us are processed. We want
             you to know that we make every effort to keep your
@@ -134,7 +144,7 @@ export const PrivacyPolicy: FunctionComponent<PolicyProps> = (props: PolicyProps
             <br />
           </TextMargin>
           <TextMargin>
-            <TextH5> What data are we talking about? </TextH5>This includes personal data collected as part of your use
+            <TextH5>What data are we talking about? </TextH5>This includes personal data collected as part of your use
             of our services, including the services and other functionalities provided by TSH on the Website and stored
             in
             <br />
@@ -153,8 +163,9 @@ export const PrivacyPolicy: FunctionComponent<PolicyProps> = (props: PolicyProps
             In order to provide you with as clear information as possible, we have grouped this information together,
             referring to the legal basis for processing your personal data.
             <br />
-            <br /> We process your personal data for the purposes set out below on the basis of a legitimate interest
-            (Art. 6.1(f) GDPR) of the TSH, which is:
+            <br />
+            We process your personal data for the purposes set out below on the basis of a legitimate interest (Art.
+            6.1(f) GDPR) of the TSH, which is:
           </TextMargin>
           <ListUnordered>
             <ListCircle>marketing activities provided for you, including the TSH own services marketing; </ListCircle>
@@ -228,13 +239,15 @@ export const PrivacyPolicy: FunctionComponent<PolicyProps> = (props: PolicyProps
           <br />
           cloud computing providers, marketing agencies, subcontractors of our services (such as accounting and legal
           services) and entities entitled to obtain data under applicable
-          <br /> law, such as courts or law enforcement agencies, only if they make a request on an appropriate legal
-          basis, of course.
+          <br />
+          law, such as courts or law enforcement agencies, only if they make a request on an appropriate legal basis, of
+          course.
           <TextH5>Is providing personal data voluntary?</TextH5>
           Providing your data is voluntary. We require you to provide personal data only at the stage of entering into
           an agreement with us (e.g. in the scope of sending a newsletter
-          <br /> or e-book), and then in connection with the need to settle it (i.e. for accounting, tax or protection
-          against claims).
+          <br />
+          or e-book), and then in connection with the need to settle it (i.e. for accounting, tax or protection against
+          claims).
           <TextH5>What are your rights regarding your data?</TextH5>
           In connection with the processing of personal data, pursuant to the principles set forth in the provisions on
           the protection of personal data, including the GDPR, you are
@@ -308,8 +321,9 @@ export const PrivacyPolicy: FunctionComponent<PolicyProps> = (props: PolicyProps
           <br />
           If you would like to exercise any of these rights, simply email us at: admin@tsh.io.
           <br />
-          <br /> What is more, you have the right to lodge a complaint with the supervisory authority responsible for
-          the processing of your personal data by us: President of the Personal
+          <br />
+          What is more, you have the right to lodge a complaint with the supervisory authority responsible for the
+          processing of your personal data by us: President of the Personal
           <br />
           Data Protection Office (address:
           {personalDataOffice}
@@ -348,8 +362,8 @@ export const PrivacyPolicy: FunctionComponent<PolicyProps> = (props: PolicyProps
           the services provided. Similar effects may occur when deleting the Cookies in the course of the service
           provision.
           <br />
-          <br /> Information on how to delete Cookies in the most popular web browsers are included in the following
-          links:
+          <br />
+          Information on how to delete Cookies in the most popular web browsers are included in the following links:
           <br />
           <br />
           <ListUnordered>

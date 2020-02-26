@@ -70,16 +70,40 @@ export const HamburgerMenu = () => {
       <StyledDrawer placement="left" closable={false} onClose={() => setIsMenuOpened(false)} visible={isMenuOpened}>
         <MenuDivider />
         <DrawerWrapper>
-          <StyledLink onClick={() => scrollTo('Process')} to="/">
+          <StyledLink
+            onClick={() => {
+              scrollTo('Process');
+              setIsMenuOpened(false);
+            }}
+            to="/"
+          >
             Process
           </StyledLink>
-          <StyledLink onClick={() => scrollTo('Service')} to="/">
+          <StyledLink
+            onClick={() => {
+              scrollTo('Service');
+              setIsMenuOpened(false);
+            }}
+            to="/"
+          >
             Service
           </StyledLink>
-          <StyledLink to="/" onClick={() => scrollTo('Portfolio')}>
+          <StyledLink
+            to="/"
+            onClick={() => {
+              scrollTo('Portfolio');
+              setIsMenuOpened(false);
+            }}
+          >
             Portfolio
           </StyledLink>
-          <StyledLink to="/" onClick={() => scrollTo('Contact')}>
+          <StyledLink
+            to="/"
+            onClick={() => {
+              scrollTo('Contact');
+              setIsMenuOpened(false);
+            }}
+          >
             Contact
           </StyledLink>
         </DrawerWrapper>

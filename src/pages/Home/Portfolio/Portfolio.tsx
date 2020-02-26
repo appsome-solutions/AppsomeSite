@@ -4,27 +4,26 @@ import { SectionTitle } from 'components/SectionTitle/SectionTitle';
 import { Icon } from 'components/Icon/Icon';
 import Shape3 from 'assets/Shape3.svg';
 import { PortfolioCarousel } from './PortfolioProperties';
-import laptop from 'assets/laptop.svg';
-import Phone from 'assets/Phone.svg';
-import Oncologist from 'assets/Oncologist.png';
-import ProList from 'assets/ProList.png';
-import PersonaShare from 'assets/PersonaShare.png';
 import { Carousel } from 'antd';
 import LeftVector from 'assets/LeftVector.svg';
 import Vector from 'assets/Vector.svg';
 import { Button } from 'components/Button/Button';
 import { media, useRWD } from '../../../global/RWD';
 import ShapePortfolio from 'assets/ShapePortfolio.svg';
+import ZVision from 'assets/ZVision.svg';
+import Persona from 'assets/Persona.svg';
+import Cafe from 'assets/Cafe.svg';
+import ProList from 'assets/ProList.svg';
+import Oncologist from 'assets/Oncologist.svg';
 
 const PortfolioStyle = styled.div`
   background-color: ${props => props.theme.colors.utils.background.mid.color};
   position: relative;
   ${media.xs`
   padding: 36px 24px 32px 24px;
-  `}
-  ${media.md`
+  `} ${media.md`
   padding: 84px 112px 24px 192px;
-`}
+`};
 `;
 
 const TextUnderSection = styled.h6`
@@ -43,7 +42,7 @@ const Shape = styled(Icon)`
   background-color: ${props => props.theme.colors.main.secondary};
   ${media.xs`
   left:0;
-  top: 1050px;
+  top: 800px;
   height: 170px;
   width: 31px;
   `}
@@ -111,11 +110,9 @@ export const PortfolioStyled: FunctionComponent = () => {
         <SectionTitle section="Portfolio" color="primary" boxColor="secondary" />
       </div>
       <TextUnderSection>Our projects makes us proud</TextUnderSection>
-      <Carousel ref={carouselRef} dots={false}>
+      <Carousel ref={carouselRef} dots={false} adaptiveHeight={true}>
         <PortfolioCarousel
-          svgLink={laptop}
-          imgDimension="laptop"
-          svgImage={Oncologist}
+          svgLink={Oncologist}
           title="Onkolog Online"
           description="With Onkolog Online you can get advice or deep analise of your case from top specialists from oncology
         area. Website communication is based on emails and time for response takes maximum to 48h."
@@ -124,9 +121,7 @@ export const PortfolioStyled: FunctionComponent = () => {
           TestimonialPerson="Founder, Dawid Stefaniec"
         />
         <PortfolioCarousel
-          svgLink={Phone}
-          imgDimension="phone"
-          svgImage={PersonaShare}
+          svgLink={Persona}
           title="Persona Share"
           description="Mobile application which aims to assists in a personal branding and expanding local companies
         to be more visible in real life by using QR codes."
@@ -135,14 +130,28 @@ export const PortfolioStyled: FunctionComponent = () => {
           TestimonialPerson="Founder, Mateusz Żukowski"
         />
         <PortfolioCarousel
-          imgDimension="laptop"
-          svgLink={laptop}
-          svgImage={ProList}
+          svgLink={ProList}
           title="ProList"
           description="Website which manage specialists from given profession. With displaying their work, skillset in a graph representation."
           challenges="Advanced graph visualisation"
           TestimonialText="The website they built for us is better than I ever thought it could be."
           TestimonialPerson="Marketing and Sales, Magdalena Banasa"
+        />
+        <PortfolioCarousel
+          svgLink={Cafe}
+          title="Cafe"
+          description="It is a presentational website that attracts customers to visit this place. Includes a rich gallery and menu."
+          challenges="Creating an astonishing, beautiful design and photographies"
+          TestimonialText="Communication and cooperation were great, the product was delivered fast with quality that exceeded expectations !"
+          TestimonialPerson="Mark Rowe Owner"
+        />
+        <PortfolioCarousel
+          svgLink={ZVision}
+          title="Z Vision"
+          description="It is a website and mobile, presenting photographic work and booking system. It allows browsing of different plans for weddings, tourist tours, studio and fashion events."
+          challenges="Creating 'live' booking system, for instant communication between company and customers, along with email notifications"
+          TestimonialText="Highly impressive approach to work, we had no troubles during the process of refinement and then the product was done fast and in the highest quality. Also they provide great support in case of needs and/or questions!"
+          TestimonialPerson="Margot Regan, Managing Director"
         />
       </Carousel>
       <ArrowButtonsBox>
@@ -161,11 +170,10 @@ export const PortfolioStyled: FunctionComponent = () => {
         <SectionTitle section="Portfolio" color="primary" boxColor="secondary" />
       </div>
       <TextUnderSection>Our projects makes us proud</TextUnderSection>
-      <Carousel ref={carouselRef} dots={false}>
+      <Carousel ref={carouselRef} dots={false} adaptiveHeight={true}>
         <PortfolioCarousel
-          svgLink={laptop}
           imgDimension="laptop"
-          svgImage={Oncologist}
+          svgLink={Oncologist}
           title="Onkolog Online"
           description="With Onkolog Online you can get advice or deep analise of your case from top specialists from oncology
         area. Website communication is based on emails and time for response takes maximum to 48h."
@@ -174,9 +182,7 @@ export const PortfolioStyled: FunctionComponent = () => {
           TestimonialPerson="Founder, Dawid Stefaniec"
         />
         <PortfolioCarousel
-          svgLink={Phone}
-          imgDimension="phone"
-          svgImage={PersonaShare}
+          svgLink={Persona}
           title="Persona Share"
           description="Mobile application which aims to assists in a personal branding and expanding local companies
         to be more visible in real life by using QR codes."
@@ -186,13 +192,28 @@ export const PortfolioStyled: FunctionComponent = () => {
         />
         <PortfolioCarousel
           imgDimension="laptop"
-          svgLink={laptop}
-          svgImage={ProList}
+          svgLink={ProList}
           title="ProList"
           description="Website which manage specialists from given profession. With displaying their work, skillset in a graph representation."
           challenges="Advanced graph visualisation"
           TestimonialText="The website they built for us is better than I ever thought it could be."
           TestimonialPerson="Marketing and Sales, Magdalena Banasa"
+        />
+        <PortfolioCarousel
+          svgLink={Cafe}
+          title="Cafe"
+          description="It is a presentational website that attracts customers to visit this place. Includes a rich gallery and menu."
+          challenges="Creating an astonishing, beautiful design and photographies"
+          TestimonialText="Communication and cooperation were great, the product was delivered fast with quality that exceeded expectations !"
+          TestimonialPerson="Mark Rowe Owner"
+        />
+        <PortfolioCarousel
+          svgLink={ZVision}
+          title="Z Vision"
+          description="It is a website and mobile, presenting photographic work and booking system. It allows browsing of different plans for weddings, tourist tours, studio and fashion events."
+          challenges="Creating 'live' booking system, for instant communication between company and customers, along with email notifications"
+          TestimonialText="Highly impressive approach to work, we had no troubles during the process of refinement and then the product was done fast and in the highest quality. Also they provide great support in case of needs and/or questions!"
+          TestimonialPerson="Margot Regan, Managing Director "
         />
       </Carousel>
       <ArrowButtonsBox>

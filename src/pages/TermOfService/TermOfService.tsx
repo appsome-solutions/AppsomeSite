@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import styled from 'styled-components';
+import { media } from '../../global/RWD';
 
 export interface TermServiceProps {
   name?: string;
@@ -8,14 +9,25 @@ export interface TermServiceProps {
 
 const MainComponent = styled.div`
   background-color: ${props => props.theme.colors.main.primary};
-  padding: 40px 80px 40px 80px;
   ${props => props.theme.typography.body1};
   color: ${props => props.theme.colors.utils.background.mid.color};
+  ${media.xs`
+    padding: 20px 20px 20px 20px;
+    white-space: pre-wrap;
+  `}
+  ${media.md`
+  padding: 40px 80px 40px 80px;
+  `}
 `;
 
 const TextH4 = styled.h4`
   color: ${props => props.theme.colors.utils.background.mid.color};
   margin: 20px 0 20px 0;
+  ${media.xs`
+    font-size: 24px;
+    line-height:24px;
+    `}
+  ${media.md``}
 `;
 
 const TextH5 = styled.h5`

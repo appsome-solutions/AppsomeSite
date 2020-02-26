@@ -30,8 +30,7 @@ const HeaderWrapper = styled.div`
     border-bottom: 1px solid ${props => props.theme.colors.utils.border.light};
   }
   ${media.xs`
-    padding-left:16px;
-    padding-right: 16px;
+    padding:0 16px;
   `}
   ${media.md`
     padding-left: 80px;
@@ -52,15 +51,8 @@ const HeaderText = styled.h6`
 `;
 
 const LogoSvgStyle = styled.img`
-  ${media.xs`
-  display:flex;
+  display: flex;
   justify-content: space-between;
-
-  `}
-  ${media.md`
-  display:flex;
-  justify-content: space-between;
-  `}
 `;
 export const Header = () => {
   const { more, less } = useRWD();

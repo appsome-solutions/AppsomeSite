@@ -9,7 +9,6 @@ export interface PortfolioProps {
   title?: string;
   description?: string | JSX.Element;
   svgLink?: string;
-  svgImage?: string;
   challenges?: string;
   TestimonialText?: string;
   TestimonialPerson?: string;
@@ -20,11 +19,10 @@ const PortfolioDescription = styled.div`
   ${media.xs`
   margin-left: 0;
   padding: 8px 0 0 0;
-  `}
-  ${media.md`
+  `} ${media.md`
   margin-left: 44px;
   padding: 140px 0 176px 0;
-`}
+`};
 `;
 
 const DescriptionSiteBox = styled.div`
@@ -70,7 +68,7 @@ const CarouselWhole = styled.div`
   `}
   ${media.md`
   flex-direction:row;
-    align-items: stretch;
+   align-items: center;
   `}
 `;
 
@@ -90,32 +88,32 @@ const QuoteSign = styled(Icon)`
   width: 20px;
 `;
 
-const ImgBox = styled.div`
+type imgProps = { imgDimension?: imgDimensions };
+const ImgBox = styled.div<imgProps>`
   position: relative;
   display: flex;
+  justify-content: center;
+  ${media.xs`margin-right:4px`}
+  ${media.md`margin-right:126px;`}
+  margin-bottom: ${props => (props.imgDimension === 'laptop' ? '50px' : '0px')};
+  margin-top: ${props => (props.imgDimension === 'laptop' ? '50px' : '0px')};
 `;
 
 const ImgDiv = styled.img`
-  margin-right: 136px;
-`;
-
-type imgProps = { imgDimension?: imgDimensions };
-const WebSvg = styled.img<imgProps>`
-  position: absolute;
-  width:  ${props => (props.imgDimension === 'phone' ? '224px;' : '488px;')}
-  height:  ${props => (props.imgDimension === 'phone' ? '392px;' : '300px;')}
-  top: ${props => (props.imgDimension === 'phone' ? '120px;' : '184px;')}
-  left: ${props => (props.imgDimension === 'phone' ? '10px;' : '60px;')}
+  position: relative;
+  display: flex;
+  height: 100%;
+  ${media.xs`width:100%;`};
+  ${media.md`width:auto;`};
 `;
 
 export const PortfolioCarousel: FunctionComponent<PortfolioProps> = (props: PortfolioProps): JSX.Element => {
-  const { title, description, svgLink, TestimonialPerson, TestimonialText, challenges, svgImage, imgDimension } = props;
+  const { title, description, svgLink, TestimonialPerson, TestimonialText, challenges, imgDimension } = props;
   const { more } = useRWD();
   return more.md ? (
     <CarouselWhole>
       <ImgBox>
         <ImgDiv src={svgLink} />
-        <WebSvg src={svgImage} imgDimension={imgDimension} />
       </ImgBox>
       <PortfolioDescription>
         <TitleSite>{title}</TitleSite>
@@ -138,9 +136,8 @@ export const PortfolioCarousel: FunctionComponent<PortfolioProps> = (props: Port
     </CarouselWhole>
   ) : (
     <CarouselWhole>
-      <ImgBox>
+      <ImgBox imgDimension={imgDimension}>
         <ImgDiv src={svgLink} />
-        <WebSvg src={svgImage} imgDimension={imgDimension} />
       </ImgBox>
       <PortfolioDescription>
         <TitleSite>{title}</TitleSite>

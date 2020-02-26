@@ -31,7 +31,7 @@ const ProcessTimeLine = styled.div`
   ${media.xs`
     display: flex;
   align-items: center;
-  margin: 0 0 0 0;
+  margin: 32px 0 0 0;
   width:100%;
   `}
 `;
@@ -53,13 +53,13 @@ const Shape = styled(Icon)`
   width:27px;
   height:210px;
   right: 0;
-  bottom: -2000px;
+  bottom: -1800px;
   `}
   ${media.md`
   width: 77px;
   height: 376px;
   right: 0px;
-  bottom: -1620px;
+  bottom: -1280px;
   `}
 `;
 
