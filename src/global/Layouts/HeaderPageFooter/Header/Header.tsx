@@ -5,7 +5,7 @@ import { Link as LinkRouter } from 'react-router-dom';
 import Headroom from 'react-headroom';
 import { scrollTo } from '../HeaderFooterCommon';
 import { HamburgerMenu } from './HamburgerMenu/HamburgerMenu';
-import { media, useRWD } from '../../../RWD';
+import { media, useRWD } from 'global/RWD';
 
 const HeaderScroll = styled(Headroom)`
   position: relative;

@@ -18,7 +18,7 @@ export interface PortfolioProps {
 const PortfolioDescription = styled.div`
   ${media.xs`
   margin-left: 0;
-  padding: 8px 0 0 0;
+  padding-top: 8px;
   `} ${media.md`
   margin-left: 44px;
   padding: 140px 0 176px 0;
@@ -56,7 +56,7 @@ const QuotationBoxWithText = styled.div`
   justify-content: center;
   text-align: center;
   font-style: italic;
-  padding: 0 24px 0 24px;
+  padding: 0 24px;
 `;
 
 const CarouselWhole = styled.div`
@@ -95,8 +95,6 @@ const ImgBox = styled.div<imgProps>`
   justify-content: center;
   ${media.xs`margin-right:4px`}
   ${media.md`margin-right:126px;`}
-  margin-bottom: ${props => (props.imgDimension === 'laptop' ? '50px' : '0px')};
-  margin-top: ${props => (props.imgDimension === 'laptop' ? '50px' : '0px')};
 `;
 
 const ImgDiv = styled.img`
@@ -109,36 +107,19 @@ const ImgDiv = styled.img`
 
 export const PortfolioCarousel: FunctionComponent<PortfolioProps> = (props: PortfolioProps): JSX.Element => {
   const { title, description, svgLink, TestimonialPerson, TestimonialText, challenges, imgDimension } = props;
-  const { more } = useRWD();
-  return more.md ? (
+  const { less, more } = useRWD();
+  return (
     <CarouselWhole>
-      <ImgBox>
-        <ImgDiv src={svgLink} />
-      </ImgBox>
-      <PortfolioDescription>
-        <TitleSite>{title}</TitleSite>
-        <DescriptionSiteBox>
-          <DescriptionSite>
-            {description}
-            <Challenges>Challenges</Challenges>
-            {challenges}
-          </DescriptionSite>
-        </DescriptionSiteBox>
-        <QuotationBoxWithQuoteSvg>
-          <QuoteSign svgLink={Quote} />
-          <QuotationBoxWithText>{TestimonialText}</QuotationBoxWithText>
-          <BoxWithSecondQuote>
-            <QuoteSign svgLink={Quote} />
-          </BoxWithSecondQuote>
-          <AuthorText>{TestimonialPerson}</AuthorText>
-        </QuotationBoxWithQuoteSvg>
-      </PortfolioDescription>
-    </CarouselWhole>
-  ) : (
-    <CarouselWhole>
-      <ImgBox imgDimension={imgDimension}>
-        <ImgDiv src={svgLink} />
-      </ImgBox>
+      {more.md && (
+        <ImgBox>
+          <ImgDiv src={svgLink} />
+        </ImgBox>
+      )}
+      {less.md && (
+        <ImgBox imgDimension={imgDimension}>
+          <ImgDiv src={svgLink} />
+        </ImgBox>
+      )}
       <PortfolioDescription>
         <TitleSite>{title}</TitleSite>
         <DescriptionSiteBox>

@@ -27,27 +27,28 @@ const BannerStyle = styled.div`
 `;
 
 const GroupedTextWithButton = styled.div`
-  margin-right: 40px;
   display: flex;
+  flex-direction: column;
   ${media.xs`
-  align-items:center;
-  margin:0 0 0 0 ;
-  flex-direction: row;
+  margin-right:0
   `}
   ${media.md`
-     flex-direction: column;
-     align-items: baseline;
+  margin-right: 40px;
+   align-items: baseline;
   `}
 `;
+
 const FirstText = styled.h3`
   color: ${props => props.theme.colors.utils.background.mid.color};
   ${media.xs`
-     font-size: 34px;
-     margin-bottom: 44px;
+   font-size: 34px;
+   margin-bottom: 44px;
   `}
   ${media.md`
-     font-size: 48px;
-     line-height: 56px;
+   font-size: 48px;
+   line-height: 56px;
+   margin-bottom: 26px;
+
   `}
 `;
 const SecondText = styled.pre`
@@ -56,18 +57,13 @@ const SecondText = styled.pre`
   white-space: pre-wrap;
   margin-bottom: 40px;
   ${media.xs`
-    width:100%;
-  `}
-  ${media.md`
+  width:100%;
   `}
 `;
 const ContactButton = styled(Button)`
   width: 200px;
   ${media.xs`
   width:100%;
-  `}
-  ${media.md`
-width:auto;
   `}
 `;
 const Shape = styled(Icon)`
@@ -88,49 +84,23 @@ const Shape = styled(Icon)`
   `}
 `;
 
-const BannerPhotoImg = styled.img``;
-
-const TextWrapperBottom = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
-
 export const Banner: FunctionComponent = () => {
   const { more } = useRWD();
-  return more.md ? (
+  return (
     <BannerStyle>
       <GroupedTextWithButton>
-        <FirstText>
-          Change your idea into
-          <br /> working product
-        </FirstText>
-        <SecondText>
-          We are here to help you succeed. That is why we provide our time
-          <br />
-          and top quality code. We care and take responsibility for your
-          <br />
-          products - you can focus on your business strategies!
-        </SecondText>
-        <Link to="Contact" spy={true} smooth={true} duration={500}>
-          <ContactButton type="secondary">Contact Us</ContactButton>
-        </Link>
-        <Shape svgLink={Shape1} />
-      </GroupedTextWithButton>
-      <BannerPhotoImg src={BannerPhoto} alt="" />
-    </BannerStyle>
-  ) : (
-    <BannerStyle>
-      <TextWrapperBottom>
         <FirstText>Change your idea into working product</FirstText>
         <SecondText>
-          We are here to help you succeed.That is why we provide our time and top quality code. We care and take
+          We are here to help you succeed. That is why we provide our time and top quality code. We care and take
           responsibility for your products - you can focus on your business strategies!
         </SecondText>
         <Link to="Contact" spy={true} smooth={true} duration={500}>
           <ContactButton type="secondary">Contact Us</ContactButton>
         </Link>
+        {more.md && <Shape svgLink={Shape1} />}
         <Shape svgLink={ShapeSmallBanner} />
-      </TextWrapperBottom>
+      </GroupedTextWithButton>
+      {more.md && <img src={BannerPhoto} alt="" />}
     </BannerStyle>
   );
 };

@@ -10,7 +10,7 @@ import App from 'assets/App.svg';
 import Browser from 'assets/Browser.svg';
 import { SectionTitle } from 'components/SectionTitle/SectionTitle';
 import { ServiceBoxElement } from './ServiceBox/ServiceBox';
-import { media, useRWD } from '../../../global/RWD';
+import { media, useRWD } from 'global/RWD';
 
 const ServiceStyle = styled.div`
   background-color: ${props => props.theme.colors.main.primary};
@@ -19,7 +19,6 @@ const ServiceStyle = styled.div`
  `}
   ${media.md`
   padding-top: 98px;
-
  `}
 `;
 
@@ -96,16 +95,28 @@ const RightElementWithMarign = styled(ServiceBoxElement)`
 `;
 
 export const OurServices: FunctionComponent = () => {
-  const { more } = useRWD();
-  return more.md ? (
+  const { less, more } = useRWD();
+  return (
     <ServiceStyle id="Service">
       <OurSevicesBox>
         <SectionTitle section="Our Service" color="secondary" boxColor="primary" />
-        <WholeTextPre>
-          We specialize in web technologies - simply saying we are in love with <RedText>JavaScript!</RedText>
-          <br />
-          Those are few we know at expert level:
-        </WholeTextPre>
+        {more.md && (
+          <WholeTextPre>
+            We specialize in web technologies - simply saying we are in love with <RedText>JavaScript!</RedText>
+            <br />
+            Those are few we know at expert level:
+          </WholeTextPre>
+        )}
+        {less.md && (
+          <WholeTextPre>
+            We specialize in web technologies -<br /> simply saying we are in love with
+            <br /> <RedText>JavaScript!</RedText>
+            <br />
+            <br />
+            <br />
+            Those are few we know at expert level:
+          </WholeTextPre>
+        )}
       </OurSevicesBox>
       <TechnicalsRow>
         <IconsSvgs src={JsTs} alt="" />
@@ -143,40 +154,6 @@ typesetting industry. Lorem Ipsum has been the
 industry's standard dummy text ever since the 1500s,
 when an unknown printer took a galley of type and
 scrambled it to make a type specimen book."
-        />
-      </ServicesCardsBox>
-    </ServiceStyle>
-  ) : (
-    <ServiceStyle id="Service">
-      <OurSevicesBox>
-        <SectionTitle section="Our Service" color="secondary" boxColor="primary" />
-        <WholeTextPre>
-          We specialize in web technologies - simply saying we are in love with <RedText>JavaScript!</RedText>
-          <br />
-          <br />
-          <br />
-          Those are few we know at expert level:
-        </WholeTextPre>
-      </OurSevicesBox>
-      <TechnicalsRow>
-        <IconsSvgs src={JsTs} alt="" />
-        <IconsSvgs src={Mongo} alt="" />
-        <IconsSvgs src={ReactIcon} alt="" />
-        <IconsSvgs src={Node} alt="" />
-        <IconsSvgs src={Pwa} alt="" />
-        <IconsSvgs src={Graphql} alt="" />
-      </TechnicalsRow>
-      <ServicesCardsBox>
-        <ServiceBoxElement
-          svgLink={Browser}
-          title="Web Aplications"
-          content="Lorem Ipsum is simply dummy text of
-          the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
-        />
-        <RightElementWithMarign
-          svgLink={App}
-          title="Mobile Aplications"
-          content="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
         />
       </ServicesCardsBox>
     </ServiceStyle>

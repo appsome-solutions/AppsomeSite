@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import styled from 'styled-components';
-import { media } from '../../global/RWD';
+import { media } from 'global/RWD';
 
 export interface PolicyProps {
   name?: string;
@@ -19,7 +19,7 @@ const PrivacyPolicyBg = styled.div`
   justify-content: center;
   align-items: center;
   ${media.xs`
-    padding: 20px 20px 20px 20px;
+    padding: 20px;
     white-space: pre-wrap;
   `}
   ${media.md`
@@ -39,8 +39,7 @@ const TextMargin = styled.div`
 `;
 const TextH5 = styled.h5`
   color: ${props => props.theme.colors.utils.background.mid.color};
-  margin-bottom: 20px;
-  margin-top: 20px;
+  margin: 20px 0;
 `;
 const ListUnordered = styled.ul`
   list-style: none;

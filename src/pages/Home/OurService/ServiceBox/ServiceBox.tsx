@@ -2,7 +2,7 @@ import React, { FunctionComponent } from 'react';
 import styled from 'styled-components';
 import { Button } from 'components/Button/Button';
 import { Icon } from 'components/Icon/Icon';
-import { media } from '../../../../global/RWD';
+import { media } from 'global/RWD';
 
 export interface ElementProps {
   title?: string;
@@ -18,7 +18,7 @@ const RectangleInServicesCards = styled.div`
     padding: 32px 28px 60px 28px;
   `}
   ${media.md`
-   padding: 32px 32px 32px 28px;
+   padding: 32px;
   `}
 `;
 

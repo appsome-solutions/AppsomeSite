@@ -46,12 +46,12 @@ const LinkText = styled.h6`
 `;
 const LeftShape = styled(Icon)`
   position: absolute;
-  position: absolute;
   width: 225px;
   height: 153px;
   left: 0px;
   background-color: ${props => props.theme.colors.main.secondary};
   bottom: 0px;
+  pointer-events: none;
 `;
 const RightShape = styled(Icon)`
   position: absolute;
@@ -81,15 +81,32 @@ const TermOfServiceText = styled.span`
     text-decoration-line: ${props => props.theme.textDecorationLine};
   }
 `;
+
 const LinkStyle = styled.div`
   z-index: ${props => props.theme.zIndex.towerBlock};
   ${media.xs`
     text-align: right;
 `}
 `;
+
+const Links = () => (
+  <>
+    <Link to="Policy" spy={true} smooth={true} offset={-99} duration={500}>
+      <LinkRouter to="/privacy-policy">
+        <PrivacyPolicyText>PRIVACY POLICY</PrivacyPolicyText>
+      </LinkRouter>
+    </Link>
+    <Link to="TermOfService" spy={true} smooth={true} offset={-99} duration={500}>
+      <LinkRouter to="/term-of-service">
+        <TermOfServiceText>TERM OF SERVICE</TermOfServiceText>
+      </LinkRouter>
+    </Link>
+  </>
+);
+
 export const Footer = () => {
-  const { more } = useRWD();
-  return more.md ? (
+  const { less, more } = useRWD();
+  return (
     <FooterBG>
       <div>
         <AboutUs>About us</AboutUs>
@@ -99,58 +116,31 @@ export const Footer = () => {
           +48 783 697 219 <br />
           patrykjanik1710@gmail.com
         </ContactAddress>
-        <Link to="Policy" spy={true} smooth={true} offset={-99} duration={500}>
-          <LinkRouter to="/privacy-policy">
-            <PrivacyPolicyText>PRIVACY POLICY</PrivacyPolicyText>
-          </LinkRouter>
-        </Link>
-        <Link to="TermOfService" spy={true} smooth={true} offset={-99} duration={500}>
-          <LinkRouter to="/term-of-service">
-            <TermOfServiceText>TERM OF SERVICE</TermOfServiceText>
-          </LinkRouter>
-        </Link>
+        {more.md && <Links />}
+        {less.md && (
+          <LinkStyle>
+            <Links />
+          </LinkStyle>
+        )}
       </div>
-      <BoxWithLinks>
-        <LinkRouter to="/" onClick={() => scrollTo('Process')}>
-          <LinkText>Process</LinkText>
-        </LinkRouter>
-        <LinkRouter to="/" onClick={() => scrollTo('Service')}>
-          <LinkText>Services</LinkText>
-        </LinkRouter>
-        <LinkRouter to="/" onClick={() => scrollTo('Portfolio')}>
-          <LinkText>Portfolio</LinkText>
-        </LinkRouter>
-        <LinkRouter to="/" onClick={() => scrollTo('Contact')}>
-          <LinkText>Contact</LinkText>
-        </LinkRouter>
-      </BoxWithLinks>
-      <LeftShape svgLink={Shape4} />
-      <RightShape svgLink={Shape5} />
-    </FooterBG>
-  ) : (
-    <FooterBG>
-      <div>
-        <AboutUs>About us</AboutUs>
-        <ContactAddress>
-          Zbożowa 4A 70-653 Szczecin Poland
-          <br />
-          +48 783 697 219 <br />
-          patrykjanik1710@gmail.com
-        </ContactAddress>
-      </div>
-      <LinkStyle>
-        <Link to="Policy" spy={true} smooth={true} offset={-99} duration={500}>
-          <LinkRouter to="/privacy-policy">
-            <PrivacyPolicyText>PRIVACY POLICY</PrivacyPolicyText>
+      {more.md && (
+        <BoxWithLinks>
+          <LinkRouter to="/" onClick={() => scrollTo('Process')}>
+            <LinkText>Process</LinkText>
           </LinkRouter>
-        </Link>
-        <Link to="TermOfService" spy={true} smooth={true} offset={-99} duration={500}>
-          <LinkRouter to="/term-of-service">
-            <TermOfServiceText>TERM OF SERVICE</TermOfServiceText>
+          <LinkRouter to="/" onClick={() => scrollTo('Service')}>
+            <LinkText>Services</LinkText>
           </LinkRouter>
-        </Link>
-      </LinkStyle>
+          <LinkRouter to="/" onClick={() => scrollTo('Portfolio')}>
+            <LinkText>Portfolio</LinkText>
+          </LinkRouter>
+          <LinkRouter to="/" onClick={() => scrollTo('Contact')}>
+            <LinkText>Contact</LinkText>
+          </LinkRouter>
+        </BoxWithLinks>
+      )}
       <LeftShape svgLink={Shape4} />
+      {more.md && <RightShape svgLink={Shape5} />}
     </FooterBG>
   );
 };

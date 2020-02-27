@@ -9,7 +9,7 @@ import { Form, Formik } from 'formik';
 import FormikCheckbox from '../../../components/FormikFields/FormikChecbox/FormikCheckbox';
 import * as Yup from 'yup';
 import { Link } from 'react-router-dom';
-import { media } from '../../../global/RWD';
+import { media } from 'global/RWD';
 
 interface EditorStylesWrapperType {
   hasError?: boolean;
@@ -28,17 +28,15 @@ const ContactStyle = styled.div`
 const TextUnderSectionTitle = styled.h5`
   color: ${props => props.theme.colors.utils.background.mid.color};
   ${media.xs`
-  margin: 24px 0 0 0  ;
+   margin-top: 24px;
   `}
   ${media.md`
-  margin: 24px 0 96px 16px;
+  margin: 24px 0 72px 16px;
   `}
 `;
 
 const InputBoxes = styled.div`
-  margin: 0 0 32px 0;
-  ${media.xs`
-  `}
+  margin-bottom: 32px;
   ${media.md`
    display: flex;
    justify-content: space-between;
@@ -50,12 +48,12 @@ const StyledInput = styled.input<EditorStylesWrapperType>`
   ${CommonFormElementStyling}
    border-color: ${props => (props.hasError ? props.theme.colors.functional.error : null)};
    ${media.xs`
-   padding:0 0 0 12px;
+   padding-left:12px;
    margin-bottom:0px;
   `}
   ${media.md`
-  margin-bottom:0px;
-  padding:0 0 0 20px;
+   margin-bottom:0px;
+   padding-left:20px;;
   `}
 `;
 
@@ -110,11 +108,10 @@ const MessageText = styled.h6`
   align-items: center;
   color: ${props => props.theme.colors.utils.background.mid.color};
   ${media.xs`
-  margin: 0 0 16px 0;
+  margin-bottom: 16px;
   `}
   ${media.md`
-  margin: 0 0 32px 0;
-
+  margin-bottom: 32px;
   `}
 `;
 
@@ -143,10 +140,12 @@ const TermServiceAndPolicyText = styled.span`
   }
   ${media.xs`
    color: #F55951;
-`}
+   `}
   ${media.md`
-  color: #F1E8E6`}
+  color: #F1E8E6;
+  `}
 `;
+
 const CheckBoxStyle = styled(FormikCheckbox)`
   color: ${props => props.theme.colors.utils.background.mid.color};
   ${props => props.theme.typography.body2};

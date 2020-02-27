@@ -9,7 +9,7 @@ import RequirementsIcon from 'assets/RequirementsIcon.svg';
 import RealizationIcon from 'assets/RealizationIcon.svg';
 import Shape2 from 'assets/Shape2.svg';
 import { Icon } from 'components/Icon/Icon';
-import { media, useRWD } from '../../../global/RWD';
+import { media, useRWD } from 'global/RWD';
 import ShapeProcess from 'assets/ShapeProcess.svg';
 
 const ProcessFrame = styled.div`
@@ -29,9 +29,7 @@ const ProcessTimeLine = styled.div`
   display: flex;
   align-items: center;
   ${media.xs`
-    display: flex;
-  align-items: center;
-  margin: 32px 0 0 0;
+  margin-top: 32px;
   width:100%;
   `}
 `;

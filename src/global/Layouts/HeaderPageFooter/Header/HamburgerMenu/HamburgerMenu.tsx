@@ -63,47 +63,26 @@ const StyledDrawer = styled(Drawer).attrs({
 export const HamburgerMenu = () => {
   const themeContext = useContext(ThemeContext);
   const [isMenuOpened, setIsMenuOpened] = useState(false);
-
+  const HamburgerFunction = (place: string) => {
+    scrollTo(place);
+    setIsMenuOpened(false);
+  };
   return (
     <div>
       <HamburgerMenuIcon color={themeContext.colors.utils.background.light} onClick={() => setIsMenuOpened(true)} />
       <StyledDrawer placement="left" closable={false} onClose={() => setIsMenuOpened(false)} visible={isMenuOpened}>
         <MenuDivider />
         <DrawerWrapper>
-          <StyledLink
-            onClick={() => {
-              scrollTo('Process');
-              setIsMenuOpened(false);
-            }}
-            to="/"
-          >
+          <StyledLink to="/" onClick={() => HamburgerFunction('Process')}>
             Process
           </StyledLink>
-          <StyledLink
-            onClick={() => {
-              scrollTo('Service');
-              setIsMenuOpened(false);
-            }}
-            to="/"
-          >
+          <StyledLink to="/" onClick={() => HamburgerFunction('Service')}>
             Service
           </StyledLink>
-          <StyledLink
-            to="/"
-            onClick={() => {
-              scrollTo('Portfolio');
-              setIsMenuOpened(false);
-            }}
-          >
+          <StyledLink to="/" onClick={() => HamburgerFunction('Portfolio')}>
             Portfolio
           </StyledLink>
-          <StyledLink
-            to="/"
-            onClick={() => {
-              scrollTo('Contact');
-              setIsMenuOpened(false);
-            }}
-          >
+          <StyledLink to="/" onClick={() => HamburgerFunction('Contact')}>
             Contact
           </StyledLink>
         </DrawerWrapper>

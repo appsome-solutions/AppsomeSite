@@ -31,6 +31,7 @@ const CustomInputComponent = (props: FormikInputProps) => {
     />
   );
 };
+
 // eslint-disable-next-line react/display-name
 export default React.memo<MemoFormikInputProps>((props: MemoFormikInputProps) => (
   <Field {...props}>{(fieldProps: any) => withErrorMessage(CustomInputComponent)({ ...props, ...fieldProps })}</Field>

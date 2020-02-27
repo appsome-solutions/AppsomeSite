@@ -7,7 +7,7 @@ import { Button } from 'components/Button/Button';
 import { useFirebase } from 'global/Firebase/FirebaseContext';
 import { Form, Formik } from 'formik';
 import FormikInput from 'components/FormikFields/FormikInput/FormikInput';
-import { media, useRWD } from '../../../global/RWD';
+import { media } from 'global/RWD';
 
 const NewsletterRow = styled.div`
   background-color: ${props => props.theme.colors.utils.background.mid.color};
@@ -50,10 +50,10 @@ const EmailInput = styled.input`
     color: ${props => props.theme.colors.utils.text.dark};
   }
   ${media.xs`
-margin-top:30px;
+  margin-top:30px;
 `}
   ${media.md`
-margin-top:0;
+  margin-top:0;
 `}
 `;
 
@@ -81,66 +81,26 @@ const SubscribeButton = styled(Button)`
     margin-top:0;
 `}
 `;
-const StyledTitle = styled.pre`
+const TextUnderSectionDiv = styled.div`
   ${media.xs`
-  margin-bottom:36px;
-  font-size: 28px;
-  `}
+   margin-top:36px;
+  `};
   ${media.md`
-  margin-bottom:0;
-  `}
+   margin-top:0;
+  `};
 `;
 export const Newsletter: FunctionComponent = () => {
   const { db } = useFirebase();
-  const { more } = useRWD();
-  return more.md ? (
+
+  return (
     <NewsletterRow>
       <div>
         <SectionTitle section="Join our newsletter" color="primary" boxColor="secondary" />
-        <TextUnderSection>
-          We have also blog where we publish technological solutions directly from the kitchen.
-        </TextUnderSection>
-      </div>
-      <Formik
-        initialValues={{
-          email: '',
-        }}
-        onSubmit={values => {
-          db.collection('subscriptions')
-            .add({
-              email: values.email,
-            })
-            .then(function() {
-              message.success('Subscribed, get ready for awesome content!');
-            })
-            .catch(function() {
-              message.error('Something went wrong when sending :/');
-            });
-        }}
-      >
-        <Form translate={false}>
-          <InputBox>
-            <FormikInput
-              name="email"
-              InputComponent={(props: any) => <EmailInput {...props} placeholder="Email" type="primary" />}
-            />
-            <EmailIcon src={Email} alt="" />
-            <SubscribeButton htmlType="submit" type="primary">
-              SUBSCRIBE
-            </SubscribeButton>
-          </InputBox>
-        </Form>
-      </Formik>
-    </NewsletterRow>
-  ) : (
-    <NewsletterRow>
-      <div>
-        <StyledTitle>
-          <SectionTitle section="Join our newsletter" color="primary" boxColor="secondary" />
-        </StyledTitle>
-        <TextUnderSection>
-          We have also blog where we publish technological solutions directly from the kitchen.
-        </TextUnderSection>
+        <TextUnderSectionDiv>
+          <TextUnderSection>
+            We have also blog where we publish technological solutions directly from the kitchen.
+          </TextUnderSection>
+        </TextUnderSectionDiv>
       </div>
       <Formik
         initialValues={{

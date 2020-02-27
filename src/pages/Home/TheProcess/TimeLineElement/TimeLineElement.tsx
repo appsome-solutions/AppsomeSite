@@ -19,10 +19,10 @@ const ProcessTimeLineElement = styled.div`
   align-items: center;
   justify-content: center;
   ${media.xs`
-  margin-bottom:8px;
+  margin-bottom: 8px;
   `}
   ${media.md`
-  margin-bottom:0px;
+  margin-bottom: 0px;
   `}
 `;
 
@@ -72,8 +72,7 @@ const LineUnderSvg = styled(Icon)`
   margin-bottom:16px;
 `}
   ${media.md`
-    width: 4px;
-
+  width: 4px;
   height: 70px;
   margin-bottom:0;
 `}
@@ -81,29 +80,28 @@ const LineUnderSvg = styled(Icon)`
 
 export const TimeLineElement: FunctionComponent<ElementProps> = (props: ElementProps): JSX.Element => {
   const { title, content, svgLink, isWithLine = true } = props;
-  const { more } = useRWD();
-  return more.md ? (
+  const { less, more } = useRWD();
+  return (
     <>
       <ProcessTimeLineElement>
         <Circle>
           <IdeaIconStyle svgLink={svgLink} />
         </Circle>
         <PositionWholeText positionText={props.positionText} contentPosition={props.contentPosition}>
-          <Title>{title}</Title>
-          <IdeaContent>{content}</IdeaContent>
+          {more.md && (
+            <div>
+              <Title>{title}</Title>
+              <IdeaContent>{content}</IdeaContent>
+            </div>
+          )}
         </PositionWholeText>
       </ProcessTimeLineElement>
-      {isWithLine && <LineUnderSvg svgLink={Line} />}
-    </>
-  ) : (
-    <>
-      <ProcessTimeLineElement>
-        <Circle>
-          <IdeaIconStyle svgLink={svgLink} />
-        </Circle>
-      </ProcessTimeLineElement>
-      <Title>{title}</Title>
-      <IdeaContent>{content}</IdeaContent>
+      {less.md && (
+        <>
+          <Title>{title}</Title>
+          <IdeaContent>{content}</IdeaContent>
+        </>
+      )}
       {isWithLine && <LineUnderSvg svgLink={Line} />}
     </>
   );
