@@ -3,19 +3,23 @@ import styled from 'styled-components';
 import { SectionTitle } from 'components/SectionTitle/SectionTitle';
 import { Button } from 'components/Button/Button';
 import { CommonFormElementStyling } from './InputStyle';
-import FormikInput from '../../../components/FormikFields/FormikInput/FormikInput';
-import FormikTextArea from '../../../components/FormikFields/FormikTextArea/FormikTextArea';
+import FormikInput from 'components/FormikFields/FormikInput/FormikInput';
+import FormikTextArea from 'components/FormikFields/FormikTextArea/FormikTextArea';
 import { Form, Formik } from 'formik';
-import FormikCheckbox from '../../../components/FormikFields/FormikChecbox/FormikCheckbox';
+import FormikCheckbox from 'components/FormikFields/FormikChecbox/FormikCheckbox';
 import * as Yup from 'yup';
 import { Link } from 'react-router-dom';
-import { media } from 'global/RWD';
+import { media, useRWD } from 'global/RWD';
+import { MaxWidthWithBg } from 'components/MaxSizeAndBackground/MaxWidthAndBg';
+import ShapePortfolio from '../../../assets/ShapePortfolio.svg';
+import { Icon } from '../../../components/Icon/Icon';
 
 interface EditorStylesWrapperType {
   hasError?: boolean;
 }
 
 const ContactStyle = styled.div`
+  position: relative;
   background-color: ${props => props.theme.colors.main.primary};
   ${media.xs`
   padding: 98px 16px 52px 16px;  
@@ -31,7 +35,7 @@ const TextUnderSectionTitle = styled.h5`
    margin-top: 24px;
   `}
   ${media.md`
-  margin: 24px 0 72px 16px;
+  margin: 24px 0 48px 16px;
   `}
 `;
 
@@ -131,12 +135,10 @@ const SendButton = styled(Button)`
 `;
 
 const TermServiceAndPolicyText = styled.span`
-  ${props => props.theme.typography.body2};
   cursor: pointer;
   color: ${props => props.theme.colors.utils.background.mid.color};
   &:hover {
     color: ${props => props.theme.colors.main.secondary};
-    text-decoration-line: ${props => props.theme.textDecorationLine};
   }
   ${media.xs`
    color: #F55951;
@@ -148,7 +150,10 @@ const TermServiceAndPolicyText = styled.span`
 
 const CheckBoxStyle = styled(FormikCheckbox)`
   color: ${props => props.theme.colors.utils.background.mid.color};
-  ${props => props.theme.typography.body2};
+  display: flex;
+  .ant-checkbox-checked .ant-checkbox-inner:after {
+    border-color: ${props => props.theme.colors.main.primary};
+  }
 `;
 
 const SignupSchema = Yup.object().shape({
@@ -171,56 +176,78 @@ const FormStyle = styled(Form)`
 `}
 `;
 
+const Shape = styled(Icon)`
+  z-index: ${props => props.theme.zIndex.house};
+  position: absolute;
+  background-color: ${props => props.theme.colors.main.secondary};
+  ${media.xs`
+  left:0;
+  bottom: 600px
+  height: 170px;
+  width:31px;
+    `}
+`;
+
+const TextInCheckBox = styled.div`
+  margin-left: 8px;
+  ${props => props.theme.typography.body2};
+`;
 export const ContactStyled: FunctionComponent = () => {
+  const { less } = useRWD();
   return (
-    <ContactStyle className="Contact" id="Contact">
-      <SectionTitle section="Contact" color="secondary" boxColor="primary" />
-      <TextUnderSectionTitle>
-        Contact us. We will analise Your product and deliver the best quality solution!
-      </TextUnderSectionTitle>
-      <Formik
-        initialValues={{
-          name: '',
-          email: '',
-          message: '',
-          checkBox: ``,
-        }}
-        validationSchema={SignupSchema}
-        onSubmit={() => console.log('mleko')}
-      >
-        <FormStyle translate={false}>
-          <InputBoxes>
-            <NameInputText>
-              <FormikInput name="name" InputComponent={(props: any) => <NameInput {...props} placeholder="Name" />} />
-            </NameInputText>
-            <EmailInputText>
-              <FormikInput
-                name="email"
-                InputComponent={(props: any) => <EmailInput {...props} placeholder="Email" type="primary" />}
+    <MaxWidthWithBg BgColor="primary">
+      <ContactStyle className="Contact" id="Contact">
+        {less.md && <Shape svgLink={ShapePortfolio} />}
+        <SectionTitle section="Contact" color="secondary" boxColor="primary" />
+        <TextUnderSectionTitle>
+          Contact us. We will analise Your product and deliver the best quality solution!
+        </TextUnderSectionTitle>
+        <Formik
+          initialValues={{
+            name: '',
+            email: '',
+            message: '',
+            checkBox: ``,
+          }}
+          validationSchema={SignupSchema}
+          onSubmit={() => console.log('mleko')}
+        >
+          <FormStyle translate={false}>
+            <InputBoxes>
+              <NameInputText>
+                <FormikInput name="name" InputComponent={(props: any) => <NameInput {...props} placeholder="Name" />} />
+              </NameInputText>
+              <EmailInputText>
+                <FormikInput
+                  name="email"
+                  InputComponent={(props: any) => <EmailInput {...props} placeholder="Email" type="primary" />}
+                />
+              </EmailInputText>
+            </InputBoxes>
+            <MessageText>
+              <FormikTextArea
+                name="message"
+                InputComponent={(props: any) => <MessageTextArea {...props} placeholder="Message" />}
               />
-            </EmailInputText>
-          </InputBoxes>
-          <MessageText>
-            <FormikTextArea
-              name="message"
-              InputComponent={(props: any) => <MessageTextArea {...props} placeholder="Message" />}
-            />
-          </MessageText>
-          <CheckBoxStyle name="checkBox">
-            I agree to{' '}
-            <Link to="/term-of-service">
-              <TermServiceAndPolicyText>term of service</TermServiceAndPolicyText>
-            </Link>{' '}
-            and{' '}
-            <Link to="/privacy-policy">
-              <TermServiceAndPolicyText>privacy policy</TermServiceAndPolicyText>
-            </Link>
-          </CheckBoxStyle>
-          <ButtonPosition>
-            <SendButton htmlType="submit">SEND</SendButton>
-          </ButtonPosition>
-        </FormStyle>
-      </Formik>
-    </ContactStyle>
+            </MessageText>
+            <CheckBoxStyle name="checkBox">
+              <TextInCheckBox>
+                I agree to{' '}
+                <Link to="/term-of-service">
+                  <TermServiceAndPolicyText>term of service</TermServiceAndPolicyText>
+                </Link>{' '}
+                and{' '}
+                <Link to="/privacy-policy">
+                  <TermServiceAndPolicyText>privacy policy</TermServiceAndPolicyText>
+                </Link>
+              </TextInCheckBox>
+            </CheckBoxStyle>
+            <ButtonPosition>
+              <SendButton htmlType="submit">SEND</SendButton>
+            </ButtonPosition>
+          </FormStyle>
+        </Formik>
+      </ContactStyle>
+    </MaxWidthWithBg>
   );
 };

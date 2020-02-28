@@ -1,8 +1,9 @@
 import React, { FunctionComponent } from 'react';
 import styled from 'styled-components';
 import { Icon } from 'components/Icon/Icon';
-import Line from 'assets/Line.svg';
+import Line from 'assets/Line.png';
 import { media, useRWD } from 'global/RWD';
+import LineMd from 'assets/LineMd.svg';
 export type PositionText = 'right' | 'left';
 export interface ElementProps {
   title?: string;
@@ -65,17 +66,16 @@ const IdeaIconStyle = styled(Icon)`
   background: ${props => props.theme.colors.utils.background.mid.color};
 `;
 
-const LineUnderSvg = styled(Icon)`
-  ${media.xs`
+const LineUnderSvg = styled.img`
   width: 4px;
-  height: 50px;
-  margin-bottom:16px;
-`}
-  ${media.md`
+  height: 35px;
+  margin-bottom: 16px;
+`;
+
+const LineUnderSvgDesktop = styled(Icon)`
   width: 4px;
   height: 70px;
-  margin-bottom:0;
-`}
+  margin-bottom: 0;
 `;
 
 export const TimeLineElement: FunctionComponent<ElementProps> = (props: ElementProps): JSX.Element => {
@@ -102,7 +102,8 @@ export const TimeLineElement: FunctionComponent<ElementProps> = (props: ElementP
           <IdeaContent>{content}</IdeaContent>
         </>
       )}
-      {isWithLine && <LineUnderSvg svgLink={Line} />}
+      {less.md && <div>{isWithLine && <LineUnderSvg src={Line} />}</div>}
+      {more.md && <div>{isWithLine && <LineUnderSvgDesktop svgLink={LineMd} />}</div>}
     </>
   );
 };

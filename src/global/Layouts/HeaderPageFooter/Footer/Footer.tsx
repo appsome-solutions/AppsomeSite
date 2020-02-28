@@ -6,7 +6,8 @@ import Shape4 from 'assets/Shape4.svg';
 import { Link } from 'react-scroll';
 import { Link as LinkRouter } from 'react-router-dom';
 import { scrollTo } from '../HeaderFooterCommon';
-import { media, useRWD } from '../../../RWD';
+import { media, useRWD } from 'global/RWD';
+import { MaxWidthWithBg } from 'components/MaxSizeAndBackground/MaxWidthAndBg';
 
 const FooterBG = styled.div`
   background-color: ${props => props.theme.colors.utils.background.mid.color};
@@ -42,7 +43,8 @@ const LinkText = styled.h6`
   cursor: pointer;
   &:hover {
     color: ${props => props.theme.colors.main.secondary};
-    text-decoration-line: ${props => props.theme.textDecorationLine}
+    text-decoration-line: ${props => props.theme.textDecorationLine};
+  }
 `;
 const LeftShape = styled(Icon)`
   position: absolute;
@@ -52,6 +54,11 @@ const LeftShape = styled(Icon)`
   background-color: ${props => props.theme.colors.main.secondary};
   bottom: 0px;
   pointer-events: none;
+  ${media.xxl`
+  left: calc(-50vw + 720px);
+  width: 225px;
+  height: 153px;
+  `}
 `;
 const RightShape = styled(Icon)`
   position: absolute;
@@ -60,6 +67,11 @@ const RightShape = styled(Icon)`
   right: 0px;
   background-color: ${props => props.theme.colors.main.secondary};
   bottom: 0px;
+  ${media.xxl`
+  right: calc(50vw - 720px);
+  width: 151px;
+  height: 150px;
+  `}
 `;
 const PrivacyPolicyText = styled.span`
   ${props => props.theme.typography.overline};
@@ -107,40 +119,42 @@ const Links = () => (
 export const Footer = () => {
   const { less, more } = useRWD();
   return (
-    <FooterBG>
-      <div>
-        <AboutUs>About us</AboutUs>
-        <ContactAddress>
-          Zbożowa 4A 70-653 Szczecin Poland
-          <br />
-          +48 783 697 219 <br />
-          patrykjanik1710@gmail.com
-        </ContactAddress>
-        {more.md && <Links />}
-        {less.md && (
-          <LinkStyle>
-            <Links />
-          </LinkStyle>
+    <MaxWidthWithBg BgColor="secondary">
+      <FooterBG className="Footer">
+        <div>
+          <AboutUs>About us</AboutUs>
+          <ContactAddress>
+            Zbożowa 4A 70-653 Szczecin Poland
+            <br />
+            +48 783 697 219 <br />
+            patryk.janik@appsome-solutions.com
+          </ContactAddress>
+          {more.md && <Links />}
+          {less.md && (
+            <LinkStyle>
+              <Links />
+            </LinkStyle>
+          )}
+        </div>
+        {more.md && (
+          <BoxWithLinks>
+            <LinkRouter to="/" onClick={() => scrollTo('Process')}>
+              <LinkText>Process</LinkText>
+            </LinkRouter>
+            <LinkRouter to="/" onClick={() => scrollTo('Service')}>
+              <LinkText>Services</LinkText>
+            </LinkRouter>
+            <LinkRouter to="/" onClick={() => scrollTo('Portfolio')}>
+              <LinkText>Portfolio</LinkText>
+            </LinkRouter>
+            <LinkRouter to="/" onClick={() => scrollTo('Contact')}>
+              <LinkText>Contact</LinkText>
+            </LinkRouter>
+          </BoxWithLinks>
         )}
-      </div>
-      {more.md && (
-        <BoxWithLinks>
-          <LinkRouter to="/" onClick={() => scrollTo('Process')}>
-            <LinkText>Process</LinkText>
-          </LinkRouter>
-          <LinkRouter to="/" onClick={() => scrollTo('Service')}>
-            <LinkText>Services</LinkText>
-          </LinkRouter>
-          <LinkRouter to="/" onClick={() => scrollTo('Portfolio')}>
-            <LinkText>Portfolio</LinkText>
-          </LinkRouter>
-          <LinkRouter to="/" onClick={() => scrollTo('Contact')}>
-            <LinkText>Contact</LinkText>
-          </LinkRouter>
-        </BoxWithLinks>
-      )}
-      <LeftShape svgLink={Shape4} />
-      {more.md && <RightShape svgLink={Shape5} />}
-    </FooterBG>
+        <LeftShape svgLink={Shape4} />
+        {more.md && <RightShape svgLink={Shape5} />}
+      </FooterBG>
+    </MaxWidthWithBg>
   );
 };

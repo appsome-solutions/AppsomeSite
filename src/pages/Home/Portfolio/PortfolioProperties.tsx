@@ -2,7 +2,7 @@ import React, { FunctionComponent } from 'react';
 import styled from 'styled-components';
 import { Icon } from 'components/Icon/Icon';
 import Quote from 'assets/Quote.svg';
-import { media, useRWD } from '../../../global/RWD';
+import { media, useRWD } from 'global/RWD';
 
 export type imgDimensions = 'phone' | 'laptop';
 export interface PortfolioProps {
@@ -62,13 +62,12 @@ const QuotationBoxWithText = styled.div`
 const CarouselWhole = styled.div`
   display: flex !important;
   justify-content: center;
+  align-items: center;
   ${media.xs`
   flex-direction:column;
-  align-items:center;
   `}
   ${media.md`
   flex-direction:row;
-   align-items: center;
   `}
 `;
 
@@ -93,7 +92,7 @@ const ImgBox = styled.div<imgProps>`
   position: relative;
   display: flex;
   justify-content: center;
-  ${media.xs`margin-right:4px`}
+  ${media.xs`margin: 40px ;`}
   ${media.md`margin-right:126px;`}
 `;
 

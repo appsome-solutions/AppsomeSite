@@ -7,10 +7,10 @@ import { Icon } from 'components/Icon/Icon';
 import { Link } from 'react-scroll';
 import { media, useRWD } from 'global/RWD';
 import ShapeSmallBanner from 'assets/ShapeSmallBanner.svg';
+import { MaxWidthWithBg } from 'components/MaxSizeAndBackground/MaxWidthAndBg';
 
 const BannerStyle = styled.div`
   background-color: ${props => props.theme.colors.main.primary};
-  position: relative;
   padding: 60px 80px;
   display: flex;
   justify-content: space-between;
@@ -79,7 +79,13 @@ const Shape = styled(Icon)`
   ${media.md`
    width: 199px;
   height: 376px;
-  left: -0px;
+  left: 0px;
+  top: 480px;
+  `}
+  ${media.xxl`
+  left: calc(-50vw + 720px);
+  width: 199px;
+  height: 376px;
   top: 480px;
   `}
 `;
@@ -87,20 +93,22 @@ const Shape = styled(Icon)`
 export const Banner: FunctionComponent = () => {
   const { more } = useRWD();
   return (
-    <BannerStyle>
-      <GroupedTextWithButton>
-        <FirstText>Change your idea into working product</FirstText>
-        <SecondText>
-          We are here to help you succeed. That is why we provide our time and top quality code. We care and take
-          responsibility for your products - you can focus on your business strategies!
-        </SecondText>
-        <Link to="Contact" spy={true} smooth={true} duration={500}>
-          <ContactButton type="secondary">Contact Us</ContactButton>
-        </Link>
-        {more.md && <Shape svgLink={Shape1} />}
-        <Shape svgLink={ShapeSmallBanner} />
-      </GroupedTextWithButton>
-      {more.md && <img src={BannerPhoto} alt="" />}
-    </BannerStyle>
+    <MaxWidthWithBg BgColor="primary">
+      <BannerStyle>
+        <GroupedTextWithButton>
+          <FirstText>Change your idea into working product</FirstText>
+          <SecondText>
+            We are here to help you succeed. That is why we provide our time and top quality code. We care and take
+            responsibility for your products - you can focus on your business strategies!
+          </SecondText>
+          <Link to="Contact" spy={true} smooth={true} duration={500}>
+            <ContactButton type="secondary">Contact Us</ContactButton>
+          </Link>
+          {more.md && <Shape svgLink={Shape1} />}
+          <Shape svgLink={ShapeSmallBanner} />
+        </GroupedTextWithButton>
+        {more.md && <img src={BannerPhoto} alt="" />}
+      </BannerStyle>
+    </MaxWidthWithBg>
   );
 };

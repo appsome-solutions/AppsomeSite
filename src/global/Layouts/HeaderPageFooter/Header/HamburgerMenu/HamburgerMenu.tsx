@@ -4,42 +4,42 @@ import { Icon } from 'components/Icon/Icon';
 import { css, ThemeContext } from 'styled-components';
 import { Drawer } from 'antd';
 import styled from 'styled-components';
-import { LinkWithoutIsActiveInDom, StyledLinkProps } from '../common';
 import { scrollTo } from '../../HeaderFooterCommon';
+import ProcessMenu from 'assets/ProcessMenu.svg';
+import ContactMenu from 'assets/ContactMenu.svg';
+import PortfolioMenu from 'assets/PortfolioMenu.svg';
+import ServiceMenu from 'assets/ServiceMenu.svg';
+import { Link } from 'react-scroll';
 
-const LinkStyles = css<StyledLinkProps>`
+const LinkStyles = css`
   height: 50px;
   color: ${props => props.theme.colors.utils.text.dark};
   display: flex;
   align-items: center;
-  padding-left: 28px;
+  padding-left: 40px;
   cursor: pointer;
-  ${props =>
-    props.isActive &&
-    css`
-      background-color: ${props.theme.colors.utils.background.accent};
-      border: 2px solid ${props.theme.colors.utils.background.accent};
-      color: ${props.theme.colors.main.primary};
-    `}
-  &:hover {
-    background-color: ${props => props.theme.colors.utils.background.accent}};
-  }
 `;
 
-const StyledLink = styled(LinkWithoutIsActiveInDom)<StyledLinkProps>`
-  ${LinkStyles}
+const StyledLink = styled(Link)`
+  .active {
+    color: ${props => props.theme.colors.main.secondary};
+  }
+  display: flex;
+  align-items: center;
+  ${LinkStyles};
 `;
 
 const DrawerWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 21px 13px;
+  padding: 20px 12px;
   font-size: 18px;
+  background-color: ${props => props.theme.colors.utils.background.mid.color};
 `;
 
 const MenuDivider = styled.div`
   height: 20px;
-  background-color: ${props => props.theme.colors.utils.text.light};
+  background-color: ${props => props.theme.colors.main.tetiary};
 `;
 
 const HamburgerMenuIcon = styled(Icon).attrs({
@@ -60,6 +60,12 @@ const StyledDrawer = styled(Drawer).attrs({
   }
 `;
 
+const TextInHamburger = styled.div`
+  margin-left: 20px;
+`;
+
+const HamburgerIcon = styled(Icon)``;
+
 export const HamburgerMenu = () => {
   const themeContext = useContext(ThemeContext);
   const [isMenuOpened, setIsMenuOpened] = useState(false);
@@ -69,21 +75,25 @@ export const HamburgerMenu = () => {
   };
   return (
     <div>
-      <HamburgerMenuIcon color={themeContext.colors.utils.background.light} onClick={() => setIsMenuOpened(true)} />
+      <HamburgerMenuIcon color={themeContext.colors.main.tetiary} onClick={() => setIsMenuOpened(true)} />
       <StyledDrawer placement="left" closable={false} onClose={() => setIsMenuOpened(false)} visible={isMenuOpened}>
         <MenuDivider />
         <DrawerWrapper>
-          <StyledLink to="/" onClick={() => HamburgerFunction('Process')}>
-            Process
+          <StyledLink to="/" activeClass="active" onClick={() => HamburgerFunction('Process')}>
+            <HamburgerIcon svgLink={ProcessMenu} />
+            <TextInHamburger>Process</TextInHamburger>
           </StyledLink>
           <StyledLink to="/" onClick={() => HamburgerFunction('Service')}>
-            Service
+            <HamburgerIcon svgLink={ServiceMenu} />
+            <TextInHamburger>Service</TextInHamburger>
           </StyledLink>
           <StyledLink to="/" onClick={() => HamburgerFunction('Portfolio')}>
-            Portfolio
+            <HamburgerIcon svgLink={PortfolioMenu} />
+            <TextInHamburger>Portfolio</TextInHamburger>
           </StyledLink>
           <StyledLink to="/" onClick={() => HamburgerFunction('Contact')}>
-            Contact
+            <HamburgerIcon svgLink={ContactMenu} />
+            <TextInHamburger>Contact</TextInHamburger>
           </StyledLink>
         </DrawerWrapper>
       </StyledDrawer>
