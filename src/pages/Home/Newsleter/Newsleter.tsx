@@ -4,8 +4,8 @@ import styled from 'styled-components';
 import { SectionTitle } from 'components/SectionTitle/SectionTitle';
 import Email from 'assets/Email.svg';
 import { Button } from 'components/Button/Button';
-import { useFirebase } from 'global/Firebase/FirebaseContext';
 import { Form, Formik } from 'formik';
+import axios from 'axios';
 import FormikInput from 'components/FormikFields/FormikInput/FormikInput';
 
 const NewsletterRow = styled.div`
@@ -52,8 +52,6 @@ const SubscribeButton = styled(Button)`
 `;
 
 export const Newsletter: FunctionComponent = () => {
-  const { db } = useFirebase();
-
   return (
     <NewsletterRow>
       <div>
@@ -67,8 +65,8 @@ export const Newsletter: FunctionComponent = () => {
           email: '',
         }}
         onSubmit={values => {
-          db.collection('subscriptions')
-            .add({
+          axios
+            .post('https://us-central1-appsome-solutions.cloudfunctions.net/newsletter/subscription', {
               email: values.email,
             })
             .then(function() {
