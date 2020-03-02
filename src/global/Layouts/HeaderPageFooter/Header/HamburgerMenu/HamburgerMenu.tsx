@@ -11,19 +11,40 @@ import PortfolioMenu from 'assets/PortfolioMenu.svg';
 import ServiceMenu from 'assets/ServiceMenu.svg';
 import { Link } from 'react-scroll';
 
+const HamburgerIcon = styled(Icon)`
+  .active {
+    background-color: red !important;
+  }
+`;
+
+const TextInHamburger = styled.div`
+  margin-left: 20px;
+  .active {
+    color: red !important;
+  }
+`;
+
 const LinkStyles = css`
+  color: ${props => props.theme.colors.main.primary}
   height: 50px;
-  color: ${props => props.theme.colors.utils.text.dark};
   display: flex;
   align-items: center;
   padding-left: 40px;
   cursor: pointer;
+  &.active {
+  background-color: ${props => props.theme.colors.main.tetiary};
+  }
+  &.active {  
+    ${HamburgerIcon} {
+    background-color: ${props => props.theme.colors.main.secondary} !important;
+    }
+    ${TextInHamburger} {
+      color: ${props => props.theme.colors.main.secondary} !important;
+    }
+  }
 `;
 
 const StyledLink = styled(Link)`
-  .active {
-    color: ${props => props.theme.colors.main.secondary};
-  }
   display: flex;
   align-items: center;
   ${LinkStyles};
@@ -60,12 +81,6 @@ const StyledDrawer = styled(Drawer).attrs({
   }
 `;
 
-const TextInHamburger = styled.div`
-  margin-left: 20px;
-`;
-
-const HamburgerIcon = styled(Icon)``;
-
 export const HamburgerMenu = () => {
   const themeContext = useContext(ThemeContext);
   const [isMenuOpened, setIsMenuOpened] = useState(false);
@@ -73,25 +88,26 @@ export const HamburgerMenu = () => {
     scrollTo(place);
     setIsMenuOpened(false);
   };
+
   return (
     <div>
       <HamburgerMenuIcon color={themeContext.colors.main.tetiary} onClick={() => setIsMenuOpened(true)} />
       <StyledDrawer placement="left" closable={false} onClose={() => setIsMenuOpened(false)} visible={isMenuOpened}>
         <MenuDivider />
         <DrawerWrapper>
-          <StyledLink to="/" activeClass="active" onClick={() => HamburgerFunction('Process')}>
+          <StyledLink to="Process" spy={true} activeClass="active" onClick={() => HamburgerFunction('Process')}>
             <HamburgerIcon svgLink={ProcessMenu} />
             <TextInHamburger>Process</TextInHamburger>
           </StyledLink>
-          <StyledLink to="/" onClick={() => HamburgerFunction('Service')}>
+          <StyledLink to="Service" spy={true} activeClass="active" onClick={() => HamburgerFunction('Service')}>
             <HamburgerIcon svgLink={ServiceMenu} />
             <TextInHamburger>Service</TextInHamburger>
           </StyledLink>
-          <StyledLink to="/" onClick={() => HamburgerFunction('Portfolio')}>
+          <StyledLink to="Portfolio" activeClass="active" spy={true} onClick={() => HamburgerFunction('Portfolio')}>
             <HamburgerIcon svgLink={PortfolioMenu} />
             <TextInHamburger>Portfolio</TextInHamburger>
           </StyledLink>
-          <StyledLink to="/" onClick={() => HamburgerFunction('Contact')}>
+          <StyledLink spy to="Contact" activeClass="active" onClick={() => HamburgerFunction('Contact')}>
             <HamburgerIcon svgLink={ContactMenu} />
             <TextInHamburger>Contact</TextInHamburger>
           </StyledLink>

@@ -64,14 +64,9 @@ const RightShape = styled(Icon)`
   position: absolute;
   width: 151px;
   height: 150px;
-  right: 0px;
+  right: 0;
+  bottom: 0;
   background-color: ${props => props.theme.colors.main.secondary};
-  bottom: 0px;
-  ${media.xxl`
-  right: calc(50vw - 720px);
-  width: 151px;
-  height: 150px;
-  `}
 `;
 const PrivacyPolicyText = styled.span`
   ${props => props.theme.typography.overline};
@@ -101,6 +96,10 @@ const LinkStyle = styled.div`
 `}
 `;
 
+const Mleko = styled(MaxWidthWithBg)`
+  position: relative;
+`;
+
 const Links = () => (
   <>
     <Link to="Policy" spy={true} smooth={true} offset={-99} duration={500}>
@@ -119,7 +118,7 @@ const Links = () => (
 export const Footer = () => {
   const { less, more } = useRWD();
   return (
-    <MaxWidthWithBg BgColor="secondary">
+    <Mleko BgColor="secondary">
       <FooterBG className="Footer">
         <div>
           <AboutUs>About us</AboutUs>
@@ -153,8 +152,8 @@ export const Footer = () => {
           </BoxWithLinks>
         )}
         <LeftShape svgLink={Shape4} />
-        {more.md && <RightShape svgLink={Shape5} />}
       </FooterBG>
-    </MaxWidthWithBg>
+      {more.md && <RightShape svgLink={Shape5} />}
+    </Mleko>
   );
 };

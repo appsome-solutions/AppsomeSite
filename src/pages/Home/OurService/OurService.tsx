@@ -16,7 +16,7 @@ import { MaxWidthWithBg } from 'components/MaxSizeAndBackground/MaxWidthAndBg';
 const ServiceStyle = styled.div`
   background-color: ${props => props.theme.colors.main.primary};
   ${media.xs`
-  padding-top: 60px;
+  padding-top: 100px;
  `}
   ${media.md`
   padding-top: 98px;
@@ -110,40 +110,41 @@ export const OurServices: FunctionComponent = () => {
   const { less, more } = useRWD();
   return (
     <MaxWidthWithBg BgColor="primary">
-      <ServiceStyle id="Service">
-        <OurSevicesBox>
-          <SectionTitle section="Our Service" color="secondary" boxColor="primary" />
-          {more.md && (
-            <WholeTextPre>
-              We specialize in web technologies - simply saying we are in love with <RedText>JavaScript!</RedText>
-              <br />
-              Those are few we know at expert level:
-            </WholeTextPre>
-          )}
-          {less.md && (
-            <WholeTextPre>
-              We specialize in web technologies -<br /> simply saying we are in love with
-              <br /> <RedText>JavaScript!</RedText>
-              <br />
-              <br />
-              <br />
-              Those are few we know at expert level:
-            </WholeTextPre>
-          )}
-        </OurSevicesBox>
-        <TechnicalsRow>
-          <IconsSvgs src={JsTs} alt="" />
-          <IconsSvgs src={Mongo} alt="" />
-          <IconsSvgs src={ReactIcon} alt="" />
-          <NodePng src={Node} alt="" />
-          <IconsSvgs src={Pwa} alt="" />
-          <IconsSvgs src={Graphql} alt="" />
-        </TechnicalsRow>
-        <ServicesCardsBox>
-          <ServiceBoxElement
-            svgLink={Browser}
-            title="Web Aplications"
-            content="Lorem Ipsum is simply dummy text of the printing and
+      <div className="Service" id="Service">
+        <ServiceStyle>
+          <OurSevicesBox>
+            <SectionTitle section="Our Service" color="secondary" boxColor="primary" />
+            {more.md && (
+              <WholeTextPre>
+                We specialize in web technologies - simply saying we are in love with <RedText>JavaScript!</RedText>
+                <br />
+                Those are few we know at expert level:
+              </WholeTextPre>
+            )}
+            {less.md && (
+              <WholeTextPre>
+                We specialize in web technologies -<br /> simply saying we are in love with
+                <br /> <RedText>JavaScript!</RedText>
+                <br />
+                <br />
+                <br />
+                Those are few we know at expert level:
+              </WholeTextPre>
+            )}
+          </OurSevicesBox>
+          <TechnicalsRow>
+            <IconsSvgs src={JsTs} alt="" />
+            <IconsSvgs src={Mongo} alt="" />
+            <IconsSvgs src={ReactIcon} alt="" />
+            <NodePng src={Node} alt="" />
+            <IconsSvgs src={Pwa} alt="" />
+            <IconsSvgs src={Graphql} alt="" />
+          </TechnicalsRow>
+          <ServicesCardsBox>
+            <ServiceBoxElement
+              svgLink={Browser}
+              title="Web Aplications"
+              content="Lorem Ipsum is simply dummy text of the printing and
 typesetting industry. Lorem Ipsum has been the industry's
 standard dummy text ever since the 1500s, when an
 unknown printer took a galley of type and scrambled it to
@@ -153,11 +154,11 @@ Lorem Ipsum has been the industry's standard dummy
 text ever since the 1500s, when an unknown printer took
 a galley of type and scrambled it to make a type
 specimen book."
-          />
-          <RightElementWithMarign
-            svgLink={App}
-            title="Mobile Aplications"
-            content="Lorem Ipsum is simply dummy text of the printing and
+            />
+            <RightElementWithMarign
+              svgLink={App}
+              title="Mobile Aplications"
+              content="Lorem Ipsum is simply dummy text of the printing and
 typesetting industry. Lorem Ipsum has been the
 industry's standard dummy text ever since the 1500s,
 when an unknown printer took a galley of type and
@@ -167,9 +168,10 @@ typesetting industry. Lorem Ipsum has been the
 industry's standard dummy text ever since the 1500s,
 when an unknown printer took a galley of type and
 scrambled it to make a type specimen book."
-          />
-        </ServicesCardsBox>
-      </ServiceStyle>
+            />
+          </ServicesCardsBox>
+        </ServiceStyle>
+      </div>
     </MaxWidthWithBg>
   );
 };

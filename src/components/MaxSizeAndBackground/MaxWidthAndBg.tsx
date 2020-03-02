@@ -11,6 +11,7 @@ const MaxWidth = styled.div`
   max-width: 1440px;
   margin: 0 auto;
   float: none;
+  position: relative;
 `;
 
 type BgProps = { BgColor?: ColorBacground };

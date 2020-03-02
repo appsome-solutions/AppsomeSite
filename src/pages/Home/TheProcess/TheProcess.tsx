@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import styled from 'styled-components';
+import { Element } from 'react-scroll';
 import { SectionTitle } from 'components/SectionTitle/SectionTitle';
 import { TimeLineElement } from './TimeLineElement/TimeLineElement';
 import IdeaIcon from 'assets/IdeaIcon.svg';
@@ -13,9 +14,8 @@ import { media, useRWD } from 'global/RWD';
 import ShapeProcess from 'assets/ShapeProcess.svg';
 import { MaxWidthWithBg } from 'components/MaxSizeAndBackground/MaxWidthAndBg';
 
-const ProcessFrame = styled.div`
+const ProcessFrame = styled(Element)`
   background-color: ${props => props.theme.colors.utils.background.mid.color};
-  position: relative;
   ${media.xs`
   padding: 100px 20px 64px 20px;  
   `}
@@ -45,23 +45,28 @@ const BottomText = styled.div`
   margin-top:20px;`}
 `;
 
+const PositionToMaxWidth = styled(MaxWidthWithBg)`
+  position: relative;
+`;
+
 const Shape = styled(Icon)`
   position: absolute;
   background-color: ${props => props.theme.colors.main.secondary};
   ${media.xs`
   width:27px;
   height:210px;
-  right: 0;
+  right:0vh;
   top: 1720px;
   `}
   ${media.md`
   width: 77px;
   height: 376px;
-  right: 0px;
+  right:0vh;
   top: 1180px;
   `}
   ${media.xxl`
-  right: calc(-50vw + 720x);
+  top: 1980px;
+  right:0vh;
   width: 77px;
   height: 376px;
   `}
@@ -70,8 +75,8 @@ const Shape = styled(Icon)`
 export const TheProcess: FunctionComponent = () => {
   const { less, more } = useRWD();
   return (
-    <MaxWidthWithBg BgColor="secondary">
-      <ProcessFrame className="Process" id="Process">
+    <PositionToMaxWidth BgColor="secondary">
+      <ProcessFrame name="Process" id="Process" className="element">
         <SectionTitle section="The process" color="primary" boxColor="secondary" />
         <ProcessTimeLine>
           <TimeLineElement
@@ -81,7 +86,6 @@ export const TheProcess: FunctionComponent = () => {
             content="Everything starts with your idea"
             contentPosition="left"
           />
-
           <TimeLineElement
             positionText="left"
             svgLink={RequirementsIcon}
@@ -90,7 +94,6 @@ export const TheProcess: FunctionComponent = () => {
 requirements and share our thoughts"
             contentPosition="right"
           />
-
           <TimeLineElement
             positionText="right"
             svgLink={DesignIcon}
@@ -99,7 +102,6 @@ requirements and share our thoughts"
 views with best user experience in mind"
             contentPosition="left"
           />
-
           {more.md && (
             <TimeLineElement
               positionText="left"
@@ -142,9 +144,10 @@ Let’s launch it!"
           )}
         </ProcessTimeLine>
         <BottomText>*Designs can be provided </BottomText>
-        {more.md && <Shape svgLink={Shape2} />}
+        {more.md && (less.xxl && <Shape svgLink={Shape2} />)}
         {less.md && <Shape svgLink={ShapeProcess} />}
       </ProcessFrame>
-    </MaxWidthWithBg>
+      {more.xxl && <Shape svgLink={Shape2} />}
+    </PositionToMaxWidth>
   );
 };

@@ -5,6 +5,7 @@ import { Icon } from 'components/Icon/Icon';
 import Shape3 from 'assets/Shape3.svg';
 import { PortfolioCarousel } from './PortfolioProperties';
 import { Carousel } from 'antd';
+import { Element } from 'react-scroll';
 import LeftVector from 'assets/LeftVector.svg';
 import Vector from 'assets/Vector.svg';
 import { Button } from 'components/Button/Button';
@@ -16,9 +17,8 @@ import ProList from 'assets/ProList.svg';
 import Oncologist from 'assets/Oncologist.svg';
 import { MaxWidthWithBg } from 'components/MaxSizeAndBackground/MaxWidthAndBg';
 
-const PortfolioStyle = styled.div`
+const PortfolioStyle = styled(Element)`
   background-color: ${props => props.theme.colors.utils.background.mid.color};
-  position: relative;
   ${media.xs`
   padding: 36px 24px 32px 24px;
   `} ${media.md`
@@ -109,7 +109,7 @@ export const PortfolioStyled: FunctionComponent = () => {
 
   return (
     <MaxWidthWithBg BgColor="secondary">
-      <PortfolioStyle id="Portfolio">
+      <PortfolioStyle id="Portfolio" name="Portfolio">
         {more.md && <Shape svgLink={Shape3} />}
         <div>
           <SectionTitle section="Portfolio" color="primary" boxColor="secondary" />
