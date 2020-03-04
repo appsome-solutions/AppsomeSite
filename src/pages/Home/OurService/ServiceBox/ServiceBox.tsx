@@ -17,7 +17,7 @@ const RectangleInServicesCards = styled.div`
   ${media.xs`
     padding: 32px 28px 60px 28px;
   `}
-  ${media.md`
+  ${media.lg`
    padding: 32px;
   `}
 `;
@@ -39,7 +39,7 @@ const MoreButton = styled(Button)`
   ${media.xs`
   width:100%;
   `}
-  ${media.md`
+  ${media.lg`
    width: 112px;
    `}
 `;

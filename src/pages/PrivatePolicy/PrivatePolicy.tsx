@@ -23,7 +23,7 @@ const PrivacyPolicyBg = styled.div`
     padding: 20px;
     white-space: pre-wrap;
   `}
-  ${media.md`
+  ${media.lg`
     padding: 36px 80px 48px 80px;
   `}
 `;

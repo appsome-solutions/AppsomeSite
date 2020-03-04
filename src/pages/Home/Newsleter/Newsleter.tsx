@@ -19,7 +19,7 @@ const NewsletterRow = styled.div`
   flex-direction:column;
   padding: 68px 16px 52px 16px;
 `}
-  ${media.md`
+  ${media.lg`
   flex-direction:row;
   padding: 68px 136px 84px 136px;
 `}
@@ -35,7 +35,7 @@ const InputBox = styled.div`
   ${media.xs`
    flex-direction:column;
   `}
-  ${media.md`
+  ${media.lg`
   flex-direction:row;
 `}
 `;
@@ -53,7 +53,7 @@ const EmailInput = styled.input`
   ${media.xs`
   margin-top:30px;
 `}
-  ${media.md`
+  ${media.lg`
   margin-top:0;
 `}
 `;
@@ -64,7 +64,7 @@ const EmailIcon = styled.img`
   top: 40px;
   left:12px;
 `}
-  ${media.md`
+  ${media.lg`
   top: 10px;
   left:12px;
 `}
@@ -78,7 +78,7 @@ const SubscribeButton = styled(Button)`
   ${media.xs`
     margin-top:20px;
 `}
-  ${media.md`
+  ${media.lg`
     margin-top:0;
 `}
 `;
@@ -86,7 +86,7 @@ const TextUnderSectionDiv = styled.div`
   ${media.xs`
    margin-top:36px;
   `};
-  ${media.md`
+  ${media.lg`
    margin-top:0;
   `};
 `;

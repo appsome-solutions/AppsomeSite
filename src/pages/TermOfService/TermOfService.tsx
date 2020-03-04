@@ -16,7 +16,7 @@ const MainComponent = styled.div`
     padding: 20px;
     white-space: pre-wrap;
   `}
-  ${media.md`
+  ${media.lg`
   padding: 40px 80px;
   `}
 `;

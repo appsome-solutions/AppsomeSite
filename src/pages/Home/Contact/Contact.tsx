@@ -14,6 +14,7 @@ import { media, useRWD } from 'global/RWD';
 import { MaxWidthWithBg } from 'components/MaxSizeAndBackground/MaxWidthAndBg';
 import ShapePortfolio from 'assets/ShapePortfolio.svg';
 import { Icon } from 'components/Icon/Icon';
+import { Col, Row } from 'antd';
 
 interface EditorStylesWrapperType {
   hasError?: boolean;
@@ -28,6 +29,9 @@ const ContactStyle = styled(Element)`
   ${media.md`
   padding: 96px 192px 80px 192px;
   `}
+    ${media.xxl`
+  padding: 96px 192px 80px 192px;
+  `}
 `;
 
 const TextUnderSectionTitle = styled.h5`
@@ -40,12 +44,13 @@ const TextUnderSectionTitle = styled.h5`
   `}
 `;
 
-const InputBoxes = styled.div`
+const InputBoxes = styled(Row)`
   margin-bottom: 32px;
-  ${media.md`
+  width: 100%;
+  ${media.xl`
    display: flex;
    justify-content: space-between;
-  `}
+  `};
 `;
 
 const StyledInput = styled.input<EditorStylesWrapperType>`
@@ -56,9 +61,11 @@ const StyledInput = styled.input<EditorStylesWrapperType>`
    padding-left:12px;
    margin-bottom:0px;
   `}
-  ${media.md`
+  ${media.xl`
    margin-bottom:0px;
-   padding-left:20px;;
+  `}
+    ${media.xxl`
+   margin-bottom:0px;
   `}
 `;
 
@@ -67,30 +74,45 @@ const NameInputText = styled.h6`
   ${media.xs`
     margin:20px 0 32px 0;
   `}
-  ${media.md`
+  ${media.xl`
    margin: 0 0 0 0;
    `}
+     ${media.xxl`
+   margin-bottom:0px;
+  `}
 `;
 
 const NameInput = styled(StyledInput)`
   ${media.xs`
   width: 100%;
   `}
-  ${media.md`
+  ${media.xl`
   width: 400px;
+  `}
+    ${media.xxl`
+   margin-bottom:0px;
   `}
 `;
 
 const EmailInputText = styled.h6<EditorStylesWrapperType>`
   color: ${props => props.theme.colors.utils.background.mid.color};
+  ${media.md`
+  float:none;
+  `};
+  ${media.xl`
+    float: right;
+  `}
 `;
 
 const EmailInput = styled(StyledInput)`
   ${media.xs`
   width: 100%;
   `}
-  ${media.md`
+  ${media.xl`
   width: 400px;
+  `}
+   ${media.xxl`
+   margin-bottom:0px;
   `}
 `;
 
@@ -98,26 +120,19 @@ const MessageTextArea = styled.textarea<EditorStylesWrapperType>`
   height: 136px;
   padding: 20px 0 0 20px;
   width: 100%;
+  & {margin-bottom: 0px;}
   ${CommonFormElementStyling}
-    border-color: ${props => (props.hasError ? props.theme.colors.functional.error : null)};
-   ${media.xs`
-   margin-bottom:0px;
-  `}
-  ${media.md`
-  margin-bottom:0px;
-  `}
+   border-color: ${props => (props.hasError ? props.theme.colors.functional.error : null)};
+
 `;
 
 const MessageText = styled.h6`
   display: flex;
   align-items: center;
+  & {
+    margin-bottom: 32px;
+  }
   color: ${props => props.theme.colors.utils.background.mid.color};
-  ${media.xs`
-  margin-bottom: 16px;
-  `}
-  ${media.md`
-  margin-bottom: 32px;
-  `}
 `;
 
 const ButtonPosition = styled.div`
@@ -129,10 +144,14 @@ const SendButton = styled(Button)`
   width:100%
   margin-top: 16px;
   `}
-  ${media.md`
+  ${media.xl`
   margin-top: 0;
   width: 116px;
 `}
+  ${media.xxl`
+   margin-bottom:0px;
+   padding-left:20px;;
+  `}
 `;
 
 const TermServiceAndPolicyText = styled.span`
@@ -215,15 +234,22 @@ export const ContactStyled: FunctionComponent = () => {
         >
           <FormStyle translate={false}>
             <InputBoxes>
-              <NameInputText>
-                <FormikInput name="name" InputComponent={(props: any) => <NameInput {...props} placeholder="Name" />} />
-              </NameInputText>
-              <EmailInputText>
-                <FormikInput
-                  name="email"
-                  InputComponent={(props: any) => <EmailInput {...props} placeholder="Email" type="primary" />}
-                />
-              </EmailInputText>
+              <Col xs={24} xl={12}>
+                <NameInputText>
+                  <FormikInput
+                    name="name"
+                    InputComponent={(props: any) => <NameInput {...props} placeholder="Name" />}
+                  />
+                </NameInputText>
+              </Col>
+              <Col xs={24} xl={12}>
+                <EmailInputText>
+                  <FormikInput
+                    name="email"
+                    InputComponent={(props: any) => <EmailInput {...props} placeholder="Email" type="primary" />}
+                  />
+                </EmailInputText>
+              </Col>
             </InputBoxes>
             <MessageText>
               <FormikTextArea

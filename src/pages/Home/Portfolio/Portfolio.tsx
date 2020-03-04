@@ -21,7 +21,8 @@ const PortfolioStyle = styled(Element)`
   background-color: ${props => props.theme.colors.utils.background.mid.color};
   ${media.xs`
   padding: 36px 24px 32px 24px;
-  `} ${media.md`
+  `};
+  ${media.lg`
   padding: 84px 112px 24px 192px;
 `};
 `;
@@ -31,7 +32,7 @@ const TextUnderSection = styled.h6`
   ${media.xs`
   margin: 24px 0 16px 0;
   `}
-  ${media.md`
+  ${media.lg`
   margin: 8px 0 0 16px;
 `}
 `;
@@ -46,7 +47,7 @@ const Shape = styled(Icon)`
   height: 170px;
   width: 31px;
   `}
-  ${media.md`
+  ${media.lg`
   height: 426px;
   width: 158px;
   left: 0px;
@@ -74,7 +75,7 @@ const ArrowButtonsBox = styled.div`
   ${media.xs`
   justify-content:center;
   `}
-  ${media.md`
+  ${media.lg`
   justify-content:flex-end;
   `}
 `;
@@ -110,7 +111,7 @@ export const PortfolioStyled: FunctionComponent = () => {
   return (
     <MaxWidthWithBg BgColor="secondary">
       <PortfolioStyle id="Portfolio" name="Portfolio">
-        {more.md && <Shape svgLink={Shape3} />}
+        {more.lg && <Shape svgLink={Shape3} />}
         <div>
           <SectionTitle section="Portfolio" color="primary" boxColor="secondary" />
         </div>

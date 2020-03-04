@@ -11,14 +11,14 @@ import Browser from 'assets/Browser.svg';
 import { SectionTitle } from 'components/SectionTitle/SectionTitle';
 import { ServiceBoxElement } from './ServiceBox/ServiceBox';
 import { media, useRWD } from 'global/RWD';
-import { MaxWidthWithBg } from 'components/MaxSizeAndBackground/MaxWidthAndBg';
-
+import { Row, Col } from 'antd';
+import { MaxWidthWithBg } from '../../../components/MaxSizeAndBackground/MaxWidthAndBg';
 const ServiceStyle = styled.div`
   background-color: ${props => props.theme.colors.main.primary};
   ${media.xs`
   padding-top: 100px;
  `}
-  ${media.md`
+  ${media.lg`
   padding-top: 98px;
  `}
 `;
@@ -27,7 +27,7 @@ const OurSevicesBox = styled.div`
   ${media.xs`
   padding: 0 20px 36px 20px;
  `}
-  ${media.md`
+  ${media.lg`
    padding-bottom: 60px;
    margin-left: 192px;
  `}
@@ -40,7 +40,7 @@ const WholeTextPre = styled.h6`
     font-size: 16px;
     line-height: 19px;
   `}
-  ${media.md`
+  ${media.lg`
     margin-left: 16px;
 `}
 `;
@@ -49,49 +49,33 @@ const RedText = styled.span`
   color: ${props => props.theme.colors.main.secondary};
 `;
 
-const TechnicalsRow = styled.div`
-  padding: 40px 0 12px 0;
+const TechnicalsRow = styled(Row)`
   background-color: ${props => props.theme.colors.utils.background.mid.color};
-  display: flex;
-  justify-content: center;
-  align-items: center;
   ${media.xs`
-  flex-direction: column;
-  `} ${media.md`
-  flex-direction: row;
-  `};
+  padding: 40px 0 12px 40px;
+  `}
+  ${media.lg`
+  padding: 36px 80px 36px 40px;
+
+  `}
 `;
 
 const IconsSvgs = styled.img`
   ${media.xs`
-  margin-left: 0px;
-  margin-bottom: 32px;
+    margin:0 32px 32px 0;
   `}
-  ${media.md`
-   margin-left: 100px; 
-   margin-bottom:0;
-  `}
-`;
-const NodePng = styled.img`
-  ${media.xs`
-  margin-left: 0px;
-  margin-bottom: 32px;
-  width:130px;
-  height:80px
-  `}
-  ${media.md`
-   margin-left: 100px; 
-   margin-bottom:0;
+  ${media.lg`
+   margin:0 0 0 20px; 
   `}
 `;
 
 const ServicesCardsBox = styled.div`
   ${media.xs`
   padding: 46px 20px;`}
-  ${media.md`  
+  ${media.lg`  
   display: flex;
   justify-content: center;
-   padding: 128px 0 148px 0;
+   padding: 128px 40px 148px 40px;
   `}
 `;
 
@@ -100,47 +84,62 @@ const RightElementWithMarign = styled(ServiceBoxElement)`
   margin-top:20px;
   margin-left: 0;
   `}
-  ${media.md`
+  ${media.lg`
     margin-top:0;
    margin-left: 92px;
   `}
 `;
 
+const Mleko = styled(Col)`
+  text-align: right;
+`;
 export const OurServices: FunctionComponent = () => {
   const { less, more } = useRWD();
   return (
-    <MaxWidthWithBg BgColor="primary">
-      <div className="Service" id="Service">
-        <ServiceStyle>
-          <OurSevicesBox>
-            <SectionTitle section="Our Service" color="secondary" boxColor="primary" />
-            {more.md && (
-              <WholeTextPre>
-                We specialize in web technologies - simply saying we are in love with <RedText>JavaScript!</RedText>
-                <br />
-                Those are few we know at expert level:
-              </WholeTextPre>
-            )}
-            {less.md && (
-              <WholeTextPre>
-                We specialize in web technologies -<br /> simply saying we are in love with
-                <br /> <RedText>JavaScript!</RedText>
-                <br />
-                <br />
-                <br />
-                Those are few we know at expert level:
-              </WholeTextPre>
-            )}
-          </OurSevicesBox>
-          <TechnicalsRow>
-            <IconsSvgs src={JsTs} alt="" />
-            <IconsSvgs src={Mongo} alt="" />
-            <IconsSvgs src={ReactIcon} alt="" />
-            <NodePng src={Node} alt="" />
-            <IconsSvgs src={Pwa} alt="" />
-            <IconsSvgs src={Graphql} alt="" />
-          </TechnicalsRow>
-          <ServicesCardsBox>
+    <ServiceStyle className="Service" id="Service">
+      <MaxWidthWithBg BgColor="primary">
+        <OurSevicesBox>
+          <SectionTitle section="Our Service" color="secondary" boxColor="primary" />
+          {more.lg && (
+            <WholeTextPre>
+              We specialize in web technologies - simply saying we are in love with <RedText>JavaScript!</RedText>
+              <br />
+              Those are few we know at expert level:
+            </WholeTextPre>
+          )}
+          {less.lg && (
+            <WholeTextPre>
+              We specialize in web technologies - simply saying we are in love with
+              <br /> <RedText>JavaScript!</RedText>
+              <br />
+              <br />
+              <br />
+              Those are few we know at expert level:
+            </WholeTextPre>
+          )}
+        </OurSevicesBox>
+      </MaxWidthWithBg>
+      <MaxWidthWithBg BgColor="secondary">
+        <TechnicalsRow>
+          <Row>
+            <Mleko xs={12} lg={12}>
+              <IconsSvgs src={JsTs} alt="" />
+              <IconsSvgs src={Mongo} alt="" />
+              <IconsSvgs src={ReactIcon} alt="" />
+            </Mleko>
+          </Row>
+          <Row>
+            <Col xs={12} lg={12}>
+              <IconsSvgs src={Node} alt="" />
+              <IconsSvgs src={Pwa} alt="" />
+              <IconsSvgs src={Graphql} alt="" />
+            </Col>
+          </Row>
+        </TechnicalsRow>
+      </MaxWidthWithBg>
+      <MaxWidthWithBg BgColor="primary">
+        <ServicesCardsBox>
+          {more.lg && (
             <ServiceBoxElement
               svgLink={Browser}
               title="Web Aplications"
@@ -155,6 +154,8 @@ text ever since the 1500s, when an unknown printer took
 a galley of type and scrambled it to make a type
 specimen book."
             />
+          )}
+          {more.lg && (
             <RightElementWithMarign
               svgLink={App}
               title="Mobile Aplications"
@@ -169,9 +170,23 @@ industry's standard dummy text ever since the 1500s,
 when an unknown printer took a galley of type and
 scrambled it to make a type specimen book."
             />
-          </ServicesCardsBox>
-        </ServiceStyle>
-      </div>
-    </MaxWidthWithBg>
+          )}
+          {less.lg && (
+            <ServiceBoxElement
+              svgLink={Browser}
+              title="Web Aplications"
+              content="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+            />
+          )}
+          {less.lg && (
+            <RightElementWithMarign
+              svgLink={App}
+              title="Mobile Aplications"
+              content="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+            />
+          )}
+        </ServicesCardsBox>
+      </MaxWidthWithBg>
+    </ServiceStyle>
   );
 };

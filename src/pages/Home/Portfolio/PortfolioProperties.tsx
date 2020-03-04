@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { Icon } from 'components/Icon/Icon';
 import Quote from 'assets/Quote.svg';
 import { media, useRWD } from 'global/RWD';
+import { Col, Row } from 'antd';
 
 export type imgDimensions = 'phone' | 'laptop';
 export interface PortfolioProps {
@@ -19,9 +20,9 @@ const PortfolioDescription = styled.div`
   ${media.xs`
   margin-left: 0;
   padding-top: 8px;
-  `} ${media.md`
+  `} ${media.lg`
   margin-left: 44px;
-  padding: 140px 0 176px 0;
+  padding:0;
 `};
 `;
 
@@ -55,6 +56,7 @@ const QuotationBoxWithText = styled.div`
   display: flex;
   justify-content: center;
   text-align: center;
+  align-items: center;
   font-style: italic;
   padding: 0 24px;
 `;
@@ -66,7 +68,7 @@ const CarouselWhole = styled.div`
   ${media.xs`
   flex-direction:column;
   `}
-  ${media.md`
+  ${media.lg`
   flex-direction:row;
   `}
 `;
@@ -93,50 +95,56 @@ const ImgBox = styled.div<imgProps>`
   display: flex;
   justify-content: center;
   ${media.xs`margin: 40px ;`}
-  ${media.md`margin-right:126px;`}
+  height: auto;
+  width: 100%;
 `;
 
 const ImgDiv = styled.img`
   position: relative;
   display: flex;
-  height: 100%;
-  ${media.xs`width:100%;`};
-  ${media.md`width:auto;`};
+  width: 100%;
+  height: 400px;
 `;
 
 export const PortfolioCarousel: FunctionComponent<PortfolioProps> = (props: PortfolioProps): JSX.Element => {
   const { title, description, svgLink, TestimonialPerson, TestimonialText, challenges, imgDimension } = props;
   const { less, more } = useRWD();
   return (
-    <CarouselWhole>
-      {more.md && (
-        <ImgBox>
-          <ImgDiv src={svgLink} />
-        </ImgBox>
-      )}
-      {less.md && (
-        <ImgBox imgDimension={imgDimension}>
-          <ImgDiv src={svgLink} />
-        </ImgBox>
-      )}
-      <PortfolioDescription>
-        <TitleSite>{title}</TitleSite>
-        <DescriptionSiteBox>
-          <DescriptionSite>
-            {description}
-            <Challenges>Challenges</Challenges>
-            {challenges}
-          </DescriptionSite>
-        </DescriptionSiteBox>
-        <QuotationBoxWithQuoteSvg>
-          <QuoteSign svgLink={Quote} />
-          <QuotationBoxWithText>{TestimonialText}</QuotationBoxWithText>
-          <BoxWithSecondQuote>
-            <QuoteSign svgLink={Quote} />
-          </BoxWithSecondQuote>
-          <AuthorText>{TestimonialPerson}</AuthorText>
-        </QuotationBoxWithQuoteSvg>
-      </PortfolioDescription>
-    </CarouselWhole>
+    <Row>
+      <CarouselWhole>
+        {more.lg && (
+          <Col lg={12} xl={16}>
+            <ImgBox>
+              <ImgDiv src={svgLink} />
+            </ImgBox>
+          </Col>
+        )}
+        {less.lg && (
+          <ImgBox imgDimension={imgDimension}>
+            <ImgDiv src={svgLink} />
+          </ImgBox>
+        )}
+        <Col lg={12} xl={8}>
+          <PortfolioDescription>
+            <TitleSite>{title}</TitleSite>
+            <DescriptionSiteBox>
+              <DescriptionSite>
+                {description}
+                <Challenges>Challenges</Challenges>
+                {challenges}
+              </DescriptionSite>
+            </DescriptionSiteBox>
+            <QuotationBoxWithQuoteSvg>
+              <QuoteSign svgLink={Quote} />
+              <QuotationBoxWithText>{TestimonialText}</QuotationBoxWithText>
+              <BoxWithSecondQuote>
+                <QuoteSign svgLink={Quote} />
+              </BoxWithSecondQuote>
+              <AuthorText>{TestimonialPerson}</AuthorText>
+            </QuotationBoxWithQuoteSvg>
+          </PortfolioDescription>
+        </Col>
+      </CarouselWhole>
+    </Row>
   );
 };

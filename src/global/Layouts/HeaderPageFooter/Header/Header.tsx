@@ -14,16 +14,23 @@ const HeaderScroll = styled(Headroom)`
     z-index: ${props => props.theme.zIndex.towerBlock};
   }
   .headroom--pinned {
+    max-width: auto;
+    height: 102px;
     border-bottom: 1px solid ${props => props.theme.colors.utils.border.light};
+    background-color: ${props => props.theme.colors.main.primary};
+  }
+  .headroom--unpinned {
+    max-width: auto
+    background-color: ${props => props.theme.colors.main.primary};
   }
 `;
 
 const HeaderWrapper = styled.div`
+  width: 100%;
   background-color: ${props => props.theme.colors.main.primary};
   height: 100px;
   display: flex;
   justify-content: space-between;
-  width: 100%;
   padding-left: 80px;
   padding-right: 80px;
   align-items: center;
@@ -31,9 +38,9 @@ const HeaderWrapper = styled.div`
     border-bottom: 1px solid ${props => props.theme.colors.utils.border.light};
   }
   ${media.xs`
-    padding:0 16px;
+    padding:0 32px;
   `}
-  ${media.md`
+  ${media.lg`
     padding-left: 80px;
   `}
 `;
@@ -51,23 +58,18 @@ const HeaderText = styled.h6`
     text-decoration-line: ${props => props.theme.textDecorationLine}
 `;
 
-const LogoSvgStyle = styled.img`
-  display: flex;
-  justify-content: space-between;
-`;
-
 export const Header = () => {
   const { more, less } = useRWD();
 
   return (
-    <MaxWidthWithBg BgColor="primary">
-      <HeaderScroll className="Header">
+    <HeaderScroll className="Header">
+      <MaxWidthWithBg BgColor="primary">
         <HeaderWrapper>
-          {less.md && <HamburgerMenu />}
+          {less.lg && <HamburgerMenu />}
           <LinkRouter to="/">
-            <LogoSvgStyle src={LogoSvg} alt="" />
+            <img src={LogoSvg} alt="" />
           </LinkRouter>
-          {more.md && (
+          {more.lg && (
             <LinksPosition>
               <LinkRouter to="/" onClick={() => scrollTo('Process')}>
                 <HeaderText>Process</HeaderText>
@@ -84,7 +86,7 @@ export const Header = () => {
             </LinksPosition>
           )}
         </HeaderWrapper>
-      </HeaderScroll>
-    </MaxWidthWithBg>
+      </MaxWidthWithBg>
+    </HeaderScroll>
   );
 };

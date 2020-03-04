@@ -22,7 +22,7 @@ const ProcessTimeLineElement = styled.div`
   ${media.xs`
   margin-bottom: 8px;
   `}
-  ${media.md`
+  ${media.xl`
   margin-bottom: 0px;
   `}
 `;
@@ -44,7 +44,7 @@ const IdeaContent = styled.pre`
   white-space: pre-wrap;
   text-align: center;
   `}
-  ${media.md`
+  ${media.xl`
   white-space: pre;
   text-align:inherit;
   `}
@@ -88,7 +88,7 @@ export const TimeLineElement: FunctionComponent<ElementProps> = (props: ElementP
           <IdeaIconStyle svgLink={svgLink} />
         </Circle>
         <PositionWholeText positionText={props.positionText} contentPosition={props.contentPosition}>
-          {more.md && (
+          {more.xl && (
             <div>
               <Title>{title}</Title>
               <IdeaContent>{content}</IdeaContent>
@@ -96,14 +96,14 @@ export const TimeLineElement: FunctionComponent<ElementProps> = (props: ElementP
           )}
         </PositionWholeText>
       </ProcessTimeLineElement>
-      {less.md && (
+      {less.xl && (
         <>
           <Title>{title}</Title>
           <IdeaContent>{content}</IdeaContent>
         </>
       )}
-      {less.md && <div>{isWithLine && <LineUnderSvg src={Line} />}</div>}
-      {more.md && <div>{isWithLine && <LineUnderSvgDesktop svgLink={LineMd} />}</div>}
+      {less.xl && <div>{isWithLine && <LineUnderSvg src={Line} />}</div>}
+      {more.xl && <div>{isWithLine && <LineUnderSvgDesktop svgLink={LineMd} />}</div>}
     </>
   );
 };

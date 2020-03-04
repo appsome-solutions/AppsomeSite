@@ -18,7 +18,7 @@ const FooterBG = styled.div`
   flex-direction:column;
     padding: 36px 16px 120px 24px;
   `}
-  ${media.md`
+  ${media.lg`
     flex-direction:row;
     padding: 48px 280px 188px 136px;
   `}
@@ -31,11 +31,12 @@ const AboutUs = styled.pre`
 
 const ContactAddress = styled.div`
   margin-bottom: 36px;
+  margin-right: 124px;
 `;
 
 const BoxWithLinks = styled.div`
   display: flex;
-  margin: 50px 0 0 188px;
+  margin-top: 60px;
 `;
 
 const LinkText = styled.h6`
@@ -96,12 +97,8 @@ const LinkStyle = styled.div`
 `}
 `;
 
-const Mleko = styled(MaxWidthWithBg)`
-  position: relative;
-`;
-
 const Links = () => (
-  <>
+  <div>
     <Link to="Policy" spy={true} smooth={true} offset={-99} duration={500}>
       <LinkRouter to="/privacy-policy">
         <PrivacyPolicyText>PRIVACY POLICY</PrivacyPolicyText>
@@ -112,13 +109,13 @@ const Links = () => (
         <TermOfServiceText>TERM OF SERVICE</TermOfServiceText>
       </LinkRouter>
     </Link>
-  </>
+  </div>
 );
 
 export const Footer = () => {
   const { less, more } = useRWD();
   return (
-    <Mleko BgColor="secondary">
+    <MaxWidthWithBg>
       <FooterBG className="Footer">
         <div>
           <AboutUs>About us</AboutUs>
@@ -128,14 +125,14 @@ export const Footer = () => {
             +48 783 697 219 <br />
             patryk.janik@appsome-solutions.com
           </ContactAddress>
-          {more.md && <Links />}
-          {less.md && (
+          {more.lg && <Links />}
+          {less.lg && (
             <LinkStyle>
               <Links />
             </LinkStyle>
           )}
         </div>
-        {more.md && (
+        {more.lg && (
           <BoxWithLinks>
             <LinkRouter to="/" onClick={() => scrollTo('Process')}>
               <LinkText>Process</LinkText>
@@ -153,7 +150,7 @@ export const Footer = () => {
         )}
         <LeftShape svgLink={Shape4} />
       </FooterBG>
-      {more.md && <RightShape svgLink={Shape5} />}
-    </Mleko>
+      {more.lg && <RightShape svgLink={Shape5} />}
+    </MaxWidthWithBg>
   );
 };
