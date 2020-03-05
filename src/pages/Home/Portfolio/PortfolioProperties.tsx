@@ -75,7 +75,6 @@ const CarouselWhole = styled.div`
 
 const BoxWithSecondQuote = styled.div`
   text-align: right;
-  margin-bottom: 12px;
 `;
 
 const AuthorText = styled.div`
@@ -94,16 +93,33 @@ const ImgBox = styled.div<imgProps>`
   position: relative;
   display: flex;
   justify-content: center;
-  ${media.xs`margin: 40px ;`}
-  height: auto;
-  width: 100%;
+  width: auto;
 `;
 
+const ImgDivDesktop = styled.img`
+  position: relative;
+  display: flex;
+  width: 100%;
+  ${media.xs`
+  height: 240px;
+`}
+  ${media.md` 
+  height: 400px;
+  padding:40px;
+  `}
+`;
 const ImgDiv = styled.img`
   position: relative;
   display: flex;
   width: 100%;
+  ${media.xs`
+  height: 300px;
+  margin: 20px;
+`}
+  ${media.md`
   height: 400px;
+  padding:40px;
+  `}
 `;
 
 export const PortfolioCarousel: FunctionComponent<PortfolioProps> = (props: PortfolioProps): JSX.Element => {
@@ -121,7 +137,7 @@ export const PortfolioCarousel: FunctionComponent<PortfolioProps> = (props: Port
         )}
         {less.lg && (
           <ImgBox imgDimension={imgDimension}>
-            <ImgDiv src={svgLink} />
+            {props.imgDimension ? <ImgDivDesktop src={svgLink} /> : <ImgDiv src={svgLink} />}
           </ImgBox>
         )}
         <Col lg={12} xl={8}>

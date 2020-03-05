@@ -9,6 +9,7 @@ import { Form, Formik } from 'formik';
 import FormikInput from 'components/FormikFields/FormikInput/FormikInput';
 import { media } from 'global/RWD';
 import { MaxWidthWithBg } from 'components/MaxSizeAndBackground/MaxWidthAndBg';
+import * as Yup from 'yup';
 
 const NewsletterRow = styled.div`
   background-color: ${props => props.theme.colors.utils.background.mid.color};
@@ -17,7 +18,7 @@ const NewsletterRow = styled.div`
   justify-content: space-between;
   ${media.xs`
   flex-direction:column;
-  padding: 68px 16px 52px 16px;
+  padding: 40px 16px 52px 16px;
 `}
   ${media.lg`
   flex-direction:row;
@@ -90,6 +91,12 @@ const TextUnderSectionDiv = styled.div`
    margin-top:0;
   `};
 `;
+
+const SignUpSchema = Yup.object().shape({
+  email: Yup.string()
+    .email('Invalid email')
+    .required('Required'),
+});
 export const Newsletter: FunctionComponent = () => {
   const { db } = useFirebase();
 
@@ -108,6 +115,7 @@ export const Newsletter: FunctionComponent = () => {
           initialValues={{
             email: '',
           }}
+          validationSchema={SignUpSchema}
           onSubmit={values => {
             db.collection('subscriptions')
               .add({

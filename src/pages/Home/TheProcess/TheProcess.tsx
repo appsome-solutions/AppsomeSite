@@ -18,7 +18,7 @@ const ProcessFrame = styled(Element)`
   position: relative;
   background-color: ${props => props.theme.colors.utils.background.mid.color};
   ${media.xs`
-  padding: 100px 20px 64px 20px;  
+  padding: 60px 20px 64px 20px;  
   `}
   ${media.lg`
   padding: 104px 104px 48px 180px;

@@ -16,7 +16,7 @@ import { MaxWidthWithBg } from '../../../components/MaxSizeAndBackground/MaxWidt
 const ServiceStyle = styled.div`
   background-color: ${props => props.theme.colors.main.primary};
   ${media.xs`
-  padding-top: 100px;
+  padding-top: 40px;
  `}
   ${media.lg`
   padding-top: 98px;

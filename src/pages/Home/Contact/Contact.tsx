@@ -23,12 +23,9 @@ const ContactStyle = styled.div`
   position: relative;
   background-color: ${props => props.theme.colors.main.primary};
   ${media.xs`
-  padding: 98px 16px 52px 16px;  
+  padding: 60px 16px 52px 16px;  
   `}
-  ${media.md`
-  padding: 96px 192px 80px 192px;
-  `}
-    ${media.xxl`
+  ${media.lg`
   padding: 96px 192px 80px 192px;
   `}
 `;
