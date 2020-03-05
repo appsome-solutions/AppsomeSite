@@ -28,7 +28,7 @@ const OurSevicesBox = styled.div`
   padding: 0 20px 36px 20px;
  `}
   ${media.lg`
-   padding-bottom: 60px;
+   padding:0 0 60px 0;
    margin-left: 192px;
  `}
 `;
@@ -51,12 +51,16 @@ const RedText = styled.span`
 
 const TechnicalsRow = styled(Row)`
   background-color: ${props => props.theme.colors.utils.background.mid.color};
+  display: flex;
+  align-items: center;
+  justify-content: center;
   ${media.xs`
   padding: 40px 0 12px 40px;
+  flex-direction: column;
   `}
   ${media.lg`
   padding: 36px 80px 36px 40px;
-
+  flex-direction: row;
   `}
 `;
 
@@ -79,7 +83,7 @@ const ServicesCardsBox = styled.div`
   `}
 `;
 
-const RightElementWithMarign = styled(ServiceBoxElement)`
+const RightElementWithMargin = styled(ServiceBoxElement)`
   ${media.xs`
   margin-top:20px;
   margin-left: 0;
@@ -90,8 +94,11 @@ const RightElementWithMarign = styled(ServiceBoxElement)`
   `}
 `;
 
-const Mleko = styled(Col)`
-  text-align: right;
+const RowInGrid = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 `;
 export const OurServices: FunctionComponent = () => {
   const { less, more } = useRWD();
@@ -121,20 +128,20 @@ export const OurServices: FunctionComponent = () => {
       </MaxWidthWithBg>
       <MaxWidthWithBg BgColor="secondary">
         <TechnicalsRow>
-          <Row>
-            <Mleko xs={12} lg={12}>
+          <RowInGrid>
+            <Col xs={12} md={24} lg={24}>
               <IconsSvgs src={JsTs} alt="" />
               <IconsSvgs src={Mongo} alt="" />
               <IconsSvgs src={ReactIcon} alt="" />
-            </Mleko>
-          </Row>
-          <Row>
-            <Col xs={12} lg={12}>
+            </Col>
+          </RowInGrid>
+          <RowInGrid>
+            <Col xs={12} md={24} lg={24}>
               <IconsSvgs src={Node} alt="" />
               <IconsSvgs src={Pwa} alt="" />
               <IconsSvgs src={Graphql} alt="" />
             </Col>
-          </Row>
+          </RowInGrid>
         </TechnicalsRow>
       </MaxWidthWithBg>
       <MaxWidthWithBg BgColor="primary">
@@ -156,7 +163,7 @@ specimen book."
             />
           )}
           {more.lg && (
-            <RightElementWithMarign
+            <RightElementWithMargin
               svgLink={App}
               title="Mobile Aplications"
               content="Lorem Ipsum is simply dummy text of the printing and
@@ -179,7 +186,7 @@ scrambled it to make a type specimen book."
             />
           )}
           {less.lg && (
-            <RightElementWithMarign
+            <RightElementWithMargin
               svgLink={App}
               title="Mobile Aplications"
               content="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."

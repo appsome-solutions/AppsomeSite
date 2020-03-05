@@ -15,6 +15,7 @@ import ShapeProcess from 'assets/ShapeProcess.svg';
 import { MaxWidthWithBg } from 'components/MaxSizeAndBackground/MaxWidthAndBg';
 
 const ProcessFrame = styled(Element)`
+  position: relative;
   background-color: ${props => props.theme.colors.utils.background.mid.color};
   ${media.xs`
   padding: 100px 20px 64px 20px;  
@@ -52,19 +53,14 @@ const Shape = styled(Icon)`
   ${media.xs`
   width:27px;
   height:210px;
-  right:0vh;
-  top: 1720px;
+  right:0px;
+  bottom:-160px; 
   `} ${media.lg`
   width: 77px;
   height: 376px;
-  right:0vh;
-  top: 1280px;
-  `} ${media.xxl`
-  top:1200px
   right:0px;
-  width: 77px;
-  height: 376px;
-  `};
+  bottom:0px; 
+  `}
 `;
 
 export const TheProcess: FunctionComponent = () => {

@@ -18,6 +18,7 @@ import Oncologist from 'assets/Oncologist.svg';
 import { MaxWidthWithBg } from 'components/MaxSizeAndBackground/MaxWidthAndBg';
 
 const PortfolioStyle = styled(Element)`
+  position: relative;
   background-color: ${props => props.theme.colors.utils.background.mid.color};
   ${media.xs`
   padding: 36px 24px 32px 24px;
@@ -41,21 +42,15 @@ const Shape = styled(Icon)`
   z-index: ${props => props.theme.zIndex.house};
   position: absolute;
   background-color: ${props => props.theme.colors.main.secondary};
-  ${media.xs`
-  left:0;
-  top: 650px;
-  height: 170px;
-  width: 31px;
-  `}
-  ${media.lg`
+  ${media.md`
   height: 426px;
   width: 158px;
-  left: 0px;
+  left: -20px;
   top: -40px;
   `}
   ${media.xxl`
-  left: calc(-50vw + 720px);
-   height: 426px;
+  left: 0vw;
+  height: 426px;
   width: 158px;
   `}
 `;
@@ -109,9 +104,9 @@ export const PortfolioStyled: FunctionComponent = () => {
   }, []);
 
   return (
-    <MaxWidthWithBg BgColor="secondary">
-      <PortfolioStyle id="Portfolio" name="Portfolio">
-        {more.lg && <Shape svgLink={Shape3} />}
+    <PortfolioStyle id="Portfolio" name="Portfolio">
+      {more.lg && <Shape svgLink={Shape3} />}
+      <MaxWidthWithBg BgColor="secondary">
         <div>
           <SectionTitle section="Portfolio" color="primary" boxColor="secondary" />
         </div>
@@ -170,7 +165,7 @@ export const PortfolioStyled: FunctionComponent = () => {
             <ArrowIconRight svgLink={Vector} />
           </ArrowButtonWithMargin>
         </ArrowButtonsBox>
-      </PortfolioStyle>
-    </MaxWidthWithBg>
+      </MaxWidthWithBg>
+    </PortfolioStyle>
   );
 };

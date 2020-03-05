@@ -75,19 +75,18 @@ const Shape = styled(Icon)`
   width:46px;
   height:103px;
   left: 0px;
-  top:360px;
+  bottom:-60px;
 `}
   ${media.lg`
-   width: 199px;
-  height: 376px;
+  bottom:-100px;
+  width: 199px;
+  height: 230px;
   left: 0px;
-  top: 480px;
   `}
   ${media.xxl`
-  left: calc(-50vw + 720px);
+  left: 0px;
   width: 199px;
-  height: 376px;
-  top: 480px;
+  height: 230px;
   `}
 `;
 const BannerPhotoStyle = styled.img`
@@ -111,14 +110,14 @@ export const Banner: FunctionComponent = () => {
             <Link to="Contact" spy={true} smooth={true} duration={500}>
               <ContactButton type="secondary">Contact Us</ContactButton>
             </Link>
-            {more.lg && <Shape svgLink={Shape1} />}
-            {less.lg && <Shape svgLink={ShapeSmallBanner} />}
           </GroupedTextWithButton>
           <Col lg={8} xl={8} xxl={8}>
             {more.lg && <BannerPhotoStyle src={BannerPhoto} alt="" />}
           </Col>
         </BannerStyle>
       </Row>
+      {more.lg && <Shape svgLink={Shape1} />}
+      {less.lg && <Shape svgLink={ShapeSmallBanner} />}
     </MaxWidthWithBg>
   );
 };

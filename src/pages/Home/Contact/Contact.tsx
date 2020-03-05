@@ -6,7 +6,6 @@ import { CommonFormElementStyling } from './InputStyle';
 import FormikInput from 'components/FormikFields/FormikInput/FormikInput';
 import FormikTextArea from 'components/FormikFields/FormikTextArea/FormikTextArea';
 import { Form, Formik } from 'formik';
-import { Element } from 'react-scroll';
 import FormikCheckbox from 'components/FormikFields/FormikChecbox/FormikCheckbox';
 import * as Yup from 'yup';
 import { Link } from 'react-router-dom';
@@ -20,7 +19,7 @@ interface EditorStylesWrapperType {
   hasError?: boolean;
 }
 
-const ContactStyle = styled(Element)`
+const ContactStyle = styled.div`
   position: relative;
   background-color: ${props => props.theme.colors.main.primary};
   ${media.xs`
@@ -201,8 +200,8 @@ const Shape = styled(Icon)`
   position: absolute;
   background-color: ${props => props.theme.colors.main.secondary};
   ${media.xs`
-  left:0;
-  bottom: 600px
+  left:0px;
+  top: -100px;
   height: 170px;
   width:31px;
     `}
@@ -215,9 +214,9 @@ const TextInCheckBox = styled.div`
 export const ContactStyled: FunctionComponent = () => {
   const { less } = useRWD();
   return (
-    <MaxWidthWithBg BgColor="primary">
-      <ContactStyle name="Contact" id="Contact" className="Contact">
-        {less.md && <Shape svgLink={ShapePortfolio} />}
+    <ContactStyle id="Contact" className="Contact">
+      {less.lg && <Shape svgLink={ShapePortfolio} />}
+      <MaxWidthWithBg BgColor="primary">
         <SectionTitle section="Contact" color="secondary" boxColor="primary" />
         <TextUnderSectionTitle>
           Contact us. We will analise Your product and deliver the best quality solution!
@@ -274,7 +273,7 @@ export const ContactStyled: FunctionComponent = () => {
             </ButtonPosition>
           </FormStyle>
         </Formik>
-      </ContactStyle>
-    </MaxWidthWithBg>
+      </MaxWidthWithBg>
+    </ContactStyle>
   );
 };
