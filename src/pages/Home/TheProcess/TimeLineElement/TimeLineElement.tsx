@@ -1,7 +1,9 @@
 import React, { FunctionComponent } from 'react';
 import styled from 'styled-components';
 import { Icon } from 'components/Icon/Icon';
-import Line from 'assets/Line.svg';
+import Line from 'assets/Line.png';
+import { media, useRWD } from 'global/RWD';
+import LineMd from 'assets/LineMd.svg';
 export type PositionText = 'right' | 'left';
 export interface ElementProps {
   title?: string;
@@ -17,6 +19,12 @@ const ProcessTimeLineElement = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  ${media.xs`
+  margin-bottom: 8px;
+  `}
+  ${media.xl`
+  margin-bottom: 0px;
+  `}
 `;
 
 type WholeTextPosition = { positionText?: PositionText; contentPosition?: PositionText };
@@ -32,6 +40,14 @@ const Title = styled.h5`
 `;
 const IdeaContent = styled.pre`
   ${props => props.theme.typography.body1};
+  ${media.xs`
+  white-space: pre-wrap;
+  text-align: center;
+  `}
+  ${media.xl`
+  white-space: pre;
+  text-align:inherit;
+  `}
 `;
 
 const Circle = styled.div`
@@ -50,13 +66,21 @@ const IdeaIconStyle = styled(Icon)`
   background: ${props => props.theme.colors.utils.background.mid.color};
 `;
 
-const LineUnderSvg = styled(Icon)`
+const LineUnderSvg = styled.img`
+  width: 4px;
+  height: 35px;
+  margin-bottom: 16px;
+`;
+
+const LineUnderSvgDesktop = styled(Icon)`
   width: 4px;
   height: 70px;
+  margin-bottom: 0;
 `;
 
 export const TimeLineElement: FunctionComponent<ElementProps> = (props: ElementProps): JSX.Element => {
   const { title, content, svgLink, isWithLine = true } = props;
+  const { less, more } = useRWD();
   return (
     <>
       <ProcessTimeLineElement>
@@ -64,11 +88,22 @@ export const TimeLineElement: FunctionComponent<ElementProps> = (props: ElementP
           <IdeaIconStyle svgLink={svgLink} />
         </Circle>
         <PositionWholeText positionText={props.positionText} contentPosition={props.contentPosition}>
-          <Title>{title}</Title>
-          <IdeaContent>{content}</IdeaContent>
+          {more.xl && (
+            <div>
+              <Title>{title}</Title>
+              <IdeaContent>{content}</IdeaContent>
+            </div>
+          )}
         </PositionWholeText>
       </ProcessTimeLineElement>
-      {isWithLine && <LineUnderSvg svgLink={Line} />}
+      {less.xl && (
+        <>
+          <Title>{title}</Title>
+          <IdeaContent>{content}</IdeaContent>
+        </>
+      )}
+      {less.xl && <div>{isWithLine && <LineUnderSvg src={Line} />}</div>}
+      {more.xl && <div>{isWithLine && <LineUnderSvgDesktop svgLink={LineMd} />}</div>}
     </>
   );
 };

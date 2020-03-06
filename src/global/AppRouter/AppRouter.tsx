@@ -1,4 +1,4 @@
-import { TermOfService } from '../../pages/TermOfService/TermOfService';
+import { TermOfService } from 'pages/TermOfService/TermOfService';
 import React, { FunctionComponent, useEffect } from 'react';
 import { Route, Switch, useLocation } from 'react-router-dom';
 import { Home } from 'pages/Home/Home';

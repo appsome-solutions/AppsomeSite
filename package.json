@@ -11,6 +11,7 @@
     "@types/react-dom": "^16.9.3",
     "@types/react-headroom": "^2.2.1",
     "@types/react-scroll": "^1.5.4",
+    "@types/yup": "^0.26.31",
     "antd": "^3.24.3",
     "apollo-boost": "^0.4.4",
     "axios": "^0.19.2",
@@ -34,7 +35,8 @@
     "serve": "^11.2.0",
     "styled-components": "^4.4.0",
     "styled-normalize": "^8.0.6",
-    "typescript": "^3.6.4"
+    "typescript": "^3.6.4",
+    "yup": "^0.28.1"
   },
   "scripts": {
     "start": "react-scripts start",

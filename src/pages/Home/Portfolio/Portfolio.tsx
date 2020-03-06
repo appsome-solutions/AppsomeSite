@@ -1,59 +1,78 @@
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent, useCallback, useRef } from 'react';
 import styled from 'styled-components';
 import { SectionTitle } from 'components/SectionTitle/SectionTitle';
-import image from 'assets/image.svg';
-import { Button } from 'components/Button/Button';
-import Vector from 'assets/Vector.svg';
-import LeftVector from 'assets/LeftVector.svg';
-import Quote from 'assets/Quote.svg';
 import { Icon } from 'components/Icon/Icon';
 import Shape3 from 'assets/Shape3.svg';
+import { PortfolioCarousel } from './PortfolioProperties';
+import { Carousel } from 'antd';
+import { Element } from 'react-scroll';
+import LeftVector from 'assets/LeftVector.svg';
+import Vector from 'assets/Vector.svg';
+import { Button } from 'components/Button/Button';
+import { media, useRWD } from 'global/RWD';
+import ZVision from 'assets/ZVision.svg';
+import Persona from 'assets/Persona.svg';
+import Cafe from 'assets/Cafe.svg';
+import ProList from 'assets/ProList.svg';
+import Oncologist from 'assets/Oncologist.svg';
+import { MaxWidthWithBg } from 'components/MaxSizeAndBackground/MaxWidthAndBg';
 
-const PortfolioStyle = styled.div`
-  background-color: ${props => props.theme.colors.utils.background.mid.color};
-  padding: 84px 112px 24px 60px;
-  justify-content: space-between;
-  display: flex;
+const PortfolioStyle = styled(Element)`
   position: relative;
+  background-color: ${props => props.theme.colors.utils.background.mid.color};
+  ${media.xs`
+  padding: 36px 24px 32px 24px;
+  `};
+  ${media.lg`
+  padding: 84px 112px 24px 192px;
+`};
 `;
 
 const TextUnderSection = styled.h6`
   color: ${props => props.theme.colors.utils.text.dark};
-  margin: 8px 0 0 208px;
+  ${media.xs`
+  margin: 24px 0 16px 0;
+  `}
+  ${media.lg`
+  margin: 8px 0 0 16px;
+`}
 `;
 
-const TitleBox = styled.div`
-  margin-left: 192px;
+const Shape = styled(Icon)`
+  z-index: ${props => props.theme.zIndex.house};
+  position: absolute;
+  background-color: ${props => props.theme.colors.main.secondary};
+  ${media.md`
+  height: 426px;
+  width: 158px;
+  left: -20px;
+  top: -40px;
+  `}
+  ${media.xxl`
+  left: 0vw;
+  height: 426px;
+  width: 158px;
+  `}
 `;
 
-const PortfolioDescription = styled.div`
-  padding: 176px 0 176px 0;
-  margin-left: 44px;
-  width: 420px;
+const ArrowIcon = styled(Icon)`
+  height: 22px;
+  width: 12px;
+  background-color: white;
 `;
 
-const DescriptionSiteBox = styled.div`
-  ${props => props.theme.typography.body1};
-  margin-bottom: 24px;
-`;
-
-const DescriptionSite = styled.div`
-  ${props => props.theme.typography.body1}
-`;
-
-const Challenges = styled.div`
-  ${props => props.theme.typography.body1}
-  margin: 16px 0 12px 0;
-  font-weight: 500;
-`;
-
-const ButtonsBox = styled.div`
-  display: flex;
-  justify-content: space-between;
+const ArrowIconRight = styled(ArrowIcon)`
+  background-color: white;
 `;
 
 const ArrowButtonsBox = styled.div`
   display: flex;
+  ${media.xs`
+  justify-content:center;
+  `}
+  ${media.lg`
+  justify-content:flex-end;
+  `}
 `;
 
 const ArrowButtonWithMargin = styled(Button)`
@@ -69,102 +88,84 @@ const ArrowButtonLeft = styled(Button)`
   align-items: center;
 `;
 
-const TitleSite = styled.h6`
-  margin-bottom: 12px;
-`;
+export const PortfolioStyled: FunctionComponent = () => {
+  const carouselRef = useRef<Carousel>(null);
+  const { more } = useRWD();
+  const goToPrev = useCallback(() => {
+    if (carouselRef && carouselRef.current) {
+      carouselRef.current.prev();
+    }
+  }, []);
 
-const QuotationBoxWithQuoteSvg = styled.div`
-  background-color: ${props => props.theme.colors.functional.main.primary.opacity};
-  margin-bottom: 28px;
-  padding: 16px 12px 20px 12px;
-`;
+  const goToNext = useCallback(() => {
+    if (carouselRef && carouselRef.current) {
+      carouselRef.current.next();
+    }
+  }, []);
 
-const QuotationBoxWithText = styled.div`
-  ${props => props.theme.typography.body1};
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  font-style: italic;
-  padding: 0 24px 0 24px;
-`;
-
-const BoxWithSecondQuote = styled.div`
-  text-align: right;
-  margin-bottom: 12px;
-`;
-
-const AuthorText = styled.div`
-  display: flex;
-  justify-content: center;
-  ${props => props.theme.typography.body1};
-`;
-
-const QuoteSign = styled(Icon)`
-  height: 20px;
-  width: 20px;
-`;
-
-const ArrowIcon = styled(Icon)`
-  height: 22px;
-  width: 12px;
-  background-color: white;
-`;
-
-const ArrowIconRight = styled(ArrowIcon)`
-  background-color: white;
-`;
-
-const Shape = styled(Icon)`
-  height: 426px;
-  width: 158px;
-  left: 0px;
-  top: -40px;
-  z-index: ${props => props.theme.zIndex.house};
-  position: absolute;
-  background-color: ${props => props.theme.colors.main.secondary};
-`;
-
-export const PortfolioStyled: FunctionComponent = () => (
-  <PortfolioStyle id="Portfolio">
-    <Shape svgLink={Shape3} />
-    <div>
-      <TitleBox>
-        <SectionTitle section="Portfolio" color="primary" boxColor="secondary" />
-      </TitleBox>
-      <TextUnderSection>Our projects makes us proud</TextUnderSection>
-      <img src={image} alt="" />
-    </div>
-    <PortfolioDescription>
-      <TitleSite>Pizza Planet</TitleSite>
-      <DescriptionSiteBox>
-        <DescriptionSite>
-          Pizza planet is a website where you can have menu <br />
-          preview, choose your ingredient and order your pizza with <br />a life preview of a delivery status.
-          <Challenges>Challenges</Challenges>
-          Bitcoin payment method, real-time delivery map preview
-        </DescriptionSite>
-      </DescriptionSiteBox>
-      <QuotationBoxWithQuoteSvg>
-        <QuoteSign svgLink={Quote} />
-        <QuotationBoxWithText>
-          The quality of the designs and ideas they had were impressive. We had a great experience working with them.
-        </QuotationBoxWithText>
-        <BoxWithSecondQuote>
-          <QuoteSign svgLink={Quote} />
-        </BoxWithSecondQuote>
-        <AuthorText>Managing Director, Konrad Radomski</AuthorText>
-      </QuotationBoxWithQuoteSvg>
-      <ButtonsBox>
+  return (
+    <PortfolioStyle id="Portfolio" name="Portfolio">
+      {more.lg && <Shape svgLink={Shape3} />}
+      <MaxWidthWithBg BackgroundColorProps="secondary">
+        <div>
+          <SectionTitle section="Portfolio" color="primary" boxColor="secondary" />
+        </div>
+        <TextUnderSection>Our projects makes us proud</TextUnderSection>
+        <Carousel ref={carouselRef} dots={false} adaptiveHeight={true}>
+          <PortfolioCarousel
+            imgDimension="laptop"
+            svgLink={Oncologist}
+            title="Onkolog Online"
+            description="With Onkolog Online you can get advice or deep analise of your case from top specialists from oncology
+        area. Website communication is based on emails and time for response takes maximum to 48h."
+            challenges="Time based email system, extended textual editor"
+            TestimonialText="They are truly invested and passionate."
+            TestimonialPerson="Founder, Dawid Stefaniec"
+          />
+          <PortfolioCarousel
+            svgLink={Persona}
+            title="Persona Share"
+            description="Mobile application which aims to assists in a personal branding and expanding local companies
+        to be more visible in real life by using QR codes."
+            challenges="QR code scanner in PWA technology, extended PWA editor."
+            TestimonialText="United Ideas overcommunicated everything, saving us a lot of time and money."
+            TestimonialPerson="Founder, Mateusz Żukowski"
+          />
+          <PortfolioCarousel
+            imgDimension="laptop"
+            svgLink={ProList}
+            title="ProList"
+            description="Website which manage specialists from given profession. With displaying their work, skillset in a graph representation."
+            challenges="Advanced graph visualisation"
+            TestimonialText="The website they built for us is better than I ever thought it could be."
+            TestimonialPerson="Marketing and Sales, Magdalena Banasa"
+          />
+          <PortfolioCarousel
+            svgLink={Cafe}
+            title="Cafe"
+            description="It is a presentational website that attracts customers to visit this place. Includes a rich gallery and menu."
+            challenges="Creating an astonishing, beautiful design and photographies"
+            TestimonialText="Communication and cooperation were great, the product was delivered fast with quality that exceeded expectations !"
+            TestimonialPerson="Mark Rowe Owner"
+          />
+          <PortfolioCarousel
+            svgLink={ZVision}
+            title="Z Vision"
+            description="It is a website and mobile, presenting photographic work and booking system. It allows browsing of different plans for weddings, tourist tours, studio and fashion events."
+            challenges="Creating 'live' booking system, for instant communication between company and customers, along with email notifications"
+            TestimonialText="Highly impressive approach to work, we had no troubles during the process of refinement and then the product was done fast and in the highest quality. Also they provide great support in case of needs and/or questions!"
+            TestimonialPerson="Margot Regan, Managing Director "
+          />
+        </Carousel>
         <ArrowButtonsBox>
-          <ArrowButtonLeft type="primary">
+          <ArrowButtonLeft type="primary" onClick={() => goToPrev()}>
             <ArrowIcon svgLink={LeftVector} />
           </ArrowButtonLeft>
-          <ArrowButtonWithMargin type="primary">
+          <ArrowButtonWithMargin type="primary" onClick={() => goToNext()}>
             <ArrowIconRight svgLink={Vector} />
           </ArrowButtonWithMargin>
         </ArrowButtonsBox>
-        <Button type="primary">SEE ALL PROJECTS</Button>
-      </ButtonsBox>
-    </PortfolioDescription>
-  </PortfolioStyle>
-);
+      </MaxWidthWithBg>
+    </PortfolioStyle>
+  );
+};

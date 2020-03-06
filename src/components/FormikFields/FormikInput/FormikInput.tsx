@@ -18,7 +18,6 @@ const CustomInputComponent = (props: FormikInputProps) => {
   const inputValue = value || get(form.values, field.name);
 
   const FormInput = InputComponent || AntdInput;
-
   return (
     // @ts-ignore
     <FormInput

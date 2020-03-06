@@ -2,6 +2,7 @@ import React, { FunctionComponent } from 'react';
 import styled from 'styled-components';
 import { Button } from 'components/Button/Button';
 import { Icon } from 'components/Icon/Icon';
+import { media } from 'global/RWD';
 
 export interface ElementProps {
   title?: string;
@@ -13,9 +14,12 @@ export interface ElementProps {
 const RectangleInServicesCards = styled.div`
   background: rgba(241, 232, 230, 0.1);
   border: 1px solid rgba(241, 232, 230, 0.2);
-  padding: 32px 32px 32px 28px;
-  width: 480px;
-  height: 434px;
+  ${media.xs`
+    padding: 32px 28px 60px 28px;
+  `}
+  ${media.lg`
+   padding: 32px;
+  `}
 `;
 
 const TypeAplicationText = styled.h5`
@@ -26,12 +30,18 @@ const TypeAplicationText = styled.h5`
 const DescribingText = styled.pre`
   ${props => props.theme.typography.body1};
   color: ${props => props.theme.colors.utils.background.mid.color};
-  margin-bottom: 16px;
+  margin-bottom: 24px;
+  white-space: pre-wrap;
 `;
 
 const MoreButton = styled(Button)`
-  width: 112px;
   float: right;
+  ${media.xs`
+  width:100%;
+  `}
+  ${media.lg`
+   width: 112px;
+   `}
 `;
 
 const ServiceBoxIcon = styled(Icon)`
