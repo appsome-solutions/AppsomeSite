@@ -15,8 +15,15 @@ const CookiesBarStyled = styled.div`
   bottom: 0;
   display: flex;
   align-items: center;
-  justify-content: center;
   z-index: ${props => props.theme.zIndex.towerBlock};
+  ${media.xs`
+  float:left;
+  padding-left:16px;
+  `}
+  ${media.md`
+  justify-content: center;
+  padding-left:0;
+  `}
 `;
 
 const CookiesBarBackground = styled.div`
@@ -24,7 +31,6 @@ const CookiesBarBackground = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  text-align: left;
 `;
 
 const CookieText = styled.span`
@@ -32,7 +38,7 @@ const CookieText = styled.span`
   background-color: ${props => props.theme.colors.main.tetiary};
   margin-left: 8px;
   ${media.xs`
-  margin:8px 0 8px 0;
+  margin:8px 0;
   `}
   ${media.lg`
   margin: 0;
@@ -62,11 +68,13 @@ const CookiesIcon = styled.img`
 `;
 
 const ButtonAccept = styled(Button)`
-  margin-left: 8px;
   width: auto;
   && {
     height: 20px;
   }
+  ${media.lg`
+  margin-left: 8px;
+  `}
 `;
 
 export const CookieBar: FunctionComponent = () => {
@@ -93,13 +101,14 @@ export const CookieBar: FunctionComponent = () => {
           )}
           {less.md && (
             <CookieText>
-              We are using cookies, unfortunately they are not with <br /> chocolate...
-              <br /> You can learn about it more
+              We are using cookies, unfortunately <br /> they are not with chocolate... You can <br /> learn about it
+              more
               <Link to="Policy" spy={true} smooth={true} offset={-99} duration={500}>
                 <LinkRouter to="/privacy-policy">
                   <TextHere>here</TextHere>
                 </LinkRouter>
               </Link>
+              <br />
               <ButtonAccept onClick={() => setIsVisible('false')}>ACCEPT</ButtonAccept>
             </CookieText>
           )}
