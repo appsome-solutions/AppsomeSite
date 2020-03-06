@@ -80,7 +80,7 @@ export const CookieBar: FunctionComponent = () => {
       <MaxWidthWithBg BackgroundColorProps="secondary">
         <CookiesBarBackground>
           <CookiesIcon src={CockieContent} />
-          {more.lg && (
+          {more.md && (
             <CookieText>
               We are using cookies, unfortunately they are not with chocolate... You can learn about it more
               <Link to="Policy" spy={true} smooth={true} offset={-99} duration={500}>
@@ -91,7 +91,7 @@ export const CookieBar: FunctionComponent = () => {
               <ButtonAccept onClick={() => setIsVisible('false')}>ACCEPT</ButtonAccept>
             </CookieText>
           )}
-          {less.lg && (
+          {less.md && (
             <CookieText>
               We are using cookies, unfortunately they are not with <br /> chocolate...
               <br /> You can learn about it more
