@@ -4,8 +4,8 @@ import styled from 'styled-components';
 import { SectionTitle } from 'components/SectionTitle/SectionTitle';
 import Email from 'assets/Email.svg';
 import { Button } from 'components/Button/Button';
-import { useFirebase } from 'global/Firebase/FirebaseContext';
 import { Form, Formik } from 'formik';
+import axios from 'axios';
 import FormikInput from 'components/FormikFields/FormikInput/FormikInput';
 import { media } from 'global/RWD';
 import { MaxWidthWithBg } from 'components/MaxSizeAndBackground/MaxWidthAndBg';
@@ -98,8 +98,6 @@ const SignUpSchema = Yup.object().shape({
     .required('Required'),
 });
 export const Newsletter: FunctionComponent = () => {
-  const { db } = useFirebase();
-
   return (
     <MaxWidthWithBg BgColor="secondary">
       <NewsletterRow>
@@ -117,8 +115,8 @@ export const Newsletter: FunctionComponent = () => {
           }}
           validationSchema={SignUpSchema}
           onSubmit={values => {
-            db.collection('subscriptions')
-              .add({
+            axios
+              .post('https://us-central1-appsome-solutions.cloudfunctions.net/newsletter/subscription', {
                 email: values.email,
               })
               .then(function() {

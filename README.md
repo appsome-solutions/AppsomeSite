@@ -13,6 +13,8 @@ Cra boilerplate to create frontend react applications.
 - apollo with graphql
 - eslint + prettier + husky
 
+- firebase functions
+
 ## Directories structure
 
 All code is under /src directory
@@ -22,6 +24,7 @@ All code is under /src directory
 - global - components that are used once in a whole application to provide some functionality like RWD provider or layout
 - helpers - functions that can be reused in few places in whole application
 - pages - component responsible for given url adress like /home -> Home.tsx component
+- functions - directory where we keep firebase functions
 
 ## Available Scripts
 
@@ -67,6 +70,14 @@ Calls `rimraf build && react-scripts build && serve -s build`.
 ### `yarn lint`
 
 Checks eslint issues for project.
+
+### /functions -> `yarn serve`
+
+Testing firebase functions locally
+
+### /functions -> `yarn deploy`
+
+deploying firebase functions to remote
 
 ## Environment variables
 
