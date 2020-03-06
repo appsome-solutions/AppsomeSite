@@ -97,6 +97,10 @@ const LinkStyle = styled.div`
 `}
 `;
 
+const HrefColor = styled.a`
+  color: ${props => props.theme.colors.utils.text.dark};
+`;
+
 const Links = () => (
   <div>
     <Link to="Policy" spy={true} smooth={true} offset={-99} duration={500}>
@@ -122,8 +126,8 @@ export const Footer = () => {
           <ContactAddress>
             Zbożowa 4A 70-653 Szczecin Poland
             <br />
-            <a href="tel:+48 783 697 219">+48 783 697 219</a> <br />
-            <a href="mailto:patryk.janik@appsome-solutions.com">patryk.janik@appsome-solutions.com</a>
+            <HrefColor href="tel:+48 783 697 219">+48 783 697 219</HrefColor> <br />
+            <HrefColor href="mailto:patryk.janik@appsome-solutions.com">patryk.janik@appsome-solutions.com</HrefColor>
           </ContactAddress>
           {more.lg && <Links />}
           {less.lg && (
