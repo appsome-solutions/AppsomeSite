@@ -104,7 +104,7 @@ export const OurServices: FunctionComponent = () => {
   const { less, more } = useRWD();
   return (
     <ServiceStyle className="Service" id="Service">
-      <MaxWidthWithBg BgColor="primary">
+      <MaxWidthWithBg BackgroundColorProps="primary">
         <OurSevicesBox>
           <SectionTitle section="Our Service" color="secondary" boxColor="primary" />
           {more.lg && (
@@ -126,7 +126,7 @@ export const OurServices: FunctionComponent = () => {
           )}
         </OurSevicesBox>
       </MaxWidthWithBg>
-      <MaxWidthWithBg BgColor="secondary">
+      <MaxWidthWithBg BackgroundColorProps="secondary">
         <TechnicalsRow>
           <RowInGrid>
             <Col xs={12} md={24} lg={24}>
@@ -144,7 +144,7 @@ export const OurServices: FunctionComponent = () => {
           </RowInGrid>
         </TechnicalsRow>
       </MaxWidthWithBg>
-      <MaxWidthWithBg BgColor="primary">
+      <MaxWidthWithBg BackgroundColorProps="primary">
         <ServicesCardsBox>
           {more.lg && (
             <ServiceBoxElement

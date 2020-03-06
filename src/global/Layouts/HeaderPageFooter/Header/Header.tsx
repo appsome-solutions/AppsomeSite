@@ -63,7 +63,7 @@ export const Header = () => {
 
   return (
     <HeaderScroll className="Header">
-      <MaxWidthWithBg BgColor="primary">
+      <MaxWidthWithBg BackgroundColorProps="primary">
         <HeaderWrapper>
           {less.lg && <HamburgerMenu />}
           <LinkRouter to="/">

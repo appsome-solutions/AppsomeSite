@@ -99,7 +99,7 @@ const SignUpSchema = Yup.object().shape({
 });
 export const Newsletter: FunctionComponent = () => {
   return (
-    <MaxWidthWithBg BgColor="secondary">
+    <MaxWidthWithBg BackgroundColorProps="secondary">
       <NewsletterRow>
         <div>
           <SectionTitle section="Join our newsletter" color="primary" boxColor="secondary" />

@@ -96,11 +96,11 @@ const BannerPhotoStyle = styled.img`
 export const Banner: FunctionComponent = () => {
   const { less, more } = useRWD();
   return (
-    <MaxWidthWithBg BgColor="primary">
+    <MaxWidthWithBg BackgroundColorProps="primary">
       <Row>
         <BannerStyle>
           <GroupedTextWithButton>
-            <Col lg={24} xl={20} xxl={20}>
+            <Col lg={24} xl={20}>
               <FirstText>Change your idea into working product</FirstText>
               <SecondText>
                 We are here to help you succeed. That is why we provide our time and top quality code. We care and take
@@ -111,9 +111,7 @@ export const Banner: FunctionComponent = () => {
               <ContactButton type="secondary">Contact Us</ContactButton>
             </Link>
           </GroupedTextWithButton>
-          <Col lg={8} xl={8} xxl={8}>
-            {more.lg && <BannerPhotoStyle src={BannerPhoto} alt="" />}
-          </Col>
+          <Col lg={8}>{more.lg && <BannerPhotoStyle src={BannerPhoto} alt="" />}</Col>
         </BannerStyle>
       </Row>
       {more.lg && <Shape svgLink={Shape1} />}

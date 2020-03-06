@@ -39,7 +39,7 @@ export const TermOfService: FunctionComponent<TermServiceProps> = (props: TermSe
   const { nameOfBusiness, name } = props;
 
   return (
-    <MaxWidthWithBg BgColor="primary">
+    <MaxWidthWithBg BackgroundColorProps="primary">
       <MainComponent id="TermOfService">
         <div>
           <TextH4>Terms & Conditions</TextH4>

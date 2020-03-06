@@ -213,7 +213,7 @@ export const ContactStyled: FunctionComponent = () => {
   return (
     <ContactStyle id="Contact" className="Contact">
       {less.lg && <Shape svgLink={ShapePortfolio} />}
-      <MaxWidthWithBg BgColor="primary">
+      <MaxWidthWithBg BackgroundColorProps="primary">
         <SectionTitle section="Contact" color="secondary" boxColor="primary" />
         <TextUnderSectionTitle>
           Contact us. We will analise Your product and deliver the best quality solution!

@@ -13,14 +13,14 @@ import { Link } from 'react-scroll';
 
 const HamburgerIcon = styled(Icon)`
   .active {
-    background-color: red !important;
+    background-color: red;
   }
 `;
 
 const TextInHamburger = styled.div`
   margin-left: 20px;
   .active {
-    color: red !important;
+    color: red;
   }
 `;
 
@@ -36,10 +36,10 @@ const LinkStyles = css`
   }
   &.active {  
     ${HamburgerIcon} {
-    background-color: ${props => props.theme.colors.main.secondary} !important;
+    background-color: ${props => props.theme.colors.main.secondary};
     }
     ${TextInHamburger} {
-      color: ${props => props.theme.colors.main.secondary} !important;
+      color: ${props => props.theme.colors.main.secondary};
     }
   }
 `;

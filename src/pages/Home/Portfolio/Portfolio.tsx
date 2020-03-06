@@ -106,7 +106,7 @@ export const PortfolioStyled: FunctionComponent = () => {
   return (
     <PortfolioStyle id="Portfolio" name="Portfolio">
       {more.lg && <Shape svgLink={Shape3} />}
-      <MaxWidthWithBg BgColor="secondary">
+      <MaxWidthWithBg BackgroundColorProps="secondary">
         <div>
           <SectionTitle section="Portfolio" color="primary" boxColor="secondary" />
         </div>

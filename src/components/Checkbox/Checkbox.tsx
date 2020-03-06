@@ -3,7 +3,7 @@ import { Checkbox as AntCheckbox } from 'antd';
 
 export const Checkbox = styled(AntCheckbox)`
   &&& {
-    yarn .ant-checkbox-checked .ant-checkbox-inner:after {
+    .ant-checkbox-checked .ant-checkbox-inner:after {
       border-color: ${props => props.theme.colors.main.primary};
     }
     .ant-checkbox-checked .ant-checkbox-inner {

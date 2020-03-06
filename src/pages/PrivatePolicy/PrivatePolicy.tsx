@@ -78,7 +78,7 @@ export const PrivacyPolicy: FunctionComponent<PolicyProps> = (props: PolicyProps
   } = props;
 
   return (
-    <MaxWidthWithBg BgColor="primary">
+    <MaxWidthWithBg BackgroundColorProps="primary">
       <PrivacyPolicyBg id="Policy">
         <div>
           <PrivacyPolicyText>

@@ -66,7 +66,7 @@ const Shape = styled(Icon)`
 export const TheProcess: FunctionComponent = () => {
   const { less, more } = useRWD();
   return (
-    <MaxWidthWithBg BgColor="secondary">
+    <MaxWidthWithBg BackgroundColorProps="secondary">
       <ProcessFrame name="Process" id="Process" className="element">
         <SectionTitle section="The process" color="primary" boxColor="secondary" />
         <ProcessTimeLine>

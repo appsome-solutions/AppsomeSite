@@ -1,9 +1,9 @@
 import React, { FunctionComponent } from 'react';
 import styled from 'styled-components';
 
-export type ColorBacground = 'primary' | 'secondary';
+export type ColorBackgroundType = 'primary' | 'secondary';
 export interface WithAndBgProps {
-  BgColor?: ColorBacground;
+  BackgroundColorProps?: ColorBackgroundType;
   children?: React.ReactNode;
 }
 
@@ -13,18 +13,20 @@ const MaxWidth = styled.div`
   float: none;
 `;
 
-type BgProps = { BgColor?: ColorBacground };
+type BgProps = { BackgroundColorProps?: ColorBackgroundType };
 const BackgroundSize = styled.div<BgProps>`
   max-width: 100%;
   background-color: ${props =>
-    props.BgColor === 'primary' ? props.theme.colors.main.primary : props.theme.colors.utils.background.mid.color};
+    props.BackgroundColorProps === 'primary'
+      ? props.theme.colors.main.primary
+      : props.theme.colors.utils.background.mid.color};
   position: relative;
 `;
 
 export const MaxWidthWithBg: FunctionComponent<WithAndBgProps> = (props: WithAndBgProps) => {
-  const { BgColor, children } = props;
+  const { BackgroundColorProps, children } = props;
   return (
-    <BackgroundSize BgColor={BgColor}>
+    <BackgroundSize BackgroundColorProps={BackgroundColorProps}>
       <MaxWidth>{children}</MaxWidth>
     </BackgroundSize>
   );
