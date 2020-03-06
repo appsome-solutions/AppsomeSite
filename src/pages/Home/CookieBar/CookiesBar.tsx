@@ -1,4 +1,3 @@
-import CookieIcon from 'assets/CookieIcon.svg';
 import React, { FunctionComponent } from 'react';
 import styled from 'styled-components';
 import useLocalStorage from 'react-use-localstorage';
@@ -7,6 +6,7 @@ import { Link } from 'react-scroll';
 import { Link as LinkRouter } from 'react-router-dom';
 import { MaxWidthWithBg } from '../../../components/MaxSizeAndBackground/MaxWidthAndBg';
 import { media, useRWD } from 'global/RWD';
+import CockieContent from 'assets/CockieContent.svg';
 
 const CookiesBarStyled = styled.div`
   background-color: ${props => props.theme.colors.main.tetiary};
@@ -17,9 +17,6 @@ const CookiesBarStyled = styled.div`
   align-items: center;
   justify-content: center;
   z-index: ${props => props.theme.zIndex.towerBlock};
-  ${media.lg`
-  height: 40px;
-  `}
 `;
 
 const CookiesBarBackground = styled.div`
@@ -58,9 +55,9 @@ const CookiesIcon = styled.img`
   margin-right: 8px;
   height: auto;
   ${media.xs`
-  margin-bottom: 8px;
+  margin: 8px;
   `} ${media.lg`
-  margin-bottom: 0;
+  margin: 4px;
   `};
 `;
 
@@ -82,8 +79,8 @@ export const CookieBar: FunctionComponent = () => {
     <CookiesBarStyled>
       <MaxWidthWithBg BackgroundColorProps="secondary">
         <CookiesBarBackground>
-          <CookiesIcon src={CookieIcon} />
-          {more.lg && (
+          <CookiesIcon src={CockieContent} />
+          {more.md && (
             <CookieText>
               We are using cookies, unfortunately they are not with chocolate... You can learn about it more
               <Link to="Policy" spy={true} smooth={true} offset={-99} duration={500}>
@@ -94,9 +91,9 @@ export const CookieBar: FunctionComponent = () => {
               <ButtonAccept onClick={() => setIsVisible('false')}>ACCEPT</ButtonAccept>
             </CookieText>
           )}
-          {less.lg && (
+          {less.md && (
             <CookieText>
-              We are using cookies, unfortunately they are not with chocolate...
+              We are using cookies, unfortunately they are not with <br /> chocolate...
               <br /> You can learn about it more
               <Link to="Policy" spy={true} smooth={true} offset={-99} duration={500}>
                 <LinkRouter to="/privacy-policy">

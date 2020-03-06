@@ -24,7 +24,7 @@ const NewsletterPaddings = styled.div`
   `}
   ${media.lg`
   flex-direction:row;
-  padding: 68px 136px 84px 192px;
+  padding: 68px 136px 84px 136px;
   `}
 `;
 
