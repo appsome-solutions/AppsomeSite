@@ -5,10 +5,11 @@ import useLocalStorage from 'react-use-localstorage';
 import { Button } from 'components/Button/Button';
 import { Link } from 'react-scroll';
 import { Link as LinkRouter } from 'react-router-dom';
+import { MaxWidthWithBg } from '../../../components/MaxSizeAndBackground/MaxWidthAndBg';
+import { media, useRWD } from 'global/RWD';
 
 const CookiesBarStyled = styled.div`
   background-color: ${props => props.theme.colors.main.tetiary};
-  height: 40px;
   width: 100%;
   position: fixed;
   bottom: 0;
@@ -16,11 +17,29 @@ const CookiesBarStyled = styled.div`
   align-items: center;
   justify-content: center;
   z-index: ${props => props.theme.zIndex.towerBlock};
+  ${media.lg`
+  height: 40px;
+  `}
+`;
+
+const CookiesBarBackground = styled.div`
+  background-color: ${props => props.theme.colors.main.tetiary};
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: left;
 `;
 
 const CookieText = styled.span`
   ${props => props.theme.typography.caption};
+  background-color: ${props => props.theme.colors.main.tetiary};
   margin-left: 8px;
+  ${media.xs`
+  margin:8px 0 8px 0;
+  `}
+  ${media.lg`
+  margin: 0;
+  `}
 `;
 
 const TextHere = styled.span`
@@ -32,37 +51,63 @@ const TextHere = styled.span`
     text-decoration-line: ${props => props.theme.textDecorationLine};
     text-decoration-skip: spaces;
   }
+  margin-bottom: 8px;
 `;
 
 const CookiesIcon = styled.img`
   margin-right: 8px;
+  height: auto;
+  ${media.xs`
+  margin-bottom: 8px;
+  `} ${media.lg`
+  margin-bottom: 0;
+  `};
 `;
 
 const ButtonAccept = styled(Button)`
   margin-left: 8px;
+  width: auto;
   && {
     height: 20px;
-    ${props => props.theme.typography.caption};
   }
 `;
 
 export const CookieBar: FunctionComponent = () => {
   const [isVisible, setIsVisible] = useLocalStorage('isVisible', 'true');
+  const { less, more } = useRWD();
   if (isVisible === 'false') {
     return null;
   }
   return (
     <CookiesBarStyled>
-      <CookieText>
-        <CookiesIcon src={CookieIcon} />
-        We are using cookies, unfortunately they are not with chocolate... You can learn about it more
-        <Link to="Policy" spy={true} smooth={true} offset={-99} duration={500}>
-          <LinkRouter to="/privacy-policy">
-            <TextHere>here</TextHere>
-          </LinkRouter>
-        </Link>
-        <ButtonAccept onClick={() => setIsVisible('false')}>ACCEPT</ButtonAccept>
-      </CookieText>
+      <MaxWidthWithBg BackgroundColorProps="secondary">
+        <CookiesBarBackground>
+          <CookiesIcon src={CookieIcon} />
+          {more.lg && (
+            <CookieText>
+              We are using cookies, unfortunately they are not with chocolate... You can learn about it more
+              <Link to="Policy" spy={true} smooth={true} offset={-99} duration={500}>
+                <LinkRouter to="/privacy-policy">
+                  <TextHere>here</TextHere>
+                </LinkRouter>
+              </Link>
+              <ButtonAccept onClick={() => setIsVisible('false')}>ACCEPT</ButtonAccept>
+            </CookieText>
+          )}
+          {less.lg && (
+            <CookieText>
+              We are using cookies, unfortunately they are not with chocolate...
+              <br /> You can learn about it more
+              <Link to="Policy" spy={true} smooth={true} offset={-99} duration={500}>
+                <LinkRouter to="/privacy-policy">
+                  <TextHere>here</TextHere>
+                </LinkRouter>
+              </Link>
+              <ButtonAccept onClick={() => setIsVisible('false')}>ACCEPT</ButtonAccept>
+            </CookieText>
+          )}
+        </CookiesBarBackground>
+      </MaxWidthWithBg>
     </CookiesBarStyled>
   );
 };

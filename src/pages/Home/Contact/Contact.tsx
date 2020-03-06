@@ -22,6 +22,9 @@ interface EditorStylesWrapperType {
 const ContactStyle = styled.div`
   position: relative;
   background-color: ${props => props.theme.colors.main.primary};
+`;
+
+const ContactPadding = styled.div`
   ${media.xs`
   padding: 60px 16px 52px 16px;  
   `}
@@ -29,7 +32,6 @@ const ContactStyle = styled.div`
   padding: 96px 192px 80px 192px;
   `}
 `;
-
 const TextUnderSectionTitle = styled.h5`
   color: ${props => props.theme.colors.utils.background.mid.color};
   ${media.xs`
@@ -214,62 +216,64 @@ export const ContactStyled: FunctionComponent = () => {
     <ContactStyle id="Contact" className="Contact">
       {less.lg && <Shape svgLink={ShapePortfolio} />}
       <MaxWidthWithBg BackgroundColorProps="primary">
-        <SectionTitle section="Contact" color="secondary" boxColor="primary" />
-        <TextUnderSectionTitle>
-          Contact us. We will analise Your product and deliver the best quality solution!
-        </TextUnderSectionTitle>
-        <Formik
-          initialValues={{
-            name: '',
-            email: '',
-            message: '',
-            checkBox: ``,
-          }}
-          validationSchema={SignupSchema}
-          onSubmit={() => console.log('mleko')}
-        >
-          <FormStyle translate={false}>
-            <InputBoxes>
-              <Col xs={24} xl={12}>
-                <NameInputText>
-                  <FormikInput
-                    name="name"
-                    InputComponent={(props: any) => <NameInput {...props} placeholder="Name" />}
-                  />
-                </NameInputText>
-              </Col>
-              <Col xs={24} xl={12}>
-                <EmailInputText>
-                  <FormikInput
-                    name="email"
-                    InputComponent={(props: any) => <EmailInput {...props} placeholder="Email" type="primary" />}
-                  />
-                </EmailInputText>
-              </Col>
-            </InputBoxes>
-            <MessageText>
-              <FormikTextArea
-                name="message"
-                InputComponent={(props: any) => <MessageTextArea {...props} placeholder="Message" />}
-              />
-            </MessageText>
-            <CheckBoxStyle name="checkBox">
-              <TextInCheckBox>
-                I agree to{' '}
-                <Link to="/term-of-service">
-                  <TermServiceAndPolicyText>term of service</TermServiceAndPolicyText>
-                </Link>{' '}
-                and{' '}
-                <Link to="/privacy-policy">
-                  <TermServiceAndPolicyText>privacy policy</TermServiceAndPolicyText>
-                </Link>
-              </TextInCheckBox>
-            </CheckBoxStyle>
-            <ButtonPosition>
-              <SendButton htmlType="submit">SEND</SendButton>
-            </ButtonPosition>
-          </FormStyle>
-        </Formik>
+        <ContactPadding>
+          <SectionTitle section="Contact" color="secondary" boxColor="primary" />
+          <TextUnderSectionTitle>
+            Contact us. We will analise Your product and deliver the best quality solution!
+          </TextUnderSectionTitle>
+          <Formik
+            initialValues={{
+              name: '',
+              email: '',
+              message: '',
+              checkBox: ``,
+            }}
+            validationSchema={SignupSchema}
+            onSubmit={() => console.log('mleko')}
+          >
+            <FormStyle translate={false}>
+              <InputBoxes>
+                <Col xs={24} xl={12}>
+                  <NameInputText>
+                    <FormikInput
+                      name="name"
+                      InputComponent={(props: any) => <NameInput {...props} placeholder="Name" />}
+                    />
+                  </NameInputText>
+                </Col>
+                <Col xs={24} xl={12}>
+                  <EmailInputText>
+                    <FormikInput
+                      name="email"
+                      InputComponent={(props: any) => <EmailInput {...props} placeholder="Email" type="primary" />}
+                    />
+                  </EmailInputText>
+                </Col>
+              </InputBoxes>
+              <MessageText>
+                <FormikTextArea
+                  name="message"
+                  InputComponent={(props: any) => <MessageTextArea {...props} placeholder="Message" />}
+                />
+              </MessageText>
+              <CheckBoxStyle name="checkBox">
+                <TextInCheckBox>
+                  I agree to{' '}
+                  <Link to="/term-of-service">
+                    <TermServiceAndPolicyText>term of service</TermServiceAndPolicyText>
+                  </Link>{' '}
+                  and{' '}
+                  <Link to="/privacy-policy">
+                    <TermServiceAndPolicyText>privacy policy</TermServiceAndPolicyText>
+                  </Link>
+                </TextInCheckBox>
+              </CheckBoxStyle>
+              <ButtonPosition>
+                <SendButton htmlType="submit">SEND</SendButton>
+              </ButtonPosition>
+            </FormStyle>
+          </Formik>
+        </ContactPadding>
       </MaxWidthWithBg>
     </ContactStyle>
   );

@@ -15,20 +15,14 @@ import { Row, Col } from 'antd';
 import { MaxWidthWithBg } from '../../../components/MaxSizeAndBackground/MaxWidthAndBg';
 const ServiceStyle = styled.div`
   background-color: ${props => props.theme.colors.main.primary};
-  ${media.xs`
-  padding-top: 40px;
- `}
-  ${media.lg`
-  padding-top: 98px;
- `}
 `;
 
 const OurSevicesBox = styled.div`
   ${media.xs`
-  padding: 0 20px 36px 20px;
+  padding: 40px 20px 36px 20px;
  `}
   ${media.lg`
-   padding:0 0 60px 0;
+   padding:100px 0 60px 0;
    margin-left: 192px;
  `}
 `;

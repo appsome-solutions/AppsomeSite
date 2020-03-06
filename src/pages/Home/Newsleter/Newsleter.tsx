@@ -14,16 +14,18 @@ import * as Yup from 'yup';
 const NewsletterRow = styled.div`
   background-color: ${props => props.theme.colors.utils.background.mid.color};
   border-bottom: 1px solid ${props => props.theme.colors.main.tetiary};
+`;
+const NewsletterPaddings = styled.div`
   display: flex;
   justify-content: space-between;
   ${media.xs`
   flex-direction:column;
   padding: 40px 16px 52px 16px;
-`}
+  `}
   ${media.lg`
   flex-direction:row;
-  padding: 68px 136px 84px 136px;
-`}
+  padding: 68px 136px 84px 192px;
+  `}
 `;
 
 const TextUnderSection = styled.span`
@@ -101,45 +103,47 @@ export const Newsletter: FunctionComponent = () => {
   return (
     <MaxWidthWithBg BackgroundColorProps="secondary">
       <NewsletterRow>
-        <div>
-          <SectionTitle section="Join our newsletter" color="primary" boxColor="secondary" />
-          <TextUnderSectionDiv>
-            <TextUnderSection>
-              We have also blog where we publish technological solutions directly from the kitchen.
-            </TextUnderSection>
-          </TextUnderSectionDiv>
-        </div>
-        <Formik
-          initialValues={{
-            email: '',
-          }}
-          validationSchema={SignUpSchema}
-          onSubmit={values => {
-            axios
-              .post('https://us-central1-appsome-solutions.cloudfunctions.net/newsletter/subscription', {
-                email: values.email,
-              })
-              .then(function() {
-                message.success('Subscribed, get ready for awesome content!');
-              })
-              .catch(function() {
-                message.error('Something went wrong when sending :/');
-              });
-          }}
-        >
-          <Form translate={false}>
-            <InputBox>
-              <FormikInput
-                name="email"
-                InputComponent={(props: any) => <EmailInput {...props} placeholder="Email" type="primary" />}
-              />
-              <EmailIcon src={Email} alt="" />
-              <SubscribeButton htmlType="submit" type="primary">
-                SUBSCRIBE
-              </SubscribeButton>
-            </InputBox>
-          </Form>
-        </Formik>
+        <NewsletterPaddings>
+          <div>
+            <SectionTitle section="Join our newsletter" color="primary" boxColor="secondary" />
+            <TextUnderSectionDiv>
+              <TextUnderSection>
+                We have also blog where we publish technological solutions directly from the kitchen.
+              </TextUnderSection>
+            </TextUnderSectionDiv>
+          </div>
+          <Formik
+            initialValues={{
+              email: '',
+            }}
+            validationSchema={SignUpSchema}
+            onSubmit={values => {
+              axios
+                .post('https://us-central1-appsome-solutions.cloudfunctions.net/newsletter/subscription', {
+                  email: values.email,
+                })
+                .then(function() {
+                  message.success('Subscribed, get ready for awesome content!');
+                })
+                .catch(function() {
+                  message.error('Something went wrong when sending :/');
+                });
+            }}
+          >
+            <Form translate={false}>
+              <InputBox>
+                <FormikInput
+                  name="email"
+                  InputComponent={(props: any) => <EmailInput {...props} placeholder="Email" type="primary" />}
+                />
+                <EmailIcon src={Email} alt="" />
+                <SubscribeButton htmlType="submit" type="primary">
+                  SUBSCRIBE
+                </SubscribeButton>
+              </InputBox>
+            </Form>
+          </Formik>
+        </NewsletterPaddings>
       </NewsletterRow>
     </MaxWidthWithBg>
   );

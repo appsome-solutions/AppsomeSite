@@ -14,20 +14,21 @@ import ZVision from 'assets/ZVision.svg';
 import Persona from 'assets/Persona.svg';
 import Cafe from 'assets/Cafe.svg';
 import ProList from 'assets/ProList.svg';
-import Oncologist from 'assets/Oncologist.svg';
+import Oncologist from 'assets/Oncologist.png';
 import { MaxWidthWithBg } from 'components/MaxSizeAndBackground/MaxWidthAndBg';
 
 const PortfolioStyle = styled(Element)`
   position: relative;
   background-color: ${props => props.theme.colors.utils.background.mid.color};
+`;
+const PortfolioPaddings = styled.div`
   ${media.xs`
   padding: 36px 24px 32px 24px;
   `};
   ${media.lg`
-  padding: 84px 112px 24px 192px;
+  padding: 84px 192px 24px 192px;
 `};
 `;
-
 const TextUnderSection = styled.h6`
   color: ${props => props.theme.colors.utils.text.dark};
   ${media.xs`
@@ -107,64 +108,66 @@ export const PortfolioStyled: FunctionComponent = () => {
     <PortfolioStyle id="Portfolio" name="Portfolio">
       {more.lg && <Shape svgLink={Shape3} />}
       <MaxWidthWithBg BackgroundColorProps="secondary">
-        <div>
-          <SectionTitle section="Portfolio" color="primary" boxColor="secondary" />
-        </div>
-        <TextUnderSection>Our projects makes us proud</TextUnderSection>
-        <Carousel ref={carouselRef} dots={false} adaptiveHeight={true}>
-          <PortfolioCarousel
-            imgDimension="laptop"
-            svgLink={Oncologist}
-            title="Onkolog Online"
-            description="With Onkolog Online you can get advice or deep analise of your case from top specialists from oncology
+        <PortfolioPaddings>
+          <div>
+            <SectionTitle section="Portfolio" color="primary" boxColor="secondary" />
+          </div>
+          <TextUnderSection>Our projects makes us proud</TextUnderSection>
+          <Carousel ref={carouselRef} dots={false} adaptiveHeight={true}>
+            <PortfolioCarousel
+              imgDimension="laptop"
+              svgLink={Oncologist}
+              title="Onkolog Online"
+              description="With Onkolog Online you can get advice or deep analise of your case from top specialists from oncology
         area. Website communication is based on emails and time for response takes maximum to 48h."
-            challenges="Time based email system, extended textual editor"
-            TestimonialText="They are truly invested and passionate."
-            TestimonialPerson="Founder, Dawid Stefaniec"
-          />
-          <PortfolioCarousel
-            svgLink={Persona}
-            title="Persona Share"
-            description="Mobile application which aims to assists in a personal branding and expanding local companies
+              challenges="Time based email system, extended textual editor"
+              TestimonialText="They are truly invested and passionate."
+              TestimonialPerson="Founder, Dawid Stefaniec"
+            />
+            <PortfolioCarousel
+              svgLink={Persona}
+              title="Persona Share"
+              description="Mobile application which aims to assists in a personal branding and expanding local companies
         to be more visible in real life by using QR codes."
-            challenges="QR code scanner in PWA technology, extended PWA editor."
-            TestimonialText="United Ideas overcommunicated everything, saving us a lot of time and money."
-            TestimonialPerson="Founder, Mateusz Żukowski"
-          />
-          <PortfolioCarousel
-            imgDimension="laptop"
-            svgLink={ProList}
-            title="ProList"
-            description="Website which manage specialists from given profession. With displaying their work, skillset in a graph representation."
-            challenges="Advanced graph visualisation"
-            TestimonialText="The website they built for us is better than I ever thought it could be."
-            TestimonialPerson="Marketing and Sales, Magdalena Banasa"
-          />
-          <PortfolioCarousel
-            svgLink={Cafe}
-            title="Cafe"
-            description="It is a presentational website that attracts customers to visit this place. Includes a rich gallery and menu."
-            challenges="Creating an astonishing, beautiful design and photographies"
-            TestimonialText="Communication and cooperation were great, the product was delivered fast with quality that exceeded expectations !"
-            TestimonialPerson="Mark Rowe Owner"
-          />
-          <PortfolioCarousel
-            svgLink={ZVision}
-            title="Z Vision"
-            description="It is a website and mobile, presenting photographic work and booking system. It allows browsing of different plans for weddings, tourist tours, studio and fashion events."
-            challenges="Creating 'live' booking system, for instant communication between company and customers, along with email notifications"
-            TestimonialText="Highly impressive approach to work, we had no troubles during the process of refinement and then the product was done fast and in the highest quality. Also they provide great support in case of needs and/or questions!"
-            TestimonialPerson="Margot Regan, Managing Director "
-          />
-        </Carousel>
-        <ArrowButtonsBox>
-          <ArrowButtonLeft type="primary" onClick={() => goToPrev()}>
-            <ArrowIcon svgLink={LeftVector} />
-          </ArrowButtonLeft>
-          <ArrowButtonWithMargin type="primary" onClick={() => goToNext()}>
-            <ArrowIconRight svgLink={Vector} />
-          </ArrowButtonWithMargin>
-        </ArrowButtonsBox>
+              challenges="QR code scanner in PWA technology, extended PWA editor."
+              TestimonialText="United Ideas overcommunicated everything, saving us a lot of time and money."
+              TestimonialPerson="Founder, Mateusz Żukowski"
+            />
+            <PortfolioCarousel
+              imgDimension="laptop"
+              svgLink={ProList}
+              title="ProList"
+              description="Website which manage specialists from given profession. With displaying their work, skillset in a graph representation."
+              challenges="Advanced graph visualisation"
+              TestimonialText="The website they built for us is better than I ever thought it could be."
+              TestimonialPerson="Marketing and Sales, Magdalena Banasa"
+            />
+            <PortfolioCarousel
+              svgLink={Cafe}
+              title="Cafe"
+              description="It is a presentational website that attracts customers to visit this place. Includes a rich gallery and menu."
+              challenges="Creating an astonishing, beautiful design and photographies"
+              TestimonialText="Communication and cooperation were great, the product was delivered fast with quality that exceeded expectations !"
+              TestimonialPerson="Mark Rowe Owner"
+            />
+            <PortfolioCarousel
+              svgLink={ZVision}
+              title="Z Vision"
+              description="It is a website and mobile, presenting photographic work and booking system. It allows browsing of different plans for weddings, tourist tours, studio and fashion events."
+              challenges="Creating 'live' booking system, for instant communication between company and customers, along with email notifications"
+              TestimonialText="Highly impressive approach to work, we had no troubles during the process of refinement and then the product was done fast and in the highest quality. Also they provide great support in case of needs and/or questions!"
+              TestimonialPerson="Margot Regan, Managing Director "
+            />
+          </Carousel>
+          <ArrowButtonsBox>
+            <ArrowButtonLeft type="primary" onClick={() => goToPrev()}>
+              <ArrowIcon svgLink={LeftVector} />
+            </ArrowButtonLeft>
+            <ArrowButtonWithMargin type="primary" onClick={() => goToNext()}>
+              <ArrowIconRight svgLink={Vector} />
+            </ArrowButtonWithMargin>
+          </ArrowButtonsBox>
+        </PortfolioPaddings>
       </MaxWidthWithBg>
     </PortfolioStyle>
   );

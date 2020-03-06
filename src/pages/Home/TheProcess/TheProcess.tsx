@@ -21,7 +21,7 @@ const ProcessFrame = styled(Element)`
   padding: 60px 20px 64px 20px;  
   `}
   ${media.lg`
-  padding: 104px 104px 48px 180px;
+  padding: 104px 104px 48px 192px;
   `}
 `;
 
