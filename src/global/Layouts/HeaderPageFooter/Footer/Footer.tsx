@@ -122,8 +122,8 @@ export const Footer = () => {
           <ContactAddress>
             Zbożowa 4A 70-653 Szczecin Poland
             <br />
-            +48 783 697 219 <br />
-            patryk.janik@appsome-solutions.com
+            <a href="tel:+48 783 697 219">+48 783 697 219</a> <br />
+            <a href="mailto:patryk.janik@appsome-solutions.com">patryk.janik@appsome-solutions.com</a>
           </ContactAddress>
           {more.lg && <Links />}
           {less.lg && (
