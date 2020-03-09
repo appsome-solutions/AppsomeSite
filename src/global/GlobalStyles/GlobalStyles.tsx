@@ -15,6 +15,9 @@ export const GlobalStyles = createGlobalStyle<ThemeInterface>`
   }
   body {
     color: ${props => props.theme.colors.utils.text.dark};
+    #hubspot-messages-iframe-container {
+        z-index: 1000 !important;
+      }
   }
   
   a {

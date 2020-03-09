@@ -14,14 +14,14 @@ import ZVision from 'assets/ZVision.svg';
 import Persona from 'assets/Persona.svg';
 import Cafe from 'assets/Cafe.svg';
 import ProList from 'assets/ProList.svg';
-import Oncologist from 'assets/Oncologist.png';
+import Oncologist from 'assets/Oncologist.svg';
 import { MaxWidthWithBg } from 'components/MaxSizeAndBackground/MaxWidthAndBg';
 
 const PortfolioStyle = styled(Element)`
   position: relative;
   background-color: ${props => props.theme.colors.utils.background.mid.color};
 `;
-const PortfolioPaddings = styled.div`
+const PortfolioPadding = styled.div`
   ${media.xs`
   padding: 36px 24px 32px 24px;
   `};
@@ -108,7 +108,7 @@ export const PortfolioStyled: FunctionComponent = () => {
     <PortfolioStyle id="Portfolio" name="Portfolio">
       {more.lg && <Shape svgLink={Shape3} />}
       <MaxWidthWithBg BackgroundColorProps="secondary">
-        <PortfolioPaddings>
+        <PortfolioPadding>
           <div>
             <SectionTitle section="Portfolio" color="primary" boxColor="secondary" />
           </div>
@@ -143,6 +143,7 @@ export const PortfolioStyled: FunctionComponent = () => {
               TestimonialPerson="Marketing and Sales, Magdalena Banasa"
             />
             <PortfolioCarousel
+              imgDimension="laptop"
               svgLink={Cafe}
               title="Cafe"
               description="It is a presentational website that attracts customers to visit this place. Includes a rich gallery and menu."
@@ -167,7 +168,7 @@ export const PortfolioStyled: FunctionComponent = () => {
               <ArrowIconRight svgLink={Vector} />
             </ArrowButtonWithMargin>
           </ArrowButtonsBox>
-        </PortfolioPaddings>
+        </PortfolioPadding>
       </MaxWidthWithBg>
     </PortfolioStyle>
   );
