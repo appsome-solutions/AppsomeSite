@@ -15,7 +15,7 @@ const CookiesBarStyled = styled.div`
   bottom: 0;
   display: flex;
   align-items: center;
-  z-index: ${props => props.theme.zIndex.towerBlock};
+  z-index: ${props => props.theme.zIndex.satellite};
   ${media.xs`
   float:left;
   padding-left:16px;

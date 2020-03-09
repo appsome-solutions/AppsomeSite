@@ -10,6 +10,7 @@ import ContactMenu from 'assets/ContactMenu.svg';
 import PortfolioMenu from 'assets/PortfolioMenu.svg';
 import ServiceMenu from 'assets/ServiceMenu.svg';
 import { Link } from 'react-scroll';
+import { NavLink } from 'react-router-dom';
 
 const HamburgerIcon = styled(Icon)`
   .active {
@@ -22,6 +23,9 @@ const TextInHamburger = styled.div`
   .active {
     color: red;
   }
+  &&a:hover {
+    color: red;
+  }
 `;
 
 const LinkStyles = css`
@@ -30,7 +34,6 @@ const LinkStyles = css`
   display: flex;
   align-items: center;
   padding-left: 40px;
-  cursor: pointer;
   &.active {
   background-color: ${props => props.theme.colors.main.tetiary};
   }
@@ -42,12 +45,23 @@ const LinkStyles = css`
       color: ${props => props.theme.colors.main.secondary};
     }
   }
+  .hover {
+    color: ${props => props.theme.colors.utils.text.dark};
+  }
 `;
 
 const StyledLink = styled(Link)`
+  ${LinkStyles};
+`;
+const LinkRouterStyle = styled(NavLink)`
   display: flex;
   align-items: center;
-  ${LinkStyles};
+  color: ${props => props.theme.colors.main.primary}
+  height: 50px;
+  width:100%;
+    &:hover {
+    color: ${props => props.theme.colors.main.secondary};
+  }
 `;
 
 const DrawerWrapper = styled.div`
@@ -96,20 +110,28 @@ export const HamburgerMenu = () => {
         <MenuDivider />
         <DrawerWrapper>
           <StyledLink to="Process" spy={true} activeClass="active" onClick={() => HamburgerFunction('Process')}>
-            <HamburgerIcon svgLink={ProcessMenu} />
-            <TextInHamburger>Process</TextInHamburger>
+            <LinkRouterStyle to="/">
+              <HamburgerIcon svgLink={ProcessMenu} />
+              <TextInHamburger>Process</TextInHamburger>
+            </LinkRouterStyle>
           </StyledLink>
           <StyledLink to="Service" spy={true} activeClass="active" onClick={() => HamburgerFunction('Service')}>
-            <HamburgerIcon svgLink={ServiceMenu} />
-            <TextInHamburger>Service</TextInHamburger>
+            <LinkRouterStyle to="/">
+              <HamburgerIcon svgLink={ServiceMenu} />
+              <TextInHamburger>Service</TextInHamburger>
+            </LinkRouterStyle>
           </StyledLink>
-          <StyledLink to="Portfolio" activeClass="active" spy={true} onClick={() => HamburgerFunction('Portfolio')}>
-            <HamburgerIcon svgLink={PortfolioMenu} />
-            <TextInHamburger>Portfolio</TextInHamburger>
+          <StyledLink to="Portfolio" spy={true} activeClass="active" onClick={() => HamburgerFunction('Portfolio')}>
+            <LinkRouterStyle to="/">
+              <HamburgerIcon svgLink={PortfolioMenu} />
+              <TextInHamburger>Portfolio</TextInHamburger>
+            </LinkRouterStyle>
           </StyledLink>
-          <StyledLink spy to="Contact" activeClass="active" onClick={() => HamburgerFunction('Contact')}>
-            <HamburgerIcon svgLink={ContactMenu} />
-            <TextInHamburger>Contact</TextInHamburger>
+          <StyledLink to="Contact" spy={true} activeClass="active" onClick={() => HamburgerFunction('Contact')}>
+            <LinkRouterStyle to="/">
+              <HamburgerIcon svgLink={ContactMenu} />
+              <TextInHamburger>Contact</TextInHamburger>
+            </LinkRouterStyle>
           </StyledLink>
         </DrawerWrapper>
       </StyledDrawer>

@@ -99,6 +99,10 @@ const LinkStyle = styled.div`
 
 const HrefColor = styled.a`
   color: ${props => props.theme.colors.utils.text.dark};
+  &:hover {
+    color: ${props => props.theme.colors.main.secondary};
+    text-decoration-line: ${props => props.theme.textDecorationLine};
+  }
 `;
 
 const Links = () => (
