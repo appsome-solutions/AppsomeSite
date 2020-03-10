@@ -101,7 +101,7 @@ export const Banner: FunctionComponent = () => {
         <BannerStyle>
           <GroupedTextWithButton>
             <Col lg={24} xl={20}>
-              <FirstText>Change your idea into working product</FirstText>
+              <FirstText>Change your idea into working software</FirstText>
               <SecondText>
                 We are here to help you succeed. That is why we provide our time and top quality code. We care and take
                 responsibility for your products - you can focus on your business strategies!

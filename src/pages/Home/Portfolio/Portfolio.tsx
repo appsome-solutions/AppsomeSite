@@ -121,7 +121,7 @@ export const PortfolioStyled: FunctionComponent = () => {
               description="With Onkolog Online you can get advice or deep analysis of your case from top specialists from the oncology
         area. Website communication is based on emails and time for a response takes maximum to 48h."
               challenges="Time-based email system, extended textual editor"
-              TestimonialText="They are truly invested and passionate."
+              TestimonialText="They are truly invested and passionate software engineers."
               TestimonialPerson="Founder, Dawid Stefaniec"
             />
             <PortfolioCarousel
@@ -130,7 +130,7 @@ export const PortfolioStyled: FunctionComponent = () => {
               description="Mobile application aims to assists in personal branding and expanding local companies
         to be more visible in real life by using QR codes."
               challenges="QR code scanner in PWA technology, extended PWA editor."
-              TestimonialText="United Ideas overcommunicated everything, saving us a lot of time and money."
+              TestimonialText="Outsourcing and their united ideas overcommunicated everything, saving us a lot of time and money."
               TestimonialPerson="Founder, Mateusz Żukowski"
             />
             <PortfolioCarousel
@@ -139,7 +139,7 @@ export const PortfolioStyled: FunctionComponent = () => {
               title="ProList"
               description="Website which manages specialists from a given profession. By displaying their work, skillset in a graph representation."
               challenges="Advanced graph visualization"
-              TestimonialText="The website they built for us is better than I ever thought it could be."
+              TestimonialText="The website they built for us is better than I ever thought it could be. Our consumer software is perfect now."
               TestimonialPerson="Marketing and Sales, Magdalena Banasa"
             />
             <PortfolioCarousel
@@ -148,7 +148,7 @@ export const PortfolioStyled: FunctionComponent = () => {
               title="Cafe"
               description="It is a presentational website that attracts customers to visit this place. Includes a rich gallery and menu."
               challenges="Creating an astonishing, beautiful design and photographies"
-              TestimonialText="Communication and cooperation were great, the product was delivered fast with quality that exceeded expectations!"
+              TestimonialText="Communication and cooperation were great, the software was delivered fast with quality that exceeded expectations!"
               TestimonialPerson="Mark Rowe Owner"
             />
             <PortfolioCarousel
@@ -156,7 +156,7 @@ export const PortfolioStyled: FunctionComponent = () => {
               title="Z Vision"
               description="It is a website and mobile, presenting photographic work and booking system. It allows browsing of different plans for weddings, tourist tours, studio and fashion events."
               challenges="Creating 'live' booking system, for instant communication between company and customers, along with email notifications"
-              TestimonialText="A highly impressive approach to work, we had no troubles during the process of refinement and then the product was done fast and in the highest quality. Also, they provide great support in case of needs and/or questions!"
+              TestimonialText="A highly impressive approach to software engineering, we had no troubles during the process of refinement and then the product was done fast and in the highest quality. Also, they provide great support in case of needs or questions!"
               TestimonialPerson="Margot Regan, Managing Director "
             />
           </Carousel>

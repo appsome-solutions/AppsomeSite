@@ -87,7 +87,7 @@ export const CookieBar: FunctionComponent = () => {
     <CookiesBarStyled>
       <MaxWidthWithBg BackgroundColorProps="secondary">
         <CookiesBarBackground>
-          <CookiesIcon src={CockieContent} />
+          <CookiesIcon alt="cookie icon" src={CockieContent} />
           {more.md && (
             <CookieText>
               We are using cookies, unfortunately they are not with chocolate... You can learn about it more
