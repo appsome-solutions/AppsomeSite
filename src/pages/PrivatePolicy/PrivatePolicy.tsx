@@ -11,6 +11,7 @@ export interface PolicyProps {
   email?: string;
   personalData?: string;
   lastVersionPolicy?: string;
+  abbreviation: string;
   personalDataOffice?: string;
 }
 
@@ -74,6 +75,7 @@ export const PrivacyPolicy: FunctionComponent<PolicyProps> = (props: PolicyProps
     personalData,
     lastVersionPolicy,
     name,
+    abbreviation,
     personalDataOffice,
   } = props;
 
@@ -146,8 +148,8 @@ export const PrivacyPolicy: FunctionComponent<PolicyProps> = (props: PolicyProps
             </TextMargin>
             <TextMargin>
               <TextH5>What data are we talking about? </TextH5>This includes personal data collected as part of your use
-              of our services, including the services and other functionalities provided by TSH on the Website and
-              stored in
+              of our services, including the services and other functionalities provided by {abbreviation} on the
+              Website and stored in
               <br />
               cookies that are installed on our website, as well as the data we have obtained from publicly available
               sources, such as social media or through third parties that have
@@ -166,10 +168,12 @@ export const PrivacyPolicy: FunctionComponent<PolicyProps> = (props: PolicyProps
               <br />
               <br />
               We process your personal data for the purposes set out below on the basis of a legitimate interest (Art.
-              6.1(f) GDPR) of the TSH, which is:
+              6.1(f) GDPR) of the {abbreviation}, which is:
             </TextMargin>
             <ListUnordered>
-              <ListCircle>marketing activities provided for you, including the TSH own services marketing; </ListCircle>
+              <ListCircle>
+                marketing activities provided for you, including the {abbreviation} own services marketing;{' '}
+              </ListCircle>
               <ListCircle>
                 contacting you to answer your question via the Website (e.g. contact form, chat), e-mail, social media
                 or any other available means of communication, and with your
@@ -181,8 +185,8 @@ export const PrivacyPolicy: FunctionComponent<PolicyProps> = (props: PolicyProps
                 ensuring the security of traffic;
               </ListCircle>
               <ListCircle>
-                conducting research and analysis of TSH, among other things, to assess the main interests and needs of
-                visitors to our websites;
+                conducting research and analysis of {abbreviation}, among other things, to assess the main interests and
+                needs of visitors to our websites;
               </ListCircle>
               <ListCircle>
                 evaluation of payment reliability in connection with the conclusion and performance of a contract or
@@ -233,8 +237,7 @@ export const PrivacyPolicy: FunctionComponent<PolicyProps> = (props: PolicyProps
             We will retain personal data collected based on your consent until it is revoked or the purpose it was
             processed for has been achieved or until it becomes obsolete. You
             <br /> can withdraw your consent to the processing of personal data at any time by sending an e-mail to:
-            admin@tsh.io.
-            <TextH5>To whom can we share the data?</TextH5>
+            {email}.<TextH5>To whom can we share the data?</TextH5>
             Subject to applicable law, we may share your data with other controllers or transfer it to processors whom
             we commence to process the data, such as hosting providers,
             <br />
@@ -257,12 +260,12 @@ export const PrivacyPolicy: FunctionComponent<PolicyProps> = (props: PolicyProps
             <br />
             <ListUnordered>
               <ListCircle>
-                the right to access your data, i.e. the right to obtain confirmation from the TSH as to whether or not
-                your personal data is being processed by us, or to obtain a copy of
+                the right to access your data, i.e. the right to obtain confirmation from the {abbreviation} as to
+                whether or not your personal data is being processed by us, or to obtain a copy of
                 <br />
                 <TextWithMarginLeft>
-                  your personal data. This is to ensure that you are aware of and able to check how the TSH uses your
-                  personal data. We may refuse to provide a copy of your personal
+                  your personal data. This is to ensure that you are aware of and able to check how the {abbreviation}{' '}
+                  uses your personal data. We may refuse to provide a copy of your personal
                 </TextWithMarginLeft>
                 <br />
                 <TextWithMarginLeft>
@@ -270,8 +273,8 @@ export const PrivacyPolicy: FunctionComponent<PolicyProps> = (props: PolicyProps
                 </TextWithMarginLeft>
               </ListCircle>
               <ListCircle>
-                the right to rectification, i.e. the right to request the TSH to rectify any personal data that is
-                inaccurate or incomplete without delay (e.g. where the TSH processes your
+                the right to rectification, i.e. the right to request the {abbreviation} to rectify any personal data
+                that is inaccurate or incomplete without delay (e.g. where the {abbreviation} processes your
                 <br />
                 <TextWithMarginLeft>incorrect name or address);</TextWithMarginLeft>
               </ListCircle>
@@ -295,18 +298,18 @@ export const PrivacyPolicy: FunctionComponent<PolicyProps> = (props: PolicyProps
               </ListCircle>
               <ListCircle>
                 the right to restrict processing – you have the right to prevent us from further using your personal
-                data if, for example, the TSH is in the process of evaluating a request
+                data if, for example, the {abbreviation} is in the process of evaluating a request
                 <br />
                 <TextWithMarginLeft>
-                  for rectification of your data. If the processing of personal data is restricted, TSH may still store
-                  your personal data, but may not further actively use it (e.g. for the purpose
+                  for rectification of your data. If the processing of personal data is restricted, {abbreviation} may
+                  still store your personal data, but may not further actively use it (e.g. for the purpose
                 </TextWithMarginLeft>
                 <br />
                 <TextWithMarginLeft>of fulfilling a contract).</TextWithMarginLeft>
               </ListCircle>
             </ListUnordered>
             To the extent that the processing of your personal data is based on a legitimate interest, you have the
-            right to object to the processing of such data. However, the TSH may
+            right to object to the processing of such data. However, the {abbreviation} may
             <br />
             continue to process personal data where it is able to demonstrate valid and legitimate grounds for
             processing overriding your interests, rights and freedoms or where
@@ -320,7 +323,7 @@ export const PrivacyPolicy: FunctionComponent<PolicyProps> = (props: PolicyProps
             at any time. The consent withdrawal shall not affect the lawfulness of the processing that has been carried
             out on the basis of the consent prior to the withdrawal. <br />
             <br />
-            If you would like to exercise any of these rights, simply email us at: admin@tsh.io.
+            If you would like to exercise any of these rights, simply email us at: {email}.
             <br />
             <br />
             What is more, you have the right to lodge a complaint with the supervisory authority responsible for the
@@ -338,7 +341,7 @@ export const PrivacyPolicy: FunctionComponent<PolicyProps> = (props: PolicyProps
             Please be advised that we do not make automated decisions, including those based on profiling.
             <TextH5>What about Cookies?</TextH5>
             We use Cookies on the end device of the User (e.g. computer, tablet, smartphone). Cookies may be read by the
-            TSH IT system. We gain access to the information contained
+            {abbreviation} IT system. We gain access to the information contained
             <br />
             in Cookies for statistical purposes and to ensure the proper functioning of the website, in particular to
             maintain the session after logging in.
@@ -352,8 +355,8 @@ export const PrivacyPolicy: FunctionComponent<PolicyProps> = (props: PolicyProps
                 The internet browser configuration is possible to prevents storage of cookies on the User’s end device.
               </ListCircle>
               <ListCircle>
-                The User may delete Cookies after they are saved by the TSH through: relevant features of the web
-                browser, software intended for that purpose or using appropriate tools
+                The User may delete Cookies after they are saved by the {abbreviation} through: relevant features of the
+                web browser, software intended for that purpose or using appropriate tools
                 <br />
                 <TextWithMarginLeft> available under the operating system of the User.</TextWithMarginLeft>
               </ListCircle>
@@ -388,14 +391,14 @@ export const PrivacyPolicy: FunctionComponent<PolicyProps> = (props: PolicyProps
             For matters not covered by these Policy, provisions of law and particularly of the Act on provision of
             services by electronic means, the Act on personal data protection, the
             <br />
-            Civil Code and GDPR shall apply. TSH reserves the right to modify the Policy due to significant reasons. The
-            following shall be deemed significant reasons: introduction of
+            Civil Code and GDPR shall apply. {abbreviation} reserves the right to modify the Policy due to significant
+            reasons. The following shall be deemed significant reasons: introduction of
             <br />
-            new, amendments to the existing legislation, adaptation to changes introduced by TSH. TSH notifies of the
-            content of the changes by publishing a notice on the change of
+            new, amendments to the existing legislation, adaptation to changes introduced by {abbreviation}.{' '}
+            {abbreviation} notifies of the content of the changes by publishing a notice on the change of
             <br />
-            Policy at www.tsh.io. The competent court for any disputes arising from the application of this Policy shall
-            be the competent court under the applicable
+            Policy at www.{abbreviation}.io. The competent court for any disputes arising from the application of this
+            Policy shall be the competent court under the applicable
             <br />
             <br />
             {lastVersionPolicy}
