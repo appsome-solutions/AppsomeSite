@@ -131,7 +131,7 @@ export const PortfolioCarousel: FunctionComponent<PortfolioProps> = (props: Port
         {more.lg && (
           <Col lg={12} xl={16}>
             <ImgBox>
-              <ImgDiv src={svgLink} />
+              <ImgDiv alt="portfolio project preview" src={svgLink} />
             </ImgBox>
           </Col>
         )}
