@@ -5,7 +5,6 @@ import { Newsletter } from './Newsleter/Newsleter';
 import { TheProcess } from './TheProcess/TheProcess';
 import { ContactStyled } from './Contact/Contact';
 import { PortfolioStyled } from './Portfolio/Portfolio';
-import { CookieBar } from './CookieBar/CookiesBar';
 
 export const Home: FunctionComponent = () => (
   <>
@@ -15,6 +14,5 @@ export const Home: FunctionComponent = () => (
     <PortfolioStyled />
     <ContactStyled />
     <Newsletter />
-    <CookieBar />
   </>
 );
