@@ -26,15 +26,15 @@ export const AppRouter: FunctionComponent = () => {
           component={() => (
             <PrivacyPolicy
               name="Appsome Solutions"
-              nameOfBusiness=" – The Software House sp. z o.o."
-              officeCity="office in Gliwice, ul. Dolnych Wałów"
-              webPage="appsome-solutions.com"
-              personalData="The controller of your Personal data: The Software House
-          sp. z o.o. with registered office in Gliwice (hereinafter referred to as “TSH” or “we”) at ul. Dolnych Wałów
-          8."
-              email="Email for admin"
-              lastVersionPolicy="The date of the last version of the policy is 11/06/2018."
-              personalDataOffice=" Personal Data Protection Office, ul. Stawki 2, 00-193 Warsaw)."
+              abbreviation="AS"
+              nameOfBusiness="Software Home Patryk Janik"
+              officeCity=" office in Szczecin, ul. Zbożowa 4A"
+              webPage="www.appsome-solutions.com"
+              personalData="The controller of your Personal data: Software Home Patryk Janik
+          with registered office in Szczecin (hereinafter referred to as “Appsome Solutions” or “we”) at ul.Zbożowa 4A."
+              email="patryk.janik@appsome-solutions.com"
+              lastVersionPolicy="03.10.2020"
+              personalDataOffice=" Business Link, ul. Zbożowa 4A, 70-464 Szczecin)."
             />
           )}
         />
