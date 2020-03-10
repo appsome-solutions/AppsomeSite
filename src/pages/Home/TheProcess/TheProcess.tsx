@@ -89,7 +89,7 @@ requirements and share our thoughts"
             positionText="right"
             svgLink={DesignIcon}
             title="*Designs"
-            content="Based on requirements we create full set of
+            content="Based on requirements we create a full set of
 views with best user experience in mind"
             contentPosition="left"
           />
@@ -98,8 +98,8 @@ views with best user experience in mind"
               positionText="left"
               svgLink={RealizationIcon}
               title="Realization"
-              content="With some coffe and keyboard in hands we change
-desings to working mobile or web applications"
+              content="With some coffee and keyboard in hands, we change
+designs to working mobile or web applications"
               contentPosition="right"
             />
           )}
@@ -108,7 +108,7 @@ desings to working mobile or web applications"
               positionText="left"
               svgLink={RealizationIcon}
               title="Realization"
-              content="With some coffe and keyboard in hands we change desings to working mobile or web applications"
+              content="With some coffee and keyboard in hands, we change designs to working mobile or web applications"
               contentPosition="right"
             />
           )}

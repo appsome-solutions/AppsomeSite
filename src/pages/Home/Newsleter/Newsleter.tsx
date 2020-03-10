@@ -108,7 +108,7 @@ export const Newsletter: FunctionComponent = () => {
             <SectionTitle section="Join our newsletter" color="primary" boxColor="secondary" />
             <TextUnderSectionDiv>
               <TextUnderSection>
-                We have also blog where we publish technological solutions directly from the kitchen.
+                We have also a blog where we publish technological solutions directly from the kitchen.
               </TextUnderSection>
             </TextUnderSectionDiv>
           </div>

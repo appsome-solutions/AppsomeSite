@@ -8,6 +8,7 @@ export interface ElementProps {
   title?: string;
   content?: string | JSX.Element;
   svgLink: string;
+  moreUrl: string;
   className?: string;
 }
 
@@ -49,13 +50,15 @@ const ServiceBoxIcon = styled(Icon)`
 `;
 
 export const ServiceBoxElement: FunctionComponent<ElementProps> = (props: ElementProps): JSX.Element => {
-  const { title, content, svgLink } = props;
+  const { title, content, svgLink, moreUrl } = props;
   return (
     <RectangleInServicesCards className={props.className}>
       <ServiceBoxIcon svgLink={svgLink} />
       <TypeAplicationText>{title}</TypeAplicationText>
       <DescribingText>{content}</DescribingText>
-      <MoreButton type="secondary">MORE</MoreButton>
+      <a href={moreUrl} target="_blank" rel="noopener noreferrer">
+        <MoreButton type="secondary">MORE</MoreButton>
+      </a>
     </RectangleInServicesCards>
   );
 };

@@ -143,47 +143,33 @@ export const OurServices: FunctionComponent = () => {
           {more.lg && (
             <ServiceBoxElement
               svgLink={Browser}
-              title="Web Aplications"
-              content="Lorem Ipsum is simply dummy text of the printing and
-typesetting industry. Lorem Ipsum has been the industry's
-standard dummy text ever since the 1500s, when an
-unknown printer took a galley of type and scrambled it to
-make a type specimen book.Lorem Ipsum is simply
-dummy text of the printing and typesetting industry.
-Lorem Ipsum has been the industry's standard dummy
-text ever since the 1500s, when an unknown printer took
-a galley of type and scrambled it to make a type
-specimen book."
+              title="UI & UX App designs"
+              moreUrl="http://blog.appsome-solutions.com/app-design-creation/"
+              content="Starting from functional requirements, we prepare sketches with the best UI & UX in mind. Then we simply transform them into fully-fledged Figma prototype."
             />
           )}
           {more.lg && (
             <RightElementWithMargin
               svgLink={App}
-              title="Mobile Aplications"
-              content="Lorem Ipsum is simply dummy text of the printing and
-typesetting industry. Lorem Ipsum has been the
-industry's standard dummy text ever since the 1500s,
-when an unknown printer took a galley of type and
-scrambled it to make a type specimen book.Lorem
-Ipsum is simply dummy text of the printing and
-typesetting industry. Lorem Ipsum has been the
-industry's standard dummy text ever since the 1500s,
-when an unknown printer took a galley of type and
-scrambled it to make a type specimen book."
+              title="Mobile & Web Applications"
+              moreUrl="http://blog.appsome-solutions.com/process-of-app-development/"
+              content="We use Jira for task definition and time tracking with scrum methodology. Developing web & mobile apps with web technologies saved us tons of time."
             />
           )}
           {less.lg && (
             <ServiceBoxElement
               svgLink={Browser}
-              title="Web Aplications"
-              content="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+              title="UI & UX App designs"
+              moreUrl="http://blog.appsome-solutions.com/app-design-creation/"
+              content="Starting from functional requirements, we prepare sketches with the best UI & UX in mind. Then we simply transform them into fully-fledged Figma prototype."
             />
           )}
           {less.lg && (
             <RightElementWithMargin
               svgLink={App}
-              title="Mobile Aplications"
-              content="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+              title="Mobile & Web Applications"
+              moreUrl="http://blog.appsome-solutions.com/process-of-app-development/"
+              content="We use Jira for task definition and time tracking with scrum methodology. Developing web & mobile apps with web technologies saved us tons of time."
             />
           )}
         </ServicesCardsBox>
