@@ -129,7 +129,7 @@ export const PortfolioCarousel: FunctionComponent<PortfolioProps> = (props: Port
     <Row>
       <CarouselWhole>
         {more.lg && (
-          <Col lg={12} xl={16}>
+          <Col lg={12} xl={imgDimension === 'laptop' ? 16 : 8}>
             <ImgBox>
               <ImgDiv alt="portfolio project preview" src={svgLink} />
             </ImgBox>
@@ -140,7 +140,7 @@ export const PortfolioCarousel: FunctionComponent<PortfolioProps> = (props: Port
             {props.imgDimension ? <ImgDivDesktop src={svgLink} /> : <ImgDiv src={svgLink} />}
           </ImgBox>
         )}
-        <Col lg={12} xl={8}>
+        <Col lg={12} xl={imgDimension === 'laptop' ? 8 : 16}>
           <PortfolioDescription>
             <TitleSite>{title}</TitleSite>
             <DescriptionSiteBox>

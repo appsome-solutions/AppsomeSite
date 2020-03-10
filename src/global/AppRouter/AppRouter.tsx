@@ -3,7 +3,6 @@ import React, { FunctionComponent, useEffect } from 'react';
 import { Route, Switch, useLocation } from 'react-router-dom';
 import { Home } from 'pages/Home/Home';
 import { PrivacyPolicy } from 'pages/PrivatePolicy/PrivatePolicy';
-import { CookieBar } from '../../pages/Home/CookieBar/CookiesBar';
 
 export const AppRouter: FunctionComponent = () => {
   const ScrollToTop = () => {
@@ -44,7 +43,6 @@ export const AppRouter: FunctionComponent = () => {
           component={() => <TermOfService name="AppSome Solutions" nameOfBusiness="AppSome Solutions" />}
         />
       </Switch>
-      <CookieBar />
     </>
   );
 };
