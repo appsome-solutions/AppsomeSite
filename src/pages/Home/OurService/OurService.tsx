@@ -100,7 +100,7 @@ export const OurServices: FunctionComponent = () => {
     <ServiceStyle className="Service" id="Service">
       <MaxWidthWithBg BackgroundColorProps="primary">
         <OurSevicesBox>
-          <SectionTitle section="Our Service" color="secondary" boxColor="primary" />
+          <SectionTitle section="Our Services" color="secondary" boxColor="primary" />
           {more.lg && (
             <WholeTextPre>
               We specialize in web technologies - simply saying we are in love with <RedText>JavaScript!</RedText>
