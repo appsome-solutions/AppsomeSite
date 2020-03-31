@@ -143,7 +143,7 @@ export const OurServices: FunctionComponent = () => {
           {more.lg && (
             <ServiceBoxElement
               svgLink={Browser}
-              title="UI & UX App designs"
+              title="UI & UX App design"
               moreUrl="http://blog.appsome-solutions.com/app-design-creation/"
               content="Starting from functional requirements, we prepare sketches with the best UI & UX in mind. Then we simply transform them into fully-fledged Figma prototype."
             />
@@ -159,7 +159,7 @@ export const OurServices: FunctionComponent = () => {
           {less.lg && (
             <ServiceBoxElement
               svgLink={Browser}
-              title="UI & UX App designs"
+              title="UI & UX App design"
               moreUrl="http://blog.appsome-solutions.com/app-design-creation/"
               content="Starting from functional requirements, we prepare sketches with the best UI & UX in mind. Then we simply transform them into fully-fledged Figma prototype."
             />
