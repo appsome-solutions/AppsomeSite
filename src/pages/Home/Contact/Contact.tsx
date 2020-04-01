@@ -267,7 +267,7 @@ export const ContactStyled: FunctionComponent = () => {
                     <FormikInput
                       name="email"
                       id="contact-form-email"
-                      InputComponent={(props: any) => <EmailInput {...props} placeholder="Email" type="primary" />}
+                      InputComponent={(props: any) => <EmailInput {...props} placeholder="Email" />}
                     />
                   </EmailInputText>
                 </Col>
