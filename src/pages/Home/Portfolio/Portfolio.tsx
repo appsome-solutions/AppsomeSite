@@ -26,7 +26,7 @@ const PortfolioPadding = styled.div`
   padding: 36px 24px 32px 24px;
   `};
   ${media.lg`
-  padding: 84px 192px 24px 192px;
+  padding: 84px 124px 24px 192px;
 `};
 `;
 const TextUnderSection = styled.h6`

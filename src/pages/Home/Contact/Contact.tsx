@@ -230,7 +230,7 @@ export const ContactStyled: FunctionComponent = () => {
         <ContactPadding>
           <SectionTitle section="Contact" color="secondary" boxColor="primary" />
           <TextUnderSectionTitle>
-            Just describe what you need and we will analyse your idea and deliver the best quality solution!
+            Just describe what you need and we will deliver the best quality solution!
           </TextUnderSectionTitle>
           <Formik
             initialValues={initialFormValues}

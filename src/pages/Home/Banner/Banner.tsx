@@ -103,8 +103,9 @@ export const Banner: FunctionComponent = () => {
             <Col lg={24} xl={20}>
               <FirstText>Change your idea into working software</FirstText>
               <SecondText>
-                We are here to help you succeed. That is why we provide our time and top quality code. We care and take
-                responsibility for your products - you can focus on your business strategies!
+                We are a software development company from Poland that wants to help you succeed. That is why we provide
+                experience and high quality code. We care and take responsibility for your digital product solution -
+                you can focus on your business strategies and let us manage your project!
               </SecondText>
             </Col>
             <Link to="Contact" spy={true} smooth={true} duration={500}>

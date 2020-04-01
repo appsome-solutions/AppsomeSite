@@ -68,29 +68,29 @@ export const TheProcess: FunctionComponent = () => {
   return (
     <MaxWidthWithBg BackgroundColorProps="secondary">
       <ProcessFrame name="Process" id="Process" className="element">
-        <SectionTitle section="The process" color="primary" boxColor="secondary" />
+        <SectionTitle section="Development process" color="primary" boxColor="secondary" />
         <ProcessTimeLine>
           <TimeLineElement
             positionText="right"
             svgLink={IdeaIcon}
             title="Idea"
-            content="Everything starts with your idea"
+            content="Digital transformation starts with your idea"
             contentPosition="left"
           />
           <TimeLineElement
             positionText="left"
             svgLink={RequirementsIcon}
-            title="Requirements"
-            content="We talk together, gather your
-requirements and share our thoughts"
+            title="Consulting"
+            content="We communicate together, gather your
+requirements and share our thoughts in a agile manner"
             contentPosition="right"
           />
           <TimeLineElement
             positionText="right"
             svgLink={DesignIcon}
-            title="*Designs"
-            content="Based on requirements we create a full set of
-views with best user experience in mind"
+            title="*UI/UX Design"
+            content="Based on requirements we create user interface
+with best user experience in mind"
             contentPosition="left"
           />
           {more.md && (
@@ -98,8 +98,8 @@ views with best user experience in mind"
               positionText="left"
               svgLink={RealizationIcon}
               title="Realization"
-              content="With some coffee and keyboard in hands, we change
-designs to working mobile or web applications"
+              content="With some coffee and keyboard in hands, our engineering team
+change designs into working mobile or web application"
               contentPosition="right"
             />
           )}
@@ -108,7 +108,7 @@ designs to working mobile or web applications"
               positionText="left"
               svgLink={RealizationIcon}
               title="Realization"
-              content="With some coffee and keyboard in hands, we change designs to working mobile or web applications"
+              content="With some coffee and keyboard in hands, our engineering team change designs into working mobile or web application"
               contentPosition="right"
             />
           )}
@@ -117,7 +117,7 @@ designs to working mobile or web applications"
               positionText="right"
               svgLink={LaunchIcon}
               title="Launch"
-              content="It’s time to make your working idea visible for others.
+              content="It’s time to make your custom software visible for others.
 Let’s launch it!"
               contentPosition="left"
               isWithLine={false}
@@ -128,7 +128,7 @@ Let’s launch it!"
               positionText="right"
               svgLink={LaunchIcon}
               title="Launch"
-              content="It’s time to make your working idea visible for others. Let’s launch it!"
+              content="It’s time to make your custom software visible for others. Let’s launch it!"
               contentPosition="left"
               isWithLine={false}
             />

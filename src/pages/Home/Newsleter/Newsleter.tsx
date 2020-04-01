@@ -99,6 +99,20 @@ const SignUpSchema = Yup.object().shape({
     .email('Invalid email')
     .required('Required'),
 });
+
+const StyledForm = styled(Form)`
+  ${media.xs`
+    display: block;
+    margin-left: 0;
+  `};
+  ${media.lg`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 20px;
+  `};
+`;
+
 export const Newsletter: FunctionComponent = () => {
   return (
     <MaxWidthWithBg BackgroundColorProps="secondary">
@@ -108,7 +122,8 @@ export const Newsletter: FunctionComponent = () => {
             <SectionTitle section="Join our newsletter" color="primary" boxColor="secondary" />
             <TextUnderSectionDiv>
               <TextUnderSection>
-                We have also a blog where we publish technological solutions directly from the kitchen.
+                We have also a blog where our development team publish technological solutions directly from the
+                kitchen.
               </TextUnderSection>
             </TextUnderSectionDiv>
           </div>
@@ -130,7 +145,7 @@ export const Newsletter: FunctionComponent = () => {
                 });
             }}
           >
-            <Form translate={false}>
+            <StyledForm translate={false}>
               <InputBox>
                 <FormikInput
                   name="email"
@@ -141,7 +156,7 @@ export const Newsletter: FunctionComponent = () => {
                   SUBSCRIBE
                 </SubscribeButton>
               </InputBox>
-            </Form>
+            </StyledForm>
           </Formik>
         </NewsletterPaddings>
       </NewsletterRow>
