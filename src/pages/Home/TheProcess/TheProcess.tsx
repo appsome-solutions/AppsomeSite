@@ -82,14 +82,14 @@ export const TheProcess: FunctionComponent = () => {
             svgLink={RequirementsIcon}
             title="Consulting"
             content="We communicate together, gather your
-requirements and share our thoughts in a agile manner"
+requirements and share our thoughts in an agile manner"
             contentPosition="right"
           />
           <TimeLineElement
             positionText="right"
             svgLink={DesignIcon}
             title="*UI/UX Design"
-            content="Based on requirements we create user interface
+            content="Based on requirements we create a user interface
 with best user experience in mind"
             contentPosition="left"
           />
