@@ -5,6 +5,7 @@ export const Checkbox = styled(AntCheckbox)`
   &&& {
     .ant-checkbox-checked .ant-checkbox-inner:after {
       border-color: ${props => props.theme.colors.main.primary};
+      left: 5px;
     }
     .ant-checkbox-checked .ant-checkbox-inner {
       background-color: ${props => props.theme.colors.utils.background.mid.color};

@@ -14,6 +14,8 @@ import { MaxWidthWithBg } from 'components/MaxSizeAndBackground/MaxWidthAndBg';
 import ShapePortfolio from 'assets/ShapePortfolio.svg';
 import { Icon } from 'components/Icon/Icon';
 import { Col, Row } from 'antd';
+import { useFirebase } from 'global/Firebase/FirebaseContext';
+import { message } from 'antd';
 
 interface EditorStylesWrapperType {
   hasError?: boolean;
@@ -210,8 +212,17 @@ const TextInCheckBox = styled.div`
   margin-left: 8px;
   ${props => props.theme.typography.body2};
 `;
+
+const initialFormValues = {
+  name: '',
+  email: '',
+  message: '',
+  checkBox: ``,
+};
+
 export const ContactStyled: FunctionComponent = () => {
   const { less } = useRWD();
+  const { db } = useFirebase();
   return (
     <ContactStyle id="Contact" className="Contact">
       {less.lg && <Shape svgLink={ShapePortfolio} />}
@@ -219,17 +230,26 @@ export const ContactStyled: FunctionComponent = () => {
         <ContactPadding>
           <SectionTitle section="Contact" color="secondary" boxColor="primary" />
           <TextUnderSectionTitle>
-            Just describe what you need and we will analyse Your idea and deliver the best quality solution!
+            Just describe what you need and we will analyse your idea and deliver the best quality solution!
           </TextUnderSectionTitle>
           <Formik
-            initialValues={{
-              name: '',
-              email: '',
-              message: '',
-              checkBox: ``,
-            }}
+            initialValues={initialFormValues}
             validationSchema={SignupSchema}
-            onSubmit={() => console.log('mleko')}
+            onSubmit={(values, { resetForm }) => {
+              db.collection('trigger-email')
+                .add({
+                  to: 'patrykjanik1710@gmail.com',
+                  message: {
+                    subject: '✰ Contact form Appsome Solutions',
+                    html: `Name: ${values.name} <br /> Email: ${values.email} <br /> Message: ${values.message} <br />`,
+                  },
+                })
+                .then(() => {
+                  message.success('Properly send message!');
+                  resetForm();
+                })
+                .catch(() => message.success('Got some errors when sending message :/'));
+            }}
           >
             <FormStyle translate={false}>
               <InputBoxes>
