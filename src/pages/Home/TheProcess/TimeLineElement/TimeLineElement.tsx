@@ -41,12 +41,12 @@ const Title = styled.h5`
 const IdeaContent = styled.pre`
   ${props => props.theme.typography.body1};
   ${media.xs`
-  white-space: pre-wrap;
-  text-align: center;
+    white-space: normal;
+    text-align: center;
   `}
   ${media.xl`
-  white-space: pre;
-  text-align:inherit;
+    white-space: pre;
+    text-align:inherit;
   `}
 `;
 
