@@ -257,6 +257,7 @@ export const ContactStyled: FunctionComponent = () => {
                   <NameInputText>
                     <FormikInput
                       name="name"
+                      id="contact-form-name"
                       InputComponent={(props: any) => <NameInput {...props} placeholder="Name" />}
                     />
                   </NameInputText>
@@ -265,6 +266,7 @@ export const ContactStyled: FunctionComponent = () => {
                   <EmailInputText>
                     <FormikInput
                       name="email"
+                      id="contact-form-email"
                       InputComponent={(props: any) => <EmailInput {...props} placeholder="Email" type="primary" />}
                     />
                   </EmailInputText>
@@ -273,10 +275,11 @@ export const ContactStyled: FunctionComponent = () => {
               <MessageText>
                 <FormikTextArea
                   name="message"
+                  id="contact-form-message"
                   InputComponent={(props: any) => <MessageTextArea {...props} placeholder="Message" />}
                 />
               </MessageText>
-              <CheckBoxStyle name="checkBox">
+              <CheckBoxStyle name="checkBox" id="contact-form-checkbox">
                 <TextInCheckBox>
                   I agree to{' '}
                   <Link to="/term-of-service">
