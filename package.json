@@ -44,7 +44,7 @@
     "start:prod": "node server.js",
     "heroku-postbuild": "tsc & yarn build",
     "start:build": "rimraf build && react-scripts build && serve -s build",
-    "build": "react-scripts build && react-snapshot",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint \"**/*.{js,ts,tsx}\""
