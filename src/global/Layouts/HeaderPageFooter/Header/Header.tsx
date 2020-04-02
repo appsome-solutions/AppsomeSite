@@ -67,7 +67,7 @@ export const Header = () => {
         <HeaderWrapper>
           {less.lg && <HamburgerMenu />}
           <LinkRouter to="/" aria-label="Go back to home">
-            <img src={LogoSvg} alt="Appsome Solutions Logo" />
+            <img src={LogoSvg} alt="Appsome Solutions Logo" id="appsome-solutions-logo" />
           </LinkRouter>
           {more.lg && (
             <LinksPosition>

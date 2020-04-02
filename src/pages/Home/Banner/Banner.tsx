@@ -102,7 +102,7 @@ export const Banner: FunctionComponent = () => {
         <BannerStyle>
           <GroupedTextWithButton>
             <Col lg={24} xl={20}>
-              <FirstText>Change your idea into working software</FirstText>
+              <FirstText id="company-slogan">Change your idea into working software</FirstText>
               <SecondText>
                 We are a software development company from Poland that wants to help you succeed. That is why we provide
                 experience and high quality code. We care and take responsibility for your digital product solution -
@@ -115,7 +115,11 @@ export const Banner: FunctionComponent = () => {
               </ContactButton>
             </Link>
           </GroupedTextWithButton>
-          <Col lg={8}>{more.lg && <BannerPhotoStyle src={BannerPhoto} alt="Development team working" />}</Col>
+          <Col lg={8}>
+            {more.lg && (
+              <BannerPhotoStyle id="banner-photo" src={BannerPhoto} alt="Software development team working" />
+            )}
+          </Col>
         </BannerStyle>
       </Row>
       {more.lg && <Shape svgLink={Shape1} alt="irregular shape" />}
