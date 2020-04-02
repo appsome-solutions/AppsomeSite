@@ -44,7 +44,6 @@
     "start:prod": "node server.js",
     "heroku-postbuild": "tsc & yarn build",
     "start:build": "rimraf build && react-scripts build && serve -s build",
-    "postbuild": "react-snap",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
