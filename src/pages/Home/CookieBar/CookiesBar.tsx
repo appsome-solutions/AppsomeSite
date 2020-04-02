@@ -90,10 +90,10 @@ export const CookieBar: FunctionComponent = () => {
           <CookiesIcon alt="cookie icon" src={CockieContent} />
           {more.md && (
             <CookieText>
-              We are using cookies, unfortunately they are not with chocolate... You can learn about it more
+              We are using cookies, unfortunately they are not with chocolate... You can learn about it more here -
               <Link to="Policy" spy={true} smooth={true} offset={-99} duration={500}>
                 <LinkRouter to="/privacy-policy">
-                  <TextHere>here</TextHere>
+                  <TextHere>privacy policy</TextHere>
                 </LinkRouter>
               </Link>
               <ButtonAccept onClick={() => setIsVisible('false')}>ACCEPT</ButtonAccept>
@@ -102,10 +102,10 @@ export const CookieBar: FunctionComponent = () => {
           {less.md && (
             <CookieText>
               We are using cookies, unfortunately <br /> they are not with chocolate... You can <br /> learn about it
-              more
+              more here -
               <Link to="Policy" spy={true} smooth={true} offset={-99} duration={500}>
                 <LinkRouter to="/privacy-policy">
-                  <TextHere>here</TextHere>
+                  <TextHere>privacy policy</TextHere>
                 </LinkRouter>
               </Link>
               <br />
