@@ -109,7 +109,9 @@ export const Banner: FunctionComponent = () => {
               </SecondText>
             </Col>
             <Link to="Contact" spy={true} smooth={true} duration={500}>
-              <ContactButton type="secondary">Contact Us</ContactButton>
+              <ContactButton type="secondary" aria-label="contact us button">
+                Contact Us
+              </ContactButton>
             </Link>
           </GroupedTextWithButton>
           <Col lg={8}>{more.lg && <BannerPhotoStyle src={BannerPhoto} alt="" />}</Col>

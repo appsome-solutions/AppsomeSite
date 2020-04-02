@@ -152,7 +152,7 @@ export const Newsletter: FunctionComponent = () => {
                   InputComponent={(props: any) => <EmailInput {...props} placeholder="Email" type="primary" />}
                 />
                 <EmailIcon src={Email} alt="" />
-                <SubscribeButton htmlType="submit" type="primary">
+                <SubscribeButton htmlType="submit" type="primary" aria-label="Subscribe to newsletter">
                   SUBSCRIBE
                 </SubscribeButton>
               </InputBox>

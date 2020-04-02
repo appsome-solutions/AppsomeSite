@@ -41,7 +41,8 @@ const MoreButton = styled(Button)`
   width:100%;
   `}
   ${media.lg`
-   width: 112px;
+   min-width: 112px;
+   width: auto;
    `}
 `;
 
@@ -57,7 +58,9 @@ export const ServiceBoxElement: FunctionComponent<ElementProps> = (props: Elemen
       <TypeAplicationText>{title}</TypeAplicationText>
       <DescribingText>{content}</DescribingText>
       <a href={moreUrl} target="_blank" rel="noopener noreferrer">
-        <MoreButton type="secondary">MORE</MoreButton>
+        <MoreButton type="secondary" aria-label="more on our blog">
+          MORE ON OUR BLOG
+        </MoreButton>
       </a>
     </RectangleInServicesCards>
   );

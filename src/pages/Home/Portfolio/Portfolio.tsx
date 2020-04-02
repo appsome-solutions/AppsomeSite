@@ -161,10 +161,10 @@ export const PortfolioStyled: FunctionComponent = () => {
             />
           </Carousel>
           <ArrowButtonsBox>
-            <ArrowButtonLeft type="primary" onClick={() => goToPrev()}>
+            <ArrowButtonLeft type="primary" onClick={() => goToPrev()} aria-label="previous portfolio project button">
               <ArrowIcon svgLink={LeftVector} />
             </ArrowButtonLeft>
-            <ArrowButtonWithMargin type="primary" onClick={() => goToNext()}>
+            <ArrowButtonWithMargin type="primary" onClick={() => goToNext()} aria-label="next portfolio project button">
               <ArrowIconRight svgLink={Vector} />
             </ArrowButtonWithMargin>
           </ArrowButtonsBox>

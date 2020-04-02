@@ -292,7 +292,9 @@ export const ContactStyled: FunctionComponent = () => {
                 </TextInCheckBox>
               </CheckBoxStyle>
               <ButtonPosition>
-                <SendButton htmlType="submit">SEND</SendButton>
+                <SendButton htmlType="submit" aria-label="send contact form">
+                  SEND
+                </SendButton>
               </ButtonPosition>
             </FormStyle>
           </Formik>
