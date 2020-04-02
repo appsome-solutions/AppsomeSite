@@ -6,10 +6,11 @@ export interface IconProps {
   height?: string;
   cursor?: string;
   color?: string;
+  alt: string;
   hoverBackground?: string;
 }
 
-const defaults: IconProps = {
+const defaults: Partial<IconProps> = {
   height: '56px',
   width: '56px',
   svgLink: '',

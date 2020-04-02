@@ -151,10 +151,10 @@ export const PortfolioCarousel: FunctionComponent<PortfolioProps> = (props: Port
               </DescriptionSite>
             </DescriptionSiteBox>
             <QuotationBoxWithQuoteSvg>
-              <QuoteSign svgLink={Quote} />
+              <QuoteSign svgLink={Quote} alt="left quote" />
               <QuotationBoxWithText>{TestimonialText}</QuotationBoxWithText>
               <BoxWithSecondQuote>
-                <QuoteSign svgLink={Quote} />
+                <QuoteSign svgLink={Quote} alt="right quote" />
               </BoxWithSecondQuote>
               <AuthorText>{TestimonialPerson}</AuthorText>
             </QuotationBoxWithQuoteSvg>

@@ -105,31 +105,35 @@ export const HamburgerMenu = () => {
 
   return (
     <div>
-      <HamburgerMenuIcon color={themeContext.colors.main.tetiary} onClick={() => setIsMenuOpened(true)} />
+      <HamburgerMenuIcon
+        alt="hamburger menu"
+        color={themeContext.colors.main.tetiary}
+        onClick={() => setIsMenuOpened(true)}
+      />
       <StyledDrawer placement="left" closable={false} onClose={() => setIsMenuOpened(false)} visible={isMenuOpened}>
         <MenuDivider />
         <DrawerWrapper>
           <StyledLink to="Process" spy={true} activeClass="active" onClick={() => HamburgerFunction('Process')}>
             <LinkRouterStyle to="/">
-              <HamburgerIcon svgLink={ProcessMenu} />
+              <HamburgerIcon alt="process" svgLink={ProcessMenu} />
               <TextInHamburger>Process</TextInHamburger>
             </LinkRouterStyle>
           </StyledLink>
           <StyledLink to="Service" spy={true} activeClass="active" onClick={() => HamburgerFunction('Service')}>
             <LinkRouterStyle to="/">
-              <HamburgerIcon svgLink={ServiceMenu} />
+              <HamburgerIcon alt="service" svgLink={ServiceMenu} />
               <TextInHamburger>Service</TextInHamburger>
             </LinkRouterStyle>
           </StyledLink>
           <StyledLink to="Portfolio" spy={true} activeClass="active" onClick={() => HamburgerFunction('Portfolio')}>
             <LinkRouterStyle to="/">
-              <HamburgerIcon svgLink={PortfolioMenu} />
+              <HamburgerIcon alt="portfolio" svgLink={PortfolioMenu} />
               <TextInHamburger>Portfolio</TextInHamburger>
             </LinkRouterStyle>
           </StyledLink>
           <StyledLink to="Contact" spy={true} activeClass="active" onClick={() => HamburgerFunction('Contact')}>
             <LinkRouterStyle to="/">
-              <HamburgerIcon svgLink={ContactMenu} />
+              <HamburgerIcon alt="contact" svgLink={ContactMenu} />
               <TextInHamburger>Contact</TextInHamburger>
             </LinkRouterStyle>
           </StyledLink>

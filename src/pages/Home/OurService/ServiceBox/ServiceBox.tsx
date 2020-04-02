@@ -5,7 +5,7 @@ import { Icon } from 'components/Icon/Icon';
 import { media } from 'global/RWD';
 
 export interface ElementProps {
-  title?: string;
+  title: string;
   content?: string | JSX.Element;
   svgLink: string;
   moreUrl: string;
@@ -54,7 +54,7 @@ export const ServiceBoxElement: FunctionComponent<ElementProps> = (props: Elemen
   const { title, content, svgLink, moreUrl } = props;
   return (
     <RectangleInServicesCards className={props.className}>
-      <ServiceBoxIcon svgLink={svgLink} />
+      <ServiceBoxIcon svgLink={svgLink} alt={title} />
       <TypeAplicationText>{title}</TypeAplicationText>
       <DescribingText>{content}</DescribingText>
       <a href={moreUrl} target="_blank" rel="noopener noreferrer">

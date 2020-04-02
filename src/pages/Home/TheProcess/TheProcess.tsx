@@ -135,10 +135,10 @@ Let’s launch it!"
           )}
         </ProcessTimeLine>
         <BottomText>*Designs can be provided </BottomText>
-        {more.lg && (less.xxl && <Shape svgLink={Shape2} />)}
-        {less.lg && <Shape svgLink={ShapeProcess} />}
+        {more.lg && (less.xxl && <Shape svgLink={Shape2} alt="irregular shape" />)}
+        {less.lg && <Shape svgLink={ShapeProcess} alt="irregular shape" />}
       </ProcessFrame>
-      {more.xxl && <Shape svgLink={Shape2} />}
+      {more.xxl && <Shape svgLink={Shape2} alt="irregular shape" />}
     </MaxWidthWithBg>
   );
 };

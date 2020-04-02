@@ -117,8 +117,8 @@ export const Banner: FunctionComponent = () => {
           <Col lg={8}>{more.lg && <BannerPhotoStyle src={BannerPhoto} alt="" />}</Col>
         </BannerStyle>
       </Row>
-      {more.lg && <Shape svgLink={Shape1} />}
-      {less.lg && <Shape svgLink={ShapeSmallBanner} />}
+      {more.lg && <Shape svgLink={Shape1} alt="irregular shape" />}
+      {less.lg && <Shape svgLink={ShapeSmallBanner} alt="irregular shape" />}
     </MaxWidthWithBg>
   );
 };

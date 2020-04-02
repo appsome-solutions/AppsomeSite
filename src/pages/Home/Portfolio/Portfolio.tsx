@@ -106,7 +106,7 @@ export const PortfolioStyled: FunctionComponent = () => {
 
   return (
     <PortfolioStyle id="Portfolio" name="Portfolio">
-      {more.lg && <Shape svgLink={Shape3} />}
+      {more.lg && <Shape svgLink={Shape3} alt="irregular shape" />}
       <MaxWidthWithBg BackgroundColorProps="secondary">
         <PortfolioPadding>
           <div>
@@ -162,10 +162,10 @@ export const PortfolioStyled: FunctionComponent = () => {
           </Carousel>
           <ArrowButtonsBox>
             <ArrowButtonLeft type="primary" onClick={() => goToPrev()} aria-label="previous portfolio project button">
-              <ArrowIcon svgLink={LeftVector} />
+              <ArrowIcon svgLink={LeftVector} alt="left arrow" />
             </ArrowButtonLeft>
             <ArrowButtonWithMargin type="primary" onClick={() => goToNext()} aria-label="next portfolio project button">
-              <ArrowIconRight svgLink={Vector} />
+              <ArrowIconRight svgLink={Vector} alt="right arrow" />
             </ArrowButtonWithMargin>
           </ArrowButtonsBox>
         </PortfolioPadding>

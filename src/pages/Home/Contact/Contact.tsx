@@ -225,7 +225,7 @@ export const ContactStyled: FunctionComponent = () => {
   const { db } = useFirebase();
   return (
     <ContactStyle id="Contact" className="Contact">
-      {less.lg && <Shape svgLink={ShapePortfolio} />}
+      {less.lg && <Shape svgLink={ShapePortfolio} alt="irregular shape" />}
       <MaxWidthWithBg BackgroundColorProps="primary">
         <ContactPadding>
           <SectionTitle section="Contact" color="secondary" boxColor="primary" />

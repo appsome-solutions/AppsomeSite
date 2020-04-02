@@ -6,7 +6,7 @@ import { media, useRWD } from 'global/RWD';
 import LineMd from 'assets/LineMd.svg';
 export type PositionText = 'right' | 'left';
 export interface ElementProps {
-  title?: string;
+  title: string;
   content?: string | JSX.Element;
   contentPosition?: PositionText;
   svgLink: string;
@@ -85,7 +85,7 @@ export const TimeLineElement: FunctionComponent<ElementProps> = (props: ElementP
     <>
       <ProcessTimeLineElement>
         <Circle>
-          <IdeaIconStyle svgLink={svgLink} />
+          <IdeaIconStyle svgLink={svgLink} alt={title} />
         </Circle>
         <PositionWholeText positionText={props.positionText} contentPosition={props.contentPosition}>
           {more.xl && (
@@ -102,8 +102,8 @@ export const TimeLineElement: FunctionComponent<ElementProps> = (props: ElementP
           <IdeaContent>{content}</IdeaContent>
         </>
       )}
-      {less.xl && <div>{isWithLine && <LineUnderSvg src={Line} />}</div>}
-      {more.xl && <div>{isWithLine && <LineUnderSvgDesktop svgLink={LineMd} />}</div>}
+      {less.xl && <div>{isWithLine && <LineUnderSvg src={Line} alt="timeline line graphic" />}</div>}
+      {more.xl && <div>{isWithLine && <LineUnderSvgDesktop svgLink={LineMd} alt="timeline line graphic" />}</div>}
     </>
   );
 };
