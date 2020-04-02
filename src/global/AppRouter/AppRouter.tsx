@@ -43,8 +43,8 @@ export const AppRouter: FunctionComponent = () => {
           exact
           component={() => <TermOfService name="AppSome Solutions" nameOfBusiness="AppSome Solutions" />}
         />
-        <Route path="/404" component={NotFound} />
-        <Redirect to="/404" />
+        <Route path="/not-found" component={NotFound} />
+        <Redirect to="/not-found" />
       </Switch>
     </>
   );
