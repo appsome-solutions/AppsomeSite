@@ -1,9 +1,8 @@
 import React from 'react';
-import firebase from 'firebase';
+import * as firebase from 'firebase/app';
+// These imports load individual services into the firebase namespace.
+import 'firebase/firestore';
 import { FirebaseProvider as ContextFirebaseProvider } from './FirebaseContext';
-
-// Required for side-effects
-require('firebase/firestore');
 
 // Initialize Cloud Firestore through Firebase
 firebase.initializeApp({

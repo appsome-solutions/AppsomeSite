@@ -1,34 +1,27 @@
 import React, { FunctionComponent } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
-import { ApolloProvider } from '@apollo/react-hooks';
 import { ThemeProvider } from 'styled-components';
 import { CoreTheme } from './global/Themes/CoreTheme';
 import { RWDProvider } from './global/RWD';
 import { GlobalStyles } from './global/GlobalStyles/GlobalStyles';
 import { ErrorHandler } from './global/ErrorHandler/ErrorHandler';
-import { AppRouter } from './global/AppRouter/AppRouter';
-import { client } from 'global/ApolloClient/ApolloClient';
 
-import { FirebaseProvider } from 'global/Firebase/Firebase';
 import { HeaderPageFooter } from 'global/Layouts/HeaderPageFooter/HeaderPageFooter';
+import { AppRouter } from 'global/AppRouter/AppRouter';
 
 const App: FunctionComponent = () => {
   return (
     <ThemeProvider theme={CoreTheme}>
-      <ApolloProvider client={client}>
-        <RWDProvider>
-          <Router>
-            <HeaderPageFooter>
-              <GlobalStyles />
-              <ErrorHandler>
-                <FirebaseProvider>
-                  <AppRouter />
-                </FirebaseProvider>
-              </ErrorHandler>
-            </HeaderPageFooter>
-          </Router>
-        </RWDProvider>
-      </ApolloProvider>
+      <RWDProvider>
+        <Router>
+          <HeaderPageFooter>
+            <GlobalStyles />
+            <ErrorHandler>
+              <AppRouter />
+            </ErrorHandler>
+          </HeaderPageFooter>
+        </Router>
+      </RWDProvider>
     </ThemeProvider>
   );
 };
