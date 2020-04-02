@@ -44,6 +44,45 @@ export const CoreTheme = {
   },
   textDecorationLine: 'underline',
   typography: {
+    h1: {
+      fontWeight: '300',
+      fontSize: '96px',
+      textTransform: 'none',
+      letterSpacing: '-0.015em',
+    },
+    h2: {
+      fontWeight: '300',
+      fontSize: '60px',
+      textTransform: 'none',
+      letterSpacing: '-0.005em',
+    },
+    h3: {
+      fontWeight: 'normal',
+      fontSize: '48px',
+      textTransform: 'none',
+      letterSpacing: '0',
+    },
+    h4: {
+      fontWeight: 'normal',
+      fontSize: '34px',
+      textTransform: 'none',
+      letterSpacing: '0.0025em',
+    },
+    h5: {
+      fontWeight: 'normal',
+      fontSize: '24px',
+      textTransform: 'none',
+      letterSpacing: '0.0020em',
+      margin: '0px',
+      lineHeight: '28px',
+    },
+    h6: {
+      fontWeight: '500',
+      fontSize: '20px',
+      textTransform: 'none',
+      letterSpacing: '0.0015em',
+      lineHeight: '23px',
+    },
     subtitle1: {
       fontWeight: 'normal',
       fontSize: '16px',

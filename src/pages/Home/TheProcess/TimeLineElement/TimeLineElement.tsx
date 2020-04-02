@@ -38,7 +38,7 @@ const Title = styled.h5`
   color: ${props => props.theme.colors.main.secondary};
   margin-bottom: 4px;
 `;
-const IdeaContent = styled.pre`
+const IdeaContent = styled.h3`
   ${props => props.theme.typography.body1};
   ${media.xs`
     white-space: normal;

@@ -23,7 +23,8 @@ const RectangleInServicesCards = styled.div`
   `}
 `;
 
-const TypeAplicationText = styled.h5`
+const TypeAplicationText = styled.h3`
+  ${props => props.theme.typography.h5}
   margin: 20px 0 8px 0;
   color: ${props => props.theme.colors.utils.background.mid.color};
 `;

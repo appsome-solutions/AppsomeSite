@@ -27,48 +27,27 @@ export const GlobalStyles = createGlobalStyle<ThemeInterface>`
   }
   
   h1 {
-    font-weight: 300;
-    font-size: 96px;
-    text-transform: none;
-    letter-spacing: -0.015em;
+    ${props => props.theme.typography.h1}
   }
   
   h2 {
-    font-weight: 300;
-    font-size: 60px;
-    text-transform: none;
-    letter-spacing: -0.005em;
+    ${props => props.theme.typography.h2}
   }
   
   h3 {
-    font-weight: normal;
-    font-size: 48px;
-    text-transform: none;
-    letter-spacing: 0;
+    ${props => props.theme.typography.h3}
   }
   
   h4 {
-    font-weight: normal;
-    font-size: 34px;
-    text-transform: none;
-    letter-spacing: 0.0025em;
+    ${props => props.theme.typography.h4}
   }
   
   h5 {
-    font-weight: normal;
-    font-size: 24px;
-    text-transform: none;
-    letter-spacing: 0.0020em;
-    margin: 0px;
-    line-height:28px;
+    ${props => props.theme.typography.h5}
   }
   
   h6 {
-    font-weight: 500;
-    font-size: 20px;
-    text-transform: none;
-    letter-spacing: 0.0015em;
-    line-height:23px;
+    ${props => props.theme.typography.h6}
   }  
   pre {
     font-family: Roboto, sans-serif;

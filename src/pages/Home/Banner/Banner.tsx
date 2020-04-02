@@ -39,7 +39,8 @@ const GroupedTextWithButton = styled.div`
   `}
 `;
 
-const FirstText = styled.h3`
+const FirstText = styled.h1`
+  ${props => props.theme.typography.h3}
   color: ${props => props.theme.colors.utils.background.mid.color};
   ${media.xs`
    font-size: 34px;

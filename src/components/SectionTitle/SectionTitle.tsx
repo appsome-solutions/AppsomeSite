@@ -8,7 +8,8 @@ export interface SectionProps {
   textUnderSection?: string;
 }
 
-const Title = styled.h4`
+const Title = styled.h2`
+  ${props => props.theme.typography.h4}
   margin-left: 16px;
   margin-top: 14px;
   color: ${props =>

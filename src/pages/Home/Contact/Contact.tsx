@@ -34,7 +34,8 @@ const ContactPadding = styled.div`
   padding: 96px 192px 80px 192px;
   `}
 `;
-const TextUnderSectionTitle = styled.h5`
+const TextUnderSectionTitle = styled.h3`
+  ${props => props.theme.typography.h5};
   color: ${props => props.theme.colors.utils.background.mid.color};
   ${media.xs`
    margin-top: 24px;
