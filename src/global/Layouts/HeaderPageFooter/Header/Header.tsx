@@ -66,8 +66,8 @@ export const Header = () => {
       <MaxWidthWithBg BackgroundColorProps="primary">
         <HeaderWrapper>
           {less.lg && <HamburgerMenu />}
-          <LinkRouter to="/">
-            <img src={LogoSvg} alt="" />
+          <LinkRouter to="/" aria-label="Go back to home">
+            <img src={LogoSvg} alt="Appsome Solutions Logo" />
           </LinkRouter>
           {more.lg && (
             <LinksPosition>

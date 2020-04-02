@@ -114,7 +114,7 @@ export const Banner: FunctionComponent = () => {
               </ContactButton>
             </Link>
           </GroupedTextWithButton>
-          <Col lg={8}>{more.lg && <BannerPhotoStyle src={BannerPhoto} alt="" />}</Col>
+          <Col lg={8}>{more.lg && <BannerPhotoStyle src={BannerPhoto} alt="Development team working" />}</Col>
         </BannerStyle>
       </Row>
       {more.lg && <Shape svgLink={Shape1} alt="irregular shape" />}
