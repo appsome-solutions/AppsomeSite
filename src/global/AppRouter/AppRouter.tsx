@@ -1,8 +1,9 @@
 import { TermOfService } from 'pages/TermOfService/TermOfService';
 import React, { FunctionComponent, useEffect } from 'react';
-import { Route, Switch, useLocation } from 'react-router-dom';
+import { Route, Switch, useLocation, Redirect } from 'react-router-dom';
 import { Home } from 'pages/Home/Home';
 import { PrivacyPolicy } from 'pages/PrivatePolicy/PrivatePolicy';
+import { NotFound } from 'pages/404/NotFound';
 
 export const AppRouter: FunctionComponent = () => {
   const ScrollToTop = () => {
@@ -42,6 +43,8 @@ export const AppRouter: FunctionComponent = () => {
           exact
           component={() => <TermOfService name="AppSome Solutions" nameOfBusiness="AppSome Solutions" />}
         />
+        <Route path="/404" component={NotFound} />
+        <Redirect to="/404" />
       </Switch>
     </>
   );
