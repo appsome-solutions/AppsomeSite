@@ -44,6 +44,7 @@
     "start:prod": "node server.js",
     "heroku-postbuild": "tsc & yarn build",
     "start:build": "rimraf build && react-scripts build && serve -s build",
+    "postbuild": "react-snap",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
@@ -80,6 +81,7 @@
     "lint-staged": "^9.4.2",
     "prettier": "^1.18.2",
     "pretty-quick": "^2.0.0",
+    "react-snap": "^1.23.0",
     "rimraf": "^3.0.0",
     "tslint-config-prettier": "^1.18.0",
     "tslint-plugin-prettier": "^2.0.1"
