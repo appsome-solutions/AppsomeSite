@@ -100,6 +100,7 @@ const ImgDivDesktop = styled.img`
   position: relative;
   display: flex;
   width: 100%;
+  object-fit: contain;
   ${media.xs`
   height: 240px;
 `}

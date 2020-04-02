@@ -12,8 +12,8 @@ import { Button } from 'components/Button/Button';
 import { media, useRWD } from 'global/RWD';
 import ZVision from 'assets/ZVision.svg';
 import Persona from 'assets/Persona.svg';
-import Cafe from 'assets/Cafe.svg';
-import ProList from 'assets/ProList.svg';
+import Cafe from 'assets/Cafe.png';
+import ProList from 'assets/ProList.png';
 import Oncologist from 'assets/Oncologist.svg';
 import { MaxWidthWithBg } from 'components/MaxSizeAndBackground/MaxWidthAndBg';
 
