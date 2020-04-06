@@ -158,7 +158,7 @@ export const Footer = () => {
         )}
         <LeftShape svgLink={Shape4} alt="irregular shape" />
       </FooterBG>
-      {more.lg && <RightShape svgLink={Shape5} alt="irregular shape" />}
+      {more.lg && <RightShape id="footer-shape" svgLink={Shape5} alt="irregular shape" />}
     </MaxWidthWithBg>
   );
 };

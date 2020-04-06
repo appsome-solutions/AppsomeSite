@@ -4,6 +4,7 @@ import { Route, Switch, useLocation, Redirect } from 'react-router-dom';
 import { Home } from 'pages/Home/Home';
 import { PrivacyPolicy } from 'pages/PrivatePolicy/PrivatePolicy';
 import { NotFound } from 'pages/404/NotFound';
+import { Offer } from 'pages/Offer/Offer';
 
 export const AppRouter: FunctionComponent = () => {
   const ScrollToTop = () => {
@@ -43,6 +44,7 @@ export const AppRouter: FunctionComponent = () => {
           exact
           component={() => <TermOfService name="AppSome Solutions" nameOfBusiness="AppSome Solutions" />}
         />
+        <Route path="/partnership-offer/:offerId" component={Offer} />
         <Route path="/not-found" component={NotFound} />
         <Redirect to="/not-found" />
       </Switch>
