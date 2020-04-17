@@ -99,9 +99,9 @@ export const PrivacyPolicy: FunctionComponent<PolicyProps> = (props: PolicyProps
               {officeCity} 8, entered in the Register of Entrepreneurs of the
               <br />
               National Court Register kept by the District Court in Gliwice, 10th Commercial NCR Division, REGON
-              (National Official Business Register No.): 146211123,
+              (National Official Business Register No.): 381075037,
               <br />
-              TIN: 5272680543.
+              NIP: 6722091647.
               <br />
               <br />
               <TitleWeight>You, Yours</TitleWeight> – any natural person whose Personal data we process and to whom this
@@ -382,6 +382,15 @@ export const PrivacyPolicy: FunctionComponent<PolicyProps> = (props: PolicyProps
             use, it uses the Google Analytics service. Please visit this location to
             <br />
             learn more about how this service collects and processes data.
+            <TextH5>Use of Hot Jar for website move recording and heatmap generation</TextH5>
+            We use hotjar.com services to generate heatmaps and record user sessions. All of this help us adjust our
+            page
+            <br />
+            to user needs and have a preview of which content is the most important for them.
+            <TextH5>Use of Google Firebase for email sending and storing user visit details</TextH5>
+            We use firebase.google.com storage features to keep informations about offer visits of given user.
+            <br />
+            Additionally we send emails by using firebase features.
             <TextH5>Use of Hubspot for live chatting</TextH5>
             We also use third party service provider HubSpot to record and collect data on how you use our Website. This
             information is not personalised and helps Us improve the <br />

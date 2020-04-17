@@ -34,7 +34,7 @@ export const AppRouter: FunctionComponent = () => {
               personalData="The controller of your Personal data: Software Home Patryk Janik
           with registered office in Szczecin (hereinafter referred to as “Appsome Solutions” or “we”) at ul.Zbożowa 4A."
               email="patryk.janik@appsome-solutions.com"
-              lastVersionPolicy="03.10.2020"
+              lastVersionPolicy="17.04.2020"
               personalDataOffice=" Business Link, ul. Zbożowa 4A, 70-464 Szczecin)."
             />
           )}
