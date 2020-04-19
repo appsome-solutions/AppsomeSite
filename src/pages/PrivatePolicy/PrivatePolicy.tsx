@@ -391,6 +391,8 @@ export const PrivacyPolicy: FunctionComponent<PolicyProps> = (props: PolicyProps
             We use firebase.google.com storage features to keep informations about offer visits of given user.
             <br />
             Additionally we send emails by using firebase features.
+            <TextH5>Use of Linkedin Pixel and Facebook Pixel to perform predefined marketing</TextH5>
+            We have Linked in and Facebook tags to directly target our customers with ads.
             <TextH5>Use of Hubspot for live chatting</TextH5>
             We also use third party service provider HubSpot to record and collect data on how you use our Website. This
             information is not personalised and helps Us improve the <br />
