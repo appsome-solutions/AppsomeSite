@@ -29,13 +29,13 @@ export const AppRouter: FunctionComponent = () => {
               name="Appsome Solutions"
               abbreviation="AS"
               nameOfBusiness="Software Home Patryk Janik"
-              officeCity=" office in Szczecin, ul. Zbożowa 4A"
+              officeCity=" office in Szczecin, ul. Monte Cassino 38b/2"
               webPage="www.appsome-solutions.com"
               personalData="The controller of your Personal data: Software Home Patryk Janik
-          with registered office in Szczecin (hereinafter referred to as “Appsome Solutions” or “we”) at ul.Zbożowa 4A."
+          with registered office in Szczecin (hereinafter referred to as “Appsome Solutions” or “we”) at ul. Monte Cassino 38b/2."
               email="patryk.janik@appsome-solutions.com"
               lastVersionPolicy="17.04.2020"
-              personalDataOffice=" Business Link, ul. Zbożowa 4A, 70-464 Szczecin)."
+              personalDataOffice=" ul. Monte Cassino 38b/2, 70-464 Szczecin)."
             />
           )}
         />
