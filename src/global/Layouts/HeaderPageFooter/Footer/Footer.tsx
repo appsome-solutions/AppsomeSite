@@ -128,7 +128,7 @@ export const Footer = () => {
         <div>
           <AboutUs>About us</AboutUs>
           <ContactAddress>
-            Zbożowa 4A 70-653 Szczecin Poland
+            Monte Cassino 38b/2 70-464 Szczecin Poland
             <br />
             <HrefColor href="tel:+48 783 697 219">+48 783 697 219</HrefColor> <br />
             <HrefColor href="mailto:patryk.janik@appsome-solutions.com">patryk.janik@appsome-solutions.com</HrefColor>
