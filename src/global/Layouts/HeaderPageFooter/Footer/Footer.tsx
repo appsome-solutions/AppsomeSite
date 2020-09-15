@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import styled from 'styled-components';
 import { Icon } from 'components/Icon/Icon';
 import Shape5 from 'assets/Shape5.svg';
@@ -8,6 +8,12 @@ import { Link as LinkRouter } from 'react-router-dom';
 import { scrollTo } from '../HeaderFooterCommon';
 import { media, useRWD } from 'global/RWD';
 import { MaxWidthWithBg } from 'components/MaxSizeAndBackground/MaxWidthAndBg';
+import facebook from 'assets/facebook.svg';
+import behance from 'assets/behance.svg';
+import linkedin from 'assets/linkedin.svg';
+import github from 'assets/github.svg';
+import twitter from 'assets/twitter.svg';
+import medium from 'assets/medium.svg';
 
 const FooterBG = styled.div`
   background-color: ${props => props.theme.colors.utils.background.mid.color};
@@ -37,6 +43,7 @@ const ContactAddress = styled.div`
 const BoxWithLinks = styled.div`
   display: flex;
   margin-top: 60px;
+  flex-direction: column;
 `;
 
 const LinkText = styled.h6`
@@ -105,6 +112,24 @@ const HrefColor = styled.a`
   }
 `;
 
+const BoxIcons = styled.div`
+  display: flex;
+`;
+
+const SocialIcon = styled(Icon)`
+  width: 32px;
+  height: 32px;
+  margin-right: 16px;
+  ${media.xs`
+    margin-right: 8px;
+`}
+`;
+
+const IconMargin = styled.div`
+  margin-top: 16px;
+  display: flex;
+`;
+
 const Links = () => (
   <div>
     <Link to="Policy" spy={true} smooth={true} offset={-99} duration={500}>
@@ -120,7 +145,11 @@ const Links = () => (
   </div>
 );
 
-export const Footer = () => {
+export const Footer: FC = () => {
+  const RedirectToIcon = (iconUrl: string) => {
+    return window.open(`${iconUrl}`);
+  };
+
   const { less, more } = useRWD();
   return (
     <MaxWidthWithBg>
@@ -132,6 +161,38 @@ export const Footer = () => {
             <br />
             <HrefColor href="tel:+48 783 697 219">+48 783 697 219</HrefColor> <br />
             <HrefColor href="mailto:patryk.janik@appsome-solutions.com">patryk.janik@appsome-solutions.com</HrefColor>
+            <IconMargin>
+              <SocialIcon
+                svgLink={medium}
+                alt="medium icon"
+                onClick={() => RedirectToIcon('https://medium.com/appsome-solutions')}
+              />
+              <SocialIcon
+                svgLink={facebook}
+                alt="facebook icon"
+                onClick={() => RedirectToIcon('https://www.facebook.com/appsomeSolutions')}
+              />
+              <SocialIcon
+                svgLink={behance}
+                alt="behance icon"
+                onClick={() => RedirectToIcon('https://www.behance.net/AppsomeSolutionsTeam')}
+              />
+              <SocialIcon
+                svgLink={github}
+                alt="github icon"
+                onClick={() => RedirectToIcon(`https://github.com/appsome-solutions/AppsomeSite`)}
+              />
+              <SocialIcon
+                svgLink={twitter}
+                alt="twitter icon"
+                onClick={() => RedirectToIcon('https://twitter.com/AppsomeSolutio1')}
+              />
+              <SocialIcon
+                svgLink={linkedin}
+                alt="linkedin icon"
+                onClick={() => RedirectToIcon('https://www.linkedin.com/company/37563250')}
+              />
+            </IconMargin>
           </ContactAddress>
           {more.lg && <Links />}
           {less.lg && (
@@ -142,18 +203,20 @@ export const Footer = () => {
         </div>
         {more.lg && (
           <BoxWithLinks>
-            <LinkRouter to="/" onClick={() => scrollTo('Process')}>
-              <LinkText>Process</LinkText>
-            </LinkRouter>
-            <LinkRouter to="/" onClick={() => scrollTo('Service')}>
-              <LinkText>Services</LinkText>
-            </LinkRouter>
-            <LinkRouter to="/" onClick={() => scrollTo('Portfolio')}>
-              <LinkText>Portfolio</LinkText>
-            </LinkRouter>
-            <LinkRouter to="/" onClick={() => scrollTo('Contact')}>
-              <LinkText>Contact</LinkText>
-            </LinkRouter>
+            <BoxIcons>
+              <LinkRouter to="/" onClick={() => scrollTo('Process')}>
+                <LinkText>Process</LinkText>
+              </LinkRouter>
+              <LinkRouter to="/" onClick={() => scrollTo('Service')}>
+                <LinkText>Services</LinkText>
+              </LinkRouter>
+              <LinkRouter to="/" onClick={() => scrollTo('Portfolio')}>
+                <LinkText>Portfolio</LinkText>
+              </LinkRouter>
+              <LinkRouter to="/" onClick={() => scrollTo('Contact')}>
+                <LinkText>Contact</LinkText>
+              </LinkRouter>
+            </BoxIcons>
           </BoxWithLinks>
         )}
         <LeftShape svgLink={Shape4} alt="irregular shape" />
