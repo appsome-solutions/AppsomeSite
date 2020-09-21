@@ -68,6 +68,7 @@ const ContactButton = styled(Button)`
   width:100%;
   `}
 `;
+
 const Shape = styled(Icon)`
   position: absolute;
   z-index: ${props => props.theme.zIndex.house};
@@ -90,6 +91,7 @@ const Shape = styled(Icon)`
   height: 230px;
   `}
 `;
+
 const BannerPhotoStyle = styled.img`
   max-width: 100%;
 `;
