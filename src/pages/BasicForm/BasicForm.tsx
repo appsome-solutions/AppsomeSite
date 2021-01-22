@@ -170,7 +170,7 @@ const SignupSchemaForm = Yup.object().shape({
   tagForm: Yup.string().required('Required'),
   checkBoxSecond: Yup.boolean()
     .required('Required')
-    .oneOf([true], 'You must agree to the sharing of personal data.'),
+    .oneOf([true], 'You must agree for sharing of personal data.'),
 });
 
 const initialFormValues = {
