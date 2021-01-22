@@ -143,6 +143,13 @@ const CheckBoxFormStyle = styled.div`
   align-items: center;
 `;
 
+const CheckBoxSecondFormStyle = styled.div`
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
 const QuestionsStyle = styled.span`
   ${props => props.theme.typography.h6};
   color: ${props => props.theme.colors.utils.background.mid.color};
@@ -161,6 +168,9 @@ const SignupSchemaForm = Yup.object().shape({
   slider: Yup.string().required('Required'),
   yearsOfExperience: Yup.string().required('Required'),
   tagForm: Yup.string().required('Required'),
+  checkBoxSecond: Yup.boolean()
+    .required('Required')
+    .oneOf([true], 'You must agree to the sharing of personal data.'),
 });
 
 const initialFormValues = {
@@ -170,6 +180,7 @@ const initialFormValues = {
   slider: '',
   yearsOfExperience: '',
   tagForm: '',
+  checkBoxSecond: '',
 };
 
 const withFirebaseProvider = (Component: React.ElementType) => () => (
@@ -241,6 +252,14 @@ export const BasicForm = withFirebaseProvider(() => {
                   </TextInCheckBox>
                 </CheckBoxStyle>
               </CheckBoxFormStyle>
+              <CheckBoxSecondFormStyle>
+                <CheckBoxStyle name="checkBoxSecond" id="checkbox-basic-second-form">
+                  <TextInCheckBox>
+                    I consent to the sharing of my personal data for recruitment purposes with groups of entities in
+                    connection with connection with the recruitment process for order fulfillment.
+                  </TextInCheckBox>
+                </CheckBoxStyle>
+              </CheckBoxSecondFormStyle>
             </InputBoxes>
             <ButtonPosition>
               <Button style={{ marginRight: '10px' }} htmlType="submit" aria-label="send contact form">

@@ -117,8 +117,8 @@ export const PrivacyPolicy: FunctionComponent<PolicyProps> = (props: PolicyProps
               <br />
               <TitleWeight>Website </TitleWeight>– our website and its subpages: {webPage}
               <br /> <br />
-              <TitleWeight>Recipients </TitleWeight>– entities to whom we may transfer a part of your personal data, in
-              connection with the performance of certain activities or services by them on our behalf.
+              <TitleWeight>Recipients </TitleWeight>– entities to whom we may transfer your personal data, in connection
+              with the performance of certain activities or services by them on our behalf.
               <br />
               They may not do anything about your personal data until we have instructed them to do so, and only to the
               extent we have indicated. They will store your personal data
