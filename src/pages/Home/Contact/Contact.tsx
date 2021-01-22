@@ -177,17 +177,6 @@ const CheckBoxStyle = styled(FormikCheckbox)`
   }
 `;
 
-const SignupSchema = Yup.object().shape({
-  name: Yup.string().required('Required'),
-  message: Yup.string().required('Required'),
-  email: Yup.string()
-    .email('Invalid email')
-    .required('Required'),
-  checkBox: Yup.boolean()
-    .required('Required')
-    .oneOf([true], 'You must accept Term Of Service and Privacy Policy.'),
-});
-
 const FormStyle = styled(Form)`
   ${media.xs`
   margin-left: 0;
@@ -213,6 +202,17 @@ const TextInCheckBox = styled.div`
   margin-left: 8px;
   ${props => props.theme.typography.body2};
 `;
+
+const SignupSchema = Yup.object().shape({
+  name: Yup.string().required('Required'),
+  message: Yup.string().required('Required'),
+  email: Yup.string()
+    .email('Invalid email')
+    .required('Required'),
+  checkBox: Yup.boolean()
+    .required('Required')
+    .oneOf([true], 'You must accept Term Of Service and Privacy Policy.'),
+});
 
 const initialFormValues = {
   name: '',

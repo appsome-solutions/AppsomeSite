@@ -50,9 +50,9 @@ const FirstText = styled.h1`
    font-size: 48px;
    line-height: 56px;
    margin-bottom: 26px;
-
   `}
 `;
+
 const SecondText = styled.pre`
   color: ${props => props.theme.colors.utils.background.mid.color};
   ${props => props.theme.typography.body1};

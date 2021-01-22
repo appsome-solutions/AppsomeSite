@@ -133,6 +133,7 @@ make a web app"
       window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
       window._linkedin_data_partner_ids.push(_linkedin_partner_id);
     </script>
+    <% if (process.env.NODE_ENV === 'production') { %>
     <script type="text/javascript">
       (function() {
         var s = document.getElementsByTagName('script')[0];
@@ -143,6 +144,8 @@ make a web app"
         s.parentNode.insertBefore(b, s);
       })();
     </script>
+    <% } %>
+
     <noscript>
       <img
         height="1"
@@ -155,6 +158,8 @@ make a web app"
     <!-- Linkedin Pixel End -->
 
     <!-- Hotjar Tracking Code for appsome-solutions.com -->
+    <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/shell.js"></script>
+    <% if (process.env.NODE_ENV === 'production') { %>
     <script>
       (function(h, o, t, j, a, r) {
         h.hj =
@@ -170,9 +175,9 @@ make a web app"
         a.appendChild(r);
       })(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=');
     </script>
+    <% } %>
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-157262070-1"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag() {
@@ -238,7 +243,9 @@ make a web app"
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
     <!-- Start of HubSpot Embed Code -->
+    <% if (process.env.NODE_ENV === 'production') { %>
     <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/7058319.js"></script>
+    <% } %>
     <!-- End of HubSpot Embed Code -->
   </body>
 </html>
