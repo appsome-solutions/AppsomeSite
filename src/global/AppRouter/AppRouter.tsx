@@ -6,6 +6,7 @@ import { PrivacyPolicy } from 'pages/PrivatePolicy/PrivatePolicy';
 import { NotFound } from 'pages/404/NotFound';
 import { Offer } from 'pages/Offer/Offer';
 import { Dashboard } from 'pages/Dashboard/Dashboard';
+import { BasicForm } from '../../pages/BasicForm/BasicForm';
 
 export const AppRouter: FunctionComponent = () => {
   const ScrollToTop = () => {
@@ -45,6 +46,7 @@ export const AppRouter: FunctionComponent = () => {
           exact
           component={() => <TermOfService name="AppSome Solutions" nameOfBusiness="AppSome Solutions" />}
         />
+        <Route path="/basic-form" exact component={BasicForm} />
         <Route path="/dashboard" exact component={Dashboard} />
         <Route path="/partnership-offer/:offerId" component={Offer} />
         <Route path="/not-found" component={NotFound} />
