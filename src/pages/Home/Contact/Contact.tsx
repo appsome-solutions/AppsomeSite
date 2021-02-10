@@ -16,6 +16,7 @@ import { Icon } from 'components/Icon/Icon';
 import { Col, Row } from 'antd';
 import { useFirebase } from 'global/Firebase/FirebaseContext';
 import { message } from 'antd';
+import { FormikCaptcha } from 'components/FormikFields/FormikCaptcha/FormikCaptcha';
 
 interface EditorStylesWrapperType {
   hasError?: boolean;
@@ -206,6 +207,7 @@ const TextInCheckBox = styled.div`
 const SignupSchema = Yup.object().shape({
   name: Yup.string().required('Required'),
   message: Yup.string().required('Required'),
+  captcha: Yup.string().required('Required'),
   email: Yup.string()
     .email('Invalid email')
     .required('Required'),
@@ -219,7 +221,14 @@ const initialFormValues = {
   email: '',
   message: '',
   checkBox: ``,
+  captcha: undefined,
 };
+
+const StyledFormikCaptcha = styled(FormikCaptcha)`
+  display: flex;
+  justify-content: flex-start;
+  margin: 12px 0;
+`;
 
 export const ContactStyled: FunctionComponent = () => {
   const { less } = useRWD();
@@ -292,6 +301,7 @@ export const ContactStyled: FunctionComponent = () => {
                   </Link>
                 </TextInCheckBox>
               </CheckBoxStyle>
+              <StyledFormikCaptcha name="captcha" />
               <ButtonPosition>
                 <SendButton htmlType="submit" aria-label="send contact form">
                   SEND
