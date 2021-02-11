@@ -146,7 +146,7 @@ export const OurServices: FunctionComponent = () => {
             <ServiceBoxElement
               svgLink={Browser}
               title="UI/UX app design"
-              moreUrl="http://blog.appsome-solutions.com/app-design-creation/"
+              moreUrl="https://blog.appsome-solutions.com/app-design-creation/"
               content="Starting from functional requirements, we prepare sketches with the best UI and UX in mind. Then we simply transform them into fully-fledged Figma prototypes."
             />
           )}
@@ -154,7 +154,7 @@ export const OurServices: FunctionComponent = () => {
             <RightElementWithMargin
               svgLink={App}
               title="Mobile and web applications"
-              moreUrl="http://blog.appsome-solutions.com/process-of-app-development/"
+              moreUrl="https://blog.appsome-solutions.com/process-of-app-development/"
               content="We use Jira for task definition and time tracking with scrum methodology. Developing web and mobile apps with web technologies saved us tons of time."
             />
           )}
@@ -162,7 +162,7 @@ export const OurServices: FunctionComponent = () => {
             <ServiceBoxElement
               svgLink={Browser}
               title="UI/UX app design"
-              moreUrl="http://blog.appsome-solutions.com/app-design-creation/"
+              moreUrl="https://blog.appsome-solutions.com/app-design-creation/"
               content="Starting from functional requirements, we prepare sketches with the best UI & UX in mind. Then we simply transform them into fully-fledged Figma prototype."
             />
           )}
@@ -170,7 +170,7 @@ export const OurServices: FunctionComponent = () => {
             <RightElementWithMargin
               svgLink={App}
               title="Mobile and web applications"
-              moreUrl="http://blog.appsome-solutions.com/process-of-app-development/"
+              moreUrl="https://blog.appsome-solutions.com/process-of-app-development/"
               content="We use Jira for task definition and time tracking with scrum methodology. Developing web and mobile apps with web technologies saved us tons of time."
             />
           )}
