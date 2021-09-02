@@ -156,18 +156,14 @@ const QuestionsStyle = styled.span`
 `;
 
 const SignupSchemaForm = Yup.object().shape({
-  email: Yup.string()
-    .email('Invalid email')
-    .required('Required'),
+  email: Yup.string().email('Invalid email'),
   checkBox: Yup.boolean()
     .required('Required')
     .oneOf([true], 'You must accept Term Of Service and Privacy Policy.'),
-  urlFile: Yup.string()
-    .url('Invalid email')
-    .required('Required'),
-  slider: Yup.string().required('Required'),
-  yearsOfExperience: Yup.string().required('Required'),
-  tagForm: Yup.string().required('Required'),
+  urlFile: Yup.string().url('Invalid email'),
+  slider: Yup.string(),
+  yearsOfExperience: Yup.string(),
+  tagForm: Yup.string(),
   checkBoxSecond: Yup.boolean()
     .required('Required')
     .oneOf([true], 'You must agree for sharing of personal data.'),
