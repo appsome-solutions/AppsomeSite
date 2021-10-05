@@ -38,7 +38,7 @@ const UploadStyle = styled(Upload)<EditorStylesWrapperType>`
     background-color: ${props => props.theme.colors.main.primary};
     border: 1px solid
       ${props =>
-        props.form.errors.urlFile ? props.theme.colors.functional.error : props.theme.colors.utils.border.light};
+        props.form.errors.fileList ? props.theme.colors.functional.error : props.theme.colors.utils.border.light};
     margin: 0px !important;
     ${media.xs`
   width: 100%;
@@ -176,7 +176,7 @@ export const UploadButtonComponent = (props: CustomInputComponentProps): ReactEl
       <Modal visible={previewVisible} footer={null} onCancel={handleCancel}>
         <img alt="example" style={{ width: '100%' }} src={previewImage} />
       </Modal>
-      {form.errors.urlFile && form.touched.urlFile ? <RequiredError>Required</RequiredError> : null}
+      {form.errors.fileList && form.touched.fileList ? <RequiredError>Required</RequiredError> : null}
     </>
   );
 };
