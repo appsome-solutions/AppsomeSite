@@ -162,7 +162,7 @@ const SignupSchemaForm = Yup.object().shape({
   checkBox: Yup.boolean()
     .required('Required')
     .oneOf([true], 'You must accept Term Of Service and Privacy Policy.'),
-  urlFile: Yup.string(),
+  urlFile: Yup.string().required(),
   slider: Yup.string(),
   yearsOfExperience: Yup.string(),
   tagForm: Yup.string(),
