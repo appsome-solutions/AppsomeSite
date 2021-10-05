@@ -5,17 +5,10 @@ import { FieldMetaProps, FieldProps } from 'formik';
 import { InputProps, TextAreaProps } from 'antd/lib/input';
 
 import { PlusOutlined, FilePdfTwoTone, LoadingOutlined, PaperClipOutlined } from '@ant-design/icons';
-import firebase from 'firebase';
 import { InterfaceInputComponent } from './types';
 import { media } from '../../global/RWD';
 
 export type FormikInputProps = InterfaceInputComponent;
-
-type CustomUploadType = {
-  file: File;
-  onError: any;
-  onSuccess: any;
-};
 
 interface EditorStylesWrapperType {
   form?: any;
@@ -113,38 +106,9 @@ export const UploadButtonComponent = (props: CustomInputComponentProps): ReactEl
   const [previewVisible, setPreviewVisible] = useState(false);
   const [previewImage, setPreviewImage] = useState(``);
   const [fileList, setFileList] = useState([]);
+
   const { field, form } = props;
   const handleCancel = () => setPreviewVisible(false);
-  const customUpload = async ({ onError, onSuccess, file }: CustomUploadType) => {
-    const storage = firebase.storage();
-    const metadata = {
-      contentType: `application/pdf`,
-    };
-    const storageRef = await storage.ref();
-    const imgFile = storageRef.child(`/cv/${file.name}-${Date.now()}`);
-    try {
-      const image = await imgFile.put(file, metadata);
-      onSuccess(image, file);
-    } catch (e) {
-      onError(e);
-    }
-    imgFile
-      .getDownloadURL()
-      .then(url => {
-        const xhr = new XMLHttpRequest();
-        xhr.responseType = 'blob';
-        xhr.onload = event => {
-          const blob = xhr.response;
-          console.log(blob, event);
-        };
-        xhr.open('GET', url);
-        xhr.send();
-        form.setFieldValue(field.name, url);
-      })
-      .catch(error => {
-        console.log(error);
-      });
-  };
 
   const handlePreview = async (file: any) => {
     if (!file.url && !file.preview) {
@@ -173,6 +137,7 @@ export const UploadButtonComponent = (props: CustomInputComponentProps): ReactEl
   };
   // @ts-ignore
   const handleChange = ({ fileList: newFileList }) => {
+    form.setFieldValue(field.name, newFileList);
     setFileList(newFileList);
   };
 
@@ -196,7 +161,6 @@ export const UploadButtonComponent = (props: CustomInputComponentProps): ReactEl
         onPreview={handlePreview}
         onChange={handleChange}
         iconRender={handleIconRender}
-        customRequest={customUpload}
         beforeUpload={(file: any) => {
           const isLessThan10MB = file.size / 1024 / 1024 < MAXIMUM_FILE_SIZE;
 
