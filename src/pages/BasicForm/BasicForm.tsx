@@ -1,5 +1,4 @@
 import React from 'react';
-import { message } from 'antd';
 import styled from 'styled-components';
 import { Formik, Form, Field } from 'formik';
 import FormikInput from '../../components/FormikFields/FormikInput/FormikInput';
@@ -8,13 +7,14 @@ import { CommonFormElementStyling } from '../Home/Contact/InputStyle';
 import * as Yup from 'yup';
 import { Button } from 'components/Button/Button';
 import { FirebaseProvider } from '../../global/Firebase/Firebase';
-import firebase from 'firebase';
 import { UploadButtonComponent } from './UploadButtonComponent';
 import { Link } from 'react-router-dom';
 import FormikCheckbox from '../../components/FormikFields/FormikChecbox/FormikCheckbox';
 import { TagForm } from './TagForm';
 import { YearsOfExperience } from './YearsOfExperience';
 import { SliderComponent } from './SliderComponent';
+import firebase from 'firebase';
+import { message } from 'antd';
 
 interface EditorStylesWrapperType {
   hasError?: boolean;
@@ -156,11 +156,13 @@ const QuestionsStyle = styled.span`
 `;
 
 const SignupSchemaForm = Yup.object().shape({
-  email: Yup.string().email('Invalid email'),
+  email: Yup.string()
+    .email('Invalid email')
+    .required(),
   checkBox: Yup.boolean()
     .required('Required')
     .oneOf([true], 'You must accept Term Of Service and Privacy Policy.'),
-  urlFile: Yup.string().url('Invalid email'),
+  urlFile: Yup.string().required(),
   slider: Yup.string(),
   yearsOfExperience: Yup.string(),
   tagForm: Yup.string(),
@@ -171,7 +173,7 @@ const SignupSchemaForm = Yup.object().shape({
 
 const initialFormValues = {
   email: '',
-  urlFile: '',
+  fileList: [],
   checkBox: '',
   slider: '',
   yearsOfExperience: '',
@@ -188,6 +190,28 @@ const withFirebaseProvider = (Component: React.ElementType) => () => (
 export const BasicForm = withFirebaseProvider(() => {
   const db = firebase.firestore();
 
+  const customUpload = async (file: any) => {
+    const storage = firebase.storage();
+    const metadata = {
+      contentType: `application/pdf`,
+    };
+    const storageRef = await storage.ref();
+    const imgFile = storageRef.child(`/cv/${file.name}-${Date.now()}`);
+    try {
+      await imgFile.put(file.originFileObj, metadata);
+    } catch (e) {
+      console.log(e);
+    }
+    return imgFile
+      .getDownloadURL()
+      .then(url => {
+        return url;
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  };
+
   return (
     <MainComponent>
       <div style={{ display: 'inline', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }}>
@@ -197,11 +221,13 @@ export const BasicForm = withFirebaseProvider(() => {
         <Formik
           initialValues={initialFormValues}
           validationSchema={SignupSchemaForm}
-          onSubmit={(values, { resetForm }) => {
+          onSubmit={async (values, { resetForm }) => {
+            const urlFile = await customUpload(values.fileList[0]);
+            console.log(urlFile);
             db.collection('basic-form')
               .add({
                 email: values.email,
-                urlFile: values.urlFile,
+                urlFile: urlFile,
                 slider: values.slider,
                 tagForm: values.tagForm,
                 yearsOfExperience: values.yearsOfExperience,
@@ -225,7 +251,7 @@ export const BasicForm = withFirebaseProvider(() => {
                   InputComponent={(props: any) => <EmailInput {...props} placeholder="Email" />}
                 />
               </EmailInputText>
-              <Field name="urlFile" component={UploadButtonComponent} placeholder="urlFile" id="urlFile-basic-form" />
+              <Field name="fileList" component={UploadButtonComponent} placeholder="urlFile" id="urlFile-basic-form" />
               <Field name="tagForm" component={TagForm} placeholder="tagForm" id="tagForm-basic-form" />
               <Field name="slider" component={SliderComponent} placeholder="slider" id="slider-basic-form" />
               <Field
