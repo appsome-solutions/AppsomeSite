@@ -225,7 +225,7 @@ export const BasicForm = withFirebaseProvider(() => {
           validationSchema={SignupSchemaForm}
           onSubmit={async (values, { resetForm }) => {
             const urlFile = await customUpload(values.fileList[0]);
-            console.log(urlFile);
+            const lnUuid = window.location.search.replace('?id=', '');
             db.collection('basic-form')
               .add({
                 email: values.email,
@@ -233,6 +233,8 @@ export const BasicForm = withFirebaseProvider(() => {
                 slider: values.slider,
                 tagForm: values.tagForm,
                 yearsOfExperience: values.yearsOfExperience,
+                lnUuid: lnUuid,
+                time: firebase.firestore.Timestamp.now(),
               })
               .then(() => {
                 message.success('Properly send data!');
